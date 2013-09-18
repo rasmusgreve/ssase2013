@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path=""/>
+<Context antiJARLocking="true" path="">
+  <Resource auth="Container" driverClassName="org.postgresql.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="pg_ssase" password="" type="javax.sql.DataSource" url="jdbc:postgresql://localhost:5432/ssase13" username="postgres"/>
+</Context>

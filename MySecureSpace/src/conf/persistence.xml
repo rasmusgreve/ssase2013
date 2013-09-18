@@ -28,15 +28,17 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
   THE POSSIBILITY OF SUCH DAMAGE.
 -->
-
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
   <persistence-unit name="jsf-jpa-war" transaction-type="JTA">
-    <jta-data-source>jdbc/__default</jta-data-source>
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>pg_ssase</jta-data-source>
+    <class>enterprise.jsf_jpa_war.Wuser</class>
     <properties>
       <!-- use this property if target server is GlassFish V3 with EclipseLink -->
-      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-      <!-- use this property if toplink is a target server persistence provider
-      <property name="toplink.ddl-generation" value="drop-and-create-tables"/> -->
+      <!-- property name="eclipselink.ddl-generation" value="drop-and-create-tables"/ -->
+      <!-- use this property if toplink is a target server persistence provider -->
+      <property name="toplink.ddl-generation" value="drop-and-create-tables"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
     </properties>
   </persistence-unit>
 </persistence>
