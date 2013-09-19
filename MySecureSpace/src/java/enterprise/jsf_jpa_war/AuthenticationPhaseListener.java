@@ -30,9 +30,7 @@
 
 package enterprise.jsf_jpa_war;
 
-import javax.el.ELContext;
-import javax.el.ValueExpression;
-import javax.faces.FacesException;
+import dk.itu.ssase.six.MyUserManager;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
@@ -107,7 +105,7 @@ public class AuthenticationPhaseListener implements PhaseListener {
      */
     private boolean userExists(FacesContext context) {
         ExternalContext extContext = context.getExternalContext();
-        return (extContext.getSessionMap().containsKey(UserManager.USER_SESSION_KEY));
+        return (extContext.getSessionMap().containsKey(MyUserManager.USER_SESSION_KEY));
     }
     
     /**
@@ -124,6 +122,6 @@ public class AuthenticationPhaseListener implements PhaseListener {
     private boolean requestingSecureView(FacesContext context) {
         ExternalContext extContext = context.getExternalContext();       
         String path = extContext.getRequestPathInfo();
-        return (!"/login.jsp".equals(path) && !"/create.jsp".equals(path));              
+        return (!"/login.jsp".equals(path) && !"/create1.jsp".equals(path));              
     }
 }

@@ -41,8 +41,8 @@
         </phase-listener>
     </lifecycle>
     <managed-bean>
-        <managed-bean-name>usermanager</managed-bean-name>
-        <managed-bean-class>enterprise.jsf_jpa_war.UserManager</managed-bean-class>
+        <managed-bean-name>myusermanager</managed-bean-name>
+        <managed-bean-class>dk.itu.ssase.six.MyUserManager</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>      
     </managed-bean>
     
@@ -57,8 +57,12 @@
             <to-view-id>/create.jsp</to-view-id>            
         </navigation-case>
         <navigation-case>
+            <from-outcome>create1</from-outcome>
+            <to-view-id>/create1.jsp</to-view-id>            
+        </navigation-case>
+        <navigation-case>
             <from-outcome>app-main</from-outcome>
-            <to-view-id>/welcomeJSF.jsp</to-view-id>
+            <to-view-id>/create1.jsp</to-view-id>
             <redirect/>
         </navigation-case>
     </navigation-rule>

@@ -29,7 +29,6 @@
 	 * THE POSSIBILITY OF SUCH DAMAGE.
 	 */
 --%>
-
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 
@@ -42,32 +41,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Create Account</title>
     </head>
     <body>
 
-    <h1>Login</h1>
+    <h1>Create a New Account</h1>
     
     <f:view>
-        <h:messages style="color: red"
-                    showDetail="true"/>
-        <h:form id="login">
-            <h:panelGrid columns="2" border="0">
+        <h:form id="create">            
+            <h:panelGrid columns="3" border="0">
                 Username: <h:inputText id="username" 
-                                       value="#{myusermanager.username}"/>        
-                Password: <h:inputSecret id="password"
-                                         value="#{myusermanager.password}"/>
+                                       requiredMessage="*"
+                                       value="#{myusermanager.username}"
+                                       required="true"/>
+                          <h:message for="create:username" style="color: red"/>
+                Password: <h:inputSecret id="password"    
+                                         requiredMessage="*"
+                                         value="#{myusermanager.password}"
+                                         required="true"/>
+                          <h:message for="create:password" style="color: red"/>
             </h:panelGrid>
             <h:commandButton id="submit" 
-                             type="submit"
-                             value="Login"
-                             action="#{myusermanager.validateUser}"/>
-            <br>
-            <h:commandLink id="create"
-                           value="Create New Account"
-                           action="create1"/>
+                             value="Create"
+                             action="#{myusermanager.createUser}"/>
+            <h:messages style="color: red" globalOnly="true"/>
         </h:form>
-       
     </f:view>
     
     </body>
