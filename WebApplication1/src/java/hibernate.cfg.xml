@@ -6,6 +6,8 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ssase13</property>
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">1234</property>
+    <property name="hibernate.connection.password">hiei4e9fuF6G</property>
+    <mapping resource="student.xml"/>
+    <mapping/>
   </session-factory>
 </hibernate-configuration>
