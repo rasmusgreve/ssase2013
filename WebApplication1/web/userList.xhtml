@@ -12,12 +12,12 @@ and open the template in the editor.
         <title>User list</title>
     </head>
     <body>
-        <ui:repeat var="user" value="#{userList}">
+        <ui:repeat var="user" value="#{studentbean.getUsers()}">
             <f:view>
                 <h:outputText value="#{user.name}"/>
                 <h:link target="userEdit.xhtml"/>
             </f:view>
-            
+            <br/>
         </ui:repeat>
     </body>
 </html>

@@ -7,7 +7,6 @@
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ssase13</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">hiei4e9fuF6G</property>
-    <mapping resource="student.xml"/>
-    <mapping/>
+    <mapping resource="student.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,3 +1,5 @@
+package dk.itu.ssase.hb.beans;
+
 
 import java.util.Date;
 
