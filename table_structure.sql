@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -40,20 +40,30 @@ SET default_with_oids = false;
 -- TOC entry 173 (class 1259 OID 16429)
 -- Name: belief; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
-
+DROP TABLE belief;
 CREATE TABLE belief (
+    id integer NOT NULL,
     student integer NOT NULL,
     religion integer NOT NULL
 );
 
-
 ALTER TABLE public.belief OWNER TO postgres;
 
+----DROP SEQUENCE belief_id_seq;
+CREATE SEQUENCE belief_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE public.belief_id_seq OWNER TO postgres;
+ALTER SEQUENCE belief_id_seq OWNED BY belief.id;
 --
 -- TOC entry 177 (class 1259 OID 16447)
 -- Name: hobby; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
+DROP TABLE hobby;
 CREATE TABLE hobby (
     id integer NOT NULL,
     type text
@@ -66,7 +76,7 @@ ALTER TABLE public.hobby OWNER TO postgres;
 -- TOC entry 176 (class 1259 OID 16445)
 -- Name: hobby_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+--DROP SEQUENCE hobby_id_seq;
 CREATE SEQUENCE hobby_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -90,34 +100,57 @@ ALTER SEQUENCE hobby_id_seq OWNED BY hobby.id;
 -- TOC entry 178 (class 1259 OID 16456)
 -- Name: interest; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
-
+DROP TABLE interest;
 CREATE TABLE interest (
+    id integer NOT NULL,
     student integer NOT NULL,
     hobby integer NOT NULL
 );
 
-
 ALTER TABLE public.interest OWNER TO postgres;
+
+--DROP SEQUENCE interest_id_seq;
+CREATE SEQUENCE interest_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+ALTER TABLE public.interest_id_seq OWNER TO postgres;
+ALTER SEQUENCE interest_id_seq OWNED BY interest.id;
 
 --
 -- TOC entry 172 (class 1259 OID 16421)
 -- Name: relationship; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
+DROP TABLE relationship;
 CREATE TABLE relationship (
+	id integer NOT NULL,
     student1 integer NOT NULL,
     student2 integer NOT NULL,
     type text
 );
-
-
 ALTER TABLE public.relationship OWNER TO postgres;
+--DROP SEQUENCE relationship_id_seq;
+CREATE SEQUENCE relationship_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.relationship_id_seq OWNER TO postgres;
+ALTER SEQUENCE relationship_id_seq OWNED BY relationship.id;
 
 --
 -- TOC entry 175 (class 1259 OID 16436)
 -- Name: religion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
+DROP TABLE religion;
 CREATE TABLE religion (
     id integer NOT NULL,
     name text
@@ -130,7 +163,7 @@ ALTER TABLE public.religion OWNER TO postgres;
 -- TOC entry 174 (class 1259 OID 16434)
 -- Name: religion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+--DROP SEQUENCE religion_id_seq;
 CREATE SEQUENCE religion_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -154,7 +187,7 @@ ALTER SEQUENCE religion_id_seq OWNED BY religion.id;
 -- TOC entry 171 (class 1259 OID 16399)
 -- Name: student; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
-
+DROP TABLE student;
 CREATE TABLE student (
     id integer NOT NULL,
     name text,
@@ -174,7 +207,7 @@ ALTER TABLE public.student OWNER TO postgres;
 -- TOC entry 170 (class 1259 OID 16397)
 -- Name: student_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
-
+--DROP SEQUENCE student_id_seq;
 CREATE SEQUENCE student_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -217,101 +250,13 @@ ALTER TABLE ONLY religion ALTER COLUMN id SET DEFAULT nextval('religion_id_seq':
 
 ALTER TABLE ONLY student ALTER COLUMN id SET DEFAULT nextval('student_id_seq'::regclass);
 
-
---
--- TOC entry 1977 (class 0 OID 16429)
--- Dependencies: 173
--- Data for Name: belief; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY belief (student, religion) FROM stdin;
-\.
-
-
---
--- TOC entry 1981 (class 0 OID 16447)
--- Dependencies: 177
--- Data for Name: hobby; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY hobby (id, type) FROM stdin;
-\.
-
-
---
--- TOC entry 1994 (class 0 OID 0)
--- Dependencies: 176
--- Name: hobby_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('hobby_id_seq', 1, false);
-
-
---
--- TOC entry 1982 (class 0 OID 16456)
--- Dependencies: 178
--- Data for Name: interest; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY interest (student, hobby) FROM stdin;
-\.
-
-
---
--- TOC entry 1976 (class 0 OID 16421)
--- Dependencies: 172
--- Data for Name: relationship; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY relationship (student1, student2, type) FROM stdin;
-\.
-
-
---
--- TOC entry 1979 (class 0 OID 16436)
--- Dependencies: 175
--- Data for Name: religion; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY religion (id, name) FROM stdin;
-\.
-
-
---
--- TOC entry 1995 (class 0 OID 0)
--- Dependencies: 174
--- Name: religion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('religion_id_seq', 1, false);
-
-
---
--- TOC entry 1975 (class 0 OID 16399)
--- Dependencies: 171
--- Data for Name: student; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY student (id, name, address, email, password, birthdate, privacy, salt, isadmin) FROM stdin;
-\.
-
-
---
--- TOC entry 1996 (class 0 OID 0)
--- Dependencies: 170
--- Name: student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('student_id_seq', 1, false);
-
-
 --
 -- TOC entry 1860 (class 2606 OID 16433)
 -- Name: beleif_primary; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY belief
-    ADD CONSTRAINT beleif_primary PRIMARY KEY (student, religion);
+    ADD CONSTRAINT beleif_primary PRIMARY KEY (id);
 
 
 --
@@ -329,7 +274,7 @@ ALTER TABLE ONLY hobby
 --
 
 ALTER TABLE ONLY interest
-    ADD CONSTRAINT interest_primary PRIMARY KEY (student, hobby);
+    ADD CONSTRAINT interest_primary PRIMARY KEY (id);
 
 
 --
@@ -347,7 +292,7 @@ ALTER TABLE ONLY student
 --
 
 ALTER TABLE ONLY relationship
-    ADD CONSTRAINT relationship_primary PRIMARY KEY (student1, student2);
+    ADD CONSTRAINT relationship_primary PRIMARY KEY (id);
 
 
 --
