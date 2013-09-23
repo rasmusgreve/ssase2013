@@ -11,6 +11,14 @@
   <property name="address"/>
     <property name="email"/>
     <property name="privacy"/>
-    <property name="salt"/>
-  </class>
+    <property name="salt"/>           
+
+                <property name="isadmin"
+                    not-null="true"
+                    update="false"/>     
+    <property name="birthdate"
+                    type="date"
+                    not-null="true"
+                    update="false"/>
+  </class>  
 </hibernate-mapping>

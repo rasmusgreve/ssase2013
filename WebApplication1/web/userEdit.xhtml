@@ -5,9 +5,11 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
-        <title>TODO supply a title</title>
+        <title>Relationships</title>
     </head>
     <body>
         <h:form>
@@ -15,5 +17,13 @@ and open the template in the editor.
             
         </h:form>
             
+        <ui:repeat var="relationship" value="#{studentbean.getRelationships()}">
+            <f:view>
+                <h:outputText value="#{relationship.student1.name}"/> 
+                <h:outputText value="#{relationship.student2.name}"/> 
+                <h:outputText value="#{relationship.type}"/> 
+            </f:view>
+            <br/>
+        </ui:repeat>
     </body>
 </html>

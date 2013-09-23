@@ -14,8 +14,8 @@ and open the template in the editor.
     <body>
         <ui:repeat var="user" value="#{studentbean.getUsers()}">
             <f:view>
-                <h:outputText value="#{user.name}"/>
-                <h:link target="userEdit.xhtml"/>
+                
+                <h:link  target="userEdit.xhtml"><h:outputText value="#{user.name}"/></h:link>
             </f:view>
             <br/>
         </ui:repeat>

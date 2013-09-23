@@ -4,6 +4,7 @@
  */
 package dk.itu.ssase.hb.util;
 
+import dk.itu.ssase.hb.beans.Relationship;
 import dk.itu.ssase.hb.beans.Student;
 import java.util.List;
 import org.hibernate.Session;
@@ -21,6 +22,15 @@ public class StudentBean {
         //Transaction transaction = session.beginTransaction();
         //transaction.begin();
         List<Student> students = session.createQuery("SELECT s FROM Student s").list();
+        return students;
+        
+    }
+    
+    public List<Relationship> getRelationships() {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        //Transaction transaction = session.beginTransaction();
+        //transaction.begin();
+        List<Relationship> students = session.createQuery("SELECT r FROM Relationship r").list();
         return students;
         
     }
