@@ -8,6 +8,8 @@ import dk.itu.ssase.hb.beans.Relationship;
 import dk.itu.ssase.hb.beans.Student;
 import java.util.Date;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.postgresql.util.MD5Digest;
@@ -42,6 +44,26 @@ public class StudentBean {
 
     }
 
+    public String validateUser() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", username).uniqueResult();
+        String encodedPassword = new String(MD5Digest.encode(username.getBytes(), password.getBytes(), student.getSalt().getBytes()));
+        if(encodedPassword.equals(student.getPassword()))
+                return "login";
+        else {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Login Failed!",
+                    "Username '"
+                    + username
+                    +
+                    "' does not exist.");
+            context.addMessage(null, message);
+            return null;
+        }
+    }
+    
     public String createUser() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
