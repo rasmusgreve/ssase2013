@@ -1,4 +1,4 @@
-package dk.itu.ssase.hb.beans;
+package dk.itu.ssase.hb.beans.model;
 
 
 import java.util.Date;

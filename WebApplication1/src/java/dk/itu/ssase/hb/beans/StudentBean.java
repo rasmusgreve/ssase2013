@@ -2,10 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.itu.ssase.hb.util;
+package dk.itu.ssase.hb.beans;
 
-import dk.itu.ssase.hb.beans.Relationship;
-import dk.itu.ssase.hb.beans.Student;
+import dk.itu.ssase.hb.beans.model.Relationship;
+import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;

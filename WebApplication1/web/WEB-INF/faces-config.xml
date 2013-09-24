@@ -6,7 +6,7 @@
     
     <managed-bean>
         <managed-bean-name>studentbean</managed-bean-name>
-        <managed-bean-class>dk.itu.ssase.hb.util.StudentBean</managed-bean-class>
+        <managed-bean-class>dk.itu.ssase.hb.beans.StudentBean</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>      
     </managed-bean>
     
