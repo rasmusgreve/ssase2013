@@ -10,4 +10,9 @@
         <managed-bean-scope>request</managed-bean-scope>      
     </managed-bean>
     
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/userList.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
 </faces-config>

@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Student {
     private int id;
-    private String name, address, email, privacy, salt;
+    private String name, password, address, email, privacy, salt;
     private boolean isadmin;
     private Date birthdate;
 
@@ -128,5 +128,19 @@ public class Student {
      */
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

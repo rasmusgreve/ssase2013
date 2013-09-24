@@ -15,14 +15,14 @@ and open the template in the editor.
             <h:form>
             <h:panelGrid columns="2" border="0">
                 Username: <h:inputText id="username" 
-                                       value="#{usermanager.username}"/>        
+                                       value="#{studentbean.username}"/>        
                 Password: <h:inputSecret id="password"
-                                         value="#{usermanager.password}"/>
+                                         value="#{studentbean.password}"/>
             </h:panelGrid>
             <h:commandButton id="submit" 
                              type="submit"
                              value="Login"
-                             action="#{usermanager.validateUser}"/>
+                             action="#{studentbean.createUser()}"/>
             </h:form>
         </f:view>
     </body>
