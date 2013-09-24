@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="dk.itu.ssase.hb.beans">
-  <class name="dk.itu.ssase.hb.beans.model.Relationship" rowid="id" table="relationship">
+<hibernate-mapping package="dk.itu.ssase.hb.beans.model">
+  <class name="Relationship" rowid="id" table="relationship">
     <id name="id">
       <generator class="native"/>
     </id>

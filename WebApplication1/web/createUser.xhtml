@@ -17,31 +17,16 @@ and open the template in the editor.
         <f:view>
         <h:form id="create">            
             <h:panelGrid columns="3" border="0">
-                First Name: <h:inputText id="fname"       
-                                         requiredMessage="*"
-                                         value="#{usermanager.fname}"
-                                         required="true"/>  
-                            <h:message for="create:fname" style="color: red"/>
-                Last Name: <h:inputText id="lname"  
-                                        requiredMessage="*"
-                                        value="#{usermanager.lname}"
-                                        required="true"/>
-                           <h:message for="create:lname" style="color: red"/>
                 Username: <h:inputText id="username" 
                                        requiredMessage="*"
-                                       value="#{usermanager.username}"
+                                       value="#{studentbean.username}"
                                        required="true"/>
                           <h:message for="create:username" style="color: red"/>
                 Password: <h:inputSecret id="password"    
                                          requiredMessage="*"
-                                         value="#{usermanager.password}"
+                                         value="#{studentbean.password}"
                                          required="true"/>
                           <h:message for="create:password" style="color: red"/>
-                Password (verify): <h:inputSecret id="passwordv"   
-                                                  requiredMessage="*"
-                                                  value="#{usermanager.passwordv}"
-                                                  required="true"/>
-                                   <h:message for="create:passwordv" style="color: red"/>
             </h:panelGrid>
             <h:commandButton id="submit" 
                              value="Create"

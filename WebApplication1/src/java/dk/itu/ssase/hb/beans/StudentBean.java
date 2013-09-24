@@ -69,14 +69,11 @@ public class StudentBean {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction txt = session.beginTransaction();
-        //Generate salt
-        //UnixCrypt.crypt(salt, original)
         Student student = new Student();
-        student.setName("testuser");
+        student.setName(username);
         student.setBirthdate(new Date());
-        student.setSalt(generateSalt());
-        
-        student.setPassword(new String(MD5Digest.encode("testuser".getBytes(), "password".getBytes(), student.getSalt().getBytes())));
+        student.setSalt(generateSalt());        
+        student.setPassword(new String(MD5Digest.encode(username.getBytes(), password.getBytes(), student.getSalt().getBytes())));
         student.setAddress("1234");
         student.setEmail("1234");
         student.setIsadmin(true);
@@ -85,7 +82,7 @@ public class StudentBean {
         txt.commit();
         session.flush();
         session.close();
-        return "login";
+        return "create";
     }
 
     public String generateSalt() {
