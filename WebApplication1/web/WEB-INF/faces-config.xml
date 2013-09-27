@@ -10,6 +10,11 @@
         <managed-bean-scope>request</managed-bean-scope>      
     </managed-bean>
     
+    <managed-bean>
+        <managed-bean-name>createstudentbean</managed-bean-name>
+        <managed-bean-class>dk.itu.ssase.hb.beans.CreateStudentBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>      
+    </managed-bean>
         <navigation-case>
             <from-outcome>login</from-outcome>
             <to-view-id>/userList.xhtml</to-view-id>
