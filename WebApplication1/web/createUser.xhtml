@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <head>
+        <title>Create user</title>
+    </head>
+    <body>
+        <div>Create your user here</div>
+        <f:view>
+        <h:form id="create">            
+            <h:panelGrid columns="3" border="0">
+                Username: <h:inputText id="username" 
+                                       requiredMessage="*"
+                                       value="#{studentbean.username}"
+                                       required="true"/>
+                          <h:message for="create:username" style="color: red"/>
+                Password: <h:inputSecret id="password"    
+                                         requiredMessage="*"
+                                         value="#{studentbean.password}"
+                                         required="true"/>
+                          <h:message for="create:password" style="color: red"/>
+            </h:panelGrid>
+            <h:commandButton id="submit" 
+                             value="Create"
+                             action="#{studentbean.createUser}"/>
+            <h:messages style="color: red" globalOnly="true"/>
+        </h:form>
+    </f:view>
+    </body>
+</html>
