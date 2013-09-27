@@ -6,6 +6,7 @@ package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +53,7 @@ public class StudentBean {
         
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", username).uniqueResult();
-        String encodedPassword = new String(MD5Digest.encode(username.getBytes(), password.getBytes(), student.getSalt().getBytes()));
+        String encodedPassword = PasswordUtil.hashPassword(student.getPassword(), student.getSalt());
         if(encodedPassword.equals(student.getPassword())) {      
             context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, student);
                 return "login";

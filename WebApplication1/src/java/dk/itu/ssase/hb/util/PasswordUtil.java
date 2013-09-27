@@ -4,11 +4,37 @@
  */
 package dk.itu.ssase.hb.util;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author cly
  */
 public class PasswordUtil {
+    
+    public static String hashPassword(String password, String salt) {
+        try {
+            String passwordSalt = password+salt;
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(passwordSalt.getBytes());
+     
+            byte byteData[] = md.digest();
+     
+            //convert the byte to hex format method 1
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < byteData.length; i++) {
+             sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(PasswordUtil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     public static String generateSalt() {
         char[] salt = new char[4];

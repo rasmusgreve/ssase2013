@@ -34,13 +34,15 @@ public class CreateStudentBean {
         
         try {
             session.createQuery("SELECT s FROM student s where s.name = :name").setString(":name", username).uniqueResult();
-                        
+            return "fail";
+        } catch(HibernateException ex) {
+        }         
             Student student = new Student();
             student.setName(getUsername());
 
             student.setBirthdate(date);
-            student.setSalt(PasswordUtil.generateSalt());        
-            student.setPassword(new String(MD5Digest.encode(getUsername().getBytes(), getPassword().getBytes(), student.getSalt().getBytes())));
+            student.setSalt(PasswordUtil.generateSalt());   
+            student.setPassword(PasswordUtil.hashPassword(password, student.getSalt()));
             student.setAddress(getAddress());
             student.setEmail(getEmail());
             student.setIsadmin(getAdmin());
@@ -50,9 +52,6 @@ public class CreateStudentBean {
             session.flush();
             session.close();
             return "create";
-        } catch(HibernateException ex) {
-            return "fail";
-        }         
     }
 
     /**

@@ -5,12 +5,6 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     
     
-    <lifecycle>
-        <phase-listener>
-            dk.itu.ssase.hb.beans.AuthenticationPhaseListener
-        </phase-listener>
-    </lifecycle>
-    
     <managed-bean>
         <managed-bean-name>studentbean</managed-bean-name>
         <managed-bean-class>dk.itu.ssase.hb.beans.StudentBean</managed-bean-class>
@@ -23,13 +17,13 @@
         <managed-bean-scope>request</managed-bean-scope>      
     </managed-bean>
         <navigation-case>
-            <from-action>${studentbean.validateUser}</from-action>
+            <from-action>#{studentbean.validateUser}</from-action>
             <from-outcome>login</from-outcome>
-            <to-view-id>/userList.xhtml</to-view-id>
+            <to-view-id>userList.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>${createstudentbean.createUser}</from-action>
+            <from-action>#{createstudentbean.createUser}</from-action>
             <from-outcome>create</from-outcome>            
-            <to-view-id>/userList.xhtml</to-view-id>
+            <to-view-id>userList.xhtml</to-view-id>
         </navigation-case>
 </faces-config>
