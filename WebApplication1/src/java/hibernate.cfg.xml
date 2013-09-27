@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ssase13</property>
     <property name="hibernate.connection.username">postgres</property>    
-    <property name="hibernate.connection.password">R0ck5tar</property>
+    <property name="hibernate.connection.password">hiei4e9fuF6G</property>
     <mapping class="dk.itu.ssase.hb.beans.model.Student" resource="student.hbm.xml"/>
     <mapping class="dk.itu.ssase.hb.beans.model.Relationship" resource="relationship.hbm.xml"/>
   </session-factory>
