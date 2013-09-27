@@ -8,6 +8,7 @@ import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.Date;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.postgresql.util.MD5Digest;
@@ -29,21 +30,28 @@ public class CreateStudentBean {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction txt = session.beginTransaction();
-        Student student = new Student();
-        student.setName(getUsername());
         
-        student.setBirthdate(date);
-        student.setSalt(PasswordUtil.generateSalt());        
-        student.setPassword(new String(MD5Digest.encode(getUsername().getBytes(), getPassword().getBytes(), student.getSalt().getBytes())));
-        student.setAddress(getAddress());
-        student.setEmail(getEmail());
-        student.setIsadmin(getAdmin());
-        student.setPrivacy("lala");
-        session.save(student);
-        txt.commit();
-        session.flush();
-        session.close();
-        return "create";
+        try {
+            session.createQuery("SELECT s FROM student s where s.name = :name").setString(":name", username).uniqueResult();
+                        
+            Student student = new Student();
+            student.setName(getUsername());
+
+            student.setBirthdate(date);
+            student.setSalt(PasswordUtil.generateSalt());        
+            student.setPassword(new String(MD5Digest.encode(getUsername().getBytes(), getPassword().getBytes(), student.getSalt().getBytes())));
+            student.setAddress(getAddress());
+            student.setEmail(getEmail());
+            student.setIsadmin(getAdmin());
+            student.setPrivacy("lala");
+            session.save(student);
+            txt.commit();
+            session.flush();
+            session.close();
+            return "create";
+        } catch(HibernateException ex) {
+            return "fail";
+        }         
     }
 
     /**
