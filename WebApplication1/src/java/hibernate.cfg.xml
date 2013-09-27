@@ -2,11 +2,8 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/ssase13</property>
-    <property name="hibernate.connection.username">postgres</property>    
-    <property name="hibernate.connection.password">hiei4e9fuF6G</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+    <property name="hibernate.connection.datasource">java:comp/env/jdbc/postgres</property>
     <mapping class="dk.itu.ssase.hb.beans.model.Student" resource="student.hbm.xml"/>
     <mapping class="dk.itu.ssase.hb.beans.model.Relationship" resource="relationship.hbm.xml"/>
   </session-factory>

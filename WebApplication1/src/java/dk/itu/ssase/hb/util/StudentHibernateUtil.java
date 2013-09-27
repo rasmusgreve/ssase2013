@@ -4,8 +4,11 @@
  */
 package dk.itu.ssase.hb.util;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 /**
  * Hibernate Utility class with a convenient method to get Session Factory
@@ -21,7 +24,10 @@ public class StudentHibernateUtil {
         try {
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
             // config file.
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
+            
+            Configuration cfg = new AnnotationConfiguration().configure();//this line reads hibernate.cfg.xml (for mapping classes)
+            
+            sessionFactory = cfg.buildSessionFactory();
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);

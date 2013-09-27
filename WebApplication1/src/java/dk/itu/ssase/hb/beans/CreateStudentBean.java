@@ -26,6 +26,7 @@ public class CreateStudentBean {
     private Boolean admin;
     
     
+    
     public String createUser() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         

@@ -22,6 +22,8 @@ import org.postgresql.util.UnixCrypt;
  */
 public class StudentBean {
 
+    public static final String USER_SESSION_KEY = "user";
+    
     private String username;
     private String password;
 
@@ -51,9 +53,10 @@ public class StudentBean {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", username).uniqueResult();
         String encodedPassword = new String(MD5Digest.encode(username.getBytes(), password.getBytes(), student.getSalt().getBytes()));
-        if(encodedPassword.equals(student.getPassword()))
+        if(encodedPassword.equals(student.getPassword())) {      
+            context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, student);
                 return "login";
-        else {
+        } else {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Login Failed!",
                     "Username '"
