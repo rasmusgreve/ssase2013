@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.datasource">java:comp/env/jdbc/postgres</property>
-    <mapping class="dk.itu.ssase.hb.beans.model.Student" resource="student.hbm.xml"/>
-    <mapping class="dk.itu.ssase.hb.beans.model.Relationship" resource="relationship.hbm.xml"/>
+    <property name="hibernate.id.new_generator_mappings">true</property>
+    <mapping class="dk.itu.ssase.hb.beans.model.Student"/>
   </session-factory>
 </hibernate-configuration>

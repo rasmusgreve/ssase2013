@@ -53,7 +53,7 @@ public class StudentBean {
         
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", username).uniqueResult();
-        String encodedPassword = PasswordUtil.hashPassword(student.getPassword(), student.getSalt());
+        String encodedPassword = PasswordUtil.hashPassword(password, student.getSalt());
         if(encodedPassword.equals(student.getPassword())) {      
             context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, student);
                 return "login";
