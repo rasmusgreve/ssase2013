@@ -1,0 +1,214 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[parfill]{parskip}
+
+\title{SSAS-E2013 Programming Assignment - Part 1}
+\author{Team 6:\\Christian Lyngbye, Jacob Fischer, Rasmus Greve, Ivaylo Sharkov}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+This is the written hand-in for the first part of the programming assignment of the course, and is of such only a first draft of the final report. We have strived to cover as many areas of the development process as possible (analysis, design, testing) with as small a subset of the final functionality as we could manage for this first iteration.
+
+The report is structured first with a rundown of the user stories we have identified, essentially describing what the system \emph{should} do. With these in mind we take on our Risk Analysis, the purpose of which in a sense is to identify all the things clients \emph{should not} be able to do. The system Specification follows, with a formal description of all our functional and non-functional (security, in this case) requirements, followed by a chapter on the actual design and architecture of our system. We then have a chapter on testing, after which we discuss security weaknesses and how we might want to compromise the other groups' systems.
+
+Our final chapter is the discussion, where we highlight some of the issues we have faced during the project and how we might work to mitigate them for the remainder of the course.
+
+\section{User Stories}
+By adhering to the project description that has been handed out, we define our system as a web application where students are able to sign up with the purpose of meeting eachother and forming either friendly or romantic relationships. The application should furthermore support the existance of administrative users, who are able to modify certain aspects of the system from a client's perspective.
+
+The following bullets describe what potential clients of our system should be able to do in it. In that sense they embody the overall purpose of the application, and outline the basic functionality.
+\begin{itemize}
+\item A student views his own information
+\item A student edits his own information
+\item A student chooses what information to share
+\item A student views another student’s information
+\item A student forms a relationship with another student
+\item An administrator creates a new user
+\item An administrator deletes an existing user
+\item An administrator views the information of a user
+\end{itemize}
+
+\section{Risk Analysis and Management}
+
+
+\subsection{Business Goals}
+We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
+
+\begin{table}
+	\begin{tabular}{|p{10cm}|l|}
+		\hline
+		\textbf{Goal} & \textbf{Rank} \\ \hline
+        The first draft of the report is handed in by October 4th 2013 & \textbf{H} \\ \hline
+The service should have attracted a minimum of 4 users after the first week & \textbf{H} \\ \hline
+The server must provide 99.99\% uptime   & \textbf{M} \\ \hline
+Sensitive user data is never compromised & \textbf{H} \\ \hline
+The web server is breached at most twice throughout the project period &  \textbf{M} \\ \hline
+The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & \textbf{H} \\ \hline
+	\end{tabular}
+	\caption{Business goals for our project. The goals are ranked with letters where L: low, M: medium and H: high}
+	\label{tab:business_goals}
+\end{table}
+
+
+\begin{itemize}
+\item The first draft of the report is handed in by October 4th 2013
+\item The service should have attracted a minimum of 4 users after the first week
+\item The server must provide 99.99\% uptime
+\item Sensitive user data is never compromised
+\item The web server is breached at most twice throughout the project period
+\item The team should strive to satisfy user needs and pay attention to (relevant) improvement requests
+\end{itemize}
+
+\subsection{Business Risks}
+\begin{itemize}
+\item Exploited confidentiality and user credentials/information
+\item Downtime causing a loss of users
+ 
+
+\end{itemize}
+
+\subsection{Technical Risks}
+Read the book
+
+\subsection{Risk analysis}
+The risks are characterized by their probability and effect on the system. see table \ref{tab:risk_analysis}
+
+\begin{table}[h]
+	\begin{tabular}{| p{5cm} | l | l | p{5cm} |}
+		\hline
+		\textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
+		User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
+        Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
+        Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
+        User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
+        SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        Admin session highjacking & 10\% & 8 & Encrypted connections \\ \hline
+        User session highjacking & 1\% & 4 & Encrypted connections \\ \hline
+        Replay attacks & 1\% & 3 & Use nonces \\ \hline
+       	Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
+        Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
+        Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
+        A hacker gains access to sensitive user data & 1\% & 6 & Protect sensitive information \\ \hline
+        A hacker gains access to user credentials & 1\% & 8 & Prioritize secure systems architecture \\ \hline
+	\end{tabular}
+	\caption{Risk analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+	\label{tab:risk_analysis}
+\end{table}
+
+\subsection{Risk management}
+\begin{itemize}
+\item {Business goals}\\
+Application must be live by October 4th 2013	H(rank)\\
+The first draft of the report is handed in by October 4th 2013	H(rank)\\
+The service should have attracted a minimum of 4 users after the first week	H(rank)\\
+The server must provide 99.99\% uptime	M(rank)\\
+Sensitive user data is never compromised	H(rank)\\
+Return of investments H(rank)\\
+\end{itemize}
+
+\begin{table}
+	\begin{tabular}{| l | l | l | l |}
+   	\textbf{Business Risk} & \textbf{Technical risk} & \textbf{Business goals} & \textbf{Rank} \\ \hline
+    
+    \end{tabular}
+\end{table}
+
+\begin{itemize}
+\item Test logging in
+\item Test creating user
+\item Test renewing password
+\end{itemize}
+
+\section{System Specification}
+
+\subsection{Functional Requirements}
+Related to the user stories
+
+\subsection{Security Requirements}
+Related to the risk analysis
+
+\section{System Design}
+
+\subsection{Choice of Technology}
+\subsubsection{Frameworks and Technologies}
+The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each.
+\begin{itemize}
+\item JSP
+\item JSF
+\item Tomcat
+\item UFW (firewall)
+\item Hibernate
+\item PostgreSQL
+\item Hashing algorithm
+\item JUnit
+\item Selenium
+\end{itemize}
+
+\subsubsection{Project Tools}
+We have chosen to use the following tools to assist us in our project process.
+\begin{itemize}
+\item \textbf{Git} is our chosen tool for source control, since it is easy to use and gets the job done, and Github is a decent platform for hosting source code on.
+\item \textbf{Google Docs} is what we use for taking notes and making on-the-fly documents, spreadsheets or presentations that we might need throughout the project. It is very easy to share things here, but the text processing tool is not that powerful, so it is not where we write our report.
+\item \textbf{writeLaTeX} is a web application that offers collaboration on LaTeX documents. This is the tool we use for writing the report, since LaTeX is a powerful text processing tool and writeLaTeX gives us the collaborative functionality.
+\end{itemize}
+
+\subsection{Architecture}
+
+\subsubsection{Principles}
+
+Our production server runs Linux and provides the access control for users' access to the file system.
+
+We have attempted to restrict privilege given on our server so users are given 
+\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+
+
+Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+
+Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
+
+\section{Testing}
+\subsection{Tools and Frameworks}
+Testing is essential in order to build secure and functional software systems. To thoroughly test our system we have decided to use two testing strategies; system tests and unit tests.
+
+A testing tool we found fitting to use for system tests is Selenium with JUnit. Selenium allows us to script test cases which input data and submit forms on the webservice.
+...
+
+\subsection{Test Cases (Black-box Test)}
+
+
+\section{Hacking}
+\subsection{Plans and ideas}
+In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
+\subsubsection{Social engineering attack}
+A social engineering attack requires some knowledge and analysis of the setting, systemt and people you want to attack.
+
+The setting at hand is that we are among a set of teams all implementing and trying to secure a webservice which must be "handed in" and shown of to a teacher and possibly the TA. This implies that the people in the teams all trust both the teacher and the TA. We have observed that most of us don't remember the name of the TA on the top of our head and need to look it up on the course blog.
+We can use this knowledge to make a broad social engineering attack on all other groups attempting to obtain confidential information such as usernames and passwords for admin accounts.
+
+The idea is to send an email to the entire class that looks and sounds official and says that it is from ``The TA of System Architecture and Security F2013". We assume that the students are not aware of the name of our TA and that they will trust that if we claim to be him in the email, they will believe us. The email will contain a request for login information to their webservice for an admin account that we need in order to evaluate the teams' progress.
+
+A requirement for this attack to work is that we send the email before (if) the teacher or TA asks for this information from the groups. We plan on sending the email on the 4th of October after class.
+
+\subsection{Social engineering attack}
+todo...
+
+\section{Discussion}
+\subsection{Problems}
+\subsection{Deployment}
+
+\subsection{...}
+
+
+\section{Conclusion}
+
+\section{Appendix}
+\include{courselog}
+
+\end{document}
