@@ -49,7 +49,7 @@ CREATE TABLE belief (
 
 ALTER TABLE public.belief OWNER TO postgres;
 
-----DROP SEQUENCE belief_id_seq;
+DROP SEQUENCE belief_id_seq;
 CREATE SEQUENCE belief_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -76,7 +76,7 @@ ALTER TABLE public.hobby OWNER TO postgres;
 -- TOC entry 176 (class 1259 OID 16445)
 -- Name: hobby_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
---DROP SEQUENCE hobby_id_seq;
+DROP SEQUENCE hobby_id_seq;
 CREATE SEQUENCE hobby_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -109,7 +109,7 @@ CREATE TABLE interest (
 
 ALTER TABLE public.interest OWNER TO postgres;
 
---DROP SEQUENCE interest_id_seq;
+DROP SEQUENCE interest_id_seq;
 CREATE SEQUENCE interest_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -133,7 +133,7 @@ CREATE TABLE relationship (
     type text
 );
 ALTER TABLE public.relationship OWNER TO postgres;
---DROP SEQUENCE relationship_id_seq;
+DROP SEQUENCE relationship_id_seq;
 CREATE SEQUENCE relationship_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -163,7 +163,7 @@ ALTER TABLE public.religion OWNER TO postgres;
 -- TOC entry 174 (class 1259 OID 16434)
 -- Name: religion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
---DROP SEQUENCE religion_id_seq;
+DROP SEQUENCE religion_id_seq;
 CREATE SEQUENCE religion_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -207,7 +207,7 @@ ALTER TABLE public.student OWNER TO postgres;
 -- TOC entry 170 (class 1259 OID 16397)
 -- Name: student_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
---DROP SEQUENCE student_id_seq;
+DROP SEQUENCE student_id_seq;
 CREATE SEQUENCE student_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -232,7 +232,7 @@ ALTER SEQUENCE student_id_seq OWNED BY student.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY hobby ALTER COLUMN id SET DEFAULT nextval('hobby_id_seq'::regclass);
+--ALTER TABLE ONLY hobby ALTER COLUMN id SET DEFAULT nextval('hobby_id_seq'::regclass);
 
 
 --
@@ -240,7 +240,7 @@ ALTER TABLE ONLY hobby ALTER COLUMN id SET DEFAULT nextval('hobby_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY religion ALTER COLUMN id SET DEFAULT nextval('religion_id_seq'::regclass);
+--ALTER TABLE ONLY religion ALTER COLUMN id SET DEFAULT nextval('religion_id_seq'::regclass);
 
 
 --
@@ -248,7 +248,7 @@ ALTER TABLE ONLY religion ALTER COLUMN id SET DEFAULT nextval('religion_id_seq':
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY student ALTER COLUMN id SET DEFAULT nextval('student_id_seq'::regclass);
+--ALTER TABLE ONLY student ALTER COLUMN id SET DEFAULT nextval('student_id_seq'::regclass);
 
 --
 -- TOC entry 1860 (class 2606 OID 16433)
