@@ -8,14 +8,10 @@ import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
-import java.util.Date;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.postgresql.util.MD5Digest;
-import org.postgresql.util.UnixCrypt;
 
 /**
  *
@@ -48,6 +44,7 @@ public class StudentBean {
 
     }
 
+    // Validate the user
     public String validateUser() {
         FacesContext context = FacesContext.getCurrentInstance();
         
@@ -56,7 +53,7 @@ public class StudentBean {
         String encodedPassword = PasswordUtil.hashPassword(password, student.getSalt());
         if(encodedPassword.equals(student.getPassword())) {      
             context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, student);
-                return "login";
+                return "success";
         } else {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Login Failed!",
