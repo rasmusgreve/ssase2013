@@ -11,6 +11,7 @@ import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import org.hibernate.Session;
 
 /**
@@ -66,6 +67,21 @@ public class StudentBean {
         }
     }
 
+        /**
+     * <p>When invoked, it will invalidate the user's session
+     * and move them to the login view.</p>
+     *
+     * @return <code>login</code>
+     */
+    public String logout() {
+        HttpSession session = (HttpSession)
+             FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "login";
+        
+    }
     
     /**
      * @return the username
