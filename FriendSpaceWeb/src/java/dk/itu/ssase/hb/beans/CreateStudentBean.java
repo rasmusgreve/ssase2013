@@ -4,10 +4,12 @@
  */
 package dk.itu.ssase.hb.beans;
 
+import com.sun.istack.internal.logging.Logger;
+import dk.itu.ssase.hb.beans.model.Privacy;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
-import java.util.Date;
+import java.util.logging.Level;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -16,123 +18,57 @@ import org.hibernate.Transaction;
  * @author cly
  */
 public class CreateStudentBean {
-    private String username;
-    private String password;
-    private Date date;
-    private String address;
-    private String email;
-    private Boolean admin;
+    private Student studentInput;
+
+    public CreateStudentBean() {
+        studentInput = new Student();
+    }
     
     
     
     public String createUser() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
-        
-            Student existingStudent = (Student) session.createQuery("select s from Student s where s.name = :username").setString("username", username).uniqueResult();
+        try {
+            Student existingStudent = (Student) session.createQuery("select s from Student s where s.name = :username").setString("username", getStudentInput().getName()).uniqueResult();
             if(existingStudent!=null)
                 return "fail";
+        } catch(Exception ex) {
+            Logger.getLogger(CreateStudentBean.class).log(Level.INFO, "Query failed with exception "+ex.getMessage());            
+            session = StudentHibernateUtil.getSessionFactory().openSession();
+        }
         
-        Transaction txt = session.beginTransaction();
-            Student student = new Student();
-            student.setName(getUsername());
+            Transaction txt = session.beginTransaction();
+            Student studentToSave = getStudentInput();
 
-            student.setBirthdate(date);
             String salt = PasswordUtil.generateSalt();
-            student.setSalt(salt);   
-            student.setPassword(PasswordUtil.hashPassword(password, salt));
-            student.setAddress(getAddress());
-            student.setEmail(getEmail());
-            student.setIsadmin(getAdmin());
-            student.setPrivacy("lala");
-            session.save(student);
+            studentToSave.setSalt(salt);   
+            studentToSave.setPassword(PasswordUtil.hashPassword(getStudentInput().getPassword(), salt));
+            
+            
+            session.save(studentToSave);
             txt.commit();
             session.flush();
             session.close();
             return "success";
     }
 
+    public Privacy[] getPrivacyOptions() {
+        return Privacy.values();
+    }
+    
     /**
-     * @return the username
+     * @return the studentInput
      */
-    public String getUsername() {
-        return username;
+    public Student getStudentInput() {
+        return studentInput;
     }
 
     /**
-     * @param username the username to set
+     * @param studentInput the studentInput to set
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setStudentInput(Student studentInput) {
+        this.studentInput = studentInput;
     }
 
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the admin
-     */
-    public Boolean getAdmin() {
-        return admin;
-    }
-
-    /**
-     * @param admin the admin to set
-     */
-    public void setAdmin(Boolean admin) {
-        this.admin = admin;
-    }
 }

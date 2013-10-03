@@ -19,38 +19,39 @@ and open the template in the editor.
             <h:panelGrid columns="3" border="0">
                 Username: <h:inputText id="username" 
                                        requiredMessage="*"
-                                       value="#{createstudentbean.username}"
+                                       value="#{createstudentbean.studentInput.name}"
                                        required="true"/>
                           <h:message for="create:username" style="color: red"/>
                 Password: <h:inputSecret id="password"    
                                          requiredMessage="*"
-                                         value="#{createstudentbean.password}"
+                                         value="#{createstudentbean.studentInput.password}"
                                          required="true"/>
                           <h:message for="create:password" style="color: red"/>
                           
                           
                 Address: <h:inputText id="address"    
                                          requiredMessage="*"
-                                         value="#{createstudentbean.address}"
+                                         value="#{createstudentbean.studentInput.address}"
                                          required="true"/>
                           <h:message for="create:address" style="color: red"/>
                           
                           
                 Email: <h:inputText id="email"    
                                          requiredMessage="*"
-                                         value="#{createstudentbean.email}"
+                                         value="#{createstudentbean.studentInput.email}"
                                          required="true"/>
                           <h:message for="create:email" style="color: red"/>
                           
                           Birth date: <h:inputText id="birthdate"    
                                          requiredMessage="*"
-                                         value="#{createstudentbean.date}"
+                                         value="#{createstudentbean.studentInput.birthdate}"
                                          required="true"><f:convertDateTime dateStyle="short"/></h:inputText>
                           <h:message for="create:date" style="color: red"/>
                           
+                          <h:selectOneMenu value="#{createstudentbean.studentInput.privacy}"><f:selectItems value="#{createstudentbean.privacyOptions}"/></h:selectOneMenu>
                           
                 Admin: <h:selectBooleanCheckbox id="admin"    
-                                         value="#{createstudentbean.admin}"
+                                                value="#{createstudentbean.studentInput.isadmin}"
                                          required="true"/>
             </h:panelGrid>
             <h:commandButton id="submit" 

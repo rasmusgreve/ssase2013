@@ -11,7 +11,11 @@
     <property name="password"/>
     <property name="address"/>
     <property name="email"/>
-    <property name="privacy"/>
+    <property name="privacy">        
+      <type name="org.hibernate.type.EnumType">
+         <param name="enumClass">dk.itu.ssase.hb.beans.model.Privacy</param>
+      </type>
+    </property>
     <property name="salt"/>
     <property name="isadmin" not-null="true" update="false"/>
     <property name="birthdate" not-null="true" type="date" update="false"/>

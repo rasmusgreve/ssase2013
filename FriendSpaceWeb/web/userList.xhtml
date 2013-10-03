@@ -14,14 +14,15 @@ and open the template in the editor.
     <body>
         <h:link target="#{studentbean.logout()}">Logout</h:link>
         <br/>
-        <ui:repeat var="user" value="#{studentbean.getUsers()}">
+        
+        <ui:repeat var="userloop" value="#{studentbean.getUsers()}">
             <f:view>
                 
-                <h:link target="userEdit.xhtml"><h:outputText value="#{user.name}"/></h:link>
+                <h:outputLink  target="userEdit.xhtml"><h:outputText value="#{userloop.name}"/></h:outputLink>
                 <h:link target="#{studentbean.addFriend()}" style="float:right;">Add friend</h:link>
             </f:view>
             <br/>
         </ui:repeat>
-        <h:link rendered="#{user.isAdmin}" target="createUser.xhtml">Create user</h:link>
+        <h:outputLink rendered="#{user.isadmin}" target="createUser.xhtml">Create user</h:outputLink>
     </body>
 </html>

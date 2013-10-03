@@ -1,6 +1,7 @@
 package dk.itu.ssase.hb.beans.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 /*
@@ -12,9 +13,10 @@ import java.util.Date;
  *
  * @author greve
  */
-public class Student {
+public class Student implements Serializable {
     private int id;
-    private String name, password, address, email, privacy, salt;
+    private String name, password, address, email, salt;
+    private Privacy privacy;
     private boolean isadmin;
     private Date birthdate;
 
@@ -77,14 +79,14 @@ public class Student {
     /**
      * @return the privacy
      */
-    public String getPrivacy() {
+    public Privacy getPrivacy() {
         return privacy;
     }
 
     /**
      * @param privacy the privacy to set
      */
-    public void setPrivacy(String privacy) {
+    public void setPrivacy(Privacy privacy) {
         this.privacy = privacy;
     }
 
@@ -143,4 +145,7 @@ public class Student {
     public void setPassword(String password) {
         this.password = password;
     }
+        
+
 }
+
