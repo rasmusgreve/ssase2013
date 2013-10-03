@@ -16,8 +16,7 @@ and open the template in the editor.
         <br/>
         
         <ui:repeat var="userloop" value="#{studentbean.getUsers()}">
-            <f:view>
-                
+            <f:view>                
                 <h:outputLink  target="userEdit.xhtml"><h:outputText value="#{userloop.name}"/></h:outputLink>
                 <h:link target="#{studentbean.addFriend()}" style="float:right;">Add friend</h:link>
             </f:view>

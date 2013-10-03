@@ -48,8 +48,9 @@ and open the template in the editor.
                                          required="true"><f:convertDateTime dateStyle="short"/></h:inputText>
                           <h:message for="create:date" style="color: red"/>
                           
-                          <h:selectOneMenu value="#{createstudentbean.studentInput.privacy}"><f:selectItems value="#{createstudentbean.privacyOptions}"/></h:selectOneMenu>
-                          
+                Privacy:          <h:selectOneMenu id="privacy" value="#{createstudentbean.studentInput.privacy}"><f:selectItems value="#{createstudentbean.privacyOptions}"/></h:selectOneMenu>
+               
+                <h:message for="create:privacy" style="color: red"/>
                 Admin: <h:selectBooleanCheckbox id="admin"    
                                                 value="#{createstudentbean.studentInput.isadmin}"
                                          required="true"/>

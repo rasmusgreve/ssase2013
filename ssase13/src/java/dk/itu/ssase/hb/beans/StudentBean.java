@@ -6,6 +6,7 @@ package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.List;
@@ -55,10 +56,14 @@ public class StudentBean {
         Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", getUsername()).uniqueResult();
         if(student!=null) {
             String encodedPassword = PasswordUtil.hashPassword(getPassword(), student.getSalt());
-            if(encodedPassword.equals(student.getPassword())) {      
-                context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, student);
+            if(encodedPassword.equals(student.getPassword())) {                    
+                UserSession user = new UserSession();
+                user.setStudentId(student.getId());
+                user.setAdmin(student.isIsadmin());
+                context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
-                    return "success";
+                
+                return "success1";
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Login Failed!",
