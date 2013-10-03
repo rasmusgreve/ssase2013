@@ -5,7 +5,9 @@
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.datasource">java:comp/env/jdbc/postgres</property>
     <property name="hibernate.id.new_generator_mappings">true</property>
-    <mapping class="dk.itu.ssase.hb.beans.model.Student"  resource="student.hbm.xml"/>
+    <mapping class="dk.itu.ssase.hb.beans.model.Student" resource="student.hbm.xml"/>
     <mapping class="dk.itu.ssase.hb.beans.model.Relationship" resource="relationship.hbm.xml"/>
+    <mapping class="dk.itu.ssase.hb.beans.model.Hobby" resource="hobby.hbm.xml"/>
+    <mapping class="dk.itu.ssase.hb.beans.model.Interest" resource="interest.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

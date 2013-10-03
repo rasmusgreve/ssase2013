@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03-10-2013 19:21:57 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping package="dk.itu.ssase.hb.beans.model">
+    <class name="Interest" table="interest" schema="public">
+        <id name="id" type="int">
+      <generator class="sequence">
+        <param name="sequence">interest_id_seq</param>
+      </generator>
+        </id>
+        <many-to-one name="student" class="Student" fetch="select">
+            <column name="student" not-null="true" />
+        </many-to-one>
+        <many-to-one name="hobby" class="Hobby" fetch="select">
+            <column name="hobby" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -3,6 +3,8 @@ package dk.itu.ssase.hb.beans.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
  * To change this template, choose Tools | Templates
@@ -19,6 +21,10 @@ public class Student implements Serializable {
     private Privacy privacy;
     private boolean isadmin;
     private Date birthdate;
+
+     private Set interests = new HashSet(0);
+     private Set relationshipsForStudent2 = new HashSet(0);
+     private Set relationshipsForStudent1 = new HashSet(0);
 
     /**
      * @return the id
@@ -145,7 +151,48 @@ public class Student implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-        
 
+    /**
+     * @return the interests
+     */
+    public Set getInterests() {
+        return interests;
+    }
+
+    /**
+     * @param interests the interests to set
+     */
+    public void setInterests(Set interests) {
+        this.interests = interests;
+    }
+
+    /**
+     * @return the relationshipsForStudent2
+     */
+    public Set getRelationshipsForStudent2() {
+        return relationshipsForStudent2;
+    }
+
+    /**
+     * @param relationshipsForStudent2 the relationshipsForStudent2 to set
+     */
+    public void setRelationshipsForStudent2(Set relationshipsForStudent2) {
+        this.relationshipsForStudent2 = relationshipsForStudent2;
+    }
+
+    /**
+     * @return the relationshipsForStudent1
+     */
+    public Set getRelationshipsForStudent1() {
+        return relationshipsForStudent1;
+    }
+
+    /**
+     * @param relationshipsForStudent1 the relationshipsForStudent1 to set
+     */
+    public void setRelationshipsForStudent1(Set relationshipsForStudent1) {
+        this.relationshipsForStudent1 = relationshipsForStudent1;
+    }
+        
 }
 

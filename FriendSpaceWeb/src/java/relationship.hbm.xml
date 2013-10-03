@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="dk.itu.ssase.hb.beans.model">
-  <class name="Relationship" rowid="id" table="relationship">
-    <id name="id">
-      <generator class="native"/>
+  <class name="Relationship" schema="public" table="relationship">
+        <id name="id" type="int">
+      <generator class="sequence">
+        <param name="sequence">relationship_id_seq</param>
+      </generator>
     </id>
-    <many-to-one class="Student" column="student1" name="student1"/>
-    <many-to-one class="Student" column="student2" name="student2"/>
-    <property name="type"/>
+    <many-to-one class="Student" column="student1" name="student1" fetch="select"/>
+    <many-to-one class="Student" column="student2" name="student2" fetch="select"/>
+
+        <property name="type" type="string">
+            <column name="type" />
+        </property>
   </class>
 </hibernate-mapping>

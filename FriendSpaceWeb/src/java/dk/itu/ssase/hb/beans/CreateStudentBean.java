@@ -4,12 +4,12 @@
  */
 package dk.itu.ssase.hb.beans;
 
-import com.sun.istack.internal.logging.Logger;
 import dk.itu.ssase.hb.beans.model.Privacy;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -34,7 +34,7 @@ public class CreateStudentBean {
             if(existingStudent!=null)
                 return "fail";
         } catch(Exception ex) {
-            Logger.getLogger(CreateStudentBean.class).log(Level.INFO, "Query failed with exception "+ex.getMessage());            
+            Logger.getLogger("CreateStudentBean").log(Level.INFO, "Query failed with exception "+ex.getMessage());            
             session = StudentHibernateUtil.getSessionFactory().openSession();
         }
         
