@@ -42,14 +42,13 @@ SET default_with_oids = false;
 --
 DROP TABLE belief;
 CREATE TABLE belief (
-    id integer NOT NULL,
+    id integer NOT NULL UNIQUE,
     student integer NOT NULL,
     religion integer NOT NULL
 );
 
 ALTER TABLE public.belief OWNER TO postgres;
 
-DROP SEQUENCE belief_id_seq;
 CREATE SEQUENCE belief_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -58,25 +57,17 @@ CREATE SEQUENCE belief_id_seq
     CACHE 1;
 ALTER TABLE public.belief_id_seq OWNER TO postgres;
 ALTER SEQUENCE belief_id_seq OWNED BY belief.id;
---
--- TOC entry 177 (class 1259 OID 16447)
--- Name: hobby; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
 
 DROP TABLE hobby;
 CREATE TABLE hobby (
-    id integer NOT NULL,
+    id integer NOT NULL UNIQUE,
     type text
 );
 
 
 ALTER TABLE public.hobby OWNER TO postgres;
 
---
--- TOC entry 176 (class 1259 OID 16445)
--- Name: hobby_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-DROP SEQUENCE hobby_id_seq;
+
 CREATE SEQUENCE hobby_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -87,29 +78,18 @@ CREATE SEQUENCE hobby_id_seq
 
 ALTER TABLE public.hobby_id_seq OWNER TO postgres;
 
---
--- TOC entry 1991 (class 0 OID 0)
--- Dependencies: 176
--- Name: hobby_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
 ALTER SEQUENCE hobby_id_seq OWNED BY hobby.id;
 
 
---
--- TOC entry 178 (class 1259 OID 16456)
--- Name: interest; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
 DROP TABLE interest;
 CREATE TABLE interest (
-    id integer NOT NULL,
+    id integer NOT NULL UNIQUE,
     student integer NOT NULL,
     hobby integer NOT NULL
 );
 
 ALTER TABLE public.interest OWNER TO postgres;
 
-DROP SEQUENCE interest_id_seq;
 CREATE SEQUENCE interest_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -120,20 +100,14 @@ CREATE SEQUENCE interest_id_seq
 ALTER TABLE public.interest_id_seq OWNER TO postgres;
 ALTER SEQUENCE interest_id_seq OWNED BY interest.id;
 
---
--- TOC entry 172 (class 1259 OID 16421)
--- Name: relationship; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
 DROP TABLE relationship;
 CREATE TABLE relationship (
-	id integer NOT NULL,
+	id integer NOT NULL UNIQUE,
     student1 integer NOT NULL,
     student2 integer NOT NULL,
     type text
 );
 ALTER TABLE public.relationship OWNER TO postgres;
-DROP SEQUENCE relationship_id_seq;
 CREATE SEQUENCE relationship_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -145,42 +119,6 @@ CREATE SEQUENCE relationship_id_seq
 ALTER TABLE public.relationship_id_seq OWNER TO postgres;
 ALTER SEQUENCE relationship_id_seq OWNED BY relationship.id;
 
---
--- TOC entry 175 (class 1259 OID 16436)
--- Name: religion; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-DROP TABLE religion;
-CREATE TABLE religion (
-    id integer NOT NULL,
-    name text
-);
-
-
-ALTER TABLE public.religion OWNER TO postgres;
-
---
--- TOC entry 174 (class 1259 OID 16434)
--- Name: religion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-DROP SEQUENCE religion_id_seq;
-CREATE SEQUENCE religion_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.religion_id_seq OWNER TO postgres;
-
---
--- TOC entry 1992 (class 0 OID 0)
--- Dependencies: 174
--- Name: religion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
---
-
-ALTER SEQUENCE religion_id_seq OWNED BY religion.id;
 
 
 --
@@ -189,13 +127,13 @@ ALTER SEQUENCE religion_id_seq OWNED BY religion.id;
 --
 DROP TABLE student;
 CREATE TABLE student (
-    id integer NOT NULL,
+    id integer NOT NULL UNIQUE,
     name text,
     address text,
     email text,
     password text,
     birthdate date,
-    privacy text,
+    privacy integer,
     salt text,
     isadmin boolean DEFAULT false
 );
@@ -228,6 +166,8 @@ ALTER SEQUENCE student_id_seq OWNED BY student.id;
 
 ALTER TABLE relationship ADD CONSTRAINT student1_id FOREIGN KEY (student1) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE relationship ADD CONSTRAINT student2_id FOREIGN KEY (student2) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE interest ADD CONSTRAINT student3_id FOREIGN KEY (student) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE interest ADD CONSTRAINT hobby1_id FOREIGN KEY (hobby) REFERENCES hobby (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 --
 -- TOC entry 1854 (class 2604 OID 16450)
@@ -243,22 +183,6 @@ ALTER TABLE relationship ADD CONSTRAINT student2_id FOREIGN KEY (student2) REFER
 --
 
 --ALTER TABLE ONLY religion ALTER COLUMN id SET DEFAULT nextval('religion_id_seq'::regclass);
-
-
---
--- TOC entry 1851 (class 2604 OID 16402)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
---
-
---ALTER TABLE ONLY student ALTER COLUMN id SET DEFAULT nextval('student_id_seq'::regclass);
-
---
--- TOC entry 1860 (class 2606 OID 16433)
--- Name: beleif_primary; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY belief
-    ADD CONSTRAINT belief_primary PRIMARY KEY (id);
 
 
 --
@@ -295,15 +219,6 @@ ALTER TABLE ONLY student
 
 ALTER TABLE ONLY relationship
     ADD CONSTRAINT relationship_primary PRIMARY KEY (id);
-
-
---
--- TOC entry 1862 (class 2606 OID 16444)
--- Name: religion_primary; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
---
-
-ALTER TABLE ONLY religion
-    ADD CONSTRAINT religion_primary PRIMARY KEY (id);
 
 
 --
