@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
 
 /**
@@ -30,16 +31,20 @@ public class LoginTest
     {
         return new TestSuite( LoginTest.class );
     }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
+    public void testLogin()
     {
         open("http://localhost:8084/ssase13/faces/login.xhtml");
         $(By.id("login:username")).setValue("admin");
         $(By.id("login:submit")).click();
-        //$(".loading_progress").should(disappear); // Waits until element disappears
+        $(By.id("javax_faces_developmentstage_messages")).shouldHave(text("Login Failed!")); // Waits until element gets text
+        assertTrue( true );
+    }
+    
+    public void testLogin2()
+    {
+        open("http://localhost:8084/ssase13/faces/login.xhtml");
+        $(By.id("login:username")).setValue(";DROP student");
+        $(By.id("login:submit")).click();
         $(By.id("javax_faces_developmentstage_messages")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
     }

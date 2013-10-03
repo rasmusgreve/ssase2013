@@ -15,9 +15,9 @@ and open the template in the editor.
             <h:form id="login">
             
                 Username: <h:inputText id="username" 
-                                       value="#{studentbean.username}"/>        
+                                       value="#{studentbean.username}" maxlength="50"/>        
                 Password: <h:inputSecret id="password"
-                                         value="#{studentbean.password}"/>
+                                         value="#{studentbean.password}" maxlength="50"/>
             
             <h:commandButton id="submit" 
                              type="submit"

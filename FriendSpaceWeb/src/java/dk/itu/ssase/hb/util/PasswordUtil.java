@@ -61,7 +61,7 @@ public class PasswordUtil {
 	// Beginning of char getRandomChar()
 	public static char getRandomChar() {
 		
-		return getRandomChar('\u0000', '\uFFFF');
+		return getRandomChar('a','Z');//'\u0000', '\uFFFF');
 	
 	} // of char getRandomChar()
     

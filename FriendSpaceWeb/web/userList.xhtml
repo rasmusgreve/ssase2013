@@ -12,12 +12,16 @@ and open the template in the editor.
         <title>User list</title>
     </head>
     <body>
+        <h:link target="#{studentbean.logout()}">Logout</h:link>
+        <br/>
         <ui:repeat var="user" value="#{studentbean.getUsers()}">
             <f:view>
                 
-                <h:link  target="userEdit.xhtml"><h:outputText value="#{user.name}"/></h:link>
+                <h:link target="userEdit.xhtml"><h:outputText value="#{user.name}"/></h:link>
+                <h:link target="#{studentbean.addFriend()}" style="float:right;">Add friend</h:link>
             </f:view>
             <br/>
         </ui:repeat>
+        <h:link rendered="#{user.isAdmin}" target="createUser.xhtml">Create user</h:link>
     </body>
 </html>

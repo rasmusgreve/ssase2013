@@ -226,6 +226,8 @@ ALTER TABLE public.student_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE student_id_seq OWNED BY student.id;
 
+ALTER TABLE relationship ADD CONSTRAINT student1_id FOREIGN KEY (student1) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE relationship ADD CONSTRAINT student2_id FOREIGN KEY (student2) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 --
 -- TOC entry 1854 (class 2604 OID 16450)
@@ -256,7 +258,7 @@ ALTER SEQUENCE student_id_seq OWNED BY student.id;
 --
 
 ALTER TABLE ONLY belief
-    ADD CONSTRAINT beleif_primary PRIMARY KEY (id);
+    ADD CONSTRAINT belief_primary PRIMARY KEY (id);
 
 
 --
@@ -314,7 +316,7 @@ REVOKE ALL ON SCHEMA public FROM PUBLIC;
 REVOKE ALL ON SCHEMA public FROM postgres;
 GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
-
+GRANT SELECT, UPDATE, INSERT, DELETE ON ALL TABLES IN SCHEMA public TO tomcat;
 
 -- Completed on 2013-09-20 14:08:56
 
