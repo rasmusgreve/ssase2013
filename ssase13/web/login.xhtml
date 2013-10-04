@@ -18,11 +18,15 @@ and open the template in the editor.
               padding-top: 40px;
               padding-bottom: 40px;
               background-color: #eee;
-            }
-            .form-signin {
+              background-image:url("logo.png");
+            } 
+           .form-signin {
               max-width: 330px;
               padding: 15px;
               margin: 0 auto;
+            }
+            .panel{
+                background-color:#F5F5F5;
             }
             .form-signin input[type="password"] {
               margin-bottom: 10px;
@@ -35,7 +39,8 @@ and open the template in the editor.
         <f:view>
             <div class="container">
                 
-
+                <div class="panel panel-default">
+                    <div class="panel-body">
                 <h:form id="login" class="form-signin">
                     <h2 class="form-signin-heading">Log in</h2>
                     Username: <h:inputText class="form-control" id="username" 
@@ -49,7 +54,10 @@ and open the template in the editor.
                                  class="btn btn-primary btn-block"
                                  action="#{studentbean.validateUser()}"/>
                 </h:form>
+                </div>
+                    </div>
             </div>
         </f:view>
     </body>
 </html>
+
