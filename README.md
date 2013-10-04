@@ -9,3 +9,9 @@ Christian Lyngbye (clyn)
 Jacob Fischer (jaco)
 Rasmus Greve (ragr)
 Ivaylo Sharkov (isha)
+
+Installation instructions:
+* Run table_structure.sql
+* Run table_data.sql
+* Setup datasource in tomcat global naming resource
+* Add postgresql-jdbc.jar to your tomcat_installation/lib

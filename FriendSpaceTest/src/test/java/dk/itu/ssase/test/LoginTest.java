@@ -43,7 +43,7 @@ public class LoginTest
     public void testLogin2()
     {
         open("http://localhost:8084/ssase13/faces/login.xhtml");
-        $(By.id("login:username")).setValue(";DROP student");
+        $(By.id("login:username")).setValue("';DROP TABLE student; --");
         $(By.id("login:submit")).click();
         $(By.id("javax_faces_developmentstage_messages")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
