@@ -63,7 +63,7 @@ public class StudentBean {
                 context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
                 
-                return "success1";
+                return "success";
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Login Failed!",
@@ -80,12 +80,6 @@ public class StudentBean {
             }
     }
 
-        /**
-     * <p>When invoked, it will invalidate the user's session
-     * and move them to the login view.</p>
-     *
-     * @return <code>login</code>
-     */
     public String logout() {
         HttpSession session = (HttpSession)
              FacesContext.getCurrentInstance().getExternalContext().getSession(false);
