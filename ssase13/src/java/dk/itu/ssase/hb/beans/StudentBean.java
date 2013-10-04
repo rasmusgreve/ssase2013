@@ -10,6 +10,8 @@ import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -62,7 +64,7 @@ public class StudentBean {
                 user.setAdmin(student.isIsadmin());
                 context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
-                
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authenticated user "+student.getName());           
                 return "success";
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,

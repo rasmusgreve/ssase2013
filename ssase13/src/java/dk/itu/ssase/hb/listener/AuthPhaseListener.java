@@ -3,6 +3,8 @@ package dk.itu.ssase.hb.listener;
 
 import dk.itu.ssase.hb.beans.StudentBean;
 import dk.itu.ssase.hb.model.UserSession;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
@@ -38,9 +40,10 @@ public class AuthPhaseListener implements PhaseListener {
                 authorized=true;
             }
         }
-        if(authorized)
+        if(authorized) {
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authorized user");        
             return;
-        else {
+        } else {
             //TODO write access denied
             redirectToLogin(context);
         }

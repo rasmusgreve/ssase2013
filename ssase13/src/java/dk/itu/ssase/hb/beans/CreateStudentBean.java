@@ -29,16 +29,16 @@ public class CreateStudentBean {
     public String createUser() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
+            Transaction txt = session.beginTransaction();
         try {
             Student existingStudent = (Student) session.createQuery("select s from Student s where s.name = :username").setString("username", getStudentInput().getName()).uniqueResult();
             if(existingStudent!=null)
                 return "fail";
         } catch(Exception ex) {
-            Logger.getLogger("CreateStudentBean").log(Level.INFO, "Query failed with exception "+ex.getMessage());            
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Query failed with exception "+ex.getMessage());            
             session = StudentHibernateUtil.getSessionFactory().openSession();
-        }
+        } 
         
-            Transaction txt = session.beginTransaction();
             Student studentToSave = getStudentInput();
 
             String salt = PasswordUtil.generateSalt();
