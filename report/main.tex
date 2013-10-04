@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 %\usepackage[colorinlistoftodos]{todonotes}
 \usepackage[parfill]{parskip}
+\usepackage{multirow}
 
 \title{SSAS-E2013 Programming Assignment - Part 1}
 \author{Team 6:\\Christian Lyngbye, Jacob Fischer, Rasmus Greve, Ivaylo Sharkov}
@@ -16,7 +17,7 @@
 \section{Introduction}
 This is the written hand-in for the first part of the programming assignment of the course, and is of such only a first draft of the final report. We have strived to cover as many areas of the development process as possible (analysis, design, testing) with as small a subset of the final functionality as we could manage for this first iteration.
 
-The report is structured first with a rundown of the user stories we have identified, essentially describing what the system \emph{should} do. With these in mind we take on our Risk Analysis, the purpose of which in a sense is to identify all the things clients \emph{should not} be able to do. The system Specification follows, with a formal description of all our functional and non-functional (security, in this case) requirements, followed by a chapter on the actual design and architecture of our system. We then have a chapter on testing, after which we discuss security weaknesses and how we might want to compromise the other groups' systems.
+The report is structured first with a rundown of the user stories we have identified, essentially describing what the system \emph{should} do. With these in mind we take on our Risk Analysis, the purpose of which in a sense is to identify all the things clients \emph{should not} be able to do. The system Specification follows, with a formal description of all our functional, non-functional and security requirements, followed by a chapter on the actual design and architecture of our system. We then have a chapter on testing, after which we discuss security weaknesses and how we might want to compromise the other groups' systems.
 
 Our final chapter is the discussion, where we highlight some of the issues we have faced during the project and how we might work to mitigate them for the remainder of the course.
 
@@ -35,13 +36,14 @@ The following bullets describe what potential clients of our system should be ab
 \item An administrator views the information of a user
 \end{itemize}
 
+
 \section{Risk Analysis and Management}
 
 
 \subsection{Business Goals}
 We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
 
-\begin{table}
+\begin{table}[h]
 	\begin{tabular}{|p{10cm}|l|}
 		\hline
 		\textbf{Goal} & \textbf{Rank} \\ \hline
@@ -50,106 +52,150 @@ The service should have attracted a minimum of 4 users after the first week & \t
 The server must provide 99.99\% uptime   & \textbf{M} \\ \hline
 Sensitive user data is never compromised & \textbf{H} \\ \hline
 The web server is breached at most twice throughout the project period &  \textbf{M} \\ \hline
-The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & \textbf{H} \\ \hline
+The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & \textbf{L} \\ \hline
+Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
 	\end{tabular}
 	\caption{Business goals for our project. The goals are ranked with letters where L: low, M: medium and H: high}
 	\label{tab:business_goals}
 \end{table}
 
-
-\begin{itemize}
-\item The first draft of the report is handed in by October 4th 2013
-\item The service should have attracted a minimum of 4 users after the first week
-\item The server must provide 99.99\% uptime
-\item Sensitive user data is never compromised
-\item The web server is breached at most twice throughout the project period
-\item The team should strive to satisfy user needs and pay attention to (relevant) improvement requests
-\end{itemize}
-
-\subsection{Business Risks}
-\begin{itemize}
-\item Exploited confidentiality and user credentials/information
-\item Downtime causing a loss of users
- 
-
-\end{itemize}
-
 \subsection{Technical Risks}
-Read the book
-
-\subsection{Risk analysis}
-The risks are characterized by their probability and effect on the system. see table \ref{tab:risk_analysis}
+The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
 
 \begin{table}[h]
-	\begin{tabular}{| p{5cm} | l | l | p{5cm} |}
+	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
 		\hline
-		\textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
-		User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
-        Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
-        Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
-        User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
-        SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        Admin session highjacking & 10\% & 8 & Encrypted connections \\ \hline
-        User session highjacking & 1\% & 4 & Encrypted connections \\ \hline
-        Replay attacks & 1\% & 3 & Use nonces \\ \hline
-       	Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
-        Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
-        Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
-        A hacker gains access to sensitive user data & 1\% & 6 & Protect sensitive information \\ \hline
-        A hacker gains access to user credentials & 1\% & 8 & Prioritize secure systems architecture \\ \hline
+		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
+		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
+        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
+        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
+        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
+        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
+        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
+        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
+       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
+        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
+        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
+        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
 	\end{tabular}
 	\caption{Risk analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
 \end{table}
 
-\subsection{Risk management}
-\begin{itemize}
-\item {Business goals}\\
-Application must be live by October 4th 2013	H(rank)\\
-The first draft of the report is handed in by October 4th 2013	H(rank)\\
-The service should have attracted a minimum of 4 users after the first week	H(rank)\\
-The server must provide 99.99\% uptime	M(rank)\\
-Sensitive user data is never compromised	H(rank)\\
-Return of investments H(rank)\\
-\end{itemize}
+\subsection{Business Risks}
+In table \ref{tab:goal_to_risk_relationship}, each business risk is correlated with the business goal that is threatened by the given risk. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
 
 \begin{table}
-	\begin{tabular}{| l | l | l | l |}
-   	\textbf{Business Risk} & \textbf{Technical risk} & \textbf{Business goals} & \textbf{Rank} \\ \hline
-    
+	\begin{tabular}{| p{4cm} | p{4cm}| l | l |}
+    \hline
+   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{ID}  & \textbf{Technical risk} \\ \hline
+    \multirow{3}{4cm}{The service should have attracted a minimum of 4 users after the first week} & \multirow{3}{4cm}{Downtime causes loss of potential users} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
+    \multirow{6}{4cm}{Sensitive user data is never compromised} & \multirow{2}{4cm}{A user is subject to social engineering} & TR1 & User gives away password \\ & & TR2 & Admin discloses user credentials \\ & \multirow{4}{4cm}{Security weaknesses in the system} & TR3 & Admin credentials bruteforce \\ & & TR4 & User credentials bruteforce \\ & & TR6 & Admin session hijacking \\ & & TR7 & User session hijacking \\ \hline
+    \multirow{3}{4cm}{The server must provide 99.99\% uptime} & \multirow{3}{4cm}{Shortcomings in the system cause unintended downtime} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
+    \multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Security weaknesses in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline
+    The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & A member of the team fails to satisfy a relevant user request & & \\ \hline
     \end{tabular}
+    \caption{Goal-to-risk relationship table.}
+	\label{tab:goal_to_risk_relationship}
 \end{table}
 
-\begin{itemize}
-\item Test logging in
-\item Test creating user
-\item Test renewing password
-\end{itemize}
+\subsection{Risk management}
+From the risk analysis we have chosen to focus on the folowing risks in prioritized order:
+\begin{enumerate}
+\item{SQL injections}
+\item{XSS attacks}
+\item{Login bruteforcing}
+\item{Admin subject to social engineering}
+\end{enumerate}
+
+We have chosen this prioritization of risks by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
+
+SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
+%TODO: Does JSF protect against XSS attacks?
+
 
 \section{System Specification}
 
 \subsection{Functional Requirements}
-Related to the user stories
+\begin{itemize}
+\item A database model supporting users with the following data represented:
+  \begin{itemize}
+  \item User
+      \begin{itemize}
+      \item Usernamae
+      \item Email
+      \item Password
+      \item Name
+      \item Address
+      \end{itemize}
+  \item Hobbies
+  \item Friends/romances
+  \end{itemize}
+\item CRUD for users
+	\begin{itemize}
+    \item Users should be able to view/edit their own data
+    \item Admins should be able to create/delete users
+    \item Users should be able to view others' data partially
+    \end{itemize}
+\item User authentication
+\item Admin authorization
+\item Browse or search functionality
+\end{itemize}
+
+\subsection{Non-functional requirements}
+\begin{itemize}
+\item The application is available through an HTTP connection 99.99\% of the time
+\item A logging framework is enabled that allows the team to identify the underlying causes any breaches that may occur
+\end{itemize}
 
 \subsection{Security Requirements}
-Related to the risk analysis
+\begin{itemize}
+\item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
+\item Database access credentials are never stored in any source code repository
+\item The database is always accessed in a manner that protects against SQL injection
+\item The application guards against cross-site scripting
+\end{itemize}
 
 \section{System Design}
+\subsection{Domain}
+The domain is based on the user stories.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Domain}
+\caption{Domain diagram}
+\label{fig:domain_diagram}
+\end{figure}
+
+\subsection{ER modelling}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{ER}
+\caption{Entity relationship diagram of our data-model}
+\label{fig:er_diagram}
+\end{figure}
+
+
 
 \subsection{Choice of Technology}
 \subsubsection{Frameworks and Technologies}
 The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each.
 \begin{itemize}
-\item JSP
-\item JSF
-\item Tomcat
-\item UFW (firewall)
-\item Hibernate
-\item PostgreSQL
-\item Hashing algorithm
-\item JUnit
-\item Selenium
+\item \textbf{JSF2} is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
+\item \textbf{Tomcat 7} is a web application server, as with the above, is the recommended server technology.
+\item \textbf{UFW}, the Uncomplicated Firewall, is a straightforward firewall implementation for Linux.
+\item \textbf{Hibernate} is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
+\item \textbf{PostgreSQL} is our chosen database technology. Among other things, it provides fine-grained user access control.
+\item \textbf{JUnit and Selenium with Selenide} for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
 \end{itemize}
+
+
+\textbf{SHA-256} algorithm for hashing our users' passwords. It is generally regarded as a considerably secure hashing algorithm.
+We also use a randomly generated 4 character salt for every user.
 
 \subsubsection{Project Tools}
 We have chosen to use the following tools to assist us in our project process.
@@ -173,31 +219,54 @@ Our database is our most valuable asset and therefore we wish to protect it. The
 
 Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
 
+We replaced the error page in order to \textbf{Fail Securely}.
+
+
 \section{Testing}
 \subsection{Tools and Frameworks}
 Testing is essential in order to build secure and functional software systems. To thoroughly test our system we have decided to use two testing strategies; system tests and unit tests.
 
 A testing tool we found fitting to use for system tests is Selenium with JUnit. Selenium allows us to script test cases which input data and submit forms on the webservice.
-...
 
-\subsection{Test Cases (Black-box Test)}
+\subsection{System test cases (Black-box Test)}
+
+\begin{itemize}
+\item Login
+\item SQL injection in input
+\item Access to unauthorized pages
+\item Creating user
+\item Renewing password
+\end{itemize}
 
 
 \section{Hacking}
 \subsection{Plans and ideas}
 In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
 \subsubsection{Social engineering attack}
-A social engineering attack requires some knowledge and analysis of the setting, systemt and people you want to attack.
+A social engineering attack requires some knowledge and analysis of the setting, system and people you want to attack.
 
-The setting at hand is that we are among a set of teams all implementing and trying to secure a webservice which must be "handed in" and shown of to a teacher and possibly the TA. This implies that the people in the teams all trust both the teacher and the TA. We have observed that most of us don't remember the name of the TA on the top of our head and need to look it up on the course blog.
+The setting at hand is that we are among a set of teams all implementing and trying to secure a webservice which must be "handed in" and shown off to a teacher and possibly the TA. This implies that the people in the teams all trust both the teacher and the TA. We have observed that most of us do not remember the name of the TA off the top of our heads and need to look it up on the course blog.
 We can use this knowledge to make a broad social engineering attack on all other groups attempting to obtain confidential information such as usernames and passwords for admin accounts.
 
 The idea is to send an email to the entire class that looks and sounds official and says that it is from ``The TA of System Architecture and Security F2013". We assume that the students are not aware of the name of our TA and that they will trust that if we claim to be him in the email, they will believe us. The email will contain a request for login information to their webservice for an admin account that we need in order to evaluate the teams' progress.
 
-A requirement for this attack to work is that we send the email before (if) the teacher or TA asks for this information from the groups. We plan on sending the email on the 4th of October after class.
+A requirement for this attack to work is that we send the email before (if) the teacher or TA asks for this information from the groups. We plan on sending the email on the 4th of October.
 
-\subsection{Social engineering attack}
-todo...
+\subsection{Fuzz testing}
+Run metasploit or nessus against the others web applications to check for the most common exploits.
+
+\subsection{SQL Injection}
+Introduction...
+
+\textbf{Team 1}
+
+%Inserted the following as username and password in login form:
+%\begin{verbatim}
+%' OR 1 = 1;--
+%\end{verbatim}
+%This resulted in a 502 error followed by errorcode 500 responses on following %attempts at reaching the website.
+%In order to submit the form the in-browser email verification had to be disabled %(achieved by editing the DOM such that type="email" became type="text")
+
 
 \section{Discussion}
 \subsection{Problems}
