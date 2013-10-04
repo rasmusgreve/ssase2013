@@ -1,6 +1,7 @@
 
-package dk.itu.ssase.hb.beans;
+package dk.itu.ssase.hb.listener;
 
+import dk.itu.ssase.hb.beans.StudentBean;
 import dk.itu.ssase.hb.model.UserSession;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -12,7 +13,7 @@ import javax.faces.event.PhaseListener;
  *
  * @author cly
  */
-public class AuthenticationPhaseListener implements PhaseListener {
+public class AuthPhaseListener implements PhaseListener {
     
     private static final String USER_LOGIN_OUTCOME = "login";
     
