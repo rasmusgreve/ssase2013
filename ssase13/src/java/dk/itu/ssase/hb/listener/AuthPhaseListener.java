@@ -1,6 +1,7 @@
 
 package dk.itu.ssase.hb.listener;
 
+import dk.itu.ssase.hb.beans.LoginBean;
 import dk.itu.ssase.hb.beans.StudentBean;
 import dk.itu.ssase.hb.model.UserSession;
 import java.util.logging.Level;
@@ -73,12 +74,12 @@ public class AuthPhaseListener implements PhaseListener {
     
     private boolean userExists(FacesContext context) {
         ExternalContext extContext = context.getExternalContext();
-        return (extContext.getSessionMap().containsKey(StudentBean.USER_SESSION_KEY));
+        return (extContext.getSessionMap().containsKey(LoginBean.USER_SESSION_KEY));
     }
     
     private boolean userAdmin(FacesContext context) {
         ExternalContext extContext = context.getExternalContext();
-        UserSession user = (UserSession) extContext.getSessionMap().get(StudentBean.USER_SESSION_KEY);
+        UserSession user = (UserSession) extContext.getSessionMap().get(LoginBean.USER_SESSION_KEY);
         return user.isAdmin();
     }
     
