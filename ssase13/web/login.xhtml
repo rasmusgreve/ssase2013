@@ -44,15 +44,15 @@ and open the template in the editor.
                         <h:form id="login" class="form-signin">
                             <h2 class="form-signin-heading">Log in</h2>
                             Username: <h:inputText class="form-control" id="username" 
-                                                   value="#{studentbean.username}" maxlength="50"/>        
+                                                   value="#{loginbean.username}" maxlength="50"/>        
                             Password: <h:inputSecret class="form-control" id="password"
-                                                     value="#{studentbean.password}" maxlength="50"/>
+                                                     value="#{loginbean.password}" maxlength="50"/>
 
                         <h:commandButton id="submit" 
                                          type="submit"
                                          value="Login"
                                          class="btn btn-primary btn-block"
-                                         action="#{studentbean.validateUser()}"/>
+                                         action="#{loginbean.validateUser()}"/>
                         </h:form>
                     </div>
                 </div>
