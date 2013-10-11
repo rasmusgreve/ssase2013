@@ -41,21 +41,21 @@ and open the template in the editor.
                 
                 <div class="panel panel-default">
                     <div class="panel-body">
-                <h:form id="login" class="form-signin">
-                    <h2 class="form-signin-heading">Log in</h2>
-                    Username: <h:inputText class="form-control" id="username" 
-                                           value="#{studentbean.username}" maxlength="50"/>        
-                    Password: <h:inputSecret class="form-control" id="password"
-                                             value="#{studentbean.password}" maxlength="50"/>
+                        <h:form id="login" class="form-signin">
+                            <h2 class="form-signin-heading">Log in</h2>
+                            Username: <h:inputText class="form-control" id="username" 
+                                                   value="#{studentbean.username}" maxlength="50"/>        
+                            Password: <h:inputSecret class="form-control" id="password"
+                                                     value="#{studentbean.password}" maxlength="50"/>
 
-                <h:commandButton id="submit" 
-                                 type="submit"
-                                 value="Login"
-                                 class="btn btn-primary btn-block"
-                                 action="#{studentbean.validateUser()}"/>
-                </h:form>
-                </div>
+                        <h:commandButton id="submit" 
+                                         type="submit"
+                                         value="Login"
+                                         class="btn btn-primary btn-block"
+                                         action="#{studentbean.validateUser()}"/>
+                        </h:form>
                     </div>
+                </div>
             </div>
         </f:view>
     </body>
