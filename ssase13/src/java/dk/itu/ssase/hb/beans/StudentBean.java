@@ -33,7 +33,15 @@ public class StudentBean {
         List<Relationship> students = session.createQuery("SELECT r FROM Relationship r").list();
         session.close();
         return students;
-
+    }
+    
+    public List<Relationship> getRelationships(Student student){
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        List<Relationship> rel = session.createQuery(
+                "SELECT r FROM Relationship r WHERE r.student1 = " + student.getId() 
+                + " OR r.student2 = " + student.getId()).list();
+        session.close();
+        return rel;
     }
     
     public String addFriend() {
