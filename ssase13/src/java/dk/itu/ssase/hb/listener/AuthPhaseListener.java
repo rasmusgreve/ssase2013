@@ -62,7 +62,9 @@ public class AuthPhaseListener implements PhaseListener {
 
     public void beforePhase(PhaseEvent event) {
         // TODO check why session is removed?
-        //event.getFacesContext().getExternalContext();
+        FacesContext context = event.getFacesContext();
+       
+
     }
 
     public PhaseId getPhaseId() {
