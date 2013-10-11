@@ -1,4 +1,4 @@
-﻿--
+--
 -- PostgreSQL database dump
 --
 
@@ -36,27 +36,25 @@ SET default_tablespace = '';
 
 SET default_with_oids = false;
 
---
--- TOC entry 173 (class 1259 OID 16429)
--- Name: belief; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-DROP TABLE belief;
-CREATE TABLE belief (
+
+DROP TABLE interest;
+CREATE TABLE interest (
     id integer NOT NULL UNIQUE,
     student integer NOT NULL,
-    religion integer NOT NULL
+    hobby integer NOT NULL
 );
 
-ALTER TABLE public.belief OWNER TO postgres;
+ALTER TABLE public.interest OWNER TO postgres;
 
-CREATE SEQUENCE belief_id_seq
+CREATE SEQUENCE interest_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-ALTER TABLE public.belief_id_seq OWNER TO postgres;
-ALTER SEQUENCE belief_id_seq OWNED BY belief.id;
+
+ALTER TABLE public.interest_id_seq OWNER TO postgres;
+ALTER SEQUENCE interest_id_seq OWNED BY interest.id;
 
 DROP TABLE hobby;
 CREATE TABLE hobby (
@@ -80,25 +78,6 @@ ALTER TABLE public.hobby_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE hobby_id_seq OWNED BY hobby.id;
 
-
-DROP TABLE interest;
-CREATE TABLE interest (
-    id integer NOT NULL UNIQUE,
-    student integer NOT NULL,
-    hobby integer NOT NULL
-);
-
-ALTER TABLE public.interest OWNER TO postgres;
-
-CREATE SEQUENCE interest_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-ALTER TABLE public.interest_id_seq OWNER TO postgres;
-ALTER SEQUENCE interest_id_seq OWNED BY interest.id;
 
 DROP TABLE relationship;
 CREATE TABLE relationship (
