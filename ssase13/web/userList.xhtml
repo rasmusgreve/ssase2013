@@ -7,21 +7,66 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
         <title>User list</title>
+        
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <style>
+        body {margin:30px;}
+        </style>
     </head>
     <body>
-        <h:link target="#{studentbean.logout()}">Logout</h:link>
-        <br/>
+        <div class="container">
+            <nav class="navbar navbar-default" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">FriendSpace</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="./">Find friends</a></li>
+                <li><h:outputLink target="userEdit.xhtml">My profile</h:outputLink></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><h:link target="#{studentbean.logout()}">Logout (<h:outputText value="#{studentbean.username}"/>)</h:link></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </nav>
         
-        <ui:repeat var="userloop" value="#{studentbean.getUsers()}">
-            <f:view>                
-                <h:outputLink  target="userEdit.xhtml"><h:outputText value="#{userloop.name}"/></h:outputLink>
-                <h:link target="#{studentbean.addFriend()}" style="float:right;">Add friend</h:link>
-            </f:view>
-            <br/>
-        </ui:repeat>
-        <h:outputLink rendered="#{user.isadmin}" target="createUser.xhtml">Create user</h:outputLink>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well">
+                        <h1>Find friends</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th><th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ui:repeat var="userloop" value="#{studentbean.getUsers()}">
+                                    <tr>
+                                        <td><h:outputText value="#{userloop.name}"/></td>
+                                        <td><h:link target="#{studentbean.addFriend()}" class="pull-right btn btn-primary btn-sm">Add friend</h:link></td>
+                                    </tr>
+                                </ui:repeat>
+                            </tbody>
+                        </table>
+                        <h:outputLink rendered="#{user.isadmin}" target="createUser.xhtml" class="btn btn-primary btn-lg">Create user</h:outputLink>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
