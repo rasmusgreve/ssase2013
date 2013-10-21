@@ -71,12 +71,9 @@ public class StudentBean {
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
-        List<Hobby> hobbies = new ArrayList<Hobby>();
         
-        List<Interest> interests = session.createQuery("SELECT i FROM Interest i WHERE i.student.id = :student").setInteger("student", currentSession.getStudentId()).list();
-        for (Interest interest : interests) {
-            interest.getHobby();
-        }
+        List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :student").setInteger("student", currentSession.getStudentId()).list();
+
         
         return hobbies;
     }
@@ -112,7 +109,7 @@ public class StudentBean {
         Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
         Student student2 = (Student) session.get(Student.class, userId);
         relationship.setStudent1(student1);
-        relationship.setStudent2(student2);
+        relationship.setStudent2(student2);        
         session.save(relationship);
         tx.commit();
         session.close();
