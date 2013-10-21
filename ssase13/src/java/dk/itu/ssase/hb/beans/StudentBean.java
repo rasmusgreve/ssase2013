@@ -8,6 +8,8 @@ import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Session;
 
 /**
@@ -44,7 +46,8 @@ public class StudentBean {
         return rel;
     }
     
-    public String addFriend() {
+    public String addFriend(int userId) {
+         Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Student id: "+userId);
         return "fail";
     }
     
