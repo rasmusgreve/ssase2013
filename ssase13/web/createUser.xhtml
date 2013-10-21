@@ -11,8 +11,11 @@ and open the template in the editor.
     
     <head>
         <title>Create user</title>
+        <ui:include src="bootstrap.xhtml"/>
     </head>
     <body>
+        <div class="container">
+            <ui:include src="header.xhtml"/>
         <div>Create your user here</div>
         <f:view>
         <h:form id="create">            
@@ -61,5 +64,6 @@ and open the template in the editor.
             <h:messages style="color: red" globalOnly="true"/>
         </h:form>
     </f:view>
+        </div>
     </body>
 </html>
