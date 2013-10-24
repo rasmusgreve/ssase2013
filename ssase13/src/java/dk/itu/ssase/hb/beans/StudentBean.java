@@ -156,16 +156,23 @@ public class StudentBean {
 
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        tx.begin();
-        Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
-        Student student2 = (Student) session.get(Student.class, userId);
-        relationship.setStudent1(student1);
-        relationship.setStudent2(student2);        
-        session.save(relationship);
-        tx.commit();
-        session.close();
-
+        
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
+            Student student2 = (Student) session.get(Student.class, userId);
+            relationship.setStudent1(student1);
+            relationship.setStudent2(student2);        
+            session.save(relationship);
+            tx.commit();
+        } catch(Exception ex) {
+            if(tx!=null)
+                tx.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
         Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Relationship id: " + relationship.getId());
         return "success";
     }
