@@ -23,12 +23,12 @@ and open the template in the editor.
                     <div class="well">
                         <h1>Find friends</h1>
                         <h:form>
-                        <h:dataTable  var="userloop" value="#{studentbean.getUsers()}">
-                            
-                            <h:column rowHeader="true">Name</h:column>
+                        <h:dataTable  var="userloop" value="#{studentbean.findNewUsers()}">                            
                             
                             <h:column>#{userloop.name}</h:column>
-                            <h:column><h:commandLink action="#{studentbean.addFriend(userloop.id)}" class="pull-right btn btn-primary btn-sm">Add friend</h:commandLink></h:column>                        
+                            <h:column>#{userloop.friend}</h:column>
+                            
+                            <h:column><h:commandLink action="#{studentbean.addFriend(userloop.id)}" class="pull-right btn btn-primary btn-sm" rendered="#{not userLoop.friend}">Add friend</h:commandLink></h:column>                        
                         </h:dataTable>
                         </h:form>
                         <h:outputLink rendered="#{user.admin}" value="createUser.xhtml">Create user</h:outputLink>

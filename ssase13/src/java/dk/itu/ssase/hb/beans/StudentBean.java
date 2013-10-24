@@ -8,9 +8,11 @@ import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.beans.model.Interest;
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,12 +30,62 @@ public class StudentBean {
 
     public List<Student> getUsers() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        //Transaction transaction = session.beginTransaction();
-        //transaction.begin();
         List<Student> students = session.createQuery("SELECT s FROM Student s").list();
         session.close();
         return students;
-
+    }
+    
+    public List<StudentView> findNewUsers() {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        //List<Student> students = session.createQuery("SELECT s FROM Student s JOIN s.relationshipsForStudent1 r1 JOIN r1.student2 s2 WHERE s.id != :currentstudent AND s2.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        List<Student> students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        List<StudentView> users = new ArrayList<StudentView>();
+        for (Student student : students) {
+            StudentView view = new StudentView();
+            view.setId(student.getId());
+            view.setName(student.getName());
+            Iterator<Relationship> iter = student.getRelationshipsForStudent1().iterator();
+            Relationship rela;
+            while(iter.hasNext()) {
+                rela = iter.next();
+                if(currentSession.getStudentId() == rela.getStudent2().getId()) {
+                    view.setFriend(true);
+                }
+            }
+            Iterator<Relationship> iter2 = student.getRelationshipsForStudent2().iterator();
+            Relationship rela2;
+            while(iter2.hasNext()) {
+                rela2 = iter2.next();
+                if(currentSession.getStudentId() == rela2.getStudent1().getId()) {
+                    view.setFriend(true);
+                }
+            }
+            
+            users.add(view);
+        }
+        
+        //List<Student> students = session.createQuery("SELECT s FROM Student s RIGHT OUTER JOIN s.relationshipsForStudent2 r WHERE r IS NULL OR r.student1.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        session.close();
+        return users;
+    }
+    
+    public List<StudentView> findUsers() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        List<StudentView> users = new ArrayList<StudentView>();
+        List<Student> students = session.createQuery("SELECT s FROM Student s").list();        
+        Student currentStudent = (Student) session.get(Student.class,currentSession.getStudentId());
+        currentStudent.getRelationshipsForStudent1();
+        for (Student student : students) {
+            StudentView view = new StudentView();
+            view.setId(student.getId());
+            view.setName(student.getName());
+        }
+        session.close();
+        return users;
     }
     
     public String addHobby() {
