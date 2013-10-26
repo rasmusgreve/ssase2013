@@ -10,6 +10,8 @@ import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -71,6 +73,7 @@ public class CreateStudentBean {
             session.close();
             return "fail";
         }
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
         return "success";
     }
 

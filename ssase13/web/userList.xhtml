@@ -24,16 +24,18 @@ and open the template in the editor.
                         <h1>Find friends</h1>
                         <h:form>
                             <h:dataTable rowClasses="row" columnClasses="col-md-8,col-md-2,col-md-2" var="userloop" value="#{studentbean.findNewUsers()}">                                                           
-    				<h:column>
-                                    <f:facet name="header" class="col-md-8">Name</f:facet>
-                                    #{userloop.name}
-                                </h:column>
                                 <h:column>
-                                    <f:facet name="header" class="col-md-2">Friend</f:facet>
-                                    #{userloop.friend}
+                                    <f:facet name="header"></f:facet>
+                                    <h:outputText value="#{userloop.name}"/>
+                                </h:column>
+                                <h:column headerClass="col-md-8">
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:outputText value="#{userloop.friend}"/>
                                 </h:column>
 
-                                <h:column><h:commandLink action="#{studentbean.addFriend(userloop.id)}" class="pull-right btn btn-primary btn-sm" rendered="#{not userLoop.friend}">Add friend</h:commandLink></h:column>                        
+                                <h:column headerClass="col-md-2">
+                                    <f:facet name="header">Friend</f:facet>
+                                    <h:commandLink action="#{studentbean.addFriend(userloop.id)}" class="pull-right btn btn-primary btn-sm" rendered="#{not userLoop.friend}">Add friend</h:commandLink></h:column>                        
                             </h:dataTable>
                         </h:form>
                         <h:outputLink rendered="#{user.admin}" value="createUser.xhtml">Create user</h:outputLink>

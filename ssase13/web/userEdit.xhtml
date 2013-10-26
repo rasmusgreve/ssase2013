@@ -16,17 +16,20 @@ and open the template in the editor.
         <div class="container">
             <ui:include src="header.xhtml"/>
             
-            <h:dataTable value="#{studentbean.findCurrentStudentsHobbies()}" var="hobby">
+            <h:dataTable rowClasses="row" value="#{studentbean.findCurrentStudentsHobbies()}" var="hobby">
                 <h:column>
                     <h:outputText value="#{hobby.type}"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Hobby</f:facet>
+                </h:column>
             </h:dataTable>
             <div/>
-            <h:form>
-                <h:selectOneMenu value="#{studentbean.hobby}">
+            <h:form class="form-inline">
+                <h:selectOneMenu class="form-control" value="#{studentbean.hobby}">
                     <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
                 </h:selectOneMenu>
-                <h:commandLink action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
+                <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
             </h:form>
         </div>
             
