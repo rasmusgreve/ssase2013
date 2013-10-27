@@ -6,6 +6,7 @@ package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.beans.model.Interest;
+import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.model.StudentView;
@@ -27,6 +28,7 @@ import org.hibernate.Transaction;
 public class StudentBean {
     
     private int hobby;
+    private RelaType relatype;
 
     public List<Student> getUsers() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
@@ -50,7 +52,7 @@ public class StudentBean {
             Relationship rela;
             while(iter.hasNext()) {
                 rela = iter.next();
-                if(currentSession.getStudentId() == rela.getStudentByStudent2().getId()) {
+                if(currentSession.getStudentId() == rela.getStudent2().getId()) {
                     view.setFriend(true);
                 }
             }
@@ -58,7 +60,7 @@ public class StudentBean {
             Relationship rela2;
             while(iter2.hasNext()) {
                 rela2 = iter2.next();
-                if(currentSession.getStudentId() == rela2.getStudentByStudent1().getId()) {
+                if(currentSession.getStudentId() == rela2.getStudent1().getId()) {
                     view.setFriend(true);
                 }
             }
@@ -162,8 +164,10 @@ public class StudentBean {
             tx = session.beginTransaction();
             Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
             Student student2 = (Student) session.get(Student.class, userId);
-            relationship.setStudentByStudent1(student1);
-            relationship.setStudentByStudent2(student2);        
+            relationship.setStudent1(student1);
+            relationship.setStudent2(student2);   
+            //TODO change to dynamic
+            relationship.setType(RelaType.friend);
             session.save(relationship);
             tx.commit();
         } catch(Exception ex) {
@@ -177,6 +181,11 @@ public class StudentBean {
         return "success";
     }
 
+    public String approveFriend(int userId) {
+        return "success";
+    }
+
+    
     /**
      * @return the hobby
      */

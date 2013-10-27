@@ -10,8 +10,10 @@
     <many-to-one class="Student" column="student1" name="student1" fetch="select"/>
     <many-to-one class="Student" column="student2" name="student2" fetch="select"/>
 
-        <property name="type" type="int">
-            <column name="type" not-null="true" />
+        <property name="type">      
+            <type name="org.hibernate.type.EnumType">
+         <param name="enumClass">dk.itu.ssase.hb.beans.model.RelaType</param>
+      </type>
         </property>
         <property name="approved" type="java.lang.Boolean">
             <column name="approved" />

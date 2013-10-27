@@ -10,25 +10,25 @@ public class Relationship  implements java.io.Serializable {
 
 
      private int id;
-     private Student studentByStudent2;
-     private Student studentByStudent1;
-     private int type;
+     private Student student2;
+     private Student student1;
+     private RelaType type;
      private Boolean approved;
 
     public Relationship() {
     }
 
 	
-    public Relationship(int id, Student studentByStudent2, Student studentByStudent1, int type) {
+    public Relationship(int id, Student studentByStudent2, Student studentByStudent1, RelaType type) {
         this.id = id;
-        this.studentByStudent2 = studentByStudent2;
-        this.studentByStudent1 = studentByStudent1;
+        this.student2 = studentByStudent2;
+        this.student1 = studentByStudent1;
         this.type = type;
     }
-    public Relationship(int id, Student studentByStudent2, Student studentByStudent1, int type, Boolean approved) {
+    public Relationship(int id, Student studentByStudent2, Student studentByStudent1, RelaType type, Boolean approved) {
        this.id = id;
-       this.studentByStudent2 = studentByStudent2;
-       this.studentByStudent1 = studentByStudent1;
+       this.student2 = studentByStudent2;
+       this.student1 = studentByStudent1;
        this.type = type;
        this.approved = approved;
     }
@@ -40,25 +40,25 @@ public class Relationship  implements java.io.Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    public Student getStudentByStudent2() {
-        return this.studentByStudent2;
+    public Student getStudent2() {
+        return this.student2;
     }
     
-    public void setStudentByStudent2(Student studentByStudent2) {
-        this.studentByStudent2 = studentByStudent2;
+    public void setStudent2(Student student2) {
+        this.student2 = student2;
     }
-    public Student getStudentByStudent1() {
-        return this.studentByStudent1;
+    public Student getStudent1() {
+        return this.student1;
     }
     
-    public void setStudentByStudent1(Student studentByStudent1) {
-        this.studentByStudent1 = studentByStudent1;
+    public void setStudent1(Student student1) {
+        this.student1 = student1;
     }
-    public int getType() {
+    public RelaType getType() {
         return this.type;
     }
     
-    public void setType(int type) {
+    public void setType(RelaType type) {
         this.type = type;
     }
     public Boolean getApproved() {
