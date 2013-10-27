@@ -1,5 +1,5 @@
 package dk.itu.ssase.hb.beans.model;
-// Generated 03-10-2013 19:21:56 by Hibernate Tools 3.2.1.GA
+// Generated 27-10-2013 17:14:26 by Hibernate Tools 3.2.1.GA
 
 
 
