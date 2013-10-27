@@ -12,5 +12,5 @@ import java.io.Serializable;
  */
 
 public enum RelaType implements Serializable {
-    friend, family, acquaintance
+    friend, romance
 }

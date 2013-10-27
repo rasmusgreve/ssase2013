@@ -29,7 +29,7 @@ and open the template in the editor.
                                 </h:column>
                                 <h:column headerClass="col-md-8">
                                     <f:facet name="header">Name</f:facet>
-                                    <h:outputText value="#{userloop.friend}"/>
+                                    <h:outputText rendered="#{userloop.friend}" value="#{userloop.relatype}"/>
                                 </h:column>
 
                                 <h:column headerClass="col-md-2">

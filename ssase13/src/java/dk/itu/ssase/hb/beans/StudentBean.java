@@ -54,6 +54,7 @@ public class StudentBean {
                 rela = iter.next();
                 if(currentSession.getStudentId() == rela.getStudent2().getId()) {
                     view.setFriend(true);
+                    view.setRelatype(rela.getType());
                 }
             }
             Iterator<Relationship> iter2 = student.getRelationshipsForStudent2().iterator();
@@ -62,6 +63,7 @@ public class StudentBean {
                 rela2 = iter2.next();
                 if(currentSession.getStudentId() == rela2.getStudent1().getId()) {
                     view.setFriend(true);
+                    view.setRelatype(rela2.getType());
                 }
             }
             
