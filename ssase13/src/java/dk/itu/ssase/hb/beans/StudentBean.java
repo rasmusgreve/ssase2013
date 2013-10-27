@@ -50,7 +50,7 @@ public class StudentBean {
             Relationship rela;
             while(iter.hasNext()) {
                 rela = iter.next();
-                if(currentSession.getStudentId() == rela.getStudent2().getId()) {
+                if(currentSession.getStudentId() == rela.getStudentByStudent2().getId()) {
                     view.setFriend(true);
                 }
             }
@@ -58,7 +58,7 @@ public class StudentBean {
             Relationship rela2;
             while(iter2.hasNext()) {
                 rela2 = iter2.next();
-                if(currentSession.getStudentId() == rela2.getStudent1().getId()) {
+                if(currentSession.getStudentId() == rela2.getStudentByStudent1().getId()) {
                     view.setFriend(true);
                 }
             }
@@ -162,8 +162,8 @@ public class StudentBean {
             tx = session.beginTransaction();
             Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
             Student student2 = (Student) session.get(Student.class, userId);
-            relationship.setStudent1(student1);
-            relationship.setStudent2(student2);        
+            relationship.setStudentByStudent1(student1);
+            relationship.setStudentByStudent2(student2);        
             session.save(relationship);
             tx.commit();
         } catch(Exception ex) {

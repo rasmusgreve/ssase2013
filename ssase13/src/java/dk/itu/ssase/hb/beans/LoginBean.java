@@ -39,7 +39,7 @@ public class LoginBean {
             if(encodedPassword.equals(student.getPassword())) {                    
                 UserSession user = new UserSession();
                 user.setStudentId(student.getId());
-                user.setAdmin(student.isIsadmin());
+                user.setAdmin(student.getIsadmin());
                 context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authenticated user "+student.getName());           

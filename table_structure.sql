@@ -84,7 +84,8 @@ CREATE TABLE relationship (
 	id integer NOT NULL UNIQUE,
     student1 integer NOT NULL,
     student2 integer NOT NULL,
-    type text
+    type integer NOT NULL,
+	approved boolean DEFAULT false
 );
 ALTER TABLE public.relationship OWNER TO postgres;
 CREATE SEQUENCE relationship_id_seq

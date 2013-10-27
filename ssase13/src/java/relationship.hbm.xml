@@ -10,8 +10,11 @@
     <many-to-one class="Student" column="student1" name="student1" fetch="select"/>
     <many-to-one class="Student" column="student2" name="student2" fetch="select"/>
 
-        <property name="type" type="string">
-            <column name="type" />
+        <property name="type" type="int">
+            <column name="type" not-null="true" />
+        </property>
+        <property name="approved" type="java.lang.Boolean">
+            <column name="approved" />
         </property>
   </class>
 </hibernate-mapping>
