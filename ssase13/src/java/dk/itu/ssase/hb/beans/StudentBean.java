@@ -201,4 +201,32 @@ public class StudentBean {
     public void setHobby(int hobby) {
         this.hobby = hobby;
     }
+    
+    public void hugFriend(Student friend) {
+        // If hug entry (friend -> this) already exists:
+            // Set hug to mutual.
+        // Else:
+            // Create new entry (this -> friend) (mutual = 0)
+    }
+    
+    public /*Hug*/ void getHug(Student friend) {
+        // Return hug entry (friend -> this) or (this -> friend).
+    }
+    
+    public boolean myHug(/*Hug hug*/) { // Move to Hug bean.
+        // Return true if hug satisfies (this -> friend).
+        return false;
+    }
+    
+    public boolean mutualHug(/*Hug hug*/) { // Move to Hug bean.
+        // Return true if hug is mutual.
+        return false;
+    }
+    
+    public void cancelHug(/*Hug hug*/) {
+        // If hug satisfies (this -> friend):
+            // Delete hug entry.
+        // Else:
+            // Set hug to NOT mutual.
+    }
 }
