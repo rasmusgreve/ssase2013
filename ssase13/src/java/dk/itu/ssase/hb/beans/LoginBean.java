@@ -33,7 +33,7 @@ public class LoginBean {
         FacesContext context = FacesContext.getCurrentInstance();
         
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Student student = (Student)session.createQuery("select s from Student s where s.name = :username").setText("username", getUsername()).uniqueResult();
+        Student student = (Student)session.createQuery("select s from Student s where s.handle = :username").setText("username", getUsername()).uniqueResult();
         if(student!=null) {
             String encodedPassword = PasswordUtil.hashPassword(getPassword(), student.getSalt());
             if(encodedPassword.equals(student.getPassword())) {                    
