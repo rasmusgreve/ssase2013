@@ -1,57 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="dk.itu.ssase.hb.beans.model">
-  <class name="Student" rowid="id" table="student">
-    <id name="id" type="int"> 
+  <class name="dk.itu.ssase.hb.beans.model.Student" rowid="id" table="student">
+    <id name="id" type="int">
       <generator class="sequence">
         <param name="sequence">student_id_seq</param>
       </generator>
     </id>
-    
-        <property name="name" type="string">
-            <column name="name" />
+    <property name="name" type="string">
+      <column name="name"/>
+    </property>
+        <property name="surname" type="string">
+            <column name="surname" />
         </property>
-        <property name="address" type="string">
-            <column name="address" />
+        <property name="handle" type="string">
+            <column name="handle" />
         </property>
-        <property name="email" type="string">
-            <column name="email" />
-        </property>
-        <property name="password" type="string">
-            <column name="password" />
-        </property>
-        <property name="birthdate" type="date">
-            <column name="birthdate" length="13" />
-        </property>
-    <property name="privacy">        
+    <property name="address" type="string">
+      <column name="address"/>
+    </property>
+    <property name="email" type="string">
+      <column name="email"/>
+    </property>
+    <property name="password" type="string">
+      <column name="password"/>
+    </property>
+    <property name="privacy">
       <type name="org.hibernate.type.EnumType">
-         <param name="enumClass">dk.itu.ssase.hb.beans.model.Privacy</param>
+        <param name="enumClass">dk.itu.ssase.hb.beans.model.Privacy</param>
       </type>
     </property>
-        <property name="salt" type="string">
-            <column name="salt" />
-        </property>
-        <property name="isadmin" type="java.lang.Boolean">
-            <column name="isadmin" />
-        </property>
-    
-        <set name="interests" inverse="true">
-            <key>
-                <column name="student" not-null="true" />
-            </key>
-            <one-to-many class="Interest" />
-        </set>
-        <set name="relationshipsForStudent2" inverse="true">
-            <key>
-                <column name="student2" not-null="true" />
-            </key>
-            <one-to-many class="Relationship" />
-        </set>
-        <set name="relationshipsForStudent1" inverse="true">
-            <key>
-                <column name="student1" not-null="true" />
-            </key>
-            <one-to-many class="Relationship" />
-        </set>
+    <property name="salt" type="string">
+      <column name="salt"/>
+    </property>
+    <property name="isadmin" type="java.lang.Boolean">
+      <column name="isadmin"/>
+    </property>
+    <set inverse="true" name="interests">
+      <key>
+        <column name="student" not-null="true"/>
+      </key>
+      <one-to-many class="Interest"/>
+    </set>
+    <set inverse="true" name="relationshipsForStudent2">
+      <key>
+        <column name="student2" not-null="true"/>
+      </key>
+      <one-to-many class="Relationship"/>
+    </set>
+    <set inverse="true" name="relationshipsForStudent1">
+      <key>
+        <column name="student1" not-null="true"/>
+      </key>
+      <one-to-many class="Relationship"/>
+    </set>
   </class>
 </hibernate-mapping>

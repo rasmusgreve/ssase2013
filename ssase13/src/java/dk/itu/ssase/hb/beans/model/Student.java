@@ -1,8 +1,7 @@
 package dk.itu.ssase.hb.beans.model;
-// Generated 27-10-2013 17:14:26 by Hibernate Tools 3.2.1.GA
+// Generated Nov 1, 2013 2:16:58 PM by Hibernate Tools 3.2.1.GA
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,10 +13,11 @@ public class Student  implements java.io.Serializable {
 
      private int id;
      private String name;
+     private String surname;
+     private String handle;
      private String address;
      private String email;
      private String password;
-     private Date birthdate;
      private Privacy privacy;
      private String salt;
      private Boolean isadmin;
@@ -32,13 +32,14 @@ public class Student  implements java.io.Serializable {
     public Student(int id) {
         this.id = id;
     }
-    public Student(int id, String name, String address, String email, String password, Date birthdate, Privacy privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
+    public Student(int id, String name, String surname, String handle, String address, String email, String password, Privacy privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
        this.id = id;
        this.name = name;
+       this.surname = surname;
+       this.handle = handle;
        this.address = address;
        this.email = email;
        this.password = password;
-       this.birthdate = birthdate;
        this.privacy = privacy;
        this.salt = salt;
        this.isadmin = isadmin;
@@ -61,6 +62,20 @@ public class Student  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    public String getSurname() {
+        return this.surname;
+    }
+    
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+    public String getHandle() {
+        return this.handle;
+    }
+    
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
     public String getAddress() {
         return this.address;
     }
@@ -81,13 +96,6 @@ public class Student  implements java.io.Serializable {
     
     public void setPassword(String password) {
         this.password = password;
-    }
-    public Date getBirthdate() {
-        return this.birthdate;
-    }
-    
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
     }
     public Privacy getPrivacy() {
         return this.privacy;

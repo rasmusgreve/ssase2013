@@ -100,6 +100,26 @@ ALTER TABLE public.relationship_id_seq OWNER TO postgres;
 ALTER SEQUENCE relationship_id_seq OWNED BY relationship.id;
 
 
+DROP TABLE hug;
+CREATE TABLE hug (
+	id integer NOT NULL UNIQUE,
+    student1 integer NOT NULL,
+    student2 integer NOT NULL,
+	expiration date,
+	mutual boolean DEFAULT false
+);
+ALTER TABLE public.hug OWNER TO postgres;
+CREATE SEQUENCE hug_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.hug_id_seq OWNER TO postgres;
+ALTER SEQUENCE hug_id_seq OWNED BY hug.id;
+
 
 --
 -- TOC entry 171 (class 1259 OID 16399)
@@ -109,10 +129,11 @@ DROP TABLE student;
 CREATE TABLE student (
     id integer NOT NULL UNIQUE,
     name text,
+	surname text,
+	handle text,
     address text,
     email text,
     password text,
-    birthdate date,
     privacy integer,
     salt text,
     isadmin boolean DEFAULT false
@@ -146,6 +167,8 @@ ALTER SEQUENCE student_id_seq OWNED BY student.id;
 
 ALTER TABLE relationship ADD CONSTRAINT student1_id FOREIGN KEY (student1) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE relationship ADD CONSTRAINT student2_id FOREIGN KEY (student2) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE hug ADD CONSTRAINT student1_id FOREIGN KEY (hugstudent1) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE hug ADD CONSTRAINT student2_id FOREIGN KEY (hugstudent2) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE interest ADD CONSTRAINT student3_id FOREIGN KEY (student) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE interest ADD CONSTRAINT hobby1_id FOREIGN KEY (hobby) REFERENCES hobby (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
@@ -200,6 +223,8 @@ ALTER TABLE ONLY student
 ALTER TABLE ONLY relationship
     ADD CONSTRAINT relationship_primary PRIMARY KEY (id);
 
+ALTER TABLE ONLY hug
+    ADD CONSTRAINT hug_primary PRIMARY KEY (id);
 
 --
 -- TOC entry 1989 (class 0 OID 0)
