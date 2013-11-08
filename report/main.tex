@@ -21,25 +21,7 @@ The report is structured first with a rundown of the user stories we have identi
 
 Our final chapter is the discussion, where we highlight some of the issues we have faced during the project and how we might work to mitigate them for the remainder of the course.
 
-\section{User Stories}
-According to the requirements, we define our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective.
-
-Use cases
-\begin{itemize}
-\item A student views his own information
-\item A student edits his own information
-\item A student chooses what information to share
-\item A student views another student’s information
-\item A student forms a relationship with another student
-\item An administrator creates a new user
-\item An administrator deletes an existing user
-\item An administrator views the information of a user
-\end{itemize}
-
-\subsection{Requirements}
-Based on the security principles we have derived the following requirements.
-
-\section{Risk Analysis and Management}
+\section{Strategy}
 
 We start by analyzing and ranking the business goals in order to provide priorities for which risks we will respond to first.
 \subsection{Business Goals}
@@ -66,7 +48,21 @@ The application should be usable by a novice computer user on small screens (sma
 \textbf{Sensitive user data is never compromised} because it will provide bad word of mouth about the application which can damage the reputation of the company/team permanently.
 // We imagine login as a remedy
 
+\subsection{Security Principles}
 
+Our production server runs Linux and provides the access control for users' access to the file system.
+
+We have attempted to restrict privilege given on our server so users are given 
+\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+
+
+Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+
+Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
+
+We replaced the error page in order to \textbf{Fail Securely}.
+
+\subsection{Risk Analysis and Management}
 
 \subsection{Technical Risks}
 The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
@@ -129,7 +125,26 @@ SQL injections and XSS attacks are relatively easy to protect against in our set
 \caption{Forest View diagram}
 \label{fig:forest_view}
 \end{figure}
+
 \section{System Specification}
+
+\subsection{User Stories}
+According to the requirements, we define our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective.
+
+Use cases
+\begin{itemize}
+\item A student views his own information
+\item A student edits his own information
+\item A student chooses what information to share
+\item A student views another student’s information
+\item A student forms a relationship with another student
+\item An administrator creates a new user
+\item An administrator deletes an existing user
+\item An administrator views the information of a user
+\end{itemize}
+
+\subsection{Requirements}
+Based on the security principles we have derived the following requirements.
 
 \subsection{Functional Requirements}
 \begin{itemize}
@@ -171,10 +186,10 @@ SQL injections and XSS attacks are relatively easy to protect against in our set
 \item The application guards against cross-site scripting
 \end{itemize}
 
-\section{System Design}
+\section{Architecture}
+
 \subsection{Domain}
 The domain is based on the user stories.
-
 
 \begin{figure}[h!]
 \centering
@@ -218,22 +233,6 @@ We have chosen to use the following tools to assist us in our project process.
 \item \textbf{Google Docs} is what we use for taking notes and making on-the-fly documents, spreadsheets or presentations that we might need throughout the project. It is very easy to share things here, but the text processing tool is not that powerful, so it is not where we write our report.
 \item \textbf{writeLaTeX} is a web application that offers collaboration on LaTeX documents. This is the tool we use for writing the report, since LaTeX is a powerful text processing tool and writeLaTeX gives us the collaborative functionality.
 \end{itemize}
-
-\subsection{Architecture}
-
-\subsubsection{Principles}
-
-Our production server runs Linux and provides the access control for users' access to the file system.
-
-We have attempted to restrict privilege given on our server so users are given 
-\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
-
-
-Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
-
-Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
-
-We replaced the error page in order to \textbf{Fail Securely}.
 
 
 \section{Testing}
