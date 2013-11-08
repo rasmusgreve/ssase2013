@@ -15,3 +15,9 @@
 /ssase13/dist/
 /Entities/build/
 /Entities/dist/private.properties
+/Entities/dist/
+/report/*.aux
+
+/report/*.gz
+
+/report/*.log
