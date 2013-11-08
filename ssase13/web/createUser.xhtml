@@ -20,12 +20,24 @@ and open the template in the editor.
         <f:view>
         <h:form id="create">            
             <h:panelGrid columns="3" border="0" class="form-group">
-                <h:outputLabel for="create:username" value="Username:"/> <h:inputText id="username" 
+                <h:outputLabel for="create:username" value="Name:"/> <h:inputText id="username" 
                                        class="form-control"
                                        requiredMessage="*"
                                        value="#{createstudentbean.studentInput.name}"
                                        required="true"/>
                           <h:message for="create:username" style="color: red"/>
+                <h:outputLabel for="create:surname" value="Surname:"/> <h:inputText id="surname" 
+                                       class="form-control"
+                                       requiredMessage="*"
+                                       value="#{createstudentbean.studentInput.surname}"
+                                       required="true"/>
+                          <h:message for="create:surname" style="color: red"/>
+                <h:outputLabel for="create:handle" value="Handle:"/> <h:inputText id="handle" 
+                                       class="form-control"
+                                       requiredMessage="*"
+                                       value="#{createstudentbean.studentInput.handle}"
+                                       required="true"/>
+                          <h:message for="create:handle" style="color: red"/>
                 <h:outputLabel for="create:password" value="Password:"/>  <h:inputSecret id="password"
                                          class="form-control"
                                          requiredMessage="*"
@@ -41,13 +53,6 @@ and open the template in the editor.
                                          required="true"/>
                           <h:message for="create:address" style="color: red"/>
                           
-                          
-               <h:outputLabel for="create:date" value="Birth date:"/> <h:inputText id="birthdate"  
-                                         class="form-control"  
-                                         requiredMessage="*"
-                                         value="#{createstudentbean.studentInput.birthdate}"
-                                         required="true"><f:convertDateTime dateStyle="short"/></h:inputText>
-                          <h:message for="create:date" style="color: red"/>
                           
                 <h:outputLabel for="create:privacy" value="Privacy:"/>  <h:selectOneMenu
                                          class="form-control"   id="privacy" value="#{createstudentbean.studentInput.privacy}"><f:selectItems value="#{createstudentbean.privacyOptions}"/></h:selectOneMenu>

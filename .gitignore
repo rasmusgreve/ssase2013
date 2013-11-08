@@ -14,4 +14,4 @@
 /ssase13/build/
 /ssase13/dist/
 /Entities/build/
-private.properties
+/Entities/dist/private.properties

@@ -35,7 +35,7 @@ public class CreateStudentBean {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Student existingStudent = (Student) session.createQuery("select s from Student s where s.name = :username").setString("username", getStudentInput().getName()).uniqueResult();
+            Student existingStudent = (Student) session.createQuery("select s from Student s where s.handle = :username").setString("username", getStudentInput().getName()).uniqueResult();
             if (existingStudent != null) {
                 tx.commit();
                 session.close();
