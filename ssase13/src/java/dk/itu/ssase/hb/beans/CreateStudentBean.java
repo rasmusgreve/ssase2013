@@ -4,7 +4,6 @@
  */
 package dk.itu.ssase.hb.beans;
 
-import dk.itu.ssase.hb.beans.model.Privacy;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
@@ -76,11 +75,7 @@ public class CreateStudentBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
         return "success";
     }
-
-    public Privacy[] getPrivacyOptions() {
-        return Privacy.values();
-    }
-
+    
     /**
      * @return the studentInput
      */

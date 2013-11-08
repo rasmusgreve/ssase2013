@@ -17,7 +17,6 @@ public class Student  implements java.io.Serializable {
      private String handle;
      private String address;
      private String password;
-     private Privacy privacy;
      private String salt;
      private Boolean isadmin;
      private Set interests = new HashSet(0);
@@ -31,14 +30,13 @@ public class Student  implements java.io.Serializable {
     public Student(int id) {
         this.id = id;
     }
-    public Student(int id, String name, String surname, String handle, String address, String password, Privacy privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
+    public Student(int id, String name, String surname, String handle, String address, String password, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
        this.id = id;
        this.name = name;
        this.surname = surname;
        this.handle = handle;
        this.address = address;
        this.password = password;
-       this.privacy = privacy;
        this.salt = salt;
        this.isadmin = isadmin;
        this.interests = interests;
@@ -88,13 +86,7 @@ public class Student  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Privacy getPrivacy() {
-        return this.privacy;
-    }
     
-    public void setPrivacy(Privacy privacy) {
-        this.privacy = privacy;
-    }
     public String getSalt() {
         return this.salt;
     }
