@@ -132,7 +132,6 @@ CREATE TABLE student (
 	surname text,
 	handle text,
     address text,
-    email text,
     password text,
     privacy integer,
     salt text,

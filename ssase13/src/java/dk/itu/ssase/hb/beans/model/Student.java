@@ -1,5 +1,5 @@
 package dk.itu.ssase.hb.beans.model;
-// Generated Nov 1, 2013 2:16:58 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 8, 2013 9:21:27 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -16,7 +16,6 @@ public class Student  implements java.io.Serializable {
      private String surname;
      private String handle;
      private String address;
-     private String email;
      private String password;
      private Privacy privacy;
      private String salt;
@@ -32,13 +31,12 @@ public class Student  implements java.io.Serializable {
     public Student(int id) {
         this.id = id;
     }
-    public Student(int id, String name, String surname, String handle, String address, String email, String password, Privacy privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
+    public Student(int id, String name, String surname, String handle, String address, String password, Privacy privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
        this.id = id;
        this.name = name;
        this.surname = surname;
        this.handle = handle;
        this.address = address;
-       this.email = email;
        this.password = password;
        this.privacy = privacy;
        this.salt = salt;
@@ -82,13 +80,6 @@ public class Student  implements java.io.Serializable {
     
     public void setAddress(String address) {
         this.address = address;
-    }
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
     }
     public String getPassword() {
         return this.password;
