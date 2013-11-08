@@ -16,7 +16,9 @@
 /Entities/build/
 /Entities/dist/private.properties
 
-# LaTeX Files #
-report/*.aux
-report/*.log
-report/*.gz
+/Entities/dist/
+/report/*.aux
+
+/report/*.gz
+
+/report/*.log
