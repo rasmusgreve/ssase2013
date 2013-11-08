@@ -19,9 +19,6 @@
     <property name="address" type="string">
       <column name="address"/>
     </property>
-    <property name="email" type="string">
-      <column name="email"/>
-    </property>
     <property name="password" type="string">
       <column name="password"/>
     </property>
