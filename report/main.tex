@@ -8,18 +8,16 @@
 \usepackage[parfill]{parskip}
 \usepackage{multirow}
 
-\title{SSAS-E2013 Programming Assignment - Part 2}
+\title{SSAS-E2013 Programming Assignment - Part II}
 \author{Team 6:\\Christian Lyngbye, Jacob Fischer, Rasmus Greve, Ivaylo Sharkov}
 
 \begin{document}
 \maketitle
 
 \section{Introduction}
-This is the written hand-in for the first part of the programming assignment of the course, and is of such only a first draft of the final report. We have strived to cover as many areas of the development process as possible (analysis, design, testing) with as small a subset of the final functionality as we could manage for this first iteration.
+This is the written hand-in for the second part of the programming assignment of the course. With regards to the report, we have addressed the issues presented in the feedback from the first part of the assignment. Secondly, we have incorporated the customer's requests for this assignment in our analysis and design process in order to integrate it with our existing system as seamlessly as possible.
 
-The report is structured first with a rundown of the user stories we have identified, essentially describing what the system \emph{should} do. With these in mind we take on our Risk Analysis, the purpose of which in a sense is to identify all the things clients \emph{should not} be able to do. The system Specification follows, with a formal description of all our functional, non-functional and security requirements, followed by a chapter on the actual design and architecture of our system. We then have a chapter on testing, after which we discuss security weaknesses and how we might want to compromise the other groups' systems.
-
-Our final chapter is the discussion, where we highlight some of the issues we have faced during the project and how we might work to mitigate them for the remainder of the course.
+The report is structured... etc. TODO
 
 \section{Strategy}
 
@@ -47,20 +45,6 @@ The application should be usable by a novice computer user on small screens (sma
 
 \textbf{Sensitive user data is never compromised} because it will provide bad word of mouth about the application which can damage the reputation of the company/team permanently.
 // We imagine login as a remedy
-
-\subsection{Security Principles}
-
-Our production server runs Linux and provides the access control for users' access to the file system.
-
-We have attempted to restrict privilege given on our server so users are given 
-\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
-
-
-Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
-
-Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
-
-We replaced the error page in order to \textbf{Fail Securely}.
 
 \subsection{Risk Analysis and Management}
 
@@ -105,7 +89,7 @@ In table \ref{tab:goal_to_risk_relationship} the risks are synthezised by correl
 	\label{tab:goal_to_risk_relationship}
 \end{table}
 
-\subsection{Risk management}
+\subsubsection{Risk management}
 From the risk analysis we have chosen to focus on the folowing risks in prioritized order:
 \begin{enumerate}
 \item{SQL injections}
@@ -125,6 +109,20 @@ SQL injections and XSS attacks are relatively easy to protect against in our set
 \caption{Forest View diagram}
 \label{fig:forest_view}
 \end{figure}
+
+\subsection{Security Principles}
+
+Our production server runs Linux and provides the access control for users' access to the file system.
+
+We have attempted to restrict privilege given on our server so users are given 
+\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+
+
+Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+
+Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
+
+We replaced the error page in order to \textbf{Fail Securely}.
 
 \section{System Specification}
 
@@ -236,12 +234,15 @@ We have chosen to use the following tools to assist us in our project process.
 
 
 \section{Testing}
+
+\subsection{Test plan}
+
 \subsection{Tools and Frameworks}
 Testing is essential in order to build secure and functional software systems. To thoroughly test our system we have decided to use two testing strategies; system tests and unit tests.
 
 A testing tool we found fitting to use for system tests is Selenium with JUnit. Selenium allows us to script test cases which input data and submit forms on the webservice.
 
-\subsection{System test cases (Black-box Test)}
+\subsection{System Test Cases (Black-box Test)}
 
 \begin{itemize}
 \item Login
@@ -251,6 +252,7 @@ A testing tool we found fitting to use for system tests is Selenium with JUnit. 
 \item Renewing password
 \end{itemize}
 
+\subsection{Penetration Testing}
 
 \section{Hacking}
 \subsection{Plans and ideas}
