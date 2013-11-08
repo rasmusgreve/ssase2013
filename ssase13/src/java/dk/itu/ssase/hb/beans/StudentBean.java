@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Hobby;
+import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.Interest;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Relationship;
@@ -146,8 +147,9 @@ public class StudentBean {
     public List<Relationship> getRelationships(Student student) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         List<Relationship> rel = session.createQuery(
-                "SELECT r FROM Relationship r WHERE r.student1 = " + student.getId()
-                + " OR r.student2 = " + student.getId()).list();
+                "SELECT r FROM Relationship r WHERE r.student1 = :student"
+                + " OR r.student2 = :student")
+                .setInteger("student", student.getId()).list();
         session.close();
         return rel;
     }
@@ -202,25 +204,56 @@ public class StudentBean {
         this.hobby = hobby;
     }
     
-    public void hugFriend(Student friend) {
+    public String hugFriend(int friendId) {
         // If hug entry (friend -> this) already exists:
             // Set hug to mutual.
         // Else:
             // Create new entry (this -> friend) (mutual = 0)
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Hug hug = getHug(friendId);
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            if (hug != null && hug.getStudent1() == friendId) {
+                // Hug back.
+                hug.setMutual(Boolean.TRUE);
+            } else {
+                // New hug.
+                hug = new Hug();
+                hug.setStudent1(currentSession.getStudentId());
+                hug.setStudent2(friendId);
+                hug.setMutual(Boolean.FALSE);
+                java.util.Date now = java.util.Calendar.getInstance().getTime();
+                java.util.Date tomorrow = new java.util.Date(now.getTime() + 86400000);
+                hug.setExpiration(tomorrow);
+            }
+            session.save(hug);
+            tx.commit();
+        } catch (Exception ex) {
+            if (tx!=null)
+                tx.rollback();
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return "success";
     }
     
-    public /*Hug*/ void getHug(Student friend) {
+    public Hug getHug(int friendId) {
         // Return hug entry (friend -> this) or (this -> friend).
-    }
-    
-    public boolean myHug(/*Hug hug*/) { // Move to Hug bean.
-        // Return true if hug satisfies (this -> friend).
-        return false;
-    }
-    
-    public boolean mutualHug(/*Hug hug*/) { // Move to Hug bean.
-        // Return true if hug is mutual.
-        return false;
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Hug hug = (Hug)session.createQuery("SELECT g FROM  Hug g WHERE "
+                + "(g.student1 = :me AND g.student2 = :you) OR "
+                + "(g.student1 = :you AND g.student2 = :me")
+                .setInteger("me", currentSession.getStudentId())
+                .setInteger("you", friendId)
+                .uniqueResult();
+        session.close();
+        return hug;
     }
     
     public void cancelHug(/*Hug hug*/) {
