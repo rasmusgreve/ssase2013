@@ -15,3 +15,8 @@
 /ssase13/dist/
 /Entities/build/
 /Entities/dist/private.properties
+
+# LaTeX Files #
+report/*.aux
+report/*.log
+report/*.gz
