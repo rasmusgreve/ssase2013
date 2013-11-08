@@ -19,5 +19,6 @@
 /report/*.aux
 
 /report/*.gz
+/report/*.pdf
 
 /report/*.log
