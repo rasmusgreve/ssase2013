@@ -22,11 +22,6 @@
     <property name="password" type="string">
       <column name="password"/>
     </property>
-    <property name="privacy">
-      <type name="org.hibernate.type.EnumType">
-        <param name="enumClass">dk.itu.ssase.hb.beans.model.Privacy</param>
-      </type>
-    </property>
     <property name="salt" type="string">
       <column name="salt"/>
     </property>

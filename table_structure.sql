@@ -133,7 +133,6 @@ CREATE TABLE student (
 	handle text,
     address text,
     password text,
-    privacy integer,
     salt text,
     isadmin boolean DEFAULT false
 );
