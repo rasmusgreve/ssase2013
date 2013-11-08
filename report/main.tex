@@ -22,9 +22,9 @@ The report is structured first with a rundown of the user stories we have identi
 Our final chapter is the discussion, where we highlight some of the issues we have faced during the project and how we might work to mitigate them for the remainder of the course.
 
 \section{User Stories}
-By adhering to the project description that has been handed out, we define our system as a web application where students are able to sign up with the purpose of meeting eachother and forming either friendly or romantic relationships. The application should furthermore support the existance of administrative users, who are able to modify certain aspects of the system from a client's perspective.
+According to the requirements, we define our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective.
 
-The following bullets describe what potential clients of our system should be able to do in it. In that sense they embody the overall purpose of the application, and outline the basic functionality.
+Use cases
 \begin{itemize}
 \item A student views his own information
 \item A student edits his own information
@@ -36,33 +36,42 @@ The following bullets describe what potential clients of our system should be ab
 \item An administrator views the information of a user
 \end{itemize}
 
+\subsection{Requirements}
+Based on the security principles we have derived the following requirements.
 
 \section{Risk Analysis and Management}
 
-
+We start by analyzing and ranking the business goals in order to provide priorities for which risks we will respond to first.
 \subsection{Business Goals}
 We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
 
-\begin{table}[h]
+\begin{table}[h!]
 	\begin{tabular}{|p{10cm}|l|}
 		\hline
-		\textbf{Goal} & \textbf{Rank} \\ \hline
-        The first draft of the report is handed in by October 4th 2013 & \textbf{H} \\ \hline
-The service should have attracted a minimum of 4 users after the first week & \textbf{H} \\ \hline
-The server must provide 99.99\% uptime   & \textbf{M} \\ \hline
+		\textbf{Business Goal} & \textbf{Rank} \\ \hline
+The service should have attracted a minimum of 4 users after the first week & \textbf{L} \\ \hline
+The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
 Sensitive user data is never compromised & \textbf{H} \\ \hline
 The web server is breached at most twice throughout the project period &  \textbf{M} \\ \hline
-The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & \textbf{L} \\ \hline
+The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
 Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
+The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & \textbf{M}\\ \hline
 	\end{tabular}
 	\caption{Business goals for our project. The goals are ranked with letters where L: low, M: medium and H: high}
 	\label{tab:business_goals}
 \end{table}
 
+\textbf{The server must provide 99.95\% uptime} or else every user leaves forever. This happens because the user cannot access the application and they will switch to another similar application.
+
+\textbf{Sensitive user data is never compromised} because it will provide bad word of mouth about the application which can damage the reputation of the company/team permanently.
+// We imagine login as a remedy
+
+
+
 \subsection{Technical Risks}
 The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
 
-\begin{table}[h]
+\begin{table}[h!]
 	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
 		\hline
 		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
@@ -84,9 +93,9 @@ The technical risks are characterized by their probability and effect on the sys
 \end{table}
 
 \subsection{Business Risks}
-In table \ref{tab:goal_to_risk_relationship}, each business risk is correlated with the business goal that is threatened by the given risk. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
+In table \ref{tab:goal_to_risk_relationship} the risks are synthezised by correlating the the business risks with technical risks. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
 
-\begin{table}
+\begin{table}[h!]
 	\begin{tabular}{| p{4cm} | p{4cm}| l | l |}
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{ID}  & \textbf{Technical risk} \\ \hline
@@ -114,7 +123,12 @@ We have chosen this prioritization of risks by looking at the probability and co
 SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
 
-
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{ForestView}
+\caption{Forest View diagram}
+\label{fig:forest_view}
+\end{figure}
 \section{System Specification}
 
 \subsection{Functional Requirements}
@@ -252,11 +266,6 @@ The idea is to send an email to the entire class that looks and sounds official 
 
 A requirement for this attack to work is that we send the email before (if) the teacher or TA asks for this information from the groups. We plan on sending the email on the 4th of October.
 
-\subsection{Fuzz testing}
-Run metasploit or nessus against the others web applications to check for the most common exploits.
-
-\subsection{SQL Injection}
-Introduction...
 
 \textbf{Team 1}
 
