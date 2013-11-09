@@ -40,10 +40,12 @@ public class StudentViewGeneratorUtil {
             StudentView view = new StudentView();
         if(rela.getStudent1().getId()==currentUserId) {
             Student student = rela.getStudent2();
+            view.setStudent(student);
             view.setId(rela.getId());
             view.setName(student.getHandle());
         } else if(rela.getStudent2().getId()==currentUserId) {
             Student student = rela.getStudent1();
+            view.setStudent(student);
             view.setId(rela.getId());
             view.setName(student.getHandle());
         }   

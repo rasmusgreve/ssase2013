@@ -25,7 +25,7 @@ and open the template in the editor.
                         <h:form>
                             
                         <ul>
-                        <ui:repeat  value="#{friendcontroller.findFriendRequests()}" var="userloop2">
+                        <ui:repeat  value="#{friendcontroller.findFriendRequests()}" var="userloop">
                             <li>
                                 <h:commandLink action="#{friendcontroller.approveFriend(userloop.id)}" class="btn btn-primary btn-sm">#{userloop.name}</h:commandLink>
 

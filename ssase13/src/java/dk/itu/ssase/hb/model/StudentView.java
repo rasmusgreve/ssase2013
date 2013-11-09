@@ -5,6 +5,8 @@
 package dk.itu.ssase.hb.model;
 
 import dk.itu.ssase.hb.beans.model.RelaType;
+import dk.itu.ssase.hb.beans.model.Relationship;
+import dk.itu.ssase.hb.beans.model.Student;
 
 /**
  *
@@ -13,6 +15,7 @@ import dk.itu.ssase.hb.beans.model.RelaType;
 public class StudentView {
     private int id;
     private String name;
+    private Student student;
     private boolean friend;
     private RelaType relatype;
 
@@ -71,4 +74,19 @@ public class StudentView {
     public void setRelatype(RelaType relatype) {
         this.relatype = relatype;
     }
+
+    /**
+     * @return the student
+     */
+    public Student getStudent() {
+        return student;
+    }
+
+    /**
+     * @param student the student to set
+     */
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 }
