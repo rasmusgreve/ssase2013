@@ -13,6 +13,7 @@ import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
+import dk.itu.ssase.hb.util.StudentViewGeneratorUtil;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -37,45 +38,7 @@ public class StudentBean {
         session.close();
         return students;
     }
-    
-    public List<StudentView> findNewUsers() {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        //List<Student> students = session.createQuery("SELECT s FROM Student s JOIN s.relationshipsForStudent1 r1 JOIN r1.student2 s2 WHERE s.id != :currentstudent AND s2.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
-        List<Student> students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
-        List<StudentView> users = new ArrayList<StudentView>();
-        for (Student student : students) {
-            StudentView view = new StudentView();
-            view.setId(student.getId());
-            view.setName(student.getName());
-            Iterator<Relationship> iter = student.getRelationshipsForStudent1().iterator();
-            Relationship rela;
-            while(iter.hasNext()) {
-                rela = iter.next();
-                if(currentSession.getStudentId() == rela.getStudent2().getId()) {
-                    view.setFriend(true);
-                    view.setRelatype(rela.getType());
-                }
-            }
-            Iterator<Relationship> iter2 = student.getRelationshipsForStudent2().iterator();
-            Relationship rela2;
-            while(iter2.hasNext()) {
-                rela2 = iter2.next();
-                if(currentSession.getStudentId() == rela2.getStudent1().getId()) {
-                    view.setFriend(true);
-                    view.setRelatype(rela2.getType());
-                }
-            }
-            
-            users.add(view);
-        }
         
-        //List<Student> students = session.createQuery("SELECT s FROM Student s RIGHT OUTER JOIN s.relationshipsForStudent2 r WHERE r IS NULL OR r.student1.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
-        session.close();
-        return users;
-    }
-    
     public List<StudentView> findUsers() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
@@ -135,14 +98,6 @@ public class StudentBean {
         return hobbies;
     }
 
-    public List<Relationship> getRelationships() {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        //Transaction transaction = session.beginTransaction();
-        //transaction.begin();
-        List<Relationship> students = session.createQuery("SELECT r FROM Relationship r").list();
-        session.close();
-        return students;
-    }
 
     public List<Relationship> getRelationships(Student student) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
@@ -153,42 +108,6 @@ public class StudentBean {
         session.close();
         return rel;
     }
-
-    public String addFriend(int userId) {
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Student id: " + userId);
-        Relationship relationship = new Relationship();
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-
-
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Student student1 = (Student) session.get(Student.class, currentSession.getStudentId());
-            Student student2 = (Student) session.get(Student.class, userId);
-            relationship.setStudent1(student1);
-            relationship.setStudent2(student2);   
-            //TODO change to dynamic
-            relationship.setType(RelaType.friend);
-            session.save(relationship);
-            tx.commit();
-        } catch(Exception ex) {
-            if(tx!=null)
-                tx.rollback();
-            ex.printStackTrace();
-        } finally {
-            session.close();
-        }
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Relationship id: " + relationship.getId());
-        return "success";
-    }
-
-    public String approveFriend(int userId) {
-        return "success";
-    }
-
     
     /**
      * @return the hobby

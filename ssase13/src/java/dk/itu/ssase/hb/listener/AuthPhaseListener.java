@@ -46,7 +46,6 @@ public class AuthPhaseListener implements PhaseListener {
             }
         }
         if(authorized) {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authorized user");
             return;
         } else {
             Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Access denied user");   
