@@ -50,6 +50,7 @@ public class CreateStudentBean {
             tx.commit();          
             session.close();      
         } catch(ConstraintViolationException ex) {
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "User exists " + ex.getMessage());
             FacesContext.getCurrentInstance().addMessage("createuser:handle", new FacesMessage("Handle exists"));
             if(tx!=null)
                 tx.rollback();
