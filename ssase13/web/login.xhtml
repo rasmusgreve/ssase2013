@@ -6,33 +6,12 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <head>
         <title>Login</title>
         
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-        
-        <style>
-            body {
-              padding-top: 40px;
-              padding-bottom: 40px;
-              background-color: #eee;
-              background-image:url("http://team6.bollgreve.dk/logo.png");
-            } 
-           .form-signin {
-              max-width: 330px;
-              padding: 15px;
-              margin: 0 auto;
-            }
-            .panel{
-                background-color:#F5F5F5;
-            }
-            .form-signin input[type="password"] {
-              margin-bottom: 10px;
-            }
-            
-        </style>
+        <ui:include src="bootstrap.xhtml"/>
         
     </head>
     <body>
