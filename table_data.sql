@@ -2,4 +2,6 @@
 
 SELECT setval('public.student_id_seq', 1, true);
 
-INSERT INTO hobby VALUES (1, 'fishing'),(2, 'sewing'),(3, 'cooking');
+INSERT INTO hobby VALUES (1, 'Fishing'),(2, 'Geocaching'),(3, 'Cooking'),(4, 'Fencing'),(5, 'Equestrianism'),(6, 'Cosplaying'),(7,'Knitting'),(8,'Pottery'),(9,'Antiquing');
+
+SELECT setval('public.hobby_id_seq', 9, true);
