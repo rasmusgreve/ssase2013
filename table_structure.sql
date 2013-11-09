@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -169,7 +169,7 @@ ALTER TABLE hug ADD CONSTRAINT student1_id FOREIGN KEY (hugstudent1) REFERENCES 
 ALTER TABLE hug ADD CONSTRAINT student2_id FOREIGN KEY (hugstudent2) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE interest ADD CONSTRAINT student3_id FOREIGN KEY (student) REFERENCES student (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 ALTER TABLE interest ADD CONSTRAINT hobby1_id FOREIGN KEY (hobby) REFERENCES hobby (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
-
+ALTER TABLE student ADD CONSTRAINT unique_handle UNIQUE (handle) USING INDEX TABLESPACE pg_default;
 --
 -- TOC entry 1854 (class 2604 OID 16450)
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres

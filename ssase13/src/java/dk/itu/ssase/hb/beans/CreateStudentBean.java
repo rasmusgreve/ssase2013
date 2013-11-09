@@ -14,6 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.persistence.NoResultException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.exception.ConstraintViolationException;
 
 /**
  *
@@ -32,26 +33,6 @@ public class CreateStudentBean {
 
         
         Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Student existingStudent = (Student) session.createQuery("select s from Student s where s.handle = :username").setString("username", getStudentInput().getName()).uniqueResult();
-            if (existingStudent != null) {
-                tx.commit();
-                session.close();
-                return "fail";
-            }
-        } catch (NoResultException ex) { // this exception is expected
-            if(tx!=null)
-                tx.rollback();
-            session.close();
-            session = StudentHibernateUtil.getSessionFactory().openSession();
-        } catch (Exception ex) {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Query failed with exception " + ex.getMessage());
-            if(tx!=null)
-                tx.rollback();
-            session.close();
-            return "fail";
-        }
 
         try {
             tx = session.beginTransaction();
@@ -61,10 +42,20 @@ public class CreateStudentBean {
             String salt = PasswordUtil.generateSalt();
             studentToSave.setSalt(salt);
             studentToSave.setPassword(PasswordUtil.hashPassword(getStudentInput().getPassword(), salt));
-
+       
+            if(studentToSave.getIsadmin()==null)
+                studentToSave.setIsadmin(Boolean.FALSE);
+            
             session.save(studentToSave);
             tx.commit();          
-            session.close();            
+            session.close();      
+        } catch(ConstraintViolationException ex) {
+            FacesContext.getCurrentInstance().addMessage("createuser:handle", new FacesMessage("Handle exists"));
+            if(tx!=null)
+                tx.rollback();
+            session.close();
+            return "fail";
+        
         } catch (Exception ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Query failed with exception " + ex.getMessage());
             if(tx!=null)
