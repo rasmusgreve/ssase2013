@@ -27,6 +27,7 @@ import org.hibernate.Transaction;
  * @author christian
  */
 public class FriendController {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
     
     public Collection<Student> findNewFriends() {
         TreeMap<Integer, Student> studentsTree = new TreeMap<Integer, Student>();
@@ -34,8 +35,6 @@ public class FriendController {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        //"SELECT r FROM Relationship r JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = true"
-        //List<Student> students = session.createQuery("SELECT s FROM Student s JOIN s.relationshipsForStudent1 r1 JOIN r1.student2 s2 WHERE s.id != :currentstudent AND s2.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
         List<Student> students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.isadmin = false").setInteger("currentstudent", currentSession.getStudentId()).list();
         List<Student> students2 = session.createQuery("SELECT s2 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s1.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
         List<Student> students3 = session.createQuery("SELECT s1 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s2.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
@@ -51,7 +50,7 @@ public class FriendController {
         for (Student student : students3) {
             studentsTree.remove(student.getId());
         }
-        //List<Student> students = session.createQuery("SELECT s FROM Student s RIGHT OUTER JOIN s.relationshipsForStudent2 r WHERE r IS NULL OR r.student1.id != :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        logger.log(Level.INFO, "Search for possible friends and found {0} results", studentsTree.size());
         session.close();
         return studentsTree.values();
     }
@@ -70,42 +69,48 @@ public class FriendController {
             StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
             users.add(view);
             
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found friend1: {0}", view.getName());
+            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
         }
         for (Relationship relationship : relas2) {
             StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
             users.add(view);
             
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found friend2: {0}", view.getName());
+            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
         }
         
         session.close();
         return users;
     }
     
-    
-    public List<StudentView> findFriendRequests() {
+    /**
+     * Find all the requests for relationships to the current student
+     * @return List of students with relationshsip id
+     */
+    public List<StudentView> findUnapprovedRelationshipRequests() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         Session session = StudentHibernateUtil.getSessionFactory().openSession();        
         
         List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = false").setInteger("currentstudent", currentSession.getStudentId()).list();         
-        
-        //List<Student> students = session.createQuery("SELECT s FROM Student s JOIN s.relationshipsForStudent1 r1 JOIN r1.student2 s2 WHERE s2.id = :currentstudent AND r1.approved = false").setInteger("currentstudent", currentSession.getStudentId()).list();         
-
+ 
         int currentUserId = currentSession.getStudentId();
         List<StudentView> users = new ArrayList<StudentView>();
         for (Relationship relationship : relas) {
             StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
             users.add(view);
+            logger.log(Level.INFO, "Found friend request from: {0}", view.getName());
         }
         session.close();
         return users;
     }
     
-
-    public String addFriend(int userId) {
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Add student as friend id: " + userId);
+    /**
+     * Request a relationship
+     * @param userId
+     * @return 
+     */
+    public String requestRelationship(int userId) {
+        logger.log(Level.INFO, "Add relationship to student id: {0}", userId);
         Relationship relationship = new Relationship();
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
@@ -128,19 +133,17 @@ public class FriendController {
         } catch(Exception ex) {
             if(tx!=null)
                 tx.rollback();
-            ex.printStackTrace();
+            logger.log(Level.SEVERE, "Requesting relationship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Relationship id: " + relationship.getId());
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Created relationship request with id: {0}", relationship.getId());
         return "success";
     }
     
     
     public String approveFriend(int relaId) {
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Relationship approve id: " + relaId);
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        logger.log(Level.INFO, "Approve relationship id: {0}", relaId);
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
@@ -157,7 +160,7 @@ public class FriendController {
         } catch(Exception ex) {
             if(tx!=null)
                 tx.rollback();
-            ex.printStackTrace();
+            logger.log(Level.SEVERE, "Approving relationship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }

@@ -8,14 +8,10 @@ import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.Interest;
 import dk.itu.ssase.hb.beans.model.RelaType;
-import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
-import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
-import dk.itu.ssase.hb.util.StudentViewGeneratorUtil;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +24,7 @@ import org.hibernate.Transaction;
  * @author christian
  */
 public class StudentBean {
+    private Logger logger = Logger.getLogger(this.getClass().getName());
     
     private int hobby;
     private RelaType relatype;
@@ -38,45 +35,8 @@ public class StudentBean {
         session.close();
         return students;
     }
-        
-    public List<StudentView> findUsers() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<StudentView> users = new ArrayList<StudentView>();
-        List<Student> students = session.createQuery("SELECT s FROM Student s").list();        
-        Student currentStudent = (Student) session.get(Student.class,currentSession.getStudentId());
-        currentStudent.getRelationshipsForStudent1();
-        for (Student student : students) {
-            StudentView view = new StudentView();
-            view.setId(student.getId());
-            view.setName(student.getName());
-        }
-        session.close();
-        return users;
-    }
     
-    public String addHobby() {
-        
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Hobby id: " + hobby);
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-
-
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        tx.begin();
-        
-        Interest interest = new Interest();
-        interest.setHobby((Hobby) session.get(Hobby.class, hobby));
-        interest.setStudent((Student) session.get(Student.class,currentSession.getStudentId()));
-        session.save(interest);
-        
-        tx.commit();
-        session.close();
-        return "success";
-    }
-
+    
     public List<Hobby> findAvailableHobbies() {
         List<Hobby> remainingHobbies = new ArrayList<Hobby>();
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
@@ -90,24 +50,42 @@ public class StudentBean {
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        
-        
+                
         List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :student").setInteger("student", currentSession.getStudentId()).list();
-
+        
+        logger.log(Level.INFO, "Found hobbies of the student: {0}", hobbies.size());
         
         return hobbies;
     }
 
-
-    public List<Relationship> getRelationships(Student student) {
+            
+    public String addHobby() {        
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+       
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Relationship> rel = session.createQuery(
-                "SELECT r FROM Relationship r WHERE r.student1 = :student"
-                + " OR r.student2 = :student")
-                .setInteger("student", student.getId()).list();
-        session.close();
-        return rel;
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+        
+            Interest interest = new Interest();
+            interest.setHobby((Hobby) session.get(Hobby.class, hobby));
+            interest.setStudent((Student) session.get(Student.class,currentSession.getStudentId()));
+            session.save(interest);
+            tx.commit();
+        } catch(Exception ex) {            
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+
+        logger.log(Level.INFO, "User {0} added Hobby id: {1} ", new int[] {currentSession.getStudentId(), hobby});
+        
+        return "success";
     }
+
     
     /**
      * @return the hobby
@@ -153,7 +131,7 @@ public class StudentBean {
         } catch (Exception ex) {
             if (tx!=null)
                 tx.rollback();
-            ex.printStackTrace();
+            logger.log(Level.SEVERE, "Adding hug failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
