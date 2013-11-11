@@ -38,9 +38,11 @@ public class StudentBean {
     
     
     public List<Hobby> findAvailableHobbies() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         List<Hobby> remainingHobbies = new ArrayList<Hobby>();
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        remainingHobbies = session.createQuery("SELECT h FROM Hobby h").list();
+        remainingHobbies = session.createQuery("SELECT h FROM Hobby h WHERE h.id NOT IN (SELECT h.id FROM Hobby h JOIN h.interests i JOIN i.student s WHERE s.id = :student)").setInteger("student", currentSession.getStudentId()).list();
         session.close();
         return remainingHobbies;
     }
