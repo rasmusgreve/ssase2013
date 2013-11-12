@@ -163,11 +163,13 @@ Our application authorizes users in order to determine the privilege for access 
 We replaced the error page in order to \textbf{Fail Securely}.
 
 \section{System Specification}
+In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Since we are at part two of the project, there have so far been two such sets of requests from the "customer".
 
-\subsection{User Stories}
-According to the requirements, we define our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective.
+We have considered each of these user stories and made corresponding use cases for the system, leading to functional requirements. Some of the user stories have related instead to non-functional requirements, and some again to security requirements.
 
-Use cases
+In addition, we have specified a number of abuse cases, constituting a security-related counterpart to the use cases. Based on these, we have derived additional functional, non-functional and security requirements. Not all abuse cases have had equal impact on the final specification, as we have had to keep in mind the strategic prioritizations outlined in the Risk Management section.
+
+\subsection{Use cases}
 \begin{itemize}
 \item A student views his own information
 \item A student edits his own information
@@ -179,8 +181,10 @@ Use cases
 \item An administrator views the information of a user
 \end{itemize}
 
-\subsection{Requirements}
-Based on the security principles we have derived the following requirements.
+\subsection{Abuse cases}
+\begin{itemize}
+\item A person with access to an administrator's crendentials wreaks havoc on the system by deleting multiple users.
+\end{itemize}
 
 \subsection{Functional Requirements}
 \begin{itemize}
@@ -215,6 +219,7 @@ Based on the security principles we have derived the following requirements.
 \end{itemize}
 
 \subsection{Security Requirements}
+Based on the security principles we have derived the following requirements.
 \begin{itemize}
 \item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
 \item Database access credentials are never stored in any source code repository
