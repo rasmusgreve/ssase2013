@@ -26,11 +26,35 @@ We start by listing our goals and afterwards we will define how and why we expec
 
 \begin{itemize}
 \item
-We hope to engage our users in a new social platform based on interests that users can share by choosing from a long list of social hobbies
+We hope to engage our users in a new social platform based on their interests.
 \item
-All data is owned by the users and should be easy to export and reuse.
+The brand should build trust with the users over the long term so they keep coming back.
 \end{itemize}
 
+% how
+We wish to achieve our goals by providing the following features to our users:
+\begin{itemize}
+\item Easy signup with design that provides high quality features with as few clicks as possible.
+\item Users can choose from a long list of social hobbies and find others with the same interests.
+%\item Full data ownership: All data is owned by the users and should be easy to export and reuse.
+\end{itemize}
+
+We have chosen the following privileges to use in our system.
+% why
+\begin{itemize}
+\item Reluctance to Trust
+
+\item Securing the Weakest Link
+
+\item Failing Securely
+
+\item Least Privilege
+
+\item Separation of Privilege
+
+\item Promoting Privacy
+
+\end{itemize}
 
 
 \subsection{Business Goals}
@@ -42,13 +66,11 @@ We have decided on the following goals as paramount to our business operation wi
 	\begin{tabular}{|p{10cm}|l|}
 		\hline
 		\textbf{Business Goal} & \textbf{Rank} \\ \hline
-The service should have attracted a minimum of 4 users after the first week & \textbf{L} \\ \hline
-The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
-Sensitive user data is never compromised & \textbf{H} \\ \hline
-The web server is breached at most twice throughout the project period &  \textbf{M} \\ \hline
-The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
-Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
-The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & \textbf{M}\\ \hline
+		The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
+		Sensitive user data is never compromised & \textbf{H} \\ \hline
+		The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
+		Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
+		The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & \textbf{M}\\ \hline
 	\end{tabular}
 	\caption{Business goals for our project. The goals are ranked with letters where L: low, M: medium and H: high}
 	\label{tab:business_goals}
@@ -60,28 +82,33 @@ The application should be usable by a novice computer user on small screens (sma
 % We imagine login as a remedy
 
 \subsection{Risk Analysis and Management}
+\subsubsection{Business Risks}
+
+\begin{table}[h!]
+\begin{tabular}{| p{4cm} | p{3cm} | l | p{3cm} |}
+\hline
+\textbf{Business Risk} & \textbf{Indicators} & \textbf{Likelihood} & \textbf{Impact} \\ \hline
+Local disasters cause downtime and data loss & Reports of service outage & L & Loss of potential users\\\hline
+A user is subject to social engineering & Reports of peculiar activity & H & SLA violation \\\hline
+Vulnerabilities in the system & High amount of breaches & H & Unintended downtime and higher development costs \\\hline
+\end{tabular}
+\end{table}
+
 
 \subsubsection{Technical Risks}
 The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
 
 \begin{table}[h!]
-	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
+	\begin{tabular}{| l | p{3cm} | l | l |}
 		\hline
-		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
-		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
-        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
-        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
-        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
-        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
-        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
-        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
-       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
-        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
-        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
-        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
+		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{Impact}  \\ \hline
+        User login bruteforcing & Logs are full of login attempts & M & 6 \\ \hline
+        Old libraries and platforms provide an easy target & Bugtrac is full of bugs & H & 9 \\\hline
+        %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        User session hijacking & Reports from users of peculiar data & M & 4 \\ \hline
+        Hardware failure & Downtime & L & 5 \\ \hline
 	\end{tabular}
-	\caption{Risk analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
 \end{table}
 
@@ -89,14 +116,12 @@ The technical risks are characterized by their probability and effect on the sys
 In table \ref{tab:goal_to_risk_relationship} the risks are synthezised by correlating the the business risks with technical risks. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
 
 \begin{table}[h!]
-	\begin{tabular}{| p{4cm} | p{4cm}| l | l |}
+	\begin{tabular}{| p{4cm} | p{4cm}| p{4cm} |}
     \hline
-   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{ID}  & \textbf{Technical risk} \\ \hline
-    \multirow{3}{4cm}{The service should have attracted a minimum of 4 users after the first week} & \multirow{3}{4cm}{Downtime causes loss of potential users} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
-    \multirow{6}{4cm}{Sensitive user data is never compromised} & \multirow{2}{4cm}{A user is subject to social engineering} & TR1 & User gives away password \\ & & TR2 & Admin discloses user credentials \\ & \multirow{4}{4cm}{Security weaknesses in the system} & TR3 & Admin credentials bruteforce \\ & & TR4 & User credentials bruteforce \\ & & TR6 & Admin session hijacking \\ & & TR7 & User session hijacking \\ \hline
-    \multirow{3}{4cm}{The server must provide 99.99\% uptime} & \multirow{3}{4cm}{Shortcomings in the system cause unintended downtime} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
-    \multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Security weaknesses in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline
-    The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & A member of the team fails to satisfy a relevant user request & & \\ \hline
+   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
+    \multirow{3}{4cm}{Sensitive user data is never compromised} & \multirow{3}{4cm}{Vulnerability in the system} & User credentials bruteforce \\ & & Old libraries and platforms provide an easy target \\ & & User session hijacking \\ \hline
+    The server must provide 99.95\% uptime & Local disasters cause downtime and data loss &  Hardware failure \\ \hline
+    %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     \end{tabular}
     \caption{Goal-to-risk relationship table.}
 	\label{tab:goal_to_risk_relationship}
@@ -202,12 +227,6 @@ Based on the security principles we have derived the following requirements.
 \subsection{Domain}
 The domain is based on the user stories.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{Domain}
-\caption{Domain diagram}
-\label{fig:domain_diagram}
-\end{figure}
 
 \subsection{ER modelling}
 
@@ -300,6 +319,16 @@ A requirement for this attack to work is that we send the email before (if) the 
 \section{Conclusion}
 
 \section{Appendix}
+\subsection{Log file}
+\begin{verbatim}
+Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: Hobby id: 2
+\end{verbatim}
+
 \include{courselog}
 
 \end{document}
