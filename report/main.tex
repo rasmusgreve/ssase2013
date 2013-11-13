@@ -41,6 +41,7 @@ We wish to achieve our goals by providing the following features to our users:
 \end{itemize}
 
 \subsection{Risk Analysis and Management}
+The business context is an application developed by a small enterprise with public customers with no contract of any sort. We provide a rudimentary service level agreement though there is no consequences if it is compromised. Most of the analysis is based on experience from using similar applications or our projections of how prospective interviewees would answer our questions.
 \subsubsection{Business Goals}
 We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
 
@@ -61,12 +62,12 @@ We have decided on the following goals as paramount to our business operation wi
 
 
 \subsubsection{Business Risks}
-
+We have analyzed the business risks of the project and determined their impact which we have imagined as they would be for a small size enterprise.
 \begin{table}[h!]
 \begin{tabular}{| p{4cm} | p{3cm} | l | p{3cm} |}
 \hline
 \textbf{Business Risk} & \textbf{Indicators} & \textbf{Likelihood} & \textbf{Impact} \\ \hline
-Local disasters cause downtime and data loss & Reports of service outage & L & Loss of potential users\\\hline
+Data loss & Reports of service outage & L & Loss of potential users\\\hline
 A user is subject to social engineering & Reports of peculiar activity & H & Damage to brand \\\hline
 Vulnerabilities in the system & High amount of breaches & H & Unintended downtime and higher development costs \\\hline
 Application delayed & System features are implemented late & M & Late return on investment \\\hline
@@ -88,6 +89,7 @@ The technical risks are characterized by their probability and effect on the sys
         Hardware failure & Reports of downtime & L & 5 \\ \hline
         Security is not part of system architecture design & Unsecure design & M & 7 \\ \hline
 		Security safeguards slows down user experience & Too many interactions & L & 3
+		\\ \hline
 	\end{tabular}
 	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
@@ -102,7 +104,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
     \multirow{3}{4cm}{Sensitive user data is never compromised} & \multirow{3}{4cm}{Vulnerability in the system} & User credentials bruteforce \\ & & Old libraries and platforms provide an easy target \\ & & User session hijacking \\ \hline
-    The server must provide 99.95\% uptime & Local disasters cause downtime and data loss &  Hardware failure \\ \hline
+    The server must provide 99.95\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
     The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & A user is subject to social engineering & Security safeguards slows down user experience \\ \hline
@@ -114,26 +116,32 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 
 
 \subsubsection{Mitigations}
-It is a tradeoff to reach the goal of development.
+We have ranked the risks and provide our proposals for mitigation following the principles.
+\begin{enumerate}
+\item Vulnerability in the system
+\item Application delayed
+\item A user is subject to social engineering
+\item Data loss
+\end{enumerate}
 
-We have chosen the following principles to use in our system.
+\textbf{Vulnerability in the system}
+Use supported third party libraries to keep all parts of the software secure to avoid the compromise of sensitive user data by Securing the Weakest Link.
+
+
+By assigning clients user credentials we can identify them and separate them into different roles that we might need and do Separation of Privilege.
+
+
 % why
-\begin{itemize}
-\item Reluctance to Trust
-
-\item Securing the Weakest Link
-
-\item Failing Securely
-
-\item Least Privilege
-
-\item Separation of Privilege
-
-\item Promoting Privacy
-
-\end{itemize}
-
-Confidentiality, Integrity, Availability
+%\begin{itemize}
+%\item Reluctance to Trust
+%\item Securing the Weakest Link
+%\item Failing Securely
+%\item Least Privilege
+%\item Separation of Privilege
+%By assigning clients user credentials we can identify them and separate them into different roles that we might need.
+%\item Promoting Privacy
+%\end{itemize}
+%Confidentiality, Integrity, Availability
 
 \section{System Specification}
 In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Since we are at part two of the project, there have so far been two such sets of requests from the "customer".
@@ -349,6 +357,25 @@ Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
 INFO: Authorized user
 Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
 INFO: Hobby id: 2
+\end{verbatim}
+
+\subsection{Test reports}
+\begin{verbatim}
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dk.itu.ssase.test.LoginTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.814 sec
+Running dk.itu.ssase.test.SignupTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.45 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
 \end{verbatim}
 
 \include{courselog}
