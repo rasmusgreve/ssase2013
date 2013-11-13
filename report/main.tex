@@ -175,7 +175,8 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \item A student edits his own information
 \item A student chooses what information to share
 \item A student views another student’s information
-\item A student forms a relationship with another student
+\item A student forms a friendly or romantic relationship with another student
+\item A student sends a "hug" to mutual a friend or romance
 \item An administrator creates a new user
 \item An administrator deletes an existing user
 \item An administrator views the information of a user
@@ -183,43 +184,60 @@ In addition, we have specified a number of abuse cases, constituting a security-
 
 \subsection{Abuse cases}
 \begin{itemize}
-\item A person with access to an administrator's crendentials wreaks havoc on the system by deleting multiple users.
+\item A malicious user runs arbitrary queries on the database by submitting SQL code through an input field
+\item A malicious user fills the system with irrelevant data by automatically creating multiple user profiles with a self-repeating script
+\item An unauthorized third party is picking up a user's traffic by listening on the same network the user is connected from
+	\begin{itemize}
+		\item The third party gains access to sensitive user data against the regulations of the privacy policy
+		\item The third party gains access to the user's session ID, allowing the intruder to impersonate the user when communicating with the application
+	\end{itemize}
+\item A person with access to an administrator's credentials wreaks havoc on the system by deleting multiple user profiles
 \end{itemize}
 
 \subsection{Functional Requirements}
+Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here.
+
+* In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
+
+** In order to prevent people with access to an administrator's credentials from destroying user data in the system, an administrator is only able to suspend (and not delete, as per the use case) user profiles. Other administrators will then be able to restore the profile, in the case of a mistake. We feel that this is a good compromise, which does not stray too far from the original use case.
 \begin{itemize}
 \item A database model supporting users with the following data represented:
   \begin{itemize}
   \item User
       \begin{itemize}
-      \item Usernamae
-      \item Email
+      \item Username (this is necessary as the customer wants both proper name and email to be private information)
       \item Password
-      \item Name
-      \item Address
+      \item Email
+      \item First name
+      \item Last name
       \end{itemize}
   \item Hobbies
   \item Friends/romances
   \end{itemize}
 \item CRUD for users
 	\begin{itemize}
-    \item Users should be able to view/edit their own data
-    \item Admins should be able to create/delete users
-    \item Users should be able to view others' data partially
+    \item Users should be able to view their own data
+    \item Users should be able to view other users' data, filtered depending on their relationship with the given user
+    \item Users should be able to edit their own data upon re-entry of their password *
+    \item Admins should be able to create new users
+    \item Admins should be able to suspend and restore user profiles **
     \end{itemize}
 \item User authentication
 \item Admin authorization
-\item Browse or search functionality
+\item Browse functionality for finding other users
 \end{itemize}
 
 \subsection{Non-functional requirements}
+The following is our non-functional requirements to the system. These are derived from our business goals, one of which relates to uptime. Another of our business goals is to employ immediate mitigation against any attack we might be subject to throughout the project period. To this end, it is imperative that we run an active logging framework.
 \begin{itemize}
-\item The application is available through an HTTP connection 99.99\% of the time
-\item A logging framework is enabled that allows the team to identify the underlying causes any breaches that may occur
+\item The application is available through an HTTP connection 99.95\% of the time
+\item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
 \end{itemize}
 
 \subsection{Security Requirements}
-Based on the security principles we have derived the following requirements.
+Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
+
+We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we consider it a too extensive task to implement within the scope of the project, having prioritized other things. Instead, as previously mentioned, we have modified our functional requirements to mitigate this particular abuse through alternative means.
 \begin{itemize}
 \item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
 \item Database access credentials are never stored in any source code repository
