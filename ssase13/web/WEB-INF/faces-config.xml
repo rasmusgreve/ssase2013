@@ -18,6 +18,12 @@
     </managed-bean>
     
     <managed-bean>
+        <managed-bean-name>friendcontroller</managed-bean-name>
+        <managed-bean-class>dk.itu.ssase.hb.controller.FriendController</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>      
+    </managed-bean>
+    
+    <managed-bean>
         <managed-bean-name>loginbean</managed-bean-name>
         <managed-bean-class>dk.itu.ssase.hb.beans.LoginBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>      

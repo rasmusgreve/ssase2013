@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>Friend list</title>
+        
+        <ui:include src="bootstrap.xhtml"/>
+    </head>
+    <body>
+        <div class="container">
+            <ui:include src="header.xhtml"/>
+        
+                <div class="col-lg-12">
+                    <div class="well">
+                        <h3>Friend requests</h3>
+                        
+                        <h:form>
+                            
+                        <ul>
+                        <ui:repeat  value="#{friendcontroller.findUnapprovedRelationshipRequests()}" var="userloop">
+                            <li>
+                                <h:commandLink action="#{friendcontroller.approveFriend(userloop.id)}" class="btn btn-primary btn-sm">#{userloop.name}</h:commandLink>
+
+                            </li>
+                        </ui:repeat>
+                        </ul>
+                        </h:form>
+                        
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

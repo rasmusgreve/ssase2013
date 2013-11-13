@@ -15,16 +15,15 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container">
-            <ui:include src="header.xhtml"/>
-        <div>Create your user here</div>
+            <h3>Create your user</h3>
         <h:form id="create">            
             <h:panelGrid columns="3" border="0" class="form-group">
-                <h:outputLabel for="create:username" value="Name:"/> <h:inputText id="username" 
+                <h:outputLabel for="create:name" value="Name:"/> <h:inputText id="name" 
                                        class="form-control"
                                        requiredMessage="*"
                                        value="#{createstudentbean.studentInput.name}"
                                        required="true"/>
-                          <h:message for="create:username" style="color: red"/>
+                          <h:message for="create:name" style="color: red"/>
                 <h:outputLabel for="create:surname" value="Surname:"/> <h:inputText id="surname" 
                                        class="form-control"
                                        requiredMessage="*"
@@ -43,8 +42,7 @@ and open the template in the editor.
                                          value="#{createstudentbean.studentInput.password}"
                                          required="true"/>
                           <h:message for="create:password" style="color: red"/>
-                          
-                          
+                                                    
                 <h:outputLabel for="create:address" value="Address:"/> <h:inputText id="address"    
                                          class="form-control"
                                          requiredMessage="*"
@@ -54,30 +52,14 @@ and open the template in the editor.
                           
                           
                 <h:message for="create:privacy" style="color: red"/>
-                 <h:outputLabel for="create:admin" value="Admin:"/> <h:selectBooleanCheckbox id="admin"    
-                                         class="form-control"  
-                                                value="#{createstudentbean.studentInput.isadmin}"
-                                         required="true"/>
-                
-                 <script type="text/javascript"
-                    src="http://www.google.com/recaptcha/api/challenge?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1">
-                 </script>
-                 <noscript>
-                    <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1"
-                        height="300" width="500" frameborder="0"></iframe><br>
-                    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                    </textarea>
-                    <input type="hidden" name="recaptcha_response_field"
-                        value="manual_challenge" />
-                 </noscript>
-                
             </h:panelGrid>
             <h:commandButton id="submit"  
                              class="btn btn-default"
                              value="Create"
                              action="#{createstudentbean.createUser}"/>
-            <h:messages style="color: red" globalOnly="true"/>
         </h:form>
+            <h:messages id="createmess" style="color: red" globalOnly="true"/>
+                        <h:outputLink value="login.xhtml">Back to login</h:outputLink>
         </div>
     </body>
 </html>

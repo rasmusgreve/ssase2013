@@ -17,25 +17,60 @@
 \section{Introduction}
 This is the written hand-in for the second part of the programming assignment of the course. With regards to the report, we have addressed the issues presented in the feedback from the first part of the assignment. Secondly, we have incorporated the customer's requests for this assignment in our analysis and design process in order to integrate it with our existing system as seamlessly as possible.
 
-The report is structured... etc. TODO
+%The report is structured... etc. TODO
 
 \section{Strategy}
+By defining our strategy clearly and sharing it with our users, we hope to align our strategy with our business and technology.
 
-We start by analyzing and ranking the business goals in order to provide priorities for which risks we will respond to first.
+We start by listing our goals and afterwards we will define how and why we expect to reach them.
+
+\begin{itemize}
+\item
+We hope to engage our users in a new social platform based on their interests.
+\item
+The brand should build trust with the users over the long term so they keep coming back.
+\end{itemize}
+
+% how
+We wish to achieve our goals by providing the following features to our users:
+\begin{itemize}
+\item Easy signup with design that provides high quality features with as few clicks as possible.
+\item Users can choose from a long list of social hobbies and find others with the same interests.
+%\item Full data ownership: All data is owned by the users and should be easy to export and reuse.
+\end{itemize}
+
+We have chosen the following privileges to use in our system.
+% why
+\begin{itemize}
+\item Reluctance to Trust
+
+\item Securing the Weakest Link
+
+\item Failing Securely
+
+\item Least Privilege
+
+\item Separation of Privilege
+
+\item Promoting Privacy
+
+\end{itemize}
+
+
 \subsection{Business Goals}
+
+
 We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
 
 \begin{table}[h!]
 	\begin{tabular}{|p{10cm}|l|}
 		\hline
 		\textbf{Business Goal} & \textbf{Rank} \\ \hline
-The service should have attracted a minimum of 4 users after the first week & \textbf{L} \\ \hline
-The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
-Sensitive user data is never compromised & \textbf{H} \\ \hline
-The web server is breached at most twice throughout the project period &  \textbf{M} \\ \hline
-The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
-Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
-The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & \textbf{M}\\ \hline
+		The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
+		Sensitive user data is never compromised & \textbf{H} \\ \hline
+		The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
+		Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
+		The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & \textbf{M}\\ \hline
 	\end{tabular}
 	\caption{Business goals for our project. The goals are ranked with letters where L: low, M: medium and H: high}
 	\label{tab:business_goals}
@@ -44,31 +79,36 @@ The application should be usable by a novice computer user on small screens (sma
 \textbf{The server must provide 99.95\% uptime} or else every user leaves forever. This happens because the user cannot access the application and they will switch to another similar application.
 
 \textbf{Sensitive user data is never compromised} because it will provide bad word of mouth about the application which can damage the reputation of the company/team permanently.
-// We imagine login as a remedy
+% We imagine login as a remedy
 
 \subsection{Risk Analysis and Management}
+\subsubsection{Business Risks}
+
+\begin{table}[h!]
+\begin{tabular}{| p{4cm} | p{3cm} | l | p{3cm} |}
+\hline
+\textbf{Business Risk} & \textbf{Indicators} & \textbf{Likelihood} & \textbf{Impact} \\ \hline
+Local disasters cause downtime and data loss & Reports of service outage & L & Loss of potential users\\\hline
+A user is subject to social engineering & Reports of peculiar activity & H & SLA violation \\\hline
+Vulnerabilities in the system & High amount of breaches & H & Unintended downtime and higher development costs \\\hline
+\end{tabular}
+\end{table}
+
 
 \subsubsection{Technical Risks}
 The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
 
 \begin{table}[h!]
-	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
+	\begin{tabular}{| l | p{3cm} | l | l |}
 		\hline
-		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
-		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
-        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
-        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
-        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
-        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
-        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
-        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
-       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
-        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
-        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
-        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
+		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{Impact}  \\ \hline
+        User login bruteforcing & Logs are full of login attempts & M & 6 \\ \hline
+        Old libraries and platforms provide an easy target & Bugtrac is full of bugs & H & 9 \\\hline
+        %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        User session hijacking & Reports from users of peculiar data & M & 4 \\ \hline
+        Hardware failure & Downtime & L & 5 \\ \hline
 	\end{tabular}
-	\caption{Risk analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
 \end{table}
 
@@ -76,14 +116,12 @@ The technical risks are characterized by their probability and effect on the sys
 In table \ref{tab:goal_to_risk_relationship} the risks are synthezised by correlating the the business risks with technical risks. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
 
 \begin{table}[h!]
-	\begin{tabular}{| p{4cm} | p{4cm}| l | l |}
+	\begin{tabular}{| p{4cm} | p{4cm}| p{4cm} |}
     \hline
-   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{ID}  & \textbf{Technical risk} \\ \hline
-    \multirow{3}{4cm}{The service should have attracted a minimum of 4 users after the first week} & \multirow{3}{4cm}{Downtime causes loss of potential users} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
-    \multirow{6}{4cm}{Sensitive user data is never compromised} & \multirow{2}{4cm}{A user is subject to social engineering} & TR1 & User gives away password \\ & & TR2 & Admin discloses user credentials \\ & \multirow{4}{4cm}{Security weaknesses in the system} & TR3 & Admin credentials bruteforce \\ & & TR4 & User credentials bruteforce \\ & & TR6 & Admin session hijacking \\ & & TR7 & User session hijacking \\ \hline
-    \multirow{3}{4cm}{The server must provide 99.99\% uptime} & \multirow{3}{4cm}{Shortcomings in the system cause unintended downtime} & TR10 & Hardware failure \\ & & TR11 & Connection issues \\ & & & \\ \hline
-    \multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Security weaknesses in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline
-    The team should strive to satisfy user needs and pay attention to (relevant) improvement requests & A member of the team fails to satisfy a relevant user request & & \\ \hline
+   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
+    \multirow{3}{4cm}{Sensitive user data is never compromised} & \multirow{3}{4cm}{Vulnerability in the system} & User credentials bruteforce \\ & & Old libraries and platforms provide an easy target \\ & & User session hijacking \\ \hline
+    The server must provide 99.95\% uptime & Local disasters cause downtime and data loss &  Hardware failure \\ \hline
+    %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     \end{tabular}
     \caption{Goal-to-risk relationship table.}
 	\label{tab:goal_to_risk_relationship}
@@ -125,58 +163,81 @@ Our application authorizes users in order to determine the privilege for access 
 We replaced the error page in order to \textbf{Fail Securely}.
 
 \section{System Specification}
+In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Since we are at part two of the project, there have so far been two such sets of requests from the "customer".
 
-\subsection{User Stories}
-According to the requirements, we define our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective.
+We have considered each of these user stories and made corresponding use cases for the system, leading to functional requirements. Some of the user stories have related instead to non-functional requirements, and some again to security requirements.
 
-Use cases
+In addition, we have specified a number of abuse cases, constituting a security-related counterpart to the use cases. Based on these, we have derived additional functional, non-functional and security requirements. Not all abuse cases have had equal impact on the final specification, as we have had to keep in mind the strategic prioritizations outlined in the Risk Management section.
+
+\subsection{Use cases}
 \begin{itemize}
 \item A student views his own information
 \item A student edits his own information
 \item A student chooses what information to share
 \item A student views another student’s information
-\item A student forms a relationship with another student
+\item A student forms a friendly or romantic relationship with another student
+\item A student sends a "hug" to mutual a friend or romance
 \item An administrator creates a new user
 \item An administrator deletes an existing user
 \item An administrator views the information of a user
 \end{itemize}
 
-\subsection{Requirements}
-Based on the security principles we have derived the following requirements.
+\subsection{Abuse cases}
+\begin{itemize}
+\item A malicious user runs arbitrary queries on the database by submitting SQL code through an input field
+\item A malicious user fills the system with irrelevant data by automatically creating multiple user profiles with a self-repeating script
+\item An unauthorized third party is picking up a user's traffic by listening on the same network the user is connected from
+	\begin{itemize}
+		\item The third party gains access to sensitive user data against the regulations of the privacy policy
+		\item The third party gains access to the user's session ID, allowing the intruder to impersonate the user when communicating with the application
+	\end{itemize}
+\item A person with access to an administrator's credentials wreaks havoc on the system by deleting multiple user profiles
+\end{itemize}
 
 \subsection{Functional Requirements}
+Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here.
+
+* In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
+
+** In order to prevent people with access to an administrator's credentials from destroying user data in the system, an administrator is only able to suspend (and not delete, as per the use case) user profiles. Other administrators will then be able to restore the profile, in the case of a mistake. We feel that this is a good compromise, which does not stray too far from the original use case.
 \begin{itemize}
 \item A database model supporting users with the following data represented:
   \begin{itemize}
   \item User
       \begin{itemize}
-      \item Usernamae
-      \item Email
+      \item Username (this is necessary as the customer wants both proper name and email to be private information)
       \item Password
-      \item Name
-      \item Address
+      \item Email
+      \item First name
+      \item Last name
       \end{itemize}
   \item Hobbies
   \item Friends/romances
   \end{itemize}
 \item CRUD for users
 	\begin{itemize}
-    \item Users should be able to view/edit their own data
-    \item Admins should be able to create/delete users
-    \item Users should be able to view others' data partially
+    \item Users should be able to view their own data
+    \item Users should be able to view other users' data, filtered depending on their relationship with the given user
+    \item Users should be able to edit their own data upon re-entry of their password *
+    \item Admins should be able to create new users
+    \item Admins should be able to suspend and restore user profiles **
     \end{itemize}
 \item User authentication
 \item Admin authorization
-\item Browse or search functionality
+\item Browse functionality for finding other users
 \end{itemize}
 
 \subsection{Non-functional requirements}
+The following is our non-functional requirements to the system. These are derived from our business goals, one of which relates to uptime. Another of our business goals is to employ immediate mitigation against any attack we might be subject to throughout the project period. To this end, it is imperative that we run an active logging framework.
 \begin{itemize}
-\item The application is available through an HTTP connection 99.99\% of the time
-\item A logging framework is enabled that allows the team to identify the underlying causes any breaches that may occur
+\item The application is available through an HTTP connection 99.95\% of the time
+\item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
 \end{itemize}
 
 \subsection{Security Requirements}
+Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
+
+We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we consider it a too extensive task to implement within the scope of the project, having prioritized other things. Instead, as previously mentioned, we have modified our functional requirements to mitigate this particular abuse through alternative means.
 \begin{itemize}
 \item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
 \item Database access credentials are never stored in any source code repository
@@ -189,12 +250,6 @@ Based on the security principles we have derived the following requirements.
 \subsection{Domain}
 The domain is based on the user stories.
 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{Domain}
-\caption{Domain diagram}
-\label{fig:domain_diagram}
-\end{figure}
 
 \subsection{ER modelling}
 
@@ -287,6 +342,16 @@ A requirement for this attack to work is that we send the email before (if) the 
 \section{Conclusion}
 
 \section{Appendix}
+\subsection{Log file}
+\begin{verbatim}
+Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: Hobby id: 2
+\end{verbatim}
+
 \include{courselog}
 
 \end{document}

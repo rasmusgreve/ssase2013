@@ -19,6 +19,10 @@ import javax.faces.event.PhaseListener;
 public class AuthPhaseListener implements PhaseListener {
     
     private static final String USER_LOGIN_OUTCOME = "login";
+    private static final String[] UNPROTECTED_VIEWS = new String[] {
+            "/login.xhtml",
+            "/signup.xhtml"
+        };
     
     public void afterPhase(PhaseEvent event) {
         FacesContext context = event.getFacesContext();
@@ -42,10 +46,9 @@ public class AuthPhaseListener implements PhaseListener {
             }
         }
         if(authorized) {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authorized user");        
             return;
         } else {
-            //TODO write access denied
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Access denied user");   
             redirectToLogin(context);
         }
     }
@@ -86,7 +89,12 @@ public class AuthPhaseListener implements PhaseListener {
     private boolean requestingSecureView(FacesContext context) {
         ExternalContext extContext = context.getExternalContext();       
         String path = extContext.getRequestPathInfo();
-        return (!"/login.xhtml".equals(path) );              
+
+        for (String unprotected : UNPROTECTED_VIEWS) {
+            if(path.equals(unprotected))
+                return false;
+        }
+        return (true);       
     }
     
     private boolean requestingAdminView(FacesContext context) {
