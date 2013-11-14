@@ -76,16 +76,16 @@ Application delayed & System features are implemented late & M & Late return on 
 
 
 \subsubsection{Technical Risks}
-The technical risks are characterized by their probability and effect on the system. See table \ref{tab:risk_analysis}.
+The technical risks are characterized by their probability and effect on the system in table \ref{tab:risk_analysis}. We have also identified risks in making the system too secure.
 
 \begin{table}[h!]
 	\begin{tabular}{| l | p{3cm} | l | l |}
 		\hline
 		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{C}  \\ \hline
         User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
-        Old libraries and platforms provide an easy target & Unsupported software & H & 9 \\\hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        User session hijacking & Reports from users of peculiar data & M & 4 \\ \hline
+        User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
+        Old libraries and platforms provide an easy target & Unsupported software & H & 9 \\\hline
         Hardware failure & Reports of downtime & L & 5 \\ \hline
         Security is not part of system architecture design & Unsecure design & M & 7 \\ \hline
 		Security safeguards slows down user experience & Too many interactions & L & 3
@@ -116,14 +116,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 
 
 \subsubsection{Mitigations}
-We have ranked the risks and provide our proposals for mitigation following the principles.
-\begin{enumerate}
-\item Vulnerability in the system
-\item Data loss
-\item Application delayed
-\item A user is subject to social engineering
-\end{enumerate}
-
+We have ranked the risks and provide our proposals for mitigation.
 \textbf{Vulnerability in the system}
 Use supported third party libraries to keep all parts of the software secure to avoid the compromise of sensitive user data by Securing the Weakest Link.
 
@@ -132,6 +125,13 @@ By assigning clients user credentials we can identify them and separate them int
 
 \textbf{Data loss}
 We do backups of the database and encrypt it.
+
+\textbf{Application delayed}
+Having a planned milestone gives an idea of what it is possible to do.
+Decreasing the scope to something manageable helps as well.
+
+\textbf{A user is subject to social engineering}
+Providing warnings to users.
 
 % why
 %\begin{itemize}
