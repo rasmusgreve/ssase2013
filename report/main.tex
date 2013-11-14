@@ -18,6 +18,7 @@
 This is the written hand-in for the second part of the programming assignment of the course. With regards to the report, we have addressed the issues presented in the feedback from the first part of the assignment. Secondly, we have incorporated the customer's requests for this assignment in our analysis and design process in order to integrate it with our existing system as seamlessly as possible.
 
 %The report is structured... etc. TODO
+We start by describing our strategy for the architecture. We try to cover the 7 touchpoints except the code review because we had trouble finding tools. 
 
 \section{Strategy}
 By defining our strategy clearly and sharing it with our users, we hope to align our strategy with our business and technology.
@@ -39,27 +40,9 @@ We wish to achieve our goals by providing the following features to our users:
 %\item Full data ownership: All data is owned by the users and should be easy to export and reuse.
 \end{itemize}
 
-We have chosen the following privileges to use in our system.
-% why
-\begin{itemize}
-\item Reluctance to Trust
-
-\item Securing the Weakest Link
-
-\item Failing Securely
-
-\item Least Privilege
-
-\item Separation of Privilege
-
-\item Promoting Privacy
-
-\end{itemize}
-
-
-\subsection{Business Goals}
-
-
+\subsection{Risk Analysis and Management}
+The business context is an application developed by a small enterprise with public customers with no contract of any sort. We provide a rudimentary service level agreement though there is no consequences if it is compromised. Most of the analysis is based on experience from using similar applications or our projections of how prospective interviewees would answer our questions.
+\subsubsection{Business Goals}
 We have decided on the following goals as paramount to our business operation with the web application. If any of these are not met, we consider it a severe threat to the integrity of our business.
 
 \begin{table}[h!]
@@ -76,21 +59,18 @@ We have decided on the following goals as paramount to our business operation wi
 	\label{tab:business_goals}
 \end{table}
 
-\textbf{The server must provide 99.95\% uptime} or else every user leaves forever. This happens because the user cannot access the application and they will switch to another similar application.
 
-\textbf{Sensitive user data is never compromised} because it will provide bad word of mouth about the application which can damage the reputation of the company/team permanently.
-% We imagine login as a remedy
 
-\subsection{Risk Analysis and Management}
 \subsubsection{Business Risks}
-
+We have analyzed the business risks of the project and determined their impact which we have imagined as they would be for a small size enterprise.
 \begin{table}[h!]
 \begin{tabular}{| p{4cm} | p{3cm} | l | p{3cm} |}
 \hline
 \textbf{Business Risk} & \textbf{Indicators} & \textbf{Likelihood} & \textbf{Impact} \\ \hline
-Local disasters cause downtime and data loss & Reports of service outage & L & Loss of potential users\\\hline
-A user is subject to social engineering & Reports of peculiar activity & H & SLA violation \\\hline
+Data loss & Reports of service outage & L & Loss of potential users\\\hline
+A user is subject to social engineering & Reports of peculiar activity & H & Damage to brand \\\hline
 Vulnerabilities in the system & High amount of breaches & H & Unintended downtime and higher development costs \\\hline
+Application delayed & System features are implemented late & M & Late return on investment \\\hline
 \end{tabular}
 \end{table}
 
@@ -101,66 +81,67 @@ The technical risks are characterized by their probability and effect on the sys
 \begin{table}[h!]
 	\begin{tabular}{| l | p{3cm} | l | l |}
 		\hline
-		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{Impact}  \\ \hline
-        User login bruteforcing & Logs are full of login attempts & M & 6 \\ \hline
-        Old libraries and platforms provide an easy target & Bugtrac is full of bugs & H & 9 \\\hline
+		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{C}  \\ \hline
+        User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
+        Old libraries and platforms provide an easy target & Unsupported software & H & 9 \\\hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
         User session hijacking & Reports from users of peculiar data & M & 4 \\ \hline
-        Hardware failure & Downtime & L & 5 \\ \hline
+        Hardware failure & Reports of downtime & L & 5 \\ \hline
+        Security is not part of system architecture design & Unsecure design & M & 7 \\ \hline
+		Security safeguards slows down user experience & Too many interactions & L & 3
+		\\ \hline
 	\end{tabular}
 	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
 \end{table}
 
-\subsubsection{Business Risks}
-In table \ref{tab:goal_to_risk_relationship} the risks are synthezised by correlating the the business risks with technical risks. The technical risks from table \ref{tab:risk_analysis} relating to these threats are also indicated.
+
+
+In table \ref{tab:goal_to_risk_relationship} the business and technical risks are synthesized. The technical risks are from table \ref{tab:risk_analysis}.
 
 \begin{table}[h!]
 	\begin{tabular}{| p{4cm} | p{4cm}| p{4cm} |}
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
     \multirow{3}{4cm}{Sensitive user data is never compromised} & \multirow{3}{4cm}{Vulnerability in the system} & User credentials bruteforce \\ & & Old libraries and platforms provide an easy target \\ & & User session hijacking \\ \hline
-    The server must provide 99.95\% uptime & Local disasters cause downtime and data loss &  Hardware failure \\ \hline
+    The server must provide 99.95\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
+    Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
+    The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & A user is subject to social engineering & Security safeguards slows down user experience \\ \hline
     \end{tabular}
     \caption{Goal-to-risk relationship table.}
 	\label{tab:goal_to_risk_relationship}
 \end{table}
 
-\subsubsection{Risk management}
-From the risk analysis we have chosen to focus on the folowing risks in prioritized order:
+
+
+\subsubsection{Mitigations}
+We have ranked the risks and provide our proposals for mitigation following the principles.
 \begin{enumerate}
-\item{SQL injections}
-\item{XSS attacks}
-\item{Login bruteforcing}
-\item{Admin subject to social engineering}
+\item Vulnerability in the system
+\item Application delayed
+\item A user is subject to social engineering
+\item Data loss
 \end{enumerate}
 
-We have chosen this prioritization of risks by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
-
-SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
-%TODO: Does JSF protect against XSS attacks?
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{ForestView}
-\caption{Forest View diagram}
-\label{fig:forest_view}
-\end{figure}
-
-\subsection{Security Principles}
-
-Our production server runs Linux and provides the access control for users' access to the file system.
-
-We have attempted to restrict privilege given on our server so users are given 
-\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+\textbf{Vulnerability in the system}
+Use supported third party libraries to keep all parts of the software secure to avoid the compromise of sensitive user data by Securing the Weakest Link.
 
 
-Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+By assigning clients user credentials we can identify them and separate them into different roles that we might need and do Separation of Privilege.
 
-Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
 
-We replaced the error page in order to \textbf{Fail Securely}.
+% why
+%\begin{itemize}
+%\item Reluctance to Trust
+%\item Securing the Weakest Link
+%\item Failing Securely
+%\item Least Privilege
+%\item Separation of Privilege
+%By assigning clients user credentials we can identify them and separate them into different roles that we might need.
+%\item Promoting Privacy
+%\end{itemize}
+%Confidentiality, Integrity, Availability
 
 \section{System Specification}
 In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Since we are at part two of the project, there have so far been two such sets of requests from the "customer".
@@ -247,8 +228,23 @@ We do not require the application to run through a secure connection, as althoug
 
 \section{Architecture}
 
-\subsection{Domain}
-The domain is based on the user stories.
+Our production server runs Linux and provides the access control for users' access to the file system.
+
+We have attempted to restrict privilege given on our server so users are given 
+\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+
+
+Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+
+Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
+
+We replaced the error page in order to \textbf{Fail Securely}.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{ForestView}
+\caption{Forest View diagram}
+\label{fig:forest_view}
+\end{figure}
 
 
 \subsection{ER modelling}
@@ -307,7 +303,18 @@ A testing tool we found fitting to use for system tests is Selenium with JUnit. 
 \end{itemize}
 
 \subsection{Penetration Testing}
+The application protects against the following:
+\begin{enumerate}
+\item{SQL injections}
+\item{XSS attacks}
+%\item{Login bruteforcing}
+%\item{Admin subject to social engineering}
+\end{enumerate}
 
+We have chosen this prioritization of threats by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
+
+SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
+%TODO: Does JSF protect against XSS attacks?
 \section{Hacking}
 \subsection{Plans and ideas}
 In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
@@ -350,6 +357,25 @@ Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
 INFO: Authorized user
 Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
 INFO: Hobby id: 2
+\end{verbatim}
+
+\subsection{Test reports}
+\begin{verbatim}
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running dk.itu.ssase.test.LoginTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.814 sec
+Running dk.itu.ssase.test.SignupTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.45 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
 \end{verbatim}
 
 \include{courselog}
