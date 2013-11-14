@@ -82,9 +82,9 @@ The technical risks are characterized by their probability and effect on the sys
 	\begin{tabular}{| l | p{3cm} | l | l |}
 		\hline
 		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{C}  \\ \hline
-        User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
+        %User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
+        %User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
         Old libraries and platforms provide an easy target & Unsupported software & H & 9 \\\hline
         Hardware failure & Reports of downtime & L & 5 \\ \hline
         Security is not part of system architecture design & Unsecure design & M & 7 \\ \hline
@@ -103,7 +103,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 	\begin{tabular}{| p{4cm} | p{4cm}| p{4cm} |}
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
-    \multirow{3}{4cm}{Sensitive user data is never compromised} & \multirow{3}{4cm}{Vulnerability in the system} & User credentials bruteforce \\ & & Old libraries and platforms provide an easy target \\ & & User session hijacking \\ \hline
+   Sensitive user data is never compromised & Vulnerability in the system & Old libraries and platforms provide an easy target \\ \hline
     The server must provide 99.95\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
@@ -326,6 +326,8 @@ Threats:
         TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
         TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
 	\end{tabular}
+	\caption{Threat analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+		\label{tab:threats}
 \end{table}
 \section{Hacking}
 \subsection{Plans and ideas}
