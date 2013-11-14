@@ -119,17 +119,19 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 We have ranked the risks and provide our proposals for mitigation following the principles.
 \begin{enumerate}
 \item Vulnerability in the system
+\item Data loss
 \item Application delayed
 \item A user is subject to social engineering
-\item Data loss
 \end{enumerate}
 
 \textbf{Vulnerability in the system}
 Use supported third party libraries to keep all parts of the software secure to avoid the compromise of sensitive user data by Securing the Weakest Link.
 
 
-By assigning clients user credentials we can identify them and separate them into different roles that we might need and do Separation of Privilege.
+By assigning clients user credentials we can identify them and separate them into different roles that we might need and do \textbf{Separation of Privilege}.
 
+\textbf{Data loss}
+We do backups of the database and encrypt it.
 
 % why
 %\begin{itemize}
@@ -348,6 +350,7 @@ A requirement for this attack to work is that we send the email before (if) the 
 
 \section{Conclusion}
 
+\newpage
 \section{Appendix}
 \subsection{Log file}
 \begin{verbatim}
