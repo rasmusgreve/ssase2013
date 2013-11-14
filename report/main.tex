@@ -249,16 +249,6 @@ We replaced the error page in order to \textbf{Fail Securely}.
 \end{figure}
 
 
-\subsection{ER modelling}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{ER}
-\caption{Entity relationship diagram of our data-model}
-\label{fig:er_diagram}
-\end{figure}
-
 
 
 \subsection{Choice of Technology}
@@ -317,6 +307,26 @@ We have chosen this prioritization of threats by looking at the probability and 
 
 SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
+
+Threats:
+\begin{table}[h!]
+	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
+		\hline
+		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
+		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
+        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
+        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
+        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
+        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
+        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
+        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
+       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
+        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
+        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
+        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
+	\end{tabular}
+\end{table}
 \section{Hacking}
 \subsection{Plans and ideas}
 In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
@@ -352,6 +362,21 @@ A requirement for this attack to work is that we send the email before (if) the 
 
 \newpage
 \section{Appendix}
+\subsection{Design diagrams}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Domain}
+\caption{Domain diagram}
+\label{fig:domain_diagram}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{ER}
+\caption{Entity relationship diagram of our data-model}
+\label{fig:er_diagram}
+\end{figure}
+
+\newpage
 \subsection{Log file}
 \begin{verbatim}
 Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
