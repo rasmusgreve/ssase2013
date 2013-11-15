@@ -343,41 +343,9 @@ We have chosen this prioritization of threats by looking at the probability and 
 SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
 
-\subsubsection{Race conditions}
-\begin{verbatim}
-Nov 15, 2013 10:45:55 AM 
-dk.itu.ssase.hb.controller.FriendController requestRelationship
-INFO: Add relationship to student id: 624
-Nov 15, 2013 10:45:55 AM 
-dk.itu.ssase.hb.controller.FriendController requestRelationship
-INFO: Created relationship request with id: 8
+Raceconditions are prevented (see the log \ref{sec:appendix:racecondition}).
 
-Nov 15, 2013 10:45:56 AM 
-dk.itu.ssase.hb.controller.FriendController requestRelationship
-INFO: Add relationship to student id: 622
-Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
-INFO: Created relationship request with id: 9
-
-Nov 15, 2013 10:46:01 AM 
-dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
-INFO: Found friend request from: rasmusgreve
-Nov 15, 2013 10:46:01 AM 
-dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
-INFO: Found friend request from: rasmusgreve
-
-Nov 15, 2013 10:46:32 AM 
-dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
-INFO: Found friend request from: rasmusgreve
-Nov 15, 2013 10:46:32 AM 
-dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
-INFO: Found friend request from: rasmusgreve
-
-Nov 15, 2013 10:47:40 AM 
-dk.itu.ssase.hb.controller.FriendController approveFriend
-INFO: Approve relationship id: 9
-\end{verbatim}
-
-Threats:
+\subsection{Threats:}
 \begin{table}[h!]
 	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
 		\hline
@@ -477,6 +445,7 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 
 \newpage
 \subsection{Log file}
+\subsubsection{Application online November 1st \label{sec:appendix:online}}
 \begin{verbatim}
 Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
 INFO: Authenticated user admin
@@ -484,6 +453,41 @@ Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
 INFO: Authorized user
 Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
 INFO: Hobby id: 2
+\end{verbatim}
+
+\subsubsection{Race conditions \label{sec:appendix:racecondition}}
+\begin{verbatim}
+Nov 15, 2013 10:45:55 AM 
+dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 624
+Nov 15, 2013 10:45:55 AM 
+dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 8
+
+Nov 15, 2013 10:45:56 AM 
+dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:45:56 AM 
+dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 9
+
+Nov 15, 2013 10:46:01 AM 
+dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:01 AM 
+dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+
+Nov 15, 2013 10:46:32 AM 
+dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:32 AM 
+dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+
+Nov 15, 2013 10:47:40 AM 
+dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 9
 \end{verbatim}
 
 \subsection{Test reports}
