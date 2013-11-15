@@ -168,7 +168,9 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \subsection{Abuse cases}
 \begin{itemize}
 \item A malicious user runs arbitrary queries on the database by submitting SQL code through an input field
+\item A malicious user injects a script into HTML content that is presented to other users
 \item A malicious user fills the system with irrelevant data by automatically creating multiple user profiles with a self-repeating script
+\item A malicious user with two profiles logs into two different sessions and attempts to induce a race condition in the system by having both profiles befriend each other simultaneously
 \item An unauthorized third party is picking up a user's traffic by listening on the same network the user is connected from
 	\begin{itemize}
 		\item The third party gains access to sensitive user data against the regulations of the privacy policy
@@ -299,6 +301,7 @@ The application protects against the following:
 \begin{enumerate}
 \item{SQL injections}
 \item{XSS attacks}
+\item{Race conditions}
 %\item{Login bruteforcing}
 %\item{Admin subject to social engineering}
 \end{enumerate}
@@ -307,6 +310,32 @@ We have chosen this prioritization of threats by looking at the probability and 
 
 SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
+
+\subsubsection{Race conditions}
+\begin{verbatim}
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 624
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 8
+
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 9
+
+Nov 15, 2013 10:46:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+
+Nov 15, 2013 10:46:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+
+Nov 15, 2013 10:47:40 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 9
+\end{verbatim}
 
 Threats:
 \begin{table}[h!]
@@ -329,6 +358,8 @@ Threats:
 	\caption{Threat analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
 		\label{tab:threats}
 \end{table}
+
+
 \section{Hacking}
 \subsection{Plans and ideas}
 In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
