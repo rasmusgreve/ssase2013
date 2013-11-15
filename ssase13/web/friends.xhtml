@@ -22,34 +22,13 @@ and open the template in the editor.
                     <div class="well">
                         
                         <h3>Friends</h3>
-                        <ul>
-                        <ui:repeat  value="#{friendcontroller.findFriends()}" var="friend">
-                            <li>
+                        <ul class="list-group">
+                        <ui:repeat value="#{friendcontroller.findFriends()}" var="friend">
+                            <li class="list-group-item">
                                     <h:outputText value="#{friend.name}"/>, <h:outputText value="#{friend.student.name}"/>, <h:outputText value="#{friend.student.surname}"/>, <h:outputText value="#{friend.student.address}"/>, <h:outputText value="#{friend.relatype}"/>
                             </li>
                         </ui:repeat>
                         </ul>
-                             <h:dataTable class="table table-striped table-bordered" rowClasses="row" columnClasses="col-md-2,col-md-4,col-md-2,col-md-2,col-md-2" var="userloop3" value="#{friendcontroller.findFriends()}">                                                           
-                                <h:column headerClass="col-md-2">
-                                    <f:facet name="header"></f:facet>
-                                    <h:outputText value="#{userLoop3.name}"/>
-                                </h:column>
-                                <h:column headerClass="col-md-4">
-                                    <f:facet name="header">Handle</f:facet>
-                                    <h:outputText value="#{userLoop3.student.name}"/>
-                                </h:column>
-                                <h:column headerClass="col-md-2">
-                                    <f:facet name="header">Name</f:facet>
-                                    <h:outputText value="#{userLoop3.student.surname}"/>
-                                </h:column>
-                                <h:column headerClass="col-md-2">
-                                    <f:facet name="header">SurName</f:facet>
-                                    <h:outputText value="#{userLoop3.relatype}"/>
-                                </h:column>
-                                <h:column headerClass="col-md-2">
-                                    <f:facet name="header">Type</f:facet>
-                                </h:column>                        
-                            </h:dataTable>
                     </div>
                 </div>
             </div>

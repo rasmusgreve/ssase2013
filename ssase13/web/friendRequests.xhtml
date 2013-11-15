@@ -24,9 +24,9 @@ and open the template in the editor.
                         
                         <h:form>
                             
-                        <ul>
+                        <ul class="list-group">
                         <ui:repeat  value="#{friendcontroller.findUnapprovedRelationshipRequests()}" var="userloop">
-                            <li>
+                            <li class="list-group-item">
                                 <h:commandLink action="#{friendcontroller.approveFriend(userloop.id)}" class="btn btn-primary btn-sm">#{userloop.name}</h:commandLink>
 
                             </li>
