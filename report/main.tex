@@ -345,6 +345,32 @@ A requirement for this attack to work is that we send the email before (if) the 
 
 \textbf{Team 1}
 
+\subsection{Penetration test of team 11}
+As part of the project we have conducted a penetration test on another groups web service.
+Pennetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production invironment, in order to get as realistic a test setting as possible.
+
+The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have a lot of knowledge about the general concepts of hacking and attacking, and who understand the proper way to exploit weaknesses. 
+A good way to perform the test is by first looking at the technologies and frameworks that the application use and in particular which version. With this information it is possible to look in open exploit- and bug databases to search for entries that might impact the security of the application, and then try to execute attacks based on the bugs.
+
+\textbf{Automated testing}
+Tools have been created to aide the security expert in her analysis or to help novice security testers. Basically two kinds of tools exist; static analysis tools and dynamic testing tools.
+The static tools work by inspecting either the source code of the application if this is available, or binaries/decompiled binaries, trying to find common implementation errors in the application that can be exploitet by malicious users or simply triggered by unknowing normal users.
+The dynamic tools work by inputting lots of different data in all data-entry points in the application. Usually edge-case data is used such as 0, 1 and 2,147,483,647 for numbers and empty or very long strings maybe containing special characters or for string inputs.
+
+Our attempt at a penetration test consist of us using a dynamic pen-test tool called w3af on the application of team 11.
+We cannot use a static analysis tool since we do not have access to neither source code nor binary code as everything is well hidden on the webserver. To perform the best possible penetration test we have attempted to get the source code from their server, but they seem to have configures their firewall well and closed any holes that we have been able to think of. Given other circumstances a dictionary password breaking attack could have been performed in order to try to take over the server, but in this case all forms of DoS attacks are disallowed.
+
+\textbf{The tool w3af}
+w3af is in the words of the creators a "Web Application Attack and Audit Framework". It is open source and developed in python. It is built as a plugin framework where each known vulnerability to test, is contained as a plugin. This makes it easy to change what is tested and carefully conduct a specialized attack against a web application where you know which tools and frameworks run underneath.
+
+
+\textbf{Attacking team 11}
+The webapplication that team 11 has made, "Raptor dating", seems to be
+%About team 11
+%w3af on team 11
+
+
+
 %Inserted the following as username and password in login form:
 %\begin{verbatim}
 %' OR 1 = 1;--
