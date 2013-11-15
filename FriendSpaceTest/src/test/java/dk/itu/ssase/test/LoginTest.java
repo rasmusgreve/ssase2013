@@ -14,6 +14,8 @@ import org.openqa.selenium.By;
 public class LoginTest 
     extends TestCase
 {
+    String urlPage = "http://localhost:8084/ssase13/f/login.xhtml";
+    
     /**
      * Create the test case
      *
@@ -33,17 +35,26 @@ public class LoginTest
     }
     public void testLogin()
     {
-        open("http://localhost:8084/ssase13/f/login.xhtml");
+        open(urlPage);
         $(By.id("login:username")).setValue("admin");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
     }
     
-    public void testLogin2()
+    public void testLoginSQLInjection()
     {
-        open("http://localhost:8084/ssase13/f/login.xhtml");
+        open(urlPage);
         $(By.id("login:username")).setValue("';DROP TABLE student; --");
+        $(By.id("login:submit")).click();
+        $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
+        assertTrue( true );
+    }
+    
+    public void testLoginXSS()
+    {
+        open(urlPage);
+        $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
