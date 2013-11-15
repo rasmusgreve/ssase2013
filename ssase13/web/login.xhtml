@@ -16,51 +16,52 @@ and open the template in the editor.
         
     </head>
     <body>
-            <div class="container">
-                
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <h:form id="login" class="form-signin">
-                            <h2 class="form-signin-heading">Log in</h2>
-                            Username: <h:inputText class="form-control" id="username" 
-                                                   value="#{loginbean.username}" maxlength="50"/>        
-                            Password: <h:inputSecret class="form-control" id="password"
-                                                     value="#{loginbean.password}" maxlength="50"/>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h:form id="login" class="form-signin">
+                                <h2 class="form-signin-heading">Log in</h2>
+                                Username: <h:inputText class="form-control" id="username" 
+                                                       value="#{loginbean.username}" maxlength="50"/>        
+                                Password: <h:inputSecret class="form-control" id="password"
+                                                         value="#{loginbean.password}" maxlength="50"/>
 
-                        <h:commandButton id="submit" 
-                                         type="submit"
-                                         value="Login"
-                                         class="btn btn-primary btn-block"
-                                         action="#{loginbean.validateUser()}"/>
-                        </h:form>
-                        <h:messages id="loginmess" style="color: red" globalOnly="true"/>
+                            <h:commandButton id="submit" 
+                                             type="submit"
+                                             value="Login"
+                                             class="btn btn-primary btn-block"
+                                             action="#{loginbean.validateUser()}"/>
+                            <h:outputLink value="signup.xhtml" class="btn btn-info btn-block">Sign up</h:outputLink>
+                            </h:form>
+                            <h:messages id="loginmess" style="color: red" globalOnly="true"/>
+                        </div>
+                        <div class="col-md-8">
+                            <h1>Welcome to FriendSpace!</h1>
+                            <p>
+                                At FriendSpace we are very concerned about you, our customers', security
+                                and the integrity of the data that you choose to share with each other on
+                                our service. As such, we would like to prove to you our sincerity by
+                                presenting evidence for the things you are protected against when using
+                                our service.
+                            </p>
+                            <h2>Security built-in</h2>
+                            <p>
+                                Below, you are able to access the reports that our security experts have
+                                drawn up.
+                            </p>
+                            <p>
+                                <a href="">SQL injection</a>
+                            </p>
+                            <p>
+                                <a href="">XSS attacks</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                        <h:outputLink value="signup.xhtml">Sign up</h:outputLink>
-                        <div class="panel panel-default" style="width:75%;float:right;">
-                            <div class="panel-body">
-                                <h1>Welcome to FriendSpace!</h1>
-                                <p>
-                                    At FriendSpace we are very concerned about you, our customers', security
-                                    and the integrity of the data that you choose to share with each other on
-                                    our service. As such, we would like to prove to you our sincerity by
-                                    presenting evidence for the things you are protected against when using
-                                    our service.
-                                </p>
-                                <h2>Security built-in</h2>
-                                <p>
-                                    Below, you are able to access the reports that our security experts have
-                                    drawn up.
-                                </p>
-                                <p>
-                                    <a href="">SQL injection</a>
-                                </p>
-                                <p>
-                                    <a href="">XSS attacks</a>
-                                </p>
-                            </div>
-                        </div>
             </div>
+        </div>
     </body>
 </html>
 
