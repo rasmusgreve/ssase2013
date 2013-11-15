@@ -22,7 +22,6 @@ and open the template in the editor.
                     <div class="panel panel-default">
                         <div class="panel-body">
                         <h2>You Friends</h2>
-                        
                         </div>
                     <h:dataTable class="table table-striped" var="friend" value="#{friendcontroller.findFriends()}">                                                           
                            <h:column>
@@ -36,6 +35,10 @@ and open the template in the editor.
                            <h:column>
                                <f:facet name="header">Surname</f:facet>
                                <h:outputText value="#{friend.student.surname}"/>
+                           </h:column>
+                            <h:column>
+                               <f:facet name="header">Address</f:facet>
+                               <h:outputText value="#{friend.student.address}"/>
                            </h:column>
                            <h:column>
                                <f:facet name="header">Relationship</f:facet>
