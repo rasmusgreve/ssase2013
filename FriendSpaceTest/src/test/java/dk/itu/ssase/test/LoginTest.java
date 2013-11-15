@@ -46,6 +46,7 @@ public class LoginTest
     {
         open(urlPage);
         $(By.id("login:username")).setValue("';DROP TABLE student; --");
+        $(By.id("login:password")).setValue("';DROP TABLE student; --");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
@@ -54,6 +55,7 @@ public class LoginTest
     public void testLoginXSS()
     {
         open(urlPage);
+        $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
