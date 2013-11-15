@@ -48,4 +48,14 @@ public class LoginTest
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
     }
+    
+    public void testLogin3()
+    {
+        open("http://localhost:8084/ssase13/f/login.xhtml");
+        $(By.id("login:username")).setValue("';DROP TABLE student; --");
+        $(By.id("login:password")).setValue("';DROP TABLE student; --");
+        $(By.id("login:submit")).click();
+        $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
+        assertTrue( true );
+    }
 }
