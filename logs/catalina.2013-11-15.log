@@ -1,0 +1,2537 @@
+Nov 15, 2013 8:36:05 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 8:36:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:36:06 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:36:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:36:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:36:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:36 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:36 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:36 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:37 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:37:37 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:37:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 65 results
+Nov 15, 2013 8:37:47 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@56fc15cb.requestRelationship()
+javax.faces.FacesException: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@56fc15cb.requestRelationship()
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:110)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIData.broadcast(UIData.java:1108)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:790)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1282)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:198)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:646)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at dk.itu.ssase.hb.listener.FilterXHTML.doFilter(FilterXHTML.java:36)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1146)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:679)
+Caused by: javax.faces.el.MethodNotFoundException: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@56fc15cb.requestRelationship()
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:91)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 27 more
+Caused by: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@56fc15cb.requestRelationship()
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:109)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:87)
+	... 28 more
+Nov 15, 2013 8:37:51 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 8:37:51 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:37:51 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:39:57 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:40:26 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:40:52 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:41:13 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:41:21 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Blabla
+Nov 15, 2013 8:41:21 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:21 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:27 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:27 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@49456008 added Hobby id: {1} 
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:41:31 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@b7c0a73 added Hobby id: {1} 
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 8:41:33 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@7700362a added Hobby id: {1} 
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 8:41:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@bd35aa2 added Hobby id: {1} 
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 8:41:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@af4e3b6 added Hobby id: {1} 
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 8:41:41 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@395c1703 added Hobby id: {1} 
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:43 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=add:hobby[severity=(ERROR 2), summary=(add:hobby: Validation Error: Value is not valid), detail=(add:hobby: Validation Error: Value is not valid)]
+Nov 15, 2013 8:41:43 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@6b40584c added Hobby id: {1} 
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@239427c9 added Hobby id: {1} 
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:46 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=add:hobby[severity=(ERROR 2), summary=(add:hobby: Validation Error: Value is not valid), detail=(add:hobby: Validation Error: Value is not valid)]
+Nov 15, 2013 8:41:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@4139a82d added Hobby id: {1} 
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:41:47 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:41:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:41:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:41:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:20 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@42b5548.requestRelationship()
+javax.faces.FacesException: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@42b5548.requestRelationship()
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:110)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIData.broadcast(UIData.java:1108)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:790)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1282)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:198)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:646)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at dk.itu.ssase.hb.listener.FilterXHTML.doFilter(FilterXHTML.java:36)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:307)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1146)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:679)
+Caused by: javax.faces.el.MethodNotFoundException: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@42b5548.requestRelationship()
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:91)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 27 more
+Caused by: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@42b5548.requestRelationship()
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:109)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:87)
+	... 28 more
+Nov 15, 2013 8:42:30 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Blabla
+Nov 15, 2013 8:42:30 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:42:30 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:42:34 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:42:34 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 8:42:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 66 results
+Nov 15, 2013 8:42:43 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@1bd13f0c.requestRelationship()
+javax.faces.FacesException: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@1bd13f0c.requestRelationship()
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:110)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIData.broadcast(UIData.java:1108)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:790)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1282)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:198)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:646)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at dk.itu.ssase.hb.listener.FilterXHTML.doFilter(FilterXHTML.java:36)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1146)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:679)
+Caused by: javax.faces.el.MethodNotFoundException: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@1bd13f0c.requestRelationship()
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:91)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 27 more
+Caused by: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@1bd13f0c.requestRelationship()
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:109)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:87)
+	... 28 more
+Nov 15, 2013 8:49:02 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:49:32 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 8:49:44 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user frank
+Nov 15, 2013 8:49:44 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:49:44 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@2204a796 added Hobby id: {1} 
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:49:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:49:54 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 8:49:54 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 8:49:54 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 8:50:29 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:50:29 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 8:50:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 8:50:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 8:50:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:12:50 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 9:12:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:12:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:12:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:12:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:12:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:15:26 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 9:15:36 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 9:22:49 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 9:23:09 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user jacob
+Nov 15, 2013 9:23:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:23:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:23:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 67 results
+Nov 15, 2013 9:23:29 AM com.sun.faces.lifecycle.InvokeApplicationPhase execute
+WARNING: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@762eefed.requestRelationship()
+javax.faces.FacesException: #{friendcontroller.requestRelationship()}: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@762eefed.requestRelationship()
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:110)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:315)
+	at javax.faces.component.UIData.broadcast(UIData.java:1108)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:790)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1282)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:198)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:646)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at dk.itu.ssase.hb.listener.FilterXHTML.doFilter(FilterXHTML.java:36)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:224)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:169)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:987)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:579)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:309)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1146)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:679)
+Caused by: javax.faces.el.MethodNotFoundException: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@762eefed.requestRelationship()
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:91)
+	at com.sun.faces.application.ActionListenerImpl.processAction(ActionListenerImpl.java:102)
+	... 27 more
+Caused by: javax.el.MethodNotFoundException: /userList.xhtml @33,146 action="#{friendcontroller.requestRelationship()}": Method not found: dk.itu.ssase.hb.controller.FriendController@762eefed.requestRelationship()
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:109)
+	at javax.faces.component.MethodBindingMethodExpressionAdapter.invoke(MethodBindingMethodExpressionAdapter.java:87)
+	... 28 more
+Nov 15, 2013 9:32:40 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 9:32:40 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:32:40 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@7810d9ef added Hobby id: {1} 
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 9:32:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@7624ee1c added Hobby id: {1} 
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 9:33:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@bdfcd0 added Hobby id: {1} 
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:33:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@6900a79b added Hobby id: {1} 
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:33:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:33:22 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:33:22 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:45:10 AM org.apache.catalina.util.LifecycleBase stop
+INFO: The stop() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/ssase13]] after stop() had already been called. The second call will be ignored.
+Nov 15, 2013 9:45:12 AM org.apache.catalina.util.LifecycleBase stop
+INFO: The stop() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/ssase13]] after stop() had already been called. The second call will be ignored.
+Nov 15, 2013 9:45:13 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Undeploying context [/ssase13]
+Nov 15, 2013 9:46:03 AM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive /var/lib/tomcat7/webapps/ssase13.war
+Nov 15, 2013 9:46:13 AM com.sun.faces.config.ConfigureListener contextInitialized
+INFO: Initializing Mojarra 2.2.0 (-SNAPSHOT 20130426-2159 https://svn.java.net/svn/mojarra~svn/tags/2.2.0-m15@11912) for context '/ssase13'
+Nov 15, 2013 9:46:13 AM com.sun.faces.spi.InjectionProviderFactory createInstance
+INFO: JSF1048: PostConstruct/PreDestroy annotations present.  ManagedBeans methods marked with these annotations will have said annotations processed.
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.annotations.Version <clinit>
+INFO: Hibernate Annotations 3.3.1.GA
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Environment <clinit>
+INFO: Hibernate 3.2.5
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Environment <clinit>
+INFO: hibernate.properties not found
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Environment buildBytecodeProvider
+INFO: Bytecode provider name : cglib
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Environment <clinit>
+INFO: using JDK 1.4 java.sql.Timestamp handling
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration configure
+INFO: configuring from resource: /hibernate.cfg.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration getConfigurationInputStream
+INFO: Configuration resource: /hibernate.cfg.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration addResource
+INFO: Reading mappings from resource : student.hbm.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration addResource
+INFO: Reading mappings from resource : relationship.hbm.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration addResource
+INFO: Reading mappings from resource : hobby.hbm.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration addResource
+INFO: Reading mappings from resource : interest.hbm.xml
+Nov 15, 2013 9:47:25 AM org.hibernate.cfg.Configuration doConfigure
+INFO: Configured SessionFactory: null
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindRootPersistentClassCommonValues
+INFO: Mapping class: dk.itu.ssase.hb.beans.model.Student -> student
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindRootPersistentClassCommonValues
+INFO: Mapping class: dk.itu.ssase.hb.beans.model.Relationship -> relationship
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindRootPersistentClassCommonValues
+INFO: Mapping class: dk.itu.ssase.hb.beans.model.Hobby -> hobby
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindRootPersistentClassCommonValues
+INFO: Mapping class: dk.itu.ssase.hb.beans.model.Interest -> interest
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindCollectionSecondPass
+INFO: Mapping collection: dk.itu.ssase.hb.beans.model.Student.interests -> interest
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindCollectionSecondPass
+INFO: Mapping collection: dk.itu.ssase.hb.beans.model.Student.relationshipsForStudent2 -> relationship
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindCollectionSecondPass
+INFO: Mapping collection: dk.itu.ssase.hb.beans.model.Student.relationshipsForStudent1 -> relationship
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.HbmBinder bindCollectionSecondPass
+INFO: Mapping collection: dk.itu.ssase.hb.beans.model.Hobby.interests -> interest
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.AnnotationConfiguration secondPassCompile
+INFO: Hibernate Validator not found: ignoring
+Nov 15, 2013 9:47:26 AM org.hibernate.util.NamingHelper getInitialContext
+INFO: JNDI InitialContext properties:{}
+Nov 15, 2013 9:47:26 AM org.hibernate.connection.DatasourceConnectionProvider configure
+INFO: Using datasource: java:comp/env/jdbc/postgres
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: RDBMS: PostgreSQL, version: 9.1.9
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: JDBC driver: PostgreSQL Native Driver, version: PostgreSQL 9.0 JDBC4 (build 801)
+Nov 15, 2013 9:47:26 AM org.hibernate.dialect.Dialect <init>
+INFO: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+Nov 15, 2013 9:47:26 AM org.hibernate.transaction.TransactionFactoryFactory buildTransactionFactory
+INFO: Using default transaction strategy (direct JDBC transactions)
+Nov 15, 2013 9:47:26 AM org.hibernate.transaction.TransactionManagerLookupFactory getTransactionManagerLookup
+INFO: No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Automatic flush during beforeCompletion(): disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Automatic session close at end of transaction: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: JDBC batch size: 15
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: JDBC batch updates for versioned data: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Scrollable result sets: enabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: JDBC3 getGeneratedKeys(): enabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Connection release mode: auto
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Default batch fetch size: 1
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Generate SQL with comments: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Order SQL updates by primary key: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Order SQL inserts for batching: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory createQueryTranslatorFactory
+INFO: Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+Nov 15, 2013 9:47:26 AM org.hibernate.hql.ast.ASTQueryTranslatorFactory <init>
+INFO: Using ASTQueryTranslatorFactory
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Query language substitutions: {}
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: JPA-QL strict compliance: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Second-level cache: enabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Query cache: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory createCacheProvider
+INFO: Cache provider: org.hibernate.cache.NoCacheProvider
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Optimize cache for minimal puts: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Structured second-level cache entries: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Statistics: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Deleted entity synthetic identifier rollback: disabled
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Default entity-mode: pojo
+Nov 15, 2013 9:47:26 AM org.hibernate.cfg.SettingsFactory buildSettings
+INFO: Named query checking : enabled
+Nov 15, 2013 9:47:26 AM org.hibernate.impl.SessionFactoryImpl <init>
+INFO: building session factory
+Nov 15, 2013 9:47:26 AM org.hibernate.impl.SessionFactoryObjectFactory addInstance
+INFO: Not binding factory to JNDI, no JNDI name configured
+Nov 15, 2013 9:47:26 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: Running hbm2ddl schema update
+Nov 15, 2013 9:47:26 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: fetching database metadata
+Nov 15, 2013 9:47:26 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: updating schema
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: table found: public.hobby
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: columns: [id, type]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: foreign keys: []
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: indexes: [hobby_id_key, hobby_primary]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: table found: public.interest
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: columns: [id, student, hobby]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: foreign keys: [hobby1_id, student3_id]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: indexes: [interest_id_key, interest_primary]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: table found: public.relationship
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: columns: [student2, id, student1, approved, type]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: foreign keys: [student2_id, student1_id]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: indexes: [relationship_primary, relationship_id_key]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: table found: public.student
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: columns: [id, handle, address, name, surname, password, isadmin, salt]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: foreign keys: []
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.TableMetadata <init>
+INFO: indexes: [primary, unique_handle, student_id_key]
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: Unsuccessful: alter table public.interest add constraint FK21FFA72A2400B738 foreign key (student) references student
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: ERROR: must be owner of relation interest
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: Unsuccessful: alter table public.interest add constraint FK21FFA72A175076E6 foreign key (hobby) references public.hobby
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: ERROR: must be owner of relation interest
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: Unsuccessful: alter table public.relationship add constraint FKF06476383D3FA54 foreign key (student2) references student
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: ERROR: must be owner of relation relationship
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: Unsuccessful: alter table public.relationship add constraint FKF06476383D3FA53 foreign key (student1) references student
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+SEVERE: ERROR: must be owner of relation relationship
+Nov 15, 2013 9:47:27 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+INFO: schema update complete
+Nov 15, 2013 9:47:28 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 9:47:28 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:47:28 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:47:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:47:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:47:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 9:47:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:47:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:48:00 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 9:57:54 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 9:57:54 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:57:54 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:57:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:57:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:57:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 4
+Nov 15, 2013 9:57:59 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@3ba4f2fd added Hobby id: {1} 
+Nov 15, 2013 9:57:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 9:57:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 5
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@3deb4583 added Hobby id: {1} 
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 9:58:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 6
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@438701b4 added Hobby id: {1} 
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 9:58:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 7
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@6f0bdd2a added Hobby id: {1} 
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 9:58:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 8
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@27755c59 added Hobby id: {1} 
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:12 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+SEVERE: Adding hobby failed because: not-null property references a null or transient value: dk.itu.ssase.hb.beans.model.Interest.hobby
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@9b962c9 added Hobby id: {1} 
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+SEVERE: Adding hobby failed because: not-null property references a null or transient value: dk.itu.ssase.hb.beans.model.Interest.hobby
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@6d258c1b added Hobby id: {1} 
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:14 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:15 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+SEVERE: Adding hobby failed because: not-null property references a null or transient value: dk.itu.ssase.hb.beans.model.Interest.hobby
+Nov 15, 2013 9:58:15 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@578d88c3 added Hobby id: {1} 
+Nov 15, 2013 9:58:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+SEVERE: Adding hobby failed because: not-null property references a null or transient value: dk.itu.ssase.hb.beans.model.Interest.hobby
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@65196761 added Hobby id: {1} 
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 9:58:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:00:28 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:00:28 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:00:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:02:57 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:03:38 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:03:38 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=createuser:handle[severity=(INFO 0), summary=(CAPTCHA invalid), detail=(CAPTCHA invalid)]
+Nov 15, 2013 10:03:54 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:04:02 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user lala
+Nov 15, 2013 10:04:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:02 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:04 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:04:04 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:04:04 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:04:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@6513cec9 added Hobby id: {1} 
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:04:20 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:04:26 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:04:26 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:04:26 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:04:28 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:04:59 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:05:09 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user lala
+Nov 15, 2013 10:05:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:05:09 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@b262213 added Hobby id: {1} 
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:05:15 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:05:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:05:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:05:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 619
+Nov 15, 2013 10:05:21 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 1
+Nov 15, 2013 10:05:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:36 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user lala
+Nov 15, 2013 10:05:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:05:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:05:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:41 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: user2
+Nov 15, 2013 10:05:41 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: user2
+Nov 15, 2013 10:05:49 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: user2
+Nov 15, 2013 10:05:49 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: user2
+Nov 15, 2013 10:05:49 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: user2
+Nov 15, 2013 10:05:49 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 1
+Nov 15, 2013 10:05:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:05:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:05:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:05:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:06:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:06:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:06:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:06:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:06:08 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:06:08 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: user2
+Nov 15, 2013 10:06:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:06:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:06:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 68 results
+Nov 15, 2013 10:07:13 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 10:07:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:07:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:07:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:30 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:07:30 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:07:54 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:54 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:07:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:11:44 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 10:11:44 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:11:44 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:11:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:11:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:11:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:12:38 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 10:12:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:12:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:12:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Admin
+Nov 15, 2013 10:12:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:12:45 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 9
+Nov 15, 2013 10:15:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+WARNING: Access denied user
+Nov 15, 2013 10:15:57 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:17:25 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:18:38 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:18:49 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:18:51 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:18:56 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user jacob
+Nov 15, 2013 10:18:56 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:18:56 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:18:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:18:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:18:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 621
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 2
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:09 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:13 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Rasmus
+Nov 15, 2013 10:19:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:19:13 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:19:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:30 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:19:30 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:19:30 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:19:39 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:19:39 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:19:39 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:19:39 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 2
+Nov 15, 2013 10:19:41 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:41 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:56 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:19:56 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:19:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:19:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:19:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:19:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:19:59 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:01 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:20:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:04 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 3
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:10 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:10 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:10 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:16 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user ivaylo
+Nov 15, 2013 10:20:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:16 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:18 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:20:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:21 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:21 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:28 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Christian
+Nov 15, 2013 10:20:28 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:28 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:29 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:29 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@39c9e47 added Hobby id: {1} 
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:20:32 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 3
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:34 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:36 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:36 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:36 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:36 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:37 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:37 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:20:37 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 623
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 4
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 5
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:42 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:42 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:42 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:42 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:50 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:52 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:52 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:20:54 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:20:57 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:57 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:57 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:20:57 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 4
+Nov 15, 2013 10:20:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:20:58 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:02 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:05 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: clyn
+Nov 15, 2013 10:21:05 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: clyn
+Nov 15, 2013 10:21:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:07 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: clyn
+Nov 15, 2013 10:21:07 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: clyn
+Nov 15, 2013 10:21:07 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: clyn
+Nov 15, 2013 10:21:07 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 5
+Nov 15, 2013 10:21:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:11 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:12 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:12 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:12 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:12 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 623
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 6
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:16 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:22 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:26 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:21:26 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:21:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:27 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:28 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:28 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:28 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:28 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:31 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:33 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 7
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:34 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:21:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:36 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@61dad771 added Hobby id: {1} 
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:41 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:41 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@47c0583d added Hobby id: {1} 
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:42 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@489d6a08 added Hobby id: {1} 
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:21:46 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:21:49 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:21:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:21:52 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@65c5d53f added Hobby id: {1} 
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:21:58 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:04 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:22:04 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: User [I@e8fb7a8 added Hobby id: {1} 
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 2
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:05 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:08 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:10 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:22:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:13 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:15 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:22:15 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:22:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:16 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:17 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:21 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:51 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:22:56 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:56 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:22:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:22:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:23:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:23:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:23:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:23:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:23:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:23:19 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:19 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:23:19 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:19 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:23:52 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:52 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:23:52 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:32:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:32:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:32:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:33:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:33:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:33:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:33:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:33:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:33:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:33:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:33:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:33:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:34:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:34:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:34:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:34:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:34:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:34:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:34:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:36:37 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:37 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:36:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:36:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:36:49 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:49 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:56 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:56 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:56 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: 1234
+Nov 15, 2013 10:36:56 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 7
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:37:00 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:37:03 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:39:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:39:11 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:43:43 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:44:34 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:45:01 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user deep
+Nov 15, 2013 10:45:01 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:45:01 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:45:23 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:23 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:23 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:26 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:45:38 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Rasmus
+Nov 15, 2013 10:45:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:45:38 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:45:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 624
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 8
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:45:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 9
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:45:56 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:46:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:46:27 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:46:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:32 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:46:34 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:46:35 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:35 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:35 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:46:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:46:39 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:46:46 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:46 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:46 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:46:47 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:privacy in view.
+Nov 15, 2013 10:46:50 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user ivaylo
+Nov 15, 2013 10:46:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:46:50 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 1
+Nov 15, 2013 10:46:53 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:46:53 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:46:53 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:46:54 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user rasmusgreve2
+Nov 15, 2013 10:46:54 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:46:54 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:46:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:46:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:46:55 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:46:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:46:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:46:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:47:00 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:47:00 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:47:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:47:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:47:02 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:47:17 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:47:20 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: dp
+Nov 15, 2013 10:47:20 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: dp
+Nov 15, 2013 10:47:40 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: dp
+Nov 15, 2013 10:47:40 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: dp
+Nov 15, 2013 10:47:40 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: dp
+Nov 15, 2013 10:47:40 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 9
+Nov 15, 2013 10:47:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:47:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:47:43 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 74 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 624
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 10
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:49 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:47:54 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:47:54 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:47:54 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:47:54 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: dp
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: clyn
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: 1234
+Nov 15, 2013 10:47:57 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: dp
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:48:01 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:48:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:05 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:17 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:17 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:48:17 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:17 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve
+Nov 15, 2013 10:48:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:19 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:48:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 73 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 622
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 11
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:48:40 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:41 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 69 results
+Nov 15, 2013 10:48:45 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:45 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 11
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:48:59 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:53:48 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:53:48 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:53:48 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:21 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user Rasmus
+Nov 15, 2013 10:54:21 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:54:21 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:54:22 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user jacob
+Nov 15, 2013 10:54:22 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:54:22 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 3
+Nov 15, 2013 10:54:26 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user rasmusgreve2
+Nov 15, 2013 10:54:26 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:54:26 AM dk.itu.ssase.hb.beans.StudentBean findCurrentStudentsHobbies
+INFO: Found hobbies of the student: 0
+Nov 15, 2013 10:54:28 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:28 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:28 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:29 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:32 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:38 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 72 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Add relationship to student id: 614
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController requestRelationship
+INFO: Created relationship request with id: 12
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:44 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 71 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:47 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:48 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:52 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:54:52 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:54:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:57 AM dk.itu.ssase.hb.controller.FriendController findNewFriends
+INFO: Search for possible friends and found 70 results
+Nov 15, 2013 10:54:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:54:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:54:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:54:59 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:55:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:55:01 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:55:03 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:55:03 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:55:03 AM dk.itu.ssase.hb.controller.FriendController findUnapprovedRelationshipRequests
+INFO: Found friend request from: rasmusgreve2
+Nov 15, 2013 10:55:03 AM dk.itu.ssase.hb.controller.FriendController approveFriend
+INFO: Approve relationship id: 12
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve2
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve2
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:55:04 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve2
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve2
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve2
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: rasmusgreve
+Nov 15, 2013 10:55:07 AM dk.itu.ssase.hb.controller.FriendController findFriends
+INFO: Found relationship with: ivo
