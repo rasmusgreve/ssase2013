@@ -570,23 +570,20 @@ INFO: Approve relationship id: 9
 \end{verbatim}
 
 \subsection{Test reports}
-\begin{verbatim}
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running dk.itu.ssase.test.LoginTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.814 sec
-Running dk.itu.ssase.test.SignupTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.45 sec
-
-Results :
-
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
-
-------------------------------------------------------------------------
-BUILD SUCCESS
-------------------------------------------------------------------------
-\end{verbatim}
+\begin{table}[h!]
+\begin{tabular}{| l | l | l | l | l | l | l |}
+\hline
+Class & Tests & Errors & Failures & Skipped & Success Rate & Time \\ \hline
+LoginTest & 2 & 0 & 0 & 0 & 100 \% & 9,411 \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}[h!]
+\begin{tabular}{| l | l |}
+\hline
+testLoginSQLInjection & 8,332 \\ \hline
+testLoginXSS & 1,069 \\ \hline
+\end{tabular}
+\end{table}
 
 \include{courselog}
 

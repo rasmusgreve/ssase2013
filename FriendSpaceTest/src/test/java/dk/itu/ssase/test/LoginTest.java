@@ -33,14 +33,6 @@ public class LoginTest
     {
         return new TestSuite( LoginTest.class );
     }
-    public void testLogin()
-    {
-        open(urlPage);
-        $(By.id("login:username")).setValue("admin");
-        $(By.id("login:submit")).click();
-        $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
-        assertTrue( true );
-    }
     
     public void testLoginSQLInjection()
     {
