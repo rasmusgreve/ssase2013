@@ -312,7 +312,86 @@ We have chosen to use the following tools to assist us in our project process.
 \section{Testing}
 
 \subsection{Test plan}
+\subsubsection{Testing objectives}
+\subsubsection{Features to be tested}
+\begin{itemize}
 
+\item Signup;
+\item Login;
+\item Hug;
+\item Friends relation features;
+\item Hobbies;
+
+\end{itemize}
+\subsubsection{Testing techniques}
+\begin{itemize}
+
+\item Unit tests;
+\item Blackbox (TBS);
+\item SELENIUM;
+\item CUCUMBER;
+\end{itemize}
+
+\subsubsection{Static Testing}
+Static testing is testing of a component or specifications without execution of that software.  This is usually done as soon as acceptance criteria or business requirements are ready for review before code implementation such as conflicting rules, invalid data types, redundant process just to name a few. 
+\subsubsection{Component Testing}
+Component level testing focuses on the functionality of each component being developed.  This is  crucial where different components are being developed before they are integrated together as one system.
+
+Entry Criteria
+
+Component Testing may commence when the following criteria has been satisfied:
+All code has been unit tested and passed.
+Test environment including software has been setup and configured correctly.
+Business requirements and test cases are up to date as per user story.
+
+Suspension Criteria
+
+Component testing will be suspended under the following condition:
+Critical error(s) found preventing test completion.
+Change of business requirements.
+Change of environment components or technology including different version.
+
+Resumption Criteria
+
+Component testing will resume when the following criteria are met:
+All issues in suspension criteria have been resolved or mitigated.
+New software build has been redeployed.
+
+Exit Criteria (Test Completeness)
+
+Component testing can be considered complete when the following conditions have been met:
+All requirements have been tested without Critical or Medium severity defects.
+ System Testing
+The purpose of the system testing is to validate that the complete and integrated system complies with functional requirements and business requirements.
+
+Entry Criteria
+
+System testing may commence when the following criteria have been satisfied:
+Component Testing has been completed.
+No change to business requirements and test cases are up to date.
+Scenario based test cases have been reviewed.
+
+Suspension Criteria
+
+System Testing will be suspended under the following condition:
+Critical error(s) found affecting functionality of the whole system.
+Change of business requirements.
+
+Resumption Criteria
+
+System Testing will resume when the following criteria have been satisfied:
+All issues in suspension criteria have been resolved or mitigated
+
+Exit Criteria (Test Completeness)
+
+System Testing will be considered complete when the following conditions have been met:
+All High and Medium priority requirements have been tested without Critical or Medium severity defects.
+
+Business owner and/or business user have been notified with any remaining defects and understand the risks or limitations of current release.
+
+User Acceptance Testing 
+
+UAT is a formal testing with respect to user needs, business requirements and expectations.  The idea here is to gain confidence from business owner on the software being developed.  Although it is not mandatory business owner(s) and/or business user(s) are expected to produce his/her own test scenarios.
 \subsection{Tools and Frameworks}
 Testing is essential in order to build secure and functional software systems. To thoroughly test our system we have decided to use two testing strategies; system tests and unit tests.
 
