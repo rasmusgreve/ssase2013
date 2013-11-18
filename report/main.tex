@@ -80,7 +80,7 @@ We have decided on the following goals as paramount to our business operation wi
 	\begin{tabular}{|p{10cm}|l|}
 		\hline
 		\textbf{Business Goal} & \textbf{Rank} \\ \hline
-		The server must provide 99.95\% uptime   & \textbf{M} \\ \hline
+		The server must provide 99.5\% uptime   & \textbf{M} \\ \hline
 		Sensitive user data is never compromised & \textbf{H} \\ \hline
 		The application should be improved gradually by releasing new versions often & \textbf{L} \\ \hline
 		Application must be live by October 4th 2013 &	\textbf{H}\\ \hline
@@ -135,7 +135,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
    Sensitive user data is never compromised & Vulnerability in the system & Old libraries and platforms provide an easy target \\ \hline
-    The server must provide 99.95\% uptime & Data loss &  Hardware failure \\ \hline
+    The server must provide 99.5\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
     The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & A user is subject to social engineering & Security safeguards slows down user experience \\ \hline
@@ -251,7 +251,7 @@ Most of the following functional requirements are derived from the use cases, to
 \subsection{Non-functional requirements}
 The following is our non-functional requirements to the system. These are derived from our business goals, one of which relates to uptime. Another of our business goals is to employ immediate mitigation against any attack we might be subject to throughout the project period. To this end, it is imperative that we run an active logging framework.
 \begin{itemize}
-\item The application is available through an HTTP connection 99.95\% of the time
+\item The application is available through an HTTP connection 99.5\% of the time
 \item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
 \end{itemize}
 
@@ -503,9 +503,6 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 We did not manage to implement hugs or romances in time.
 
 \subsection{Problems}
-\subsection{Deployment}
-
-\subsection{...}
 
 
 \section{Conclusion}
