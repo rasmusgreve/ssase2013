@@ -8,6 +8,8 @@
 \usepackage[parfill]{parskip}
 \usepackage{multirow}
 
+\usepackage{hyperref}
+
 %\usepackage{geometry} % to change the page dimensions
 %\geometry{a4paper} % or letterpaper (US) or a5paper or....
 \usepackage{booktabs} % for much better looking tables
@@ -183,15 +185,17 @@ In addition, we have specified a number of abuse cases, constituting a security-
 
 \subsection{Use cases}
 \begin{itemize}
-\item A student views his own information
-\item A student edits his own information
-\item A student chooses what information to share
-\item A student views another student’s information
-\item A student forms a friendly or romantic relationship with another student
-\item A student sends a "hug" to mutual a friend or romance
-\item An administrator creates a new user
-\item An administrator deletes an existing user
-\item An administrator views the information of a user
+% \item A student views his own information
+% \item A student edits his own information
+% \item A student chooses what information to share
+\item A user signs up as a student
+\item A student requests a friendship with another student
+\item A student approves a friendship request with another student
+\item A student upgrades a friendship to a romance
+\item A student views a student’s information when they are in a relationship
+\item A student sends a "hug" to a student that they are in relationship with
+%\item An administrator deletes an existing user
+%\item An administrator views the information of a user
 \end{itemize}
 
 \subsection{Abuse cases}
@@ -209,7 +213,7 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \end{itemize}
 
 \subsection{Functional Requirements}
-Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here.
+Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here. They are not fully implemented yet but they are planned for a final release.
 
 * In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
 
@@ -316,20 +320,18 @@ We have chosen to use the following tools to assist us in our project process.
 \subsubsection{Features to be tested}
 \begin{itemize}
 
-\item Signup;
-\item Login;
-\item Hug;
-\item Friends relation features;
-\item Hobbies;
+\item Signup
+\item Login
+\item Friends relation features
+\item Hobbies
 
 \end{itemize}
 \subsubsection{Testing techniques}
 \begin{itemize}
 
-\item Unit tests;
-\item Blackbox (TBS);
-\item SELENIUM;
-\item CUCUMBER;
+\item Unit tests
+\item Blackbox (TBS)
+\item SELENIUM (selenide)
 \end{itemize}
 
 \subsubsection{Static Testing}
@@ -498,6 +500,8 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 
 
 \section{Discussion}
+We did not manage to implement hugs or romances in time.
+
 \subsection{Problems}
 \subsection{Deployment}
 
