@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.controller;
 
 import dk.itu.ssase.hb.beans.LoginBean;
+import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
@@ -60,6 +61,32 @@ public class FriendController {
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         return findFriends(currentSession.getStudentId());
     }
+    
+    public String hugFriend(int friendId) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Hug hug = new Hug();
+            hug.setStudent1(currentSession.getStudentId());
+            hug.setStudent2(friendId);
+            java.util.Date now = java.util.Calendar.getInstance().getTime();
+            java.util.Date tomorrow = new java.util.Date(now.getTime() + 86400000);
+            hug.setExpiration(tomorrow);
+            session.save(hug);
+            tx.commit();
+        } catch (Exception ex) {
+            if (tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Adding hug failed because: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+        return "success";
+    }
+    
     
     public List<StudentView> findFriends(int userId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();        

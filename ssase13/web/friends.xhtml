@@ -54,6 +54,10 @@ and open the template in the editor.
                                 </h:column>  
                                 <h:column>
                                     <f:facet name="header"></f:facet>
+                                    <h:commandLink action="#{friendcontroller.hugFriend(friend.id)}" class="btn btn-success btn-sm">Send hug</h:commandLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
                                     <h:commandLink action="#{friendcontroller.deleteRequest(friend.id)}" class="btn btn-danger btn-sm">Remove friendship</h:commandLink>
                                 </h:column>
                             </h:dataTable>

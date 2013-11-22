@@ -116,37 +116,11 @@ public class StudentBean {
     public void setHobby(int hobby) {
         this.hobby = hobby;
     }
-    
-    public String hugFriend(int friendId) {
+    public List<Hug> loadActivity() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            Hug hug = new Hug();
-            hug.setStudent1(currentSession.getStudentId());
-            hug.setStudent2(friendId);
-            java.util.Date now = java.util.Calendar.getInstance().getTime();
-            java.util.Date tomorrow = new java.util.Date(now.getTime() + 86400000);
-            hug.setExpiration(tomorrow);
-            session.save(hug);
-            tx.commit();
-        } catch (Exception ex) {
-            if (tx!=null)
-                tx.rollback();
-            logger.log(Level.SEVERE, "Adding hug failed because: {0}", ex.getMessage());
-        } finally {
-            session.close();
-        }
-        return "success";
-    }
-    
-    public List<Hug> getActivity() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Hug> result = session.createQuery("SELECT g FROM  Hug g WHERE "
+        List<Hug> result = session.createQuery("SELECT g FROM Hug g WHERE "
                 + "g.student1 = :me OR g.student2 = :me")
                 .setInteger("me", currentSession.getStudentId())
                 .list();
