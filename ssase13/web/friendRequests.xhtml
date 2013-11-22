@@ -30,7 +30,7 @@ and open the template in the editor.
                             <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findUnapprovedRelationshipRequests()}">                                                           
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <h:graphicImage value="#{userloop.student.gravatar}" />
+                                    <h:graphicImage value="#{userloop.student.smallGravatar}" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Handle</f:facet>
@@ -63,7 +63,7 @@ and open the template in the editor.
                             <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findUnapprovedSendRelationshipRequests()}">                                                           
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <h:graphicImage value="#{userloop.student.gravatar}" />
+                                    <h:graphicImage value="#{userloop.student.smallGravatar}" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Handle</f:facet>

@@ -9,12 +9,13 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
-        <title>Relationships</title>
+        <title>My profile</title>
         <ui:include src="bootstrap.xhtml"/>
     </head>
     <body>
         <div class="container">
             <ui:include src="header.xhtml"/>
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="well">                      
                           
@@ -27,16 +28,17 @@ and open the template in the editor.
                             </li>
                         </ui:repeat>
                         </ul>
-            <div/>
-            <h:form id="add" class="form-inline">
-                <h:outputLabel for="add:hobby" value="New hobby:"/>
-                <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
-                    <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
-                </h:selectOneMenu>
-                <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
-            </h:form>
-        </div>
-        </div>
+                        
+                        <h:form id="add" class="form-inline">
+                            <h:outputLabel for="add:hobby" value="New hobby:"/>
+                            <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
+                                <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
+                            </h:selectOneMenu>
+                            <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

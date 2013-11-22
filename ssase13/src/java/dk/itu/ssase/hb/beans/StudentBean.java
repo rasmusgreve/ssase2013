@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -36,6 +37,15 @@ public class StudentBean {
         return students;
     }
     
+    public Student getUser()
+    {
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        int userId = Integer.parseInt(request.getParameter("id"));
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        session.close();
+        return user;
+    }
     
     public List<Hobby> findAvailableHobbies() {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -51,9 +61,13 @@ public class StudentBean {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
 
+        return findStudentsHobbies(currentSession.getStudentId());
+    }
+    
+    public List<Hobby> findStudentsHobbies(int userId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
                 
-        List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :student").setInteger("student", currentSession.getStudentId()).list();
+        List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :student").setInteger("student", userId).list();
         
         logger.log(Level.INFO, "Found hobbies of the student: {0}", hobbies.size());
         

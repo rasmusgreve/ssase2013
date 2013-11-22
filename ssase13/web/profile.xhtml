@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <head>
+        <title>Profile</title>
+        <ui:include src="bootstrap.xhtml"/>
+    </head>
+    <body>
+        <div class="container">
+            <ui:include src="header.xhtml"/>
+            <ui:param name="student" value="#{studentbean.getUser()}"/>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well">                      
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h1><h:outputText value="#{student.handle}"/></h1>
+                                <h:graphicImage value="#{student.bigGravatar}" />
+                            </div>
+                            <div class="col-md-4">
+                                <h2>Hobbies</h2>
+                                <ul class="list-group">
+                                    <ui:repeat var="hobby" value="#{studentbean.findStudentsHobbies(student.id)}">
+                                        <li class="list-group-item"><h:outputText value="#{hobby.type}"/></li>  
+                                    </ui:repeat>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>Friends</h2>
+                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findFriends(student.id)}">                                                           
+                                    <h:column>
+                                        <h:graphicImage value="#{userloop.student.smallGravatar}" />
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputLink value="profile.xhtml">
+                                            <f:param name="id" value="#{userloop.student.id}"/>
+                                            <h:outputText value="#{userloop.name}"/>
+                                        </h:outputLink>
+                                    </h:column>
+                                </h:dataTable>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

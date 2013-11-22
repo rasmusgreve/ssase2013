@@ -66,10 +66,10 @@ public class Student  implements java.io.Serializable {
         return this.surname;
     }
     
-    public String getGravatar(){
+    public String getGravatar(int size){
         String id = ""; 
         try {
-             byte[] t = MessageDigest.getInstance("MD5").digest(getName().toLowerCase().getBytes());
+             byte[] t = MessageDigest.getInstance("MD5").digest(getHandle().toLowerCase().getBytes());
              StringBuilder sb = new StringBuilder();
              for (int i = 0; i < t.length; ++i) {
                sb.append(Integer.toHexString((t[i] & 0xFF) | 0x100).substring(1,3));
@@ -78,7 +78,15 @@ public class Student  implements java.io.Serializable {
          } catch (NoSuchAlgorithmException ex) {
              Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
          }
-        return "http://www.gravatar.com/avatar/" + id + "?s=50&d=identicon&f=y";
+        return "http://www.gravatar.com/avatar/" + id + "?s="+size+"&d=identicon&f=y";
+    }
+    
+    public String getSmallGravatar(){
+        return getGravatar(50);
+    }
+    
+    public String getBigGravatar(){
+        return getGravatar(200);
     }
     
     public void setSurname(String surname) {
