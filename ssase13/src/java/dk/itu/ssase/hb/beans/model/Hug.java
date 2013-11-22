@@ -79,9 +79,11 @@ public class Hug implements java.io.Serializable {
     public String toString()
     {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s WHERE s.id = :id1 OR s.id = :id2 ").setInteger("id1", student1).setInteger("id2", student2).list();
+        Student studentobj1 = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", student1).uniqueResult();
+        Student studentobj2 = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", student2).uniqueResult();
+
         session.close();
         
-        return students.get(0).getHandle()+ " sent a hug to " + students.get(1).getHandle();
+        return studentobj1.getHandle() + " sent a hug to " + studentobj2.getHandle();
     }
 }
