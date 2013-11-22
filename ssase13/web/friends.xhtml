@@ -23,32 +23,38 @@ and open the template in the editor.
                         <div class="panel-body">
                             <h2>Your Friends</h2>
                         </div>
-                        <h:dataTable class="table table-striped" var="friend" value="#{friendcontroller.findFriends()}">                                                           
-                            <h:column>
-                                <f:facet name="header"></f:facet>
-                                <h:graphicImage value="#{friend.student.gravatar}" />
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">Handle</f:facet>
-                                <h:outputText value="#{friend.name}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">Name</f:facet>
-                                <h:outputText value="#{friend.student.name}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">Surname</f:facet>
-                                <h:outputText value="#{friend.student.surname}"/>
-                            </h:column>
-                             <h:column>
-                                <f:facet name="header">Address</f:facet>
-                                <h:outputText value="#{friend.student.address}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">Relationship</f:facet>
-                                <h:outputText value="#{friend.relatype}"/>
-                            </h:column>                       
-                        </h:dataTable>
+                        <h:form>
+                            <h:dataTable class="table table-striped" var="friend" value="#{friendcontroller.findFriends()}">                                                           
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:graphicImage value="#{friend.student.gravatar}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Handle</f:facet>
+                                    <h:outputText value="#{friend.name}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:outputText value="#{friend.student.name}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Surname</f:facet>
+                                    <h:outputText value="#{friend.student.surname}"/>
+                                </h:column>
+                                 <h:column>
+                                    <f:facet name="header">Address</f:facet>
+                                    <h:outputText value="#{friend.student.address}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Relationship</f:facet>
+                                    <h:outputText value="#{friend.relatype}"/>
+                                </h:column>  
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:commandLink action="#{friendcontroller.deleteRequest(friend.id)}" class="btn btn-danger btn-sm">Remove friendship</h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
                     </div>
                 </div>
             </div>
