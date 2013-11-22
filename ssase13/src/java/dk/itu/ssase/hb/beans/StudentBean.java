@@ -116,13 +116,21 @@ public class StudentBean {
     public void setHobby(int hobby) {
         this.hobby = hobby;
     }
-    public List<Hug> loadActivity() {
+    
+    public List<Hug> loadActivity()
+    {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        return loadActivity(currentSession.getStudentId());
+    }
+            
+    
+    public List<Hug> loadActivity(int userId) {
+    
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         List<Hug> result = session.createQuery("SELECT g FROM Hug g WHERE "
                 + "g.student1 = :me OR g.student2 = :me")
-                .setInteger("me", currentSession.getStudentId())
+                .setInteger("me", userId)
                 .list();
         session.close();
         return result;

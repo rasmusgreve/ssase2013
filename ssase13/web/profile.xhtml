@@ -23,9 +23,10 @@ and open the template in the editor.
                             <div class="col-md-4">
                                 <h1><h:outputText value="#{student.handle}"/></h1>
                                 <h:graphicImage value="#{student.bigGravatar}" />
+                                <h2>Recent activity</h2>
                                 <ul class="list-group">
-                                    <ui:repeat var="hug" value="#{studentbean.loadActivity()}">
-                                        <li class="list-group-item"><h:outputText value="#{hug.id}"/></li>  
+                                    <ui:repeat var="hug" value="#{studentbean.loadActivity(student.id)}">
+                                        <li class="list-group-item"><h:outputText value="#{hug}"/></li>  
                                     </ui:repeat>
                                 </ul>   
                             </div>
