@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <head>
-        <title>Friend list</title>
+        <title>Friend requests</title>
         
         <ui:include src="bootstrap.xhtml"/>
     </head>
@@ -19,10 +19,11 @@ and open the template in the editor.
             <ui:include src="header.xhtml"/>
         
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h2>Friend requests</h2>
+                                <p>Users that wants to be friends with you.</p>
                             </div>
                         
                         <h:form>
@@ -46,6 +47,31 @@ and open the template in the editor.
                                 <h:column>
                                     <f:facet name="header"></f:facet>
                                     <h:commandLink action="#{friendcontroller.approveFriend(userloop.id)}" class="btn btn-primary btn-sm">Accept friendship</h:commandLink>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form> 
+                        </div>  
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h2>Your friend requests</h2>
+                                <p>Users that you want to be friends with</p>
+                            </div>
+                        
+                        <h:form>
+                            <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findUnapprovedSendRelationshipRequests()}">                                                           
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:graphicImage value="#{userloop.student.gravatar}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Handle</f:facet>
+                                    <h:outputText value="#{userloop.name}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:commandLink action="#{friendcontroller.deleteRequest(userloop.id)}" class="btn btn-danger btn-sm">Cancel request</h:commandLink>
                                 </h:column>
                             </h:dataTable>
                         </h:form> 

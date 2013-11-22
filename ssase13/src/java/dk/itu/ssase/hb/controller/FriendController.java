@@ -105,6 +105,28 @@ public class FriendController {
     }
     
     /**
+     * Find all the requests for relationships from the current student
+     * @return List of students with relationshsip id
+     */
+    public List<StudentView> findUnapprovedSendRelationshipRequests() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();        
+        
+        List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s1.id = :currentstudent AND r.approved = false").setInteger("currentstudent", currentSession.getStudentId()).list();         
+ 
+        int currentUserId = currentSession.getStudentId();
+        List<StudentView> users = new ArrayList<StudentView>();
+        for (Relationship relationship : relas) {
+            StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
+            users.add(view);
+            logger.log(Level.INFO, "Found friend request from: {0}", view.getName());
+        }
+        session.close();
+        return users;
+    }
+    
+    /**
      * Request a relationship
      * @param userId
      * @return 
@@ -141,6 +163,28 @@ public class FriendController {
         return "success";
     }
     
+    public String deleteRequest(int relaId) {
+        logger.log(Level.INFO, "Delete relationship id: {0}", relaId);
+
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            
+            Relationship relationship = (Relationship) session.load(Relationship.class, relaId);
+            
+            session.delete(relationship);
+            tx.commit();
+        } catch(Exception ex) {
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Deleting relationship failed because: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+        return "success";
+    }
     
     public String approveFriend(int relaId) {
         logger.log(Level.INFO, "Approve relationship id: {0}", relaId);
