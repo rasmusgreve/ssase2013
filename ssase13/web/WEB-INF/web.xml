@@ -43,7 +43,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>RestServlet</servlet-name>
-        <url-pattern>/api</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
     
     <session-config>

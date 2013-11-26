@@ -4,11 +4,12 @@
  */
 package dk.itu.ssase.hb.service;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
@@ -44,7 +45,28 @@ public class StudentService {
     
     @GET
     @Produces("application/json")
-    public String getJson() {
-        return "student: 'blabla'";
+    public String getJson() {        
+        //Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        //List<Student> students = session.createQuery("SELECT s FROM Student s").list();
+        //session.close();
+        List<String> strings = new ArrayList<String>();
+        //Iterator<Student> iter = students.iterator();
+        //while (iter.hasNext()) {
+        //    Student student = iter.next();
+        //    strings.add(student.getName());
+        //}
+        
+        strings.add("yada");
+        
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        
+        
+
+        //JSONWriter writer = new JSONWriter();
+        
+        return gson.toJson(strings);
     }
+    
+    
 }
