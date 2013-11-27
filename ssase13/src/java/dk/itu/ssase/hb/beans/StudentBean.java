@@ -217,7 +217,7 @@ public class StudentBean {
         try {
             tx = session.beginTransaction();
             Student student = (Student) session.load(Student.class, userId);
-            student.setIssuspended(Boolean.TRUE);
+            //student.setIssuspended(Boolean.TRUE);
             session.saveOrUpdate(student);
             tx.commit();
         } catch(Exception ex) {            
