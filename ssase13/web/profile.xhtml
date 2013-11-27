@@ -15,20 +15,19 @@ and open the template in the editor.
     <body>
         <div class="container">
             <ui:include src="header.xhtml"/>
-            <ui:param name="loggedin" value="#{studentbean.isLoggedIn()}"/>
             <ui:param name="student" value="#{studentbean.getUser()}"/>
+            <ui:param name="showsensitive" value="#{studentbean.hasPriviliges()}"/>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="well">                      
                         <div class="row">
                             <div class="col-md-4">
                                 <h1><h:outputText value="#{student.handle}"/></h1>
-                                <h3><h:outputText value="#{student.name} #{student.surname}" rendered="#{loggedin}"/></h3>
+                                <h3><h:outputText value="#{student.name} #{student.surname}" rendered="#{showsensitive}"/></h3>
                                 <h:graphicImage value="#{student.bigGravatar}" />
                                 <h2>Recent activity</h2>
-                                <h:outputText value="Log in to see recent activity" rendered="#{!loggedin}"/>
                                 <ul class="list-group">
-                                    <ui:repeat var="hug" value="#{studentbean.loadActivity(student.id)}"  rendered="#{loggedin}">
+                                    <ui:repeat var="hug" value="#{studentbean.loadActivity(student.id)}"  rendered="#{showsensitive}">
                                         <li class="list-group-item"><h:outputText value="#{hug}"/></li>  
                                     </ui:repeat>
                                 </ul>   
@@ -43,8 +42,7 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-4">
                                 <h2>Friends</h2>
-                                <h:outputText value="Log in to see friends" rendered="#{!loggedin}"/>
-                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findFriends(student.id)}" rendered="#{loggedin}">                                                           
+                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findFriends(student.id)}" rendered="#{showsensitive}">                                                           
                                     <h:column>
                                         <h:graphicImage value="#{userloop.student.smallGravatar}" />
                                     </h:column>

@@ -134,7 +134,8 @@ CREATE TABLE student (
     address text,
     password text,
     salt text,
-    isadmin boolean DEFAULT false
+    isadmin boolean DEFAULT false,
+    deleted boolean DEFAULT false
 );
 
 

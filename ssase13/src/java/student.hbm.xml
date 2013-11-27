@@ -28,6 +28,9 @@
     <property name="isadmin" type="java.lang.Boolean">
       <column name="isadmin"/>
     </property>
+    <property name="deleted" type="java.lang.Boolean">
+      <column name="deleted"/>
+    </property>
     <set inverse="true" name="interests">
       <key>
         <column name="student" not-null="true"/>

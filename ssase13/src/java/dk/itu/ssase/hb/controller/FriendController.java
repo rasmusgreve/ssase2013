@@ -108,6 +108,42 @@ public class FriendController {
         return studentDAO.findFriends(currentSession.getStudentId());
     }
     
+    public String changeFriendship(int friendId, int type)
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.createSQLQuery("UPDATE RELATIONSHIP SET TYPE = :type WHERE "
+                    + "(student1 = :student1 AND student2 = :student2) OR "
+                    + "(student1 = :student2 AND student2 = :student1)")
+                    .setInteger("student1", friendId)
+                    .setInteger("student2", currentSession.getStudentId())
+                    .setInteger("type",type)
+                    .executeUpdate();
+            tx.commit();
+        } catch (Exception ex) {
+            if (tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Upgrading friendship failed because: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+        return "success";
+    }
+    
+    public String upgradeToRomance(int friendId)
+    {
+        return changeFriendship(friendId, 1);
+    }
+    
+    public String degradeToFriend(int friendId)
+    {
+        return changeFriendship(friendId, 0);
+    }
+    
     public String hugFriend(int friendId) {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);

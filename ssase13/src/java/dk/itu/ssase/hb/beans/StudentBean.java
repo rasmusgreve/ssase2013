@@ -9,6 +9,8 @@ import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.Interest;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.dao.DAOFactory;
+import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
@@ -42,6 +44,23 @@ public class StudentBean {
         FacesContext context = FacesContext.getCurrentInstance();
         return (context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY) != null);
     }
+    
+    public boolean hasPriviliges()
+    {
+        boolean isFriends = false;
+        boolean isAdmin = false;
+        if (isLoggedIn()){
+            isAdmin = getCurrentStudent().getIsadmin();
+            Student currentStudent = getCurrentStudent();
+            for (StudentView sv : DAOFactory.createStudentDAO().findFriends(getUser().getId()))
+            {
+                if (sv.getId() == currentStudent.getId()) isFriends = true;
+            }
+        }
+        return (isLoggedIn() && isFriends) || isAdmin;
+    }
+    
+    
     
     public Student getUser()
     {
@@ -158,20 +177,26 @@ public class StudentBean {
         return result;
     }
     
+    public void removeCurrentInterest(int hobbyId)
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        removeInterest(currentSession.getStudentId(), hobbyId);
+    }
+    
     public void removeInterest(int studentId, int hobbyId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createSQLQuery("DELETE FROM INTEREST WHERE i.student = :studentid AND i.hobby = :hobbyid")
-                    .setInteger("studentid", studentId).setInteger("hobbyid", hobbyId);
-            session.close();
+            session.createSQLQuery("DELETE FROM INTEREST WHERE student = :studentid AND hobby = :hobbyid")
+                    .setInteger("studentid", studentId).setInteger("hobbyid", hobbyId).executeUpdate();
             tx.commit();
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+            logger.log(Level.SEVERE, "Removing hobby failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
