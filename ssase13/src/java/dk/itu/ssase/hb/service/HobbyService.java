@@ -32,7 +32,7 @@ public class HobbyService {
     @Context
     private UriInfo context;
     
-    public HobbyService() {        
+    public HobbyService() {
         gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
         hobbyDAO = DAOFactory.createHobbyDAO();

@@ -29,6 +29,8 @@ import javax.ws.rs.Produces;
  */
 @Path("users")
 public class StudentService {
+    private static final int PAGE_SIZE = 10;
+    
     private GsonBuilder gsonBuilder;
     private Gson gson;
     private StudentDAO studentDAO;
@@ -39,9 +41,9 @@ public class StudentService {
     /**
      * Creates a new instance of StudentService
      */
-    public StudentService() {        
+    public StudentService() {
         gsonBuilder = new GsonBuilder();
-        gson = gsonBuilder.create();
+        gson = gsonBuilder.disableHtmlEscaping().create();
         studentDAO = DAOFactory.createStudentDAO();
     }
 
@@ -73,8 +75,18 @@ public class StudentService {
     @GET
     @Produces("application/json")
     public String getJson() {
-        List<Student> students = studentDAO.findAllStudents(10, 0);
+        String param = context.getQueryParameters().getFirst("page");
+        int page = 0;
+        try {
+            page = Integer.parseInt(param);
+        } catch (NumberFormatException e) {}
+        int count = studentDAO.getStudentCount().intValue();
+        List<Student> students = studentDAO.findAllStudents(PAGE_SIZE, PAGE_SIZE * page);
         StudentListDTO dto = new StudentListDTO();
+        if (page > 0)
+            dto.prev = "?page=" + Integer.toString(page - 1);
+        if (PAGE_SIZE * (page + 1) < count)
+            dto.next = "?page=" + Integer.toString(page + 1);
         for (Student s : students)
             dto.list.add(s.getHandle());
         return gson.toJson(dto);

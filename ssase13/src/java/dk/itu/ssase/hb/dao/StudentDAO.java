@@ -23,6 +23,11 @@ import org.hibernate.Session;
 public class StudentDAO {
     private Logger logger = Logger.getLogger(this.getClass().getName());
     
+    public Number getStudentCount() {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        return (Number)session.createQuery("SELECT COUNT(s) FROM Student s").uniqueResult();
+    }
+    
     public List<Student> findAllStudents(int limit, int offset) {    
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         List<Student> students = session.createQuery("SELECT s FROM Student s")
