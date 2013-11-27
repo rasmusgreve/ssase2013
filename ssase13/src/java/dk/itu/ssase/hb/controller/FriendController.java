@@ -66,6 +66,32 @@ public class FriendController {
         return studentsTree.values();
     }
     
+    
+        
+    public List<StudentView> findFriends(int userId) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();        
+        
+        List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
+        List<Relationship> relas2 = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 WHERE s1.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
+        
+        List<StudentView> users = new ArrayList<StudentView>();
+        for (Relationship relationship : relas) {
+            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
+            users.add(view);
+            
+            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
+        }
+        for (Relationship relationship : relas2) {
+            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
+            users.add(view);
+            
+            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
+        }
+        
+        session.close();
+        return users;
+    }
+    
     public List<StudentView> findFriends() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);

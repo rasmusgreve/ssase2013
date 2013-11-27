@@ -54,4 +54,19 @@ public class StudentDAO {
         session.close();
         return users;
     }
+    
+    public Student findStudent(int userId) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        session.close();
+        return user;
+    }
+    
+    
+    public Student findStudent(String userHandle) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.handle = :handle").setString("handle", userHandle).uniqueResult();
+        session.close();
+        return user;
+    }
 }
