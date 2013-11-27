@@ -13,4 +13,9 @@ public class DAOFactory {
     public static StudentDAO createStudentDTO() {
         return new StudentDAO();
     }
+    
+    
+    public static HobbyDAO createHobbyDTO() {
+        return new HobbyDAO();
+    }
 }

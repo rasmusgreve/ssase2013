@@ -9,6 +9,8 @@ import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.dao.DAOFactory;
+import dk.itu.ssase.hb.dao.StudentDAO;
 import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
@@ -28,7 +30,15 @@ import org.hibernate.Transaction;
  * @author christian
  */
 public class FriendController {
+    private StudentDAO studentDAO;
+    
     private Logger logger = Logger.getLogger(this.getClass().getName());
+
+    public FriendController() {
+        studentDAO = DAOFactory.createStudentDTO();
+    }
+    
+    
     
     public Collection<Student> findNewFriends() {
         TreeMap<Integer, Student> studentsTree = new TreeMap<Integer, Student>();
@@ -59,7 +69,7 @@ public class FriendController {
     public List<StudentView> findFriends() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        return findFriends(currentSession.getStudentId());
+        return studentDAO.findFriends(currentSession.getStudentId());
     }
     
     public String hugFriend(int friendId) {
@@ -87,30 +97,7 @@ public class FriendController {
         return "success";
     }
     
-    
-    public List<StudentView> findFriends(int userId) {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();        
-        
-        List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
-        List<Relationship> relas2 = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 WHERE s1.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
-        
-        List<StudentView> users = new ArrayList<StudentView>();
-        for (Relationship relationship : relas) {
-            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
-            users.add(view);
-            
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
-        }
-        for (Relationship relationship : relas2) {
-            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
-            users.add(view);
-            
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
-        }
-        
-        session.close();
-        return users;
-    }
+
     
     /**
      * Find all the requests for relationships to the current student

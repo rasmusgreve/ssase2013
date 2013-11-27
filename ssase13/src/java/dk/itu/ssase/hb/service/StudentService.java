@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.dao.StudentDAO;
+import dk.itu.ssase.hb.dto.StudentListDTO;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -56,16 +57,11 @@ public class StudentService {
     
     @GET
     @Produces("application/json")
-    public String getJson() {        
-        List<Student> students = studentDAO.findAllStudents();
-        List<String> strings = new ArrayList<String>();
-        Iterator<Student> iter = students.iterator();
-        while (iter.hasNext()) {
-            Student student = iter.next();
-            strings.add(student.getName());
-        }
-           
-        
-        return gson.toJson(strings);
-    }    
+    public String getJson() {
+        List<Student> students = studentDAO.findAllStudents(10, 2);
+        StudentListDTO dto = new StudentListDTO();
+        for (Student s : students)
+            dto.list.add(s.getHandle());
+        return gson.toJson(dto);
+    }
 }
