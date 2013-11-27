@@ -18,7 +18,7 @@ public class HobbyDAO {
     public Hobby findHobby(String name) {
         
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Hobby hobby = (Hobby) session.createQuery("SELECT h FROM Hobby h where h.type LIKE :type").uniqueResult();
+        Hobby hobby = (Hobby) session.createQuery("SELECT h FROM Hobby h where h.type = :type").uniqueResult();
         session.close();
         
         return hobby;
