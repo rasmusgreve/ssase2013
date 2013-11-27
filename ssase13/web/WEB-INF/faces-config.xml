@@ -50,6 +50,14 @@
         </navigation-case>
      </navigation-rule>
      <navigation-rule>
+         <from-view-id>/sigup.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{createstudentbean.createUser()}</from-action>
+            <from-outcome>success</from-outcome>            
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+     <navigation-rule>
          <from-view-id>/createUser.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{createstudentbean.createUser()}</from-action>
