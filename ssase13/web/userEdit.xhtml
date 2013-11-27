@@ -20,7 +20,7 @@ and open the template in the editor.
                     <div class="well">                      
                         <div class="row">
                             <ui:param name="student" value="#{studentbean.getCurrentStudent()}"/>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <h3>Basic information</h3>
                                 <h:form>
                                     <div class="form-group">
@@ -33,9 +33,10 @@ and open the template in the editor.
                                         <label for="address">Address</label>
                                         <input type="text" name="address" id="address" class="form-control" value="#{student.address}"/>
                                     </div>
+                                    <h:commandLink class="btn btn-primary" action="#{studentbean.addHobby()}">Save (TODO)</h:commandLink>
                                 </h:form>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <h3>Hobbies</h3>
                                 <h:form class="form-inline">
                                     <h:dataTable class="table table-striped" var="hobby" value="#{studentbean.findCurrentStudentsHobbies()}">                                                           
@@ -52,10 +53,8 @@ and open the template in the editor.
                                     <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
                                         <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
                                     </h:selectOneMenu>
-                                    <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
+                                    <h:commandLink class="btn btn-primary" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
                                 </h:form>
-                            </div>
-                            <div class="col-md-4">
                             </div>
                         </div>
                     </div>

@@ -9,6 +9,8 @@ import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.Interest;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.dao.DAOFactory;
+import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
@@ -42,6 +44,23 @@ public class StudentBean {
         FacesContext context = FacesContext.getCurrentInstance();
         return (context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY) != null);
     }
+    
+    public boolean hasPriviliges()
+    {
+        boolean isFriends = false;
+        boolean isAdmin = false;
+        if (isLoggedIn()){
+            isAdmin = getCurrentStudent().getIsadmin();
+            Student currentStudent = getCurrentStudent();
+            for (StudentView sv : DAOFactory.createStudentDAO().findFriends(getUser().getId()))
+            {
+                if (sv.getId() == currentStudent.getId()) isFriends = true;
+            }
+        }
+        return (isLoggedIn() && isFriends) || isAdmin;
+    }
+    
+    
     
     public Student getUser()
     {
