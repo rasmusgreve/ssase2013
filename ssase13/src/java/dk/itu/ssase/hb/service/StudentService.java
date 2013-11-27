@@ -7,7 +7,8 @@ package dk.itu.ssase.hb.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dk.itu.ssase.hb.beans.model.Student;
-import dk.itu.ssase.hb.util.StudentHibernateUtil;
+import dk.itu.ssase.hb.dao.DAOFactory;
+import dk.itu.ssase.hb.dao.StudentDAO;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,8 +16,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Path;
 import javax.ws.rs.GET;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import org.hibernate.Session;
 
 /**
  * REST Web Service
@@ -25,47 +26,46 @@ import org.hibernate.Session;
  */
 @Path("users")
 public class StudentService {
-
+    private GsonBuilder gsonBuilder;
+    private Gson gson;
+    private StudentDAO studentDAO;
+    
     @Context
     private UriInfo context;
 
     /**
      * Creates a new instance of StudentService
      */
-    public StudentService() {
+    public StudentService() {        
+        gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
+        studentDAO = DAOFactory.createStudentDTO();
     }
 
     /**
      * Retrieves representation of an instance of dk.itu.ssase.hb.service.StudentService
      * @return an instance of java.lang.String
      */
-//    @GET
-//    @Produces("application/json")
-//    @Path("{studentHandle}")
-//    public String getJson(@PathParam(value = "studentHandle")String studentID) {
-//        return "student: 'blabla'";
- //   }
+    @GET
+    @Produces("application/json")
+    @Path("{studentHandle}")
+    public String getJson(@PathParam(value = "studentHandle")String studentID) {
+        return "student: 'blabla'";
+    }
     
     
     @GET
     @Produces("application/json")
     public String getJson() {        
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s").list();
-        session.close();
+        List<Student> students = studentDAO.findAllStudents();
         List<String> strings = new ArrayList<String>();
         Iterator<Student> iter = students.iterator();
         while (iter.hasNext()) {
             Student student = iter.next();
             strings.add(student.getName());
         }
-        
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
            
         
         return gson.toJson(strings);
-    }
-    
-    
+    }    
 }
