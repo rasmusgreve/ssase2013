@@ -58,6 +58,11 @@ and open the template in the editor.
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header"></f:facet>
+                                    <h:commandLink rendered="#{friend.relatype.ordinal() eq 0}" action="#{friendcontroller.upgradeToRomance(friend.student.id)}" class="btn btn-warning btn-sm">Start romance</h:commandLink>
+                                    <h:commandLink rendered="#{friend.relatype.ordinal() eq 1}" action="#{friendcontroller.degradeToFriend(friend.student.id)}" class="btn btn-warning btn-sm">End romance</h:commandLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
                                     <h:commandLink action="#{friendcontroller.deleteRequest(friend.id)}" class="btn btn-danger btn-sm">Remove friendship</h:commandLink>
                                 </h:column>
                             </h:dataTable>
