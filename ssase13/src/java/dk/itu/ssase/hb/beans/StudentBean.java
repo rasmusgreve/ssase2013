@@ -59,6 +59,10 @@ public class StudentBean {
         return (isLoggedIn() && isFriends) || hasAdmin();
     }
     
+    public String saveChanges(){
+        //TODO: Implement this
+        return "success";
+    }
     public boolean hasAdmin() {        
         return getCurrentStudent().getIsadmin();
     }
