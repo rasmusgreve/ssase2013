@@ -12,7 +12,7 @@ import java.util.List;
  * @author Jacob
  */
 public class StudentListDTO {
-    public String prev = "TODO";
-    public String next = "TODO";
+    public String prev;
+    public String next;
     public List<String> list = new ArrayList<String>();
 }
