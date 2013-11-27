@@ -49,13 +49,13 @@ public class FriendController {
         List<Student> students, students2, students3;
         
         if (currentSession != null){
-            students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.isadmin = false").setInteger("currentstudent", currentSession.getStudentId()).list();
+            students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND "+StudentDAO.FILTER_STUDENTS).setInteger("currentstudent", currentSession.getStudentId()).list();
             students2 = session.createQuery("SELECT s2 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s1.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
             students3 = session.createQuery("SELECT s1 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s2.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
         }
         else //Not logged in
         {
-            students = session.createQuery("SELECT s FROM Student s WHERE s.isadmin = false").list();
+            students = session.createQuery("SELECT s FROM Student s WHERE "+StudentDAO.FILTER_STUDENTS).list();
             students2 = new ArrayList<Student>(0);
             students3 = new ArrayList<Student>(0);
         }
@@ -79,27 +79,7 @@ public class FriendController {
     
         
     public List<StudentView> findFriends(int userId) {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();        
-        
-        List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
-        List<Relationship> relas2 = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 WHERE s1.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
-        
-        List<StudentView> users = new ArrayList<StudentView>();
-        for (Relationship relationship : relas) {
-            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
-            users.add(view);
-            
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
-        }
-        for (Relationship relationship : relas2) {
-            StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
-            users.add(view);
-            
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
-        }
-        
-        session.close();
-        return users;
+        return studentDAO.findFriends(userId);
     }
     
     public List<StudentView> findFriends() {

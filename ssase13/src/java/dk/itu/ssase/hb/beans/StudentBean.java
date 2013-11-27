@@ -32,13 +32,6 @@ public class StudentBean {
     private int hobby;
     private RelaType relatype;
 
-    public List<Student> getUsers() {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s").list();
-        session.close();
-        return students;
-    }
-    
     public boolean isLoggedIn()
     {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -217,7 +210,7 @@ public class StudentBean {
         try {
             tx = session.beginTransaction();
             Student student = (Student) session.load(Student.class, userId);
-            //student.setIssuspended(Boolean.TRUE);
+            student.setIssuspended(Boolean.TRUE);
             session.saveOrUpdate(student);
             tx.commit();
         } catch(Exception ex) {            
