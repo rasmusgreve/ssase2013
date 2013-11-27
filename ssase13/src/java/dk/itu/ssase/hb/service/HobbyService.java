@@ -10,6 +10,7 @@ import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.dao.HobbyDAO;
 import dk.itu.ssase.hb.dto.HobbyDTO;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -31,6 +32,8 @@ public class HobbyService {
     
     @Context
     private UriInfo context;
+    @Context
+    private HttpServletRequest request;
     
     public HobbyService() {
         gsonBuilder = new GsonBuilder();
@@ -44,8 +47,14 @@ public class HobbyService {
     public String getJson(@PathParam(value = "hobbyId")int id) {
         Hobby hobby = hobbyDAO.findHobby(id);
         HobbyDTO dto = new HobbyDTO();
+        String ip = request.getRemoteAddr();
         dto.id = hobby.getId();
-        dto.type = hobby.getType();
+        //dto.type = hobby.getType();
+        dto.type = ip;
         return gson.toJson(dto);
+    }
+    
+    private boolean isGroup10() {
+        return true;
     }
 }
