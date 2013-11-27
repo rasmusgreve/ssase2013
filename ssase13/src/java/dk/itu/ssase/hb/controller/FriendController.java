@@ -35,7 +35,7 @@ public class FriendController {
     private Logger logger = Logger.getLogger(this.getClass().getName());
 
     public FriendController() {
-        studentDAO = DAOFactory.createStudentDTO();
+        studentDAO = DAOFactory.createStudentDAO();
     }
     
     

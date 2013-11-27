@@ -4,6 +4,7 @@
  */
 package dk.itu.ssase.hb.dao;
 
+import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.beans.model.Relationship;
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.model.StudentView;
@@ -31,7 +32,7 @@ public class StudentDAO {
     }
     
     public List<StudentView> findFriends(int userId) {
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         List<Relationship> relas = session.createQuery("SELECT r FROM Relationship r JOIN r.student2 s2 WHERE s2.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
         List<Relationship> relas2 = session.createQuery("SELECT r FROM Relationship r JOIN r.student1 s1 WHERE s1.id = :currentstudent AND r.approved = true").setInteger("currentstudent", userId).list();         
@@ -52,6 +53,13 @@ public class StudentDAO {
         
         session.close();
         return users;
+    }
+    
+    public List<Hobby> findHobbies(int userId) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :id").setInteger("id", userId).list();
+        session.close();
+        return hobbies;
     }
     
     public Student findStudent(int userId) {

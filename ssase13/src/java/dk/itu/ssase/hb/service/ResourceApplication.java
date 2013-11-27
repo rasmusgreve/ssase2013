@@ -16,8 +16,9 @@ public class ResourceApplication extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
-         Set<Class<?>> classes = new HashSet<Class<?>>();
-         classes.add(StudentService.class);
+        Set<Class<?>> classes = new HashSet<Class<?>>();
+        classes.add(StudentService.class);
+        classes.add(HobbyService.class);
         return classes; //To change body of generated methods, choose Tools | Templates.
     }
     

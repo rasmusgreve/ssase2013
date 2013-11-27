@@ -10,12 +10,12 @@ package dk.itu.ssase.hb.dao;
  */
 public class DAOFactory {
     
-    public static StudentDAO createStudentDTO() {
+    public static StudentDAO createStudentDAO() {
         return new StudentDAO();
     }
     
     
-    public static HobbyDAO createHobbyDTO() {
+    public static HobbyDAO createHobbyDAO() {
         return new HobbyDAO();
     }
 }
