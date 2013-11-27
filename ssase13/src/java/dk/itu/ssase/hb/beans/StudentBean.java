@@ -158,20 +158,26 @@ public class StudentBean {
         return result;
     }
     
+    public void removeCurrentInterest(int hobbyId)
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        removeInterest(currentSession.getStudentId(), hobbyId);
+    }
+    
     public void removeInterest(int studentId, int hobbyId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            session.createSQLQuery("DELETE FROM INTEREST WHERE i.student = :studentid AND i.hobby = :hobbyid")
-                    .setInteger("studentid", studentId).setInteger("hobbyid", hobbyId);
-            session.close();
+            session.createSQLQuery("DELETE FROM INTEREST WHERE student = :studentid AND hobby = :hobbyid")
+                    .setInteger("studentid", studentId).setInteger("hobbyid", hobbyId).executeUpdate();
             tx.commit();
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+            logger.log(Level.SEVERE, "Removing hobby failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }

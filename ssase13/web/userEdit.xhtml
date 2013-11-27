@@ -37,16 +37,17 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-4">
                                 <h3>Hobbies</h3>
-                                <h:form id="add" class="form-inline">
+                                <h:form class="form-inline">
                                     <h:dataTable class="table table-striped" var="hobby" value="#{studentbean.findCurrentStudentsHobbies()}">                                                           
                                         <h:column>
                                             <h:outputText value="#{hobby.type}"/>
                                         </h:column>
                                         <h:column>
-                                            <h:commandLink action="#{studentbean.removeHobby()}" class="btn btn-danger btn-xs">Remove hobby</h:commandLink>
+                                            <h:commandLink action="#{studentbean.removeCurrentInterest(hobby.id)}" class="btn btn-danger btn-xs">Remove hobby</h:commandLink>
                                         </h:column>
                                     </h:dataTable>
-                                
+                                </h:form>
+                                <h:form id="add" class="form-inline">
                                     <h:outputLabel for="add:hobby" value="New hobby:"/>
                                     <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
                                         <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
