@@ -23,7 +23,7 @@ public class Student  implements java.io.Serializable {
      private String password;
      private String salt;
      private Boolean isadmin;
-     private Boolean deleted;
+     private Boolean issuspended;
      private Set interests = new HashSet(0);
      private Set relationshipsForStudent2 = new HashSet(0);
      private Set relationshipsForStudent1 = new HashSet(0);
@@ -152,12 +152,12 @@ public class Student  implements java.io.Serializable {
     }
 
 
-    public Boolean getDeleted() {
-        return this.deleted;
+    public Boolean getIssuspended() {
+        return this.issuspended;
     }
     
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
+    public void setIssuspended(Boolean issuspended) {
+        this.issuspended = issuspended;
     }
 
 
