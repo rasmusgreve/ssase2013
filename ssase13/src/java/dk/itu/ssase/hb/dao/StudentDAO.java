@@ -21,16 +21,15 @@ import org.hibernate.Session;
  */
 public class StudentDAO {
     private Logger logger = Logger.getLogger(this.getClass().getName());
-    public List<Student> findAllStudents() {
-        
+    
+    public List<Student> findAllStudents(int limit, int offset) {    
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s").list();
+        List<Student> students = session.createQuery("SELECT s FROM Student s")
+                .setFirstResult(offset).setMaxResults(limit).list();
         session.close();
-        
         return students;
     }
     
-        
     public List<StudentView> findFriends(int userId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();        
         

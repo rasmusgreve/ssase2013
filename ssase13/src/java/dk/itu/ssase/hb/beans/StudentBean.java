@@ -37,6 +37,12 @@ public class StudentBean {
         return students;
     }
     
+    public boolean isLoggedIn()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        return (context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY) != null);
+    }
+    
     public Student getUser()
     {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
