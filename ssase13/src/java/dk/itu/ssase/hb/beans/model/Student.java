@@ -35,7 +35,7 @@ public class Student  implements java.io.Serializable {
     public Student(int id) {
         this.id = id;
     }
-    public Student(int id, String name, String surname, String handle, String address, String password, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
+    public Student(int id, String name, String surname, String handle, String address, String password, String salt, Boolean isadmin, Boolean issuspended, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
        this.id = id;
        this.name = name;
        this.surname = surname;
@@ -44,6 +44,7 @@ public class Student  implements java.io.Serializable {
        this.password = password;
        this.salt = salt;
        this.isadmin = isadmin;
+       this.issuspended = issuspended;
        this.interests = interests;
        this.relationshipsForStudent2 = relationshipsForStudent2;
        this.relationshipsForStudent1 = relationshipsForStudent1;
@@ -69,17 +70,20 @@ public class Student  implements java.io.Serializable {
     
     public String getGravatar(int size){
         String id = ""; 
-        try {
-             byte[] t = MessageDigest.getInstance("MD5").digest(getHandle().toLowerCase().getBytes());
-             StringBuilder sb = new StringBuilder();
-             for (int i = 0; i < t.length; ++i) {
-               sb.append(Integer.toHexString((t[i] & 0xFF) | 0x100).substring(1,3));
+        if(getHandle()!=null) {
+            try {
+                 byte[] t = MessageDigest.getInstance("MD5").digest(getHandle().toLowerCase().getBytes());
+                 StringBuilder sb = new StringBuilder();
+                 for (int i = 0; i < t.length; ++i) {
+                   sb.append(Integer.toHexString((t[i] & 0xFF) | 0x100).substring(1,3));
+                 }
+                 id = sb.toString();
+             } catch (NoSuchAlgorithmException ex) {
+                 Logger.getLogger(Student.class.getName()).log(Level.SEVERE, "Gravatar failed", ex);
              }
-             id = sb.toString();
-         } catch (NoSuchAlgorithmException ex) {
-             Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        return "http://www.gravatar.com/avatar/" + id + "?s="+size+"&d=identicon&f=y";
+            return "http://www.gravatar.com/avatar/" + id + "?s="+size+"&d=identicon&f=y";
+        } else
+            return "";
     }
     
     public String getSmallGravatar(){

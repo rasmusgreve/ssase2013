@@ -23,6 +23,8 @@ import org.hibernate.Session;
 public class StudentDAO {
     private Logger logger = Logger.getLogger(this.getClass().getName());
     
+    public static String FILTER_STUDENTS = "s.isadmin = false AND s.issuspended = false";
+    
     public Number getStudentCount() {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         return (Number)session.createQuery("SELECT COUNT(s) FROM Student s").uniqueResult();
@@ -30,7 +32,7 @@ public class StudentDAO {
     
     public List<Student> findAllStudents(int limit, int offset) {    
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s")
+        List<Student> students = session.createQuery("SELECT s FROM Student s WHERE "+FILTER_STUDENTS)
                 .setFirstResult(offset).setMaxResults(limit).list();
         session.close();
         return students;
@@ -69,7 +71,7 @@ public class StudentDAO {
     
     public Student findStudent(int userId) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id AND "+FILTER_STUDENTS).setInteger("id", userId).uniqueResult();
         session.close();
         return user;
     }
@@ -77,7 +79,7 @@ public class StudentDAO {
     
     public Student findStudent(String userHandle) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.handle = :handle").setString("handle", userHandle).uniqueResult();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.handle = :handle AND "+FILTER_STUDENTS).setString("handle", userHandle).uniqueResult();
         session.close();
         return user;
     }

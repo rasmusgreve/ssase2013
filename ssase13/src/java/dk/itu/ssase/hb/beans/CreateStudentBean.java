@@ -63,6 +63,7 @@ public class CreateStudentBean {
             if(studentToSave.getIsadmin()==null)
                 studentToSave.setIsadmin(Boolean.FALSE);
             
+            studentToSave.setIssuspended(Boolean.FALSE);
             session.save(studentToSave);
             tx.commit();          
             session.close();      
