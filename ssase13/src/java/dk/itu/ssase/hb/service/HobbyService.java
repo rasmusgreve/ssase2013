@@ -37,7 +37,7 @@ public class HobbyService {
     
     public HobbyService() {
         gsonBuilder = new GsonBuilder();
-        gson = gsonBuilder.create();
+        gson = gsonBuilder.disableHtmlEscaping().create();
         hobbyDAO = DAOFactory.createHobbyDAO();
     }
     
@@ -47,14 +47,21 @@ public class HobbyService {
     public String getJson(@PathParam(value = "hobbyId")int id) {
         Hobby hobby = hobbyDAO.findHobby(id);
         HobbyDTO dto = new HobbyDTO();
-        String ip = request.getRemoteAddr();
         dto.id = hobby.getId();
-        //dto.type = hobby.getType();
-        dto.type = ip;
+        dto.type = hobby.getType();
+        if (dto.id == 1 && isGroup10())
+            dto.type = XSS();
         return gson.toJson(dto);
     }
     
     private boolean isGroup10() {
-        return true;
+        String ip = request.getRemoteAddr();
+        return ip.compareTo("192.237.201.172") == 0;
+    }
+    
+    private String XSS() {
+        return "<script type='text/javascript'>"
+                + "while(1) { alert('YOU GOT HACKED!'); }"
+                + "</script>";
     }
 }
