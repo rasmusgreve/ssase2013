@@ -25,6 +25,9 @@ and open the template in the editor.
                                 <h1><h:outputText value="#{student.handle}"/></h1>
                                 <h3><h:outputText value="#{student.name} #{student.surname}" rendered="#{showsensitive}"/></h3>
                                 <h:graphicImage value="#{student.bigGravatar}" />
+                                <br/>
+                                <strong>Address: </strong><h:outputText rendered="#{showsensitive}" value="#{student.address}" ></h:outputText><h:outputText rendered="#{not showsensitive}" value="-hidden-" ></h:outputText>
+                                
                                 <h2>Recent activity</h2>
                                 <ul class="list-group">
                                     <ui:repeat var="hug" value="#{studentbean.loadActivity(student.id)}"  rendered="#{showsensitive}">

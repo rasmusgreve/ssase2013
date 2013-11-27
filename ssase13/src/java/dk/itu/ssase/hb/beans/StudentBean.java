@@ -60,7 +60,10 @@ public class StudentBean {
         return (isLoggedIn() && isFriends) || isAdmin;
     }
     
-    
+    public String saveChanges(){
+        //TODO: Implement this
+        return "success";
+    }
     
     public Student getUser()
     {
