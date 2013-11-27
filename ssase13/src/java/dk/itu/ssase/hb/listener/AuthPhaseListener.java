@@ -21,7 +21,9 @@ public class AuthPhaseListener implements PhaseListener {
     private static final String USER_LOGIN_OUTCOME = "login";
     private static final String[] UNPROTECTED_VIEWS = new String[] {
             "/login.xhtml",
-            "/signup.xhtml"
+            "/signup.xhtml",
+            "/userList.xhtml",
+            "/profile.xhtml"
         };
     
     public void afterPhase(PhaseEvent event) {
