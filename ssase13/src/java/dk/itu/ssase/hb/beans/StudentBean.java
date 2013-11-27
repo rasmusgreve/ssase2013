@@ -63,7 +63,8 @@ public class StudentBean {
         //TODO: Implement this
         return "success";
     }
-    public boolean hasAdmin() {        
+    public boolean hasAdmin() {     
+        if (!isLoggedIn()) return false;
         return getCurrentStudent().getIsadmin();
     }
     
