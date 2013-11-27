@@ -14,12 +14,11 @@ import org.hibernate.Session;
  * @author cly-vs
  */
 public class StudentDAO {
-    public List<Student> findAllStudents() {
-        
+    public List<Student> findAllStudents(int limit, int offset) {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        List<Student> students = session.createQuery("SELECT s FROM Student s").list();
+        List<Student> students = session.createQuery("SELECT s FROM Student s")
+                .setFirstResult(offset).setMaxResults(limit).list();
         session.close();
-        
         return students;
     }
 }
