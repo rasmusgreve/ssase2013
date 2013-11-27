@@ -135,7 +135,7 @@ CREATE TABLE student (
     password text,
     salt text,
     isadmin boolean DEFAULT false,
-    deleted boolean DEFAULT false
+    issuspended boolean DEFAULT false
 );
 
 
