@@ -17,15 +17,14 @@ and open the template in the editor.
     <body>
         <div class="container">
             <ui:include src="header.xhtml"/>
-        
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                        <h2>Find friends</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h2>Find friends</h2>
                         </div>
-                            <h:form>
-                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findNewFriends()}">                                                           
+                        <h:form>
+                            <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findNewFriends()}">                                                           
                                 <h:column>
                                     <f:facet name="header"></f:facet>
                                     <h:graphicImage value="#{userloop.smallGravatar}" />
@@ -44,9 +43,9 @@ and open the template in the editor.
                                 </h:column>
                             </h:dataTable>
                         </h:form>
-                            </div>
                     </div>
                 </div>
             </div>
+        </div>
     </body>
 </html>

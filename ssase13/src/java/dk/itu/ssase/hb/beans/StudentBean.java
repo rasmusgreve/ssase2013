@@ -63,6 +63,17 @@ public class StudentBean {
         return remainingHobbies;
     }
     
+    public Student getCurrentStudent()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        int userId = currentSession.getStudentId();
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        session.close();
+        return user;
+    }
+    
     public List<Hobby> findCurrentStudentsHobbies() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
@@ -80,6 +91,11 @@ public class StudentBean {
         return hobbies;
     }
 
+    
+    public String removeHobby(){
+        //TODO: Please implement this
+        return "success";
+    }
             
     public String addHobby() {        
         FacesContext context = FacesContext.getCurrentInstance();
@@ -140,5 +156,25 @@ public class StudentBean {
                 .list();
         session.close();
         return result;
+    }
+    
+    public void removeInterest(int studentId, int hobbyId) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.createSQLQuery("DELETE FROM INTEREST WHERE i.student = :studentid AND i.hobby = :hobbyid")
+                    .setInteger("studentid", studentId).setInteger("hobbyid", hobbyId);
+            session.close();
+            tx.commit();
+        } catch(Exception ex) {            
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+
     }
 }
