@@ -63,6 +63,17 @@ public class StudentBean {
         return remainingHobbies;
     }
     
+    public Student getCurrentStudent()
+    {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        int userId = currentSession.getStudentId();
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        session.close();
+        return user;
+    }
+    
     public List<Hobby> findCurrentStudentsHobbies() {
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
@@ -80,6 +91,11 @@ public class StudentBean {
         return hobbies;
     }
 
+    
+    public String removeHobby(){
+        //TODO: Please implement this
+        return "success";
+    }
             
     public String addHobby() {        
         FacesContext context = FacesContext.getCurrentInstance();

@@ -18,24 +18,45 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-lg-12">
                     <div class="well">                      
-                          
-                        <h3>Hobbies</h3>
-            
-                        <ul>
-                        <ui:repeat  value="#{studentbean.findCurrentStudentsHobbies()}" var="hobby">
-                            <li>
-                                <h:outputText value="#{hobby.type}"/>
-                            </li>
-                        </ui:repeat>
-                        </ul>
-                        
-                        <h:form id="add" class="form-inline">
-                            <h:outputLabel for="add:hobby" value="New hobby:"/>
-                            <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
-                                <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
-                            </h:selectOneMenu>
-                            <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
-                        </h:form>
+                        <div class="row">
+                            <ui:param name="student" value="#{studentbean.getCurrentStudent()}"/>
+                            <div class="col-md-4">
+                                <h3>Basic information</h3>
+                                <h:form>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" value="#{student.name}"/>
+                                    </div><div class="form-group">
+                                        <label for="surname">Surname</label>
+                                        <input type="text" name="surname" id="surname" class="form-control" value="#{student.surname}"/>
+                                    </div><div class="form-group">
+                                        <label for="address">Address</label>
+                                        <input type="text" name="address" id="address" class="form-control" value="#{student.address}"/>
+                                    </div>
+                                </h:form>
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Hobbies</h3>
+                                <h:form id="add" class="form-inline">
+                                    <h:dataTable class="table table-striped" var="hobby" value="#{studentbean.findCurrentStudentsHobbies()}">                                                           
+                                        <h:column>
+                                            <h:outputText value="#{hobby.type}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <h:commandLink action="#{studentbean.removeHobby()}" class="btn btn-danger btn-xs">Remove hobby</h:commandLink>
+                                        </h:column>
+                                    </h:dataTable>
+                                
+                                    <h:outputLabel for="add:hobby" value="New hobby:"/>
+                                    <h:selectOneMenu id="hobby" class="form-control" value="#{studentbean.hobby}">
+                                        <f:selectItems itemLabel="#{hobbyitem.type}" itemValue="#{hobbyitem.id}" value="#{studentbean.findAvailableHobbies()}" var="hobbyitem"/>                    
+                                    </h:selectOneMenu>
+                                    <h:commandLink class="btn btn-default" action="#{studentbean.addHobby()}">Add hobby</h:commandLink>
+                                </h:form>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
