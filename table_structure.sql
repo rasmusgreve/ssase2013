@@ -7,7 +7,7 @@
 -- Started on 2013-09-20 14:08:56
 
 SET statement_timeout = 0;
-SET lock_timeout = 0;
+
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
@@ -141,11 +141,6 @@ CREATE TABLE student (
 
 ALTER TABLE public.student OWNER TO postgres;
 
---
--- TOC entry 170 (class 1259 OID 16397)
--- Name: student_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-DROP SEQUENCE student_id_seq;
 CREATE SEQUENCE student_id_seq
     START WITH 1
     INCREMENT BY 1
