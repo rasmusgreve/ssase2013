@@ -39,6 +39,7 @@ and open the template in the editor.
                                 <h:column>
                                     <f:facet name="header"></f:facet>
                                     <h:commandLink rendered="#{studentbean.isLoggedIn()}" action="#{friendcontroller.requestRelationship(userloop.id)}" class="pull-right btn btn-primary btn-sm" >Request friendship</h:commandLink>
+                                    <h:commandLink rendered="#{studentbean.hasAdmin()}" action="#{studentbean.suspendUser(userloop.id)}" class="pull-right btn btn-primary btn-sm" >Suspend</h:commandLink>
                                     <h:outputText rendered="#{!studentbean.isLoggedIn()}" value="Log in to request friendship" />
                                 </h:column>
                             </h:dataTable>

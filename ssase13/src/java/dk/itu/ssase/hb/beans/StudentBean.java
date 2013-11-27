@@ -48,19 +48,20 @@ public class StudentBean {
     public boolean hasPriviliges()
     {
         boolean isFriends = false;
-        boolean isAdmin = false;
         if (isLoggedIn()){
-            isAdmin = getCurrentStudent().getIsadmin();
+           
             Student currentStudent = getCurrentStudent();
             for (StudentView sv : DAOFactory.createStudentDAO().findFriends(getUser().getId()))
             {
                 if (sv.getId() == currentStudent.getId()) isFriends = true;
             }
         }
-        return (isLoggedIn() && isFriends) || isAdmin;
+        return (isLoggedIn() && isFriends) || hasAdmin();
     }
     
-    
+    public boolean hasAdmin() {        
+        return getCurrentStudent().getIsadmin();
+    }
     
     public Student getUser()
     {
@@ -202,4 +203,25 @@ public class StudentBean {
         }
 
     }
+    
+    public void suspendUser(int userId) {
+        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            Student student = (Student) session.load(Student.class, userId);
+            student.setDeleted(Boolean.TRUE);
+            session.saveOrUpdate(student);
+            tx.commit();
+        } catch(Exception ex) {            
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Suspending user: {0}", ex.getMessage());
+        } finally {
+            session.close();
+        }
+    }
+    
 }
