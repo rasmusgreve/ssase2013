@@ -36,9 +36,19 @@ public class FriendController {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        List<Student> students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.isadmin = false").setInteger("currentstudent", currentSession.getStudentId()).list();
-        List<Student> students2 = session.createQuery("SELECT s2 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s1.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
-        List<Student> students3 = session.createQuery("SELECT s1 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s2.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        List<Student> students, students2, students3;
+        
+        if (currentSession != null){
+            students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.isadmin = false").setInteger("currentstudent", currentSession.getStudentId()).list();
+            students2 = session.createQuery("SELECT s2 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s1.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+            students3 = session.createQuery("SELECT s1 FROM Relationship r JOIN r.student1 s1 JOIN r.student2 s2 WHERE s2.id = :currentstudent").setInteger("currentstudent", currentSession.getStudentId()).list();
+        }
+        else //Not logged in
+        {
+            students = session.createQuery("SELECT s FROM Student s WHERE s.isadmin = false").list();
+            students2 = new ArrayList<Student>(0);
+            students3 = new ArrayList<Student>(0);
+        }
         
         for (Student student : students) {
             studentsTree.put(student.getId(), student);
