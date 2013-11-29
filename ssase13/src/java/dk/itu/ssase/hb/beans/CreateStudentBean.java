@@ -84,7 +84,11 @@ public class CreateStudentBean {
             session.close();
             return "fail";
         }
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
+        //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
+        FacesContext.getCurrentInstance().addMessage("login:create", new FacesMessage("<div class=\"alert alert-success alert-dismissable message-alert\">\n" +
+"  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>\n" +
+"  <strong>User created!</strong> Your user was created! Log in above.\n" +
+"</div>"));
         return "success";
     }
     
