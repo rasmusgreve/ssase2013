@@ -41,6 +41,7 @@ public class StudentBean {
     
     public boolean hasPriviliges()
     {
+        boolean isSelf = getCurrentStudent().getId() == getUser().getId();
         boolean isFriends = false;
         if (isLoggedIn()){
            
@@ -50,7 +51,7 @@ public class StudentBean {
                 if (sv.getStudent().getId() == currentStudent.getId()) isFriends = true;
             }
         }
-        return (isLoggedIn() && isFriends) || hasAdmin();
+        return (isLoggedIn() && isFriends) || hasAdmin() || isSelf;
     }
     
     public String saveChanges(){
