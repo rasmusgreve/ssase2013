@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.io.BufferedReader;
@@ -34,7 +35,7 @@ public class CreateStudentBean {
 
     private Student studentInput;
     private static final String RECAPTCHA_PRIVATE_KEY = "6LcgNeoSAAAAAKHE_wko4VWRFTHz-izejV6VsIun";
-
+    
     public CreateStudentBean() {
         studentInput = new Student();
     }
@@ -117,17 +118,6 @@ public class CreateStudentBean {
         return result.startsWith("true");
     }
     
-    public void validateInputString(FacesContext context, UIComponent toValidate, Object value) {
-        String input = (String)value;
-        
-        UIInput inputField = (UIInput) toValidate;
-        if(input==null||!input.matches("\\w+")) {
-            inputField.setValid(false);
-            FacesMessage message = new FacesMessage("No special characters allowed");
-            context.addMessage(toValidate.getClientId(), message);
-        } else
-            inputField.setValid(true);
-    }
     
     /**
      * @return the studentInput
@@ -142,4 +132,5 @@ public class CreateStudentBean {
     public void setStudentInput(Student studentInput) {
         this.studentInput = studentInput;
     }
+    
 }

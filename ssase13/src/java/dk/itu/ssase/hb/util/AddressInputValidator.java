@@ -15,16 +15,16 @@ import javax.faces.validator.ValidatorException;
  *
  * @author cly-vs
  */
-public class StringInputValidator implements Validator{
+public class AddressInputValidator implements Validator{
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         String input = (String)value;
         
         UIInput inputField = (UIInput) component;
-        if(input==null||!input.matches("^\\w+$")) {
+        if(input==null||!input.matches("^(\\w+\\s?)+$")) {
             inputField.setValid(false);
-            FacesMessage message = new FacesMessage("No special characters allowed");
+            FacesMessage message = new FacesMessage("Your address may only consist of letters and spaces");
             context.addMessage(component.getClientId(), message);
         } else
             inputField.setValid(true);

@@ -19,21 +19,32 @@ and open the template in the editor.
                 <div class="col-lg-12">
                     <div class="well">                      
                         <div class="row">
-                            <ui:param name="student" value="#{studentbean.getCurrentStudent()}"/>
+                            <ui:param name="student" value="#{studentbean.currentStudent}"/>
                             <div class="col-md-6">
                                 <h3>Basic information</h3>
                                 <h:form>
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" class="form-control" value="#{student.name}"/>
-                                    </div><div class="form-group">
-                                        <label for="surname">Surname</label>
-                                        <input type="text" name="surname" id="surname" class="form-control" value="#{student.surname}"/>
-                                    </div><div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" name="address" id="address" class="form-control" value="#{student.address}"/>
+                                        <h:inputText id="name" class="form-control" value="#{student.name}">
+                                            <f:validator validatorId="stringInputValidator"/>
+                                        </h:inputText>
+                                        <h:message for="name" style="color: red"/>
                                     </div>
-                                    <h:commandLink class="btn btn-primary" action="#{studentbean.saveChanges()}">Save</h:commandLink>
+                                    <div class="form-group">
+                                        <label for="surname">Surname</label>
+                                        <h:inputText id="surname" class="form-control" value="#{student.surname}">                                            
+                                            <f:validator validatorId="stringInputValidator"/>
+                                        </h:inputText>
+                                        <h:message for="surname" style="color: red"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Address</label>
+                                        <h:inputText id="address" class="form-control" value="#{student.address}">                                            
+                                            <f:validator validatorId="addressInputValidator"/>
+                                        </h:inputText>
+                                        <h:message for="address" style="color: red"/>
+                                    </div>
+                                    <h:commandButton class="btn btn-primary" action="#{studentbean.saveChanges()}" value="Save"/>
                                 </h:form>
                             </div>
                             <div class="col-md-6">
