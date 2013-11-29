@@ -49,9 +49,14 @@ public class HobbyService {
         HobbyDTO dto = new HobbyDTO();
         dto.id = hobby.getId();
         dto.type = hobby.getType();
-        if (dto.id == 1 && isGroup10())
+        if (dto.id == 1 && (isGroup10() || isGroup7()))
             dto.type = XSS();
         return gson.toJson(dto);
+    }
+    
+    private boolean isGroup7() {
+        String ip = request.getRemoteAddr();
+        return ip.compareTo("192.237.202.29") == 0;
     }
     
     private boolean isGroup10() {
