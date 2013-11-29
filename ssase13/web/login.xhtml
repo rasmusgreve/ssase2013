@@ -19,6 +19,7 @@ and open the template in the editor.
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <h:messages class="alert alert-info" id="loginmess" globalOnly="true"/>
                     <div class="row">
                         <div class="col-md-4">
                             <h:form id="login" class="form-signin">
@@ -36,7 +37,6 @@ and open the template in the editor.
                             <h:outputLink value="signup.xhtml" class="btn btn-info btn-block">Sign up</h:outputLink>
                             <h:outputLink value="userList.xhtml" class="btn btn-warning btn-block">Continue without signing in</h:outputLink>
                             </h:form>
-                            <h:messages id="loginmess" globalOnly="true"/>
                         </div>
                         <div class="col-md-8">
                             <h1>Welcome to FriendSpace!</h1>
