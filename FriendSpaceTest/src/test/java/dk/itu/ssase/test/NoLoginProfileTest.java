@@ -42,6 +42,7 @@ public class NoLoginProfileTest extends TestCase
     public void testPressUserLink()
     {
         open(listPage);
+        //TODO: Logout if possible
         $(By.linkText("rasmusgreve")).click();
         assertTrue((title().equals("Profile")));
     }
@@ -49,36 +50,42 @@ public class NoLoginProfileTest extends TestCase
     public void testNameHidden()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
     public void testAddressHidden()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
     public void testActivityHidden()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
     public void testFriendsVisibleLink()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
     public void testFriendsVisibleGravatar()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
     public void testClickFriendLink()
     {
         open(userPage);
+        //TODO: Logout if possible
         assertTrue(false);
     }
     
