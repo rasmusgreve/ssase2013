@@ -50,7 +50,7 @@
         </navigation-case>
      </navigation-rule>
      <navigation-rule>
-         <from-view-id>/sigup.xhtml</from-view-id>
+         <from-view-id>/signup.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{createstudentbean.createUser()}</from-action>
             <from-outcome>success</from-outcome>            
@@ -69,5 +69,10 @@
      <validator>
          <validator-id>stringInputValidator</validator-id>
          <validator-class>dk.itu.ssase.hb.util.StringInputValidator</validator-class>
+     </validator>
+     
+     <validator>
+         <validator-id>passwordInputValidator</validator-id>
+         <validator-class>dk.itu.ssase.hb.util.PasswordInputValidator</validator-class>
      </validator>
 </faces-config>
