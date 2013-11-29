@@ -17,6 +17,8 @@ import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
@@ -113,6 +115,18 @@ public class CreateStudentBean {
         br.close();
         
         return result.startsWith("true");
+    }
+    
+    public void validateInputString(FacesContext context, UIComponent toValidate, Object value) {
+        String input = (String)value;
+        
+        UIInput inputField = (UIInput) toValidate;
+        if(input==null||!input.matches("\\w+")) {
+            inputField.setValid(false);
+            FacesMessage message = new FacesMessage("No special characters allowed");
+            context.addMessage(toValidate.getClientId(), message);
+        } else
+            inputField.setValid(true);
     }
     
     /**

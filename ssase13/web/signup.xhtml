@@ -20,7 +20,7 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-md-4">
                         <h:form id="create">
-                            <div>
+                            <div class="form-group">
                                 <h:outputLabel for="create:name" value="Name:"/> 
                                 <h:inputText id="name" 
                                              class="form-control"
@@ -31,7 +31,7 @@ and open the template in the editor.
                                 </h:inputText>
                                 <h:message for="create:name" style="color: red"/>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <h:outputLabel for="create:surname" value="Surname:"/> 
                                 <h:inputText id="surname" 
                                              class="form-control"
@@ -42,7 +42,7 @@ and open the template in the editor.
                                 </h:inputText>
                                 <h:message for="create:surname" style="color: red"/>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <h:outputLabel for="create:handle" value="Handle:"/> 
                                 <h:inputText id="handle" 
                                                                                               class="form-control"
@@ -53,7 +53,7 @@ and open the template in the editor.
                                 </h:inputText>
                                 <h:message for="create:handle" style="color: red"/>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <h:outputLabel for="create:password" value="Password:"/>  
                                 <h:inputSecret id="password"
                                                                                                      class="form-control"
@@ -62,7 +62,7 @@ and open the template in the editor.
                                                                                                      required="true"/>
                                 <h:message for="create:password" style="color: red"/>
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <h:outputLabel for="create:address" value="Address:"/> 
                                 <h:inputText id="address"    
                                                                                                     class="form-control"
@@ -90,10 +90,10 @@ and open the template in the editor.
                             <h:commandButton id="submit"  
                                              class="btn btn-primary"
                                              value="Create"
-                                             action="#{createstudentbean.createUser}"/>
+                                             action="#{createstudentbean.createUser()}"/>
                             <h:outputLink value="login.xhtml" class="btn btn-default pull-right">Back to login</h:outputLink>
                         </h:form>
-                        <h:messages id="createmess" style="color: red" globalOnly="true"/>
+                        <h:messages id="createmess" globalOnly="true"/>
                     </div>
                 </div>
             </div>
