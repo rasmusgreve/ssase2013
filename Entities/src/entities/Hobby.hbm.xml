@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-11-2013 11:07:25 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 29-11-2013 11:17:13 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="entities.Hobby" table="hobby" schema="public">
         <id name="id" type="int">

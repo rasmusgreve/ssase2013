@@ -120,15 +120,18 @@ CREATE SEQUENCE hug_id_seq
 ALTER TABLE public.hug_id_seq OWNER TO postgres;
 ALTER SEQUENCE hug_id_seq OWNED BY hug.id;
 
+DROP TABLE alien_relation;
 DROP TABLE alien_user;
 CREATE TABLE public.alien_user
 (
    id integer, 
    name text, 
+   username text,
    country text, 
    hobbies text, 
    profile text, 
-   CONSTRAINT alien_id_unique PRIMARY KEY (id)
+   CONSTRAINT alien_id_unique PRIMARY KEY (id),
+   CONSTRAINT alien_username_unique UNIQUE (username)
 );
 ALTER TABLE public.alien_user OWNER TO postgres;
 CREATE SEQUENCE alien_id_seq
@@ -142,7 +145,7 @@ CREATE SEQUENCE alien_id_seq
 ALTER TABLE public.alien_id_seq OWNER TO postgres;
 ALTER SEQUENCE alien_id_seq OWNED BY alien_user.id; 
 
-DROP TABLE alien_relation;
+
 CREATE TABLE public.alien_relation
 (
    id integer, 

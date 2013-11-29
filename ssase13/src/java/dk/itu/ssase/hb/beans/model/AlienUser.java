@@ -1,5 +1,5 @@
 package dk.itu.ssase.hb.beans.model;
-// Generated 29-11-2013 11:07:25 by Hibernate Tools 3.2.1.GA
+// Generated 29-11-2013 11:17:13 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class AlienUser  implements java.io.Serializable {
 
      private int id;
      private String name;
+     private String username;
      private String country;
      private String hobbies;
      private String profile;
@@ -26,9 +27,10 @@ public class AlienUser  implements java.io.Serializable {
     public AlienUser(int id) {
         this.id = id;
     }
-    public AlienUser(int id, String name, String country, String hobbies, String profile, Set alienRelationsForAlien1, Set alienRelationsForAlien2) {
+    public AlienUser(int id, String name, String username, String country, String hobbies, String profile, Set alienRelationsForAlien1, Set alienRelationsForAlien2) {
        this.id = id;
        this.name = name;
+       this.username = username;
        this.country = country;
        this.hobbies = hobbies;
        this.profile = profile;
@@ -49,6 +51,13 @@ public class AlienUser  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+    public String getUsername() {
+        return this.username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
     }
     public String getCountry() {
         return this.country;
