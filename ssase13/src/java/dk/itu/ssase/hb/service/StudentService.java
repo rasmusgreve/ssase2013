@@ -30,6 +30,7 @@ import javax.ws.rs.Produces;
 @Path("users")
 public class StudentService {
     private static final int PAGE_SIZE = 10;
+    private static final String PROFILE_PATH = "/ssase13/f/profile.xhtml/?id=";
     
     private GsonBuilder gsonBuilder;
     private Gson gson;
@@ -67,7 +68,7 @@ public class StudentService {
                 dto.friends.add("../" + sv.getStudent().getHandle());
             else if (sv.getRelatype() == RelaType.romance)
                 dto.romances.add("../" + sv.getStudent().getHandle());
-        dto.profile = user.getHandle();
+        dto.profile = context.getBaseUri().getHost() + PROFILE_PATH + user.getId();
         return gson.toJson(dto);
     }
     

@@ -120,6 +120,48 @@ CREATE SEQUENCE hug_id_seq
 ALTER TABLE public.hug_id_seq OWNER TO postgres;
 ALTER SEQUENCE hug_id_seq OWNED BY hug.id;
 
+DROP TABLE alien_user;
+CREATE TABLE public.alien_user
+(
+   id integer, 
+   name text, 
+   country text, 
+   hobbies text, 
+   profile text, 
+   CONSTRAINT alien_id_unique PRIMARY KEY (id)
+);
+ALTER TABLE public.alien_user OWNER TO postgres;
+CREATE SEQUENCE alien_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.alien_id_seq OWNER TO postgres;
+ALTER SEQUENCE alien_id_seq OWNED BY alien_user.id; 
+
+DROP TABLE alien_relation;
+CREATE TABLE public.alien_relation
+(
+   id integer, 
+   alien1 integer, 
+   alien2 integer,
+   CONSTRAINT alien_relation_id_unique PRIMARY KEY (id)
+);
+ALTER TABLE public.alien_relation OWNER TO postgres;
+CREATE SEQUENCE alien_relation_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.alien_relation_id_seq OWNER TO postgres;
+ALTER SEQUENCE alien_relation_id_seq OWNED BY alien_relation.id; 
+
 
 --
 -- TOC entry 171 (class 1259 OID 16399)

@@ -38,7 +38,18 @@ public class FriendController {
         studentDAO = DAOFactory.createStudentDAO();
     }
     
-    
+    public Collection<Student> findSuspendedUsers()
+    {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        List<Student> students;
+        
+        students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.issuspended = true").setInteger("currentstudent", currentSession.getStudentId()).list();
+        
+        session.close();
+        return students;
+    }
     
     public Collection<Student> findNewFriends() {
         TreeMap<Integer, Student> studentsTree = new TreeMap<Integer, Student>();

@@ -36,11 +36,36 @@ and open the template in the editor.
                                         <h:outputText value="#{userloop.handle}"/>
                                     </h:outputLink>
                                 </h:column>
+                                <h:column rendered="#{studentbean.hasAdmin()}">
+                                    <h:commandLink action="#{studentbean.suspendUser(userloop.id)}" class="pull-right btn btn-danger btn-sm" >Suspend</h:commandLink>
+                                </h:column>
                                 <h:column>
                                     <f:facet name="header"></f:facet>
                                     <h:commandLink rendered="#{studentbean.isLoggedIn()}" action="#{friendcontroller.requestRelationship(userloop.id)}" class="pull-right btn btn-primary btn-sm" >Request friendship</h:commandLink>
-                                    <h:commandLink rendered="#{studentbean.hasAdmin()}" action="#{studentbean.suspendUser(userloop.id)}" class="pull-right btn btn-primary btn-sm" >Suspend</h:commandLink>
+                                    
                                     <h:outputText rendered="#{!studentbean.isLoggedIn()}" value="Log in to request friendship" />
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                        <h:form rendered="#{studentbean.hasAdmin()}">
+                        <div class="panel-body">
+                            <h2>Suspended users (admin only)</h2>
+                        </div>
+                            <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findSuspendedUsers()}">                                                           
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:graphicImage value="#{userloop.smallGravatar}" />
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:outputLink value="profile.xhtml">
+                                        <f:param name="id" value="#{userloop.id}"/>
+                                        <h:outputText value="#{userloop.handle}"/>
+                                    </h:outputLink>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:commandLink action="#{studentbean.unsuspendUser(userloop.id)}" class="pull-right btn btn-success btn-sm" >Unsuspend</h:commandLink>
                                 </h:column>
                             </h:dataTable>
                         </h:form>

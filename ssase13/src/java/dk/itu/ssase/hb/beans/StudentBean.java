@@ -15,6 +15,7 @@ import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
@@ -53,8 +54,35 @@ public class StudentBean {
     }
     
     public String saveChanges(){
-        //TODO: Implement this
-        return "success";
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        String name = params.get("name");
+        String surname = params.get("surname");
+        String address = params.get("address");
+        
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        int userId = currentSession.getStudentId();
+        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+        
+            session.createSQLQuery("UPDATE student SET name = :name, surname = :surname, address = :address WHERE id = :id")
+                    .setString("name", name)
+                    .setString("surname", surname)
+                    .setString("address", address)
+                    .setInteger("id", userId).executeUpdate();
+            tx.commit();
+            return "success";
+        } catch(Exception ex) {            
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+            return "fail";
+        } finally {
+            session.close();
+        }
     }
     public boolean hasAdmin() {     
         if (!isLoggedIn()) return false;
@@ -202,24 +230,34 @@ public class StudentBean {
 
     }
     
+    public void unsuspendUser(int userId)
+    {
+        setSuspension(userId,false);
+    }
+    
     public void suspendUser(int userId) {
         
+        setSuspension(userId,true);
+    }
+    
+    private void setSuspension(int userId, boolean suspended){
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
             Student student = (Student) session.load(Student.class, userId);
-            student.setIssuspended(Boolean.TRUE);
+            student.setIssuspended(suspended);
             session.saveOrUpdate(student);
             tx.commit();
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Suspending user: {0}", ex.getMessage());
+            logger.log(Level.SEVERE, "(un)Suspending user: {0}", ex.getMessage());
         } finally {
             session.close();
         }
     }
+            
     
 }
