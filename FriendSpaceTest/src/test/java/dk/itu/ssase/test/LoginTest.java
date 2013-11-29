@@ -52,4 +52,14 @@ public class LoginTest
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
     }
+    
+    public void testLoginSuccess()
+    {
+        open(urlPage);
+        $(By.id("login:username")).setValue("rasmusgreve");
+        $(By.id("login:password")).setValue("hiei4e9fuF6G");
+        $(By.id("login:submit")).click();
+        System.out.println(title());
+        assertTrue((title().equals("My profile")));
+    }
 }
