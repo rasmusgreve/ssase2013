@@ -230,24 +230,34 @@ public class StudentBean {
 
     }
     
+    public void unsuspendUser(int userId)
+    {
+        setSuspension(userId,false);
+    }
+    
     public void suspendUser(int userId) {
         
+        setSuspension(userId,true);
+    }
+    
+    private void setSuspension(int userId, boolean suspended){
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
             Student student = (Student) session.load(Student.class, userId);
-            student.setIssuspended(Boolean.TRUE);
+            student.setIssuspended(suspended);
             session.saveOrUpdate(student);
             tx.commit();
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Suspending user: {0}", ex.getMessage());
+            logger.log(Level.SEVERE, "(un)Suspending user: {0}", ex.getMessage());
         } finally {
             session.close();
         }
     }
+            
     
 }
