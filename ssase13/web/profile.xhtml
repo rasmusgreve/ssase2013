@@ -45,7 +45,7 @@ and open the template in the editor.
                             </div>
                             <div class="col-md-4">
                                 <h2>Friends</h2>
-                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findFriends(student.id)}" rendered="#{showsensitive}">                                                           
+                                <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findFriends(student.id)}">                                                           
                                     <h:column>
                                         <h:graphicImage value="#{userloop.student.smallGravatar}" />
                                     </h:column>

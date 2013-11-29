@@ -27,21 +27,21 @@ and open the template in the editor.
                             <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findNewFriends()}">                                                           
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <h:graphicImage value="#{userloop.smallGravatar}" />
+                                    <h:graphicImage value="#{userloop.smallGravatar}" class="gravatar" />
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Name</f:facet>
-                                    <h:outputLink value="profile.xhtml">
+                                    <h:outputLink value="profile.xhtml" class="user_link">
                                         <f:param name="id" value="#{userloop.id}"/>
                                         <h:outputText value="#{userloop.handle}"/>
                                     </h:outputLink>
                                 </h:column>
                                 <h:column rendered="#{studentbean.hasAdmin()}">
-                                    <h:commandLink action="#{studentbean.suspendUser(userloop.id)}" class="pull-right btn btn-danger btn-sm" >Suspend</h:commandLink>
+                                    <h:commandLink action="#{studentbean.suspendUser(userloop.id)}" class="pull-right btn btn-danger btn-sm suspend_button" >Suspend</h:commandLink>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <h:commandLink rendered="#{studentbean.isLoggedIn()}" action="#{friendcontroller.requestRelationship(userloop.id)}" class="pull-right btn btn-primary btn-sm" >Request friendship</h:commandLink>
+                                    <h:commandLink rendered="#{studentbean.isLoggedIn()}" action="#{friendcontroller.requestRelationship(userloop.id)}" class="pull-right btn btn-primary btn-sm befriend_button" >Request friendship</h:commandLink>
                                     
                                     <h:outputText rendered="#{!studentbean.isLoggedIn()}" value="Log in to request friendship" />
                                 </h:column>
@@ -65,7 +65,7 @@ and open the template in the editor.
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <h:commandLink action="#{studentbean.unsuspendUser(userloop.id)}" class="pull-right btn btn-success btn-sm" >Unsuspend</h:commandLink>
+                                    <h:commandLink action="#{studentbean.unsuspendUser(userloop.id)}" class="pull-right btn btn-success btn-sm unsuspend_button" >Unsuspend</h:commandLink>
                                 </h:column>
                             </h:dataTable>
                         </h:form>

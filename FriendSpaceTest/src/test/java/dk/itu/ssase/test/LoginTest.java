@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 public class LoginTest 
     extends TestCase
 {
-    String urlPage = "http://localhost:8084/ssase13/f/login.xhtml";
+    String urlPage = "http://localhost:8080/ssase13/f/login.xhtml";
     
     /**
      * Create the test case
@@ -48,9 +48,17 @@ public class LoginTest
     {
         open(urlPage);
         $(By.id("login:username")).setValue("<script>alert();</script>");
-        $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
+    }
+    
+    public void testLoginSuccess()
+    {
+        open(urlPage);
+        $(By.id("login:username")).setValue("rasmusgreve");
+        $(By.id("login:password")).setValue("hiei4e9fuF6G");
+        $(By.id("login:submit")).click();
+        assertTrue((title().equals("My profile")));
     }
 }

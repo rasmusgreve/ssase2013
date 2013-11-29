@@ -30,7 +30,7 @@ import javax.ws.rs.Produces;
 @Path("users")
 public class StudentService {
     private static final int PAGE_SIZE = 10;
-    private static final String PROFILE_PATH = "/ssase13/f/profile.xhtml/?id=";
+    private static final String PROFILE_PATH = "/ssase13/f/profile.xhtml?id=";
     
     private GsonBuilder gsonBuilder;
     private Gson gson;

@@ -48,16 +48,17 @@ public class StudentBean {
     
     public boolean hasPriviliges()
     {
+        boolean isSelf = false;
         boolean isFriends = false;
         if (isLoggedIn()){
-           
+            isSelf = getCurrentStudent().getId() == getUser().getId();
             Student currentStudent = getCurrentStudent();
             for (StudentView sv : DAOFactory.createStudentDAO().findFriends(getUser().getId()))
             {
                 if (sv.getStudent().getId() == currentStudent.getId()) isFriends = true;
             }
         }
-        return (isLoggedIn() && isFriends) || hasAdmin();
+        return isFriends || hasAdmin() || isSelf;
     }
     
     public boolean hasAdmin() {     
