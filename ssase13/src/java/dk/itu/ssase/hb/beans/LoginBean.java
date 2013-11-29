@@ -66,7 +66,7 @@ public class LoginBean {
         if (session != null) {
             session.invalidate();
         }
-        return "logout";
+        return "login";
         
     }
     

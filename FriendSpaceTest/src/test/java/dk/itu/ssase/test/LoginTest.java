@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 public class LoginTest 
     extends TestCase
 {
-    String urlPage = "http://localhost:8084/ssase13/f/login.xhtml";
+    String urlPage = "http://localhost:8080/ssase13/f/login.xhtml";
     
     /**
      * Create the test case
@@ -47,7 +47,6 @@ public class LoginTest
     public void testLoginXSS()
     {
         open(urlPage);
-        $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:username")).setValue("<script>alert();</script>");
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
