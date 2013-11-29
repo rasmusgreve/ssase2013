@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="entities.Relationship" table="relationship" schema="public">
+    <class name="entities.Hug" table="hug" schema="public">
         <id name="id" type="int">
             <column name="id" />
             <generator class="assigned" />
@@ -14,11 +14,11 @@
         <many-to-one name="studentByStudent1" class="entities.Student" fetch="select">
             <column name="student1" not-null="true" />
         </many-to-one>
-        <property name="type" type="int">
-            <column name="type" not-null="true" />
+        <property name="expiration" type="date">
+            <column name="expiration" length="13" />
         </property>
-        <property name="approved" type="java.lang.Boolean">
-            <column name="approved" />
+        <property name="mutual" type="java.lang.Boolean">
+            <column name="mutual" />
         </property>
     </class>
 </hibernate-mapping>

@@ -7,4 +7,6 @@
   <table-filter match-name="hug"/>
   <table-filter match-name="interest"/>
   <table-filter match-name="student"/>
+  <table-filter match-name="alien_user"/>
+  <table-filter match-name="alien_relation"/>
 </hibernate-reverse-engineering>

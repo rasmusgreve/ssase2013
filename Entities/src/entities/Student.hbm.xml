@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03-10-2013 19:21:57 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="entities.Student" table="student" schema="public">
         <id name="id" type="int">
@@ -11,20 +11,17 @@
         <property name="name" type="string">
             <column name="name" />
         </property>
+        <property name="surname" type="string">
+            <column name="surname" />
+        </property>
+        <property name="handle" type="string">
+            <column name="handle" unique="true" />
+        </property>
         <property name="address" type="string">
             <column name="address" />
         </property>
-        <property name="email" type="string">
-            <column name="email" />
-        </property>
         <property name="password" type="string">
             <column name="password" />
-        </property>
-        <property name="birthdate" type="date">
-            <column name="birthdate" length="13" />
-        </property>
-        <property name="privacy" type="java.lang.Integer">
-            <column name="privacy" />
         </property>
         <property name="salt" type="string">
             <column name="salt" />
@@ -32,11 +29,26 @@
         <property name="isadmin" type="java.lang.Boolean">
             <column name="isadmin" />
         </property>
+        <property name="issuspended" type="java.lang.Boolean">
+            <column name="issuspended" />
+        </property>
         <set name="interests" inverse="true">
             <key>
                 <column name="student" not-null="true" />
             </key>
             <one-to-many class="entities.Interest" />
+        </set>
+        <set name="hugsForStudent2" inverse="true">
+            <key>
+                <column name="student2" not-null="true" />
+            </key>
+            <one-to-many class="entities.Hug" />
+        </set>
+        <set name="hugsForStudent1" inverse="true">
+            <key>
+                <column name="student1" not-null="true" />
+            </key>
+            <one-to-many class="entities.Hug" />
         </set>
         <set name="relationshipsForStudent2" inverse="true">
             <key>

@@ -1,8 +1,7 @@
 package entities;
-// Generated 03-10-2013 19:21:56 by Hibernate Tools 3.2.1.GA
+// Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,14 +13,16 @@ public class Student  implements java.io.Serializable {
 
      private int id;
      private String name;
+     private String surname;
+     private String handle;
      private String address;
-     private String email;
      private String password;
-     private Date birthdate;
-     private Integer privacy;
      private String salt;
      private Boolean isadmin;
+     private Boolean issuspended;
      private Set interests = new HashSet(0);
+     private Set hugsForStudent2 = new HashSet(0);
+     private Set hugsForStudent1 = new HashSet(0);
      private Set relationshipsForStudent2 = new HashSet(0);
      private Set relationshipsForStudent1 = new HashSet(0);
 
@@ -32,17 +33,19 @@ public class Student  implements java.io.Serializable {
     public Student(int id) {
         this.id = id;
     }
-    public Student(int id, String name, String address, String email, String password, Date birthdate, Integer privacy, String salt, Boolean isadmin, Set interests, Set relationshipsForStudent2, Set relationshipsForStudent1) {
+    public Student(int id, String name, String surname, String handle, String address, String password, String salt, Boolean isadmin, Boolean issuspended, Set interests, Set hugsForStudent2, Set hugsForStudent1, Set relationshipsForStudent2, Set relationshipsForStudent1) {
        this.id = id;
        this.name = name;
+       this.surname = surname;
+       this.handle = handle;
        this.address = address;
-       this.email = email;
        this.password = password;
-       this.birthdate = birthdate;
-       this.privacy = privacy;
        this.salt = salt;
        this.isadmin = isadmin;
+       this.issuspended = issuspended;
        this.interests = interests;
+       this.hugsForStudent2 = hugsForStudent2;
+       this.hugsForStudent1 = hugsForStudent1;
        this.relationshipsForStudent2 = relationshipsForStudent2;
        this.relationshipsForStudent1 = relationshipsForStudent1;
     }
@@ -61,6 +64,20 @@ public class Student  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    public String getSurname() {
+        return this.surname;
+    }
+    
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+    public String getHandle() {
+        return this.handle;
+    }
+    
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
     public String getAddress() {
         return this.address;
     }
@@ -68,33 +85,12 @@ public class Student  implements java.io.Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-    public String getEmail() {
-        return this.email;
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
     public String getPassword() {
         return this.password;
     }
     
     public void setPassword(String password) {
         this.password = password;
-    }
-    public Date getBirthdate() {
-        return this.birthdate;
-    }
-    
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
-    public Integer getPrivacy() {
-        return this.privacy;
-    }
-    
-    public void setPrivacy(Integer privacy) {
-        this.privacy = privacy;
     }
     public String getSalt() {
         return this.salt;
@@ -110,12 +106,33 @@ public class Student  implements java.io.Serializable {
     public void setIsadmin(Boolean isadmin) {
         this.isadmin = isadmin;
     }
+    public Boolean getIssuspended() {
+        return this.issuspended;
+    }
+    
+    public void setIssuspended(Boolean issuspended) {
+        this.issuspended = issuspended;
+    }
     public Set getInterests() {
         return this.interests;
     }
     
     public void setInterests(Set interests) {
         this.interests = interests;
+    }
+    public Set getHugsForStudent2() {
+        return this.hugsForStudent2;
+    }
+    
+    public void setHugsForStudent2(Set hugsForStudent2) {
+        this.hugsForStudent2 = hugsForStudent2;
+    }
+    public Set getHugsForStudent1() {
+        return this.hugsForStudent1;
+    }
+    
+    public void setHugsForStudent1(Set hugsForStudent1) {
+        this.hugsForStudent1 = hugsForStudent1;
     }
     public Set getRelationshipsForStudent2() {
         return this.relationshipsForStudent2;

@@ -163,6 +163,10 @@ ALTER TABLE public.alien_relation_id_seq OWNER TO postgres;
 ALTER SEQUENCE alien_relation_id_seq OWNED BY alien_relation.id; 
 
 
+ALTER TABLE alien_relation ADD CONSTRAINT alien1 FOREIGN KEY (alien_user) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE alien_relation ADD CONSTRAINT alien2 FOREIGN KEY (alien_user) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+
 --
 -- TOC entry 171 (class 1259 OID 16399)
 -- Name: student; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
