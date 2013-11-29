@@ -47,7 +47,7 @@ public class StudentBean {
             Student currentStudent = getCurrentStudent();
             for (StudentView sv : DAOFactory.createStudentDAO().findFriends(getUser().getId()))
             {
-                if (sv.getId() == currentStudent.getId()) isFriends = true;
+                if (sv.getStudent().getId() == currentStudent.getId()) isFriends = true;
             }
         }
         return (isLoggedIn() && isFriends) || hasAdmin();
