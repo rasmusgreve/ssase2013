@@ -22,7 +22,7 @@ and open the template in the editor.
                             <ui:param name="student" value="#{studentbean.getCurrentStudent()}"/>
                             <div class="col-md-6">
                                 <h3>Basic information</h3>
-                                <h:form>
+                                <h:form id="user_edit">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" id="name" class="form-control" value="#{student.name}"/>
@@ -33,7 +33,7 @@ and open the template in the editor.
                                         <label for="address">Address</label>
                                         <input type="text" name="address" id="address" class="form-control" value="#{student.address}"/>
                                     </div>
-                                    <h:commandLink class="btn btn-primary" action="#{studentbean.saveChanges()}">Save</h:commandLink>
+                                    <h:commandLink id="user_edit_save_button" class="btn btn-primary" action="#{studentbean.saveChanges()}">Save</h:commandLink>
                                 </h:form>
                             </div>
                             <div class="col-md-6">
