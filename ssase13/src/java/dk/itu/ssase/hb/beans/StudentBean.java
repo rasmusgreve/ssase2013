@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
@@ -32,6 +33,12 @@ public class StudentBean {
     
     private int hobby;
     private RelaType relatype;
+    private Student currentStudent;
+
+    public StudentBean() {
+    }
+    
+    
 
     public boolean isLoggedIn()
     {
@@ -54,37 +61,6 @@ public class StudentBean {
         return isFriends || hasAdmin() || isSelf;
     }
     
-    public String saveChanges(){
-        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-        String name = params.get("name");
-        String surname = params.get("surname");
-        String address = params.get("address");
-        
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        int userId = currentSession.getStudentId();
-        
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-        
-            session.createSQLQuery("UPDATE student SET name = :name, surname = :surname, address = :address WHERE id = :id")
-                    .setString("name", name)
-                    .setString("surname", surname)
-                    .setString("address", address)
-                    .setInteger("id", userId).executeUpdate();
-            tx.commit();
-            return "success";
-        } catch(Exception ex) {            
-            if(tx!=null)
-                tx.rollback();
-            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
-            return "fail";
-        } finally {
-            session.close();
-        }
-    }
     public boolean hasAdmin() {     
         if (!isLoggedIn()) return false;
         return getCurrentStudent().getIsadmin();
@@ -112,12 +88,18 @@ public class StudentBean {
     
     public Student getCurrentStudent()
     {
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        int userId = currentSession.getStudentId();
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
-        session.close();
+        Student user;
+        if(currentStudent==null) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+            int userId = currentSession.getStudentId();
+            Session session = StudentHibernateUtil.getSessionFactory().openSession();
+            user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+            currentStudent = user;
+            session.close();
+        }
+        else
+            user = currentStudent;
         return user;
     }
     
@@ -259,6 +241,34 @@ public class StudentBean {
             session.close();
         }
     }
-            
+
+    /**
+     * @param currentStudent the currentStudent to set
+     */
+    public void setCurrentStudent(Student currentStudent) {
+        this.currentStudent = currentStudent;
+    }
+          
+    
+    
+    public String saveChanges(){
+        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.update(currentStudent);
+            tx.commit();
+            return "success";
+        } catch(Exception ex) {            
+            if(tx!=null)
+                tx.rollback();
+            logger.log(Level.WARNING, "Save failed " + ex.getMessage());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Save failed"));
+            return "fail";
+        } finally {
+            session.close();
+        }
+    }
     
 }

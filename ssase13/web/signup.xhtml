@@ -57,10 +57,10 @@ and open the template in the editor.
                             <div class="form-group">
                                 <h:outputLabel for="create:password" value="Password:"/>  
                                 <h:inputSecret id="password"
-                                                                                                     class="form-control"
-                                                                                                     requiredMessage="*"
-                                                                                                     value="#{createstudentbean.studentInput.password}"
-                                                                                                     required="true">
+                                     class="form-control"
+                                     requiredMessage="*"
+                                     value="#{createstudentbean.studentInput.password}"
+                                     required="true">
                                     <f:validator validatorId="passwordInputValidator"/>
                                 </h:inputSecret>
                                 <h:message for="create:password" style="color: red"/>
@@ -71,7 +71,9 @@ and open the template in the editor.
                                         class="form-control"
                                         requiredMessage="*"
                                         value="#{createstudentbean.studentInput.address}"
-                                        required="true"/>
+                                        required="true">
+                                    <f:validator validatorId="addressInputValidator"/>
+                                </h:inputText>
                                 <h:message for="create:address" style="color: red"/>
                             </div>
 

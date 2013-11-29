@@ -66,6 +66,14 @@
             <to-view-id>/userList.xhtml</to-view-id>
         </navigation-case>
      </navigation-rule>
+     <navigation-rule>
+         <from-view-id>/userEdit.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{studentbean.saveChanges()}</from-action>
+            <from-outcome>success</from-outcome>            
+            <to-view-id>/userList.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
      
      <validator>
          <validator-id>stringInputValidator</validator-id>
@@ -75,5 +83,10 @@
      <validator>
          <validator-id>passwordInputValidator</validator-id>
          <validator-class>dk.itu.ssase.hb.util.PasswordInputValidator</validator-class>
+     </validator>     
+     
+     <validator>
+         <validator-id>addressInputValidator</validator-id>
+         <validator-class>dk.itu.ssase.hb.util.AddressInputValidator</validator-class>
      </validator>
 </faces-config>
