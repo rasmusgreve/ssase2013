@@ -1,20 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 29-11-2013 11:07:25 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="entities.AlienRelation" table="alien_relation" schema="public">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="sequence">
-                <param name="sequence">alien_relation_id_seq</param>
-              </generator>
+            <generator class="assigned" />
         </id>
-        <property name="alien1" type="java.lang.Integer">
+        <many-to-one name="alienUserByAlien1" class="entities.AlienUser" fetch="select">
             <column name="alien1" />
-        </property>
-        <property name="alien2" type="java.lang.Integer">
+        </many-to-one>
+        <many-to-one name="alienUserByAlien2" class="entities.AlienUser" fetch="select">
             <column name="alien2" />
-        </property>
+        </many-to-one>
     </class>
 </hibernate-mapping>

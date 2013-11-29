@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 29-11-2013 11:07:25 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="entities.AlienUser" table="alien_user" schema="public">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="sequence">
-                <param name="sequence">alien_id_seq</param>
-              </generator>
+            <generator class="assigned" />
         </id>
         <property name="name" type="string">
             <column name="name" />
@@ -22,5 +20,17 @@
         <property name="profile" type="string">
             <column name="profile" />
         </property>
+        <set name="alienRelationsForAlien1" inverse="true">
+            <key>
+                <column name="alien1" />
+            </key>
+            <one-to-many class="entities.AlienRelation" />
+        </set>
+        <set name="alienRelationsForAlien2" inverse="true">
+            <key>
+                <column name="alien2" />
+            </key>
+            <one-to-many class="entities.AlienRelation" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -163,8 +163,8 @@ ALTER TABLE public.alien_relation_id_seq OWNER TO postgres;
 ALTER SEQUENCE alien_relation_id_seq OWNED BY alien_relation.id; 
 
 
-ALTER TABLE alien_relation ADD CONSTRAINT alien1 FOREIGN KEY (alien_user) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE alien_relation ADD CONSTRAINT alien2 FOREIGN KEY (alien_user) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE alien_relation ADD CONSTRAINT alien1_id FOREIGN KEY (alien1) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
+ALTER TABLE alien_relation ADD CONSTRAINT alien2_id FOREIGN KEY (alien2) REFERENCES alien_user (id) ON UPDATE NO ACTION ON DELETE NO ACTION;
 
 
 --

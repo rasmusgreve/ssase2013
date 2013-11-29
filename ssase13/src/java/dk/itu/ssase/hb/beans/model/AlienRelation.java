@@ -1,5 +1,5 @@
 package dk.itu.ssase.hb.beans.model;
-// Generated 29-11-2013 10:58:52 by Hibernate Tools 3.2.1.GA
+// Generated 29-11-2013 11:07:25 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -10,8 +10,8 @@ public class AlienRelation  implements java.io.Serializable {
 
 
      private int id;
-     private Integer alien1;
-     private Integer alien2;
+     private AlienUser alienUserByAlien1;
+     private AlienUser alienUserByAlien2;
 
     public AlienRelation() {
     }
@@ -20,10 +20,10 @@ public class AlienRelation  implements java.io.Serializable {
     public AlienRelation(int id) {
         this.id = id;
     }
-    public AlienRelation(int id, Integer alien1, Integer alien2) {
+    public AlienRelation(int id, AlienUser alienUserByAlien1, AlienUser alienUserByAlien2) {
        this.id = id;
-       this.alien1 = alien1;
-       this.alien2 = alien2;
+       this.alienUserByAlien1 = alienUserByAlien1;
+       this.alienUserByAlien2 = alienUserByAlien2;
     }
    
     public int getId() {
@@ -33,19 +33,19 @@ public class AlienRelation  implements java.io.Serializable {
     public void setId(int id) {
         this.id = id;
     }
-    public Integer getAlien1() {
-        return this.alien1;
+    public AlienUser getAlienUserByAlien1() {
+        return this.alienUserByAlien1;
     }
     
-    public void setAlien1(Integer alien1) {
-        this.alien1 = alien1;
+    public void setAlienUserByAlien1(AlienUser alienUserByAlien1) {
+        this.alienUserByAlien1 = alienUserByAlien1;
     }
-    public Integer getAlien2() {
-        return this.alien2;
+    public AlienUser getAlienUserByAlien2() {
+        return this.alienUserByAlien2;
     }
     
-    public void setAlien2(Integer alien2) {
-        this.alien2 = alien2;
+    public void setAlienUserByAlien2(AlienUser alienUserByAlien2) {
+        this.alienUserByAlien2 = alienUserByAlien2;
     }
 
 
