@@ -51,7 +51,7 @@ public class CreateStudentBean {
 
             if (!validateCaptcha())
             {
-                FacesContext.getCurrentInstance().addMessage("createuser:handle", new FacesMessage("CAPTCHA invalid"));
+                FacesContext.getCurrentInstance().addMessage("createcaptcha", new FacesMessage("CAPTCHA invalid"));
                 if(tx!=null)
                     tx.rollback();
                 session.close();
@@ -71,7 +71,7 @@ public class CreateStudentBean {
             session.close();      
         } catch(ConstraintViolationException ex) {
             Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "User exists " + ex.getMessage());
-            FacesContext.getCurrentInstance().addMessage("createuser:handle", new FacesMessage("Handle exists"));
+            FacesContext.getCurrentInstance().addMessage("handle", new FacesMessage("Handle exists"));
             if(tx!=null)
                 tx.rollback();
             session.close();
