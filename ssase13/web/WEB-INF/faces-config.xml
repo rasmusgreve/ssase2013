@@ -65,4 +65,9 @@
             <to-view-id>/userList.xhtml</to-view-id>
         </navigation-case>
      </navigation-rule>
+     
+     <validator>
+         <validator-id>stringInputValidator</validator-id>
+         <validator-class>dk.itu.ssase.hb.util.StringInputValidator</validator-class>
+     </validator>
 </faces-config>

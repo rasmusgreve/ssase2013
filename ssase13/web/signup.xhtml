@@ -8,7 +8,7 @@ and open the template in the editor.
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <head>
         <title>Create user</title>
         <ui:include src="bootstrap.xhtml"/>
@@ -19,62 +19,81 @@ and open the template in the editor.
                 <h3>Create a user</h3>
                 <div class="row">
                     <div class="col-md-4">
-                    <h:form id="create">
-                        <h:outputLabel for="create:name" value="Name:"/> <h:inputText id="name" 
-                                       class="form-control"
-                                       requiredMessage="*"
-                                       value="#{createstudentbean.studentInput.name}"
-                                       required="true"/>
-                          <h:message for="create:name" style="color: red"/>
-                        <h:outputLabel for="create:surname" value="Surname:"/> <h:inputText id="surname" 
-                                       class="form-control"
-                                       requiredMessage="*"
-                                       value="#{createstudentbean.studentInput.surname}"
-                                       required="true"/>
-                          <h:message for="create:surname" style="color: red"/>
-                        <h:outputLabel for="create:handle" value="Handle:"/> <h:inputText id="handle" 
-                                       class="form-control"
-                                       requiredMessage="*"
-                                       value="#{createstudentbean.studentInput.handle}"
-                                       required="true"/>
-                          <h:message for="create:handle" style="color: red"/>
-                        <h:outputLabel for="create:password" value="Password:"/>  <h:inputSecret id="password"
-                                         class="form-control"
-                                         requiredMessage="*"
-                                         value="#{createstudentbean.studentInput.password}"
-                                         required="true"/>
-                          <h:message for="create:password" style="color: red"/>
-                                                    
-                        <h:outputLabel for="create:address" value="Address:"/> <h:inputText id="address"    
-                                         class="form-control"
-                                         requiredMessage="*"
-                                         value="#{createstudentbean.studentInput.address}"
-                                         required="true"/>
-                          <h:message for="create:address" style="color: red"/>
-                          
-                
-                        <h:outputLabel value="CAPTCHA" />
-                        <script type="text/javascript"
-                            src="http://www.google.com/recaptcha/api/challenge?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1">
-                         </script>
-                         <noscript>
-                            <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1"
-                                height="300" width="500" frameborder="0"></iframe><br/>
-                            <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                            </textarea>
-                            <input type="hidden" name="recaptcha_response_field"
-                                value="manual_challenge" />
-                         </noscript>
-                
-                        <h:message for="create:privacy" style="color: red"/>
-                
-                        <h:commandButton id="submit"  
-                                         class="btn btn-primary"
-                                         value="Create"
-                                         action="#{createstudentbean.createUser}"/>
-                        <h:outputLink value="login.xhtml" class="btn btn-default pull-right">Back to login</h:outputLink>
-                    </h:form>
-            <h:messages id="createmess" style="color: red" globalOnly="true"/>
+                        <h:form id="create">
+                            <div>
+                                <h:outputLabel for="create:name" value="Name:"/> 
+                                <h:inputText id="name" 
+                                             class="form-control"
+                                             requiredMessage="*"
+                                             value="#{createstudentbean.studentInput.name}"
+                                             required="true">
+                                    <f:validator validatorId="stringInputValidator"/>
+                                </h:inputText>
+                                <h:message for="create:name" style="color: red"/>
+                            </div>
+                            <div>
+                                <h:outputLabel for="create:surname" value="Surname:"/> 
+                                <h:inputText id="surname" 
+                                             class="form-control"
+                                             requiredMessage="*"
+                                             value="#{createstudentbean.studentInput.surname}"
+                                             required="true">
+                                    <f:validator validatorId="stringInputValidator"/>
+                                </h:inputText>
+                                <h:message for="create:surname" style="color: red"/>
+                            </div>
+                            <div>
+                                <h:outputLabel for="create:handle" value="Handle:"/> 
+                                <h:inputText id="handle" 
+                                                                                              class="form-control"
+                                                                                              requiredMessage="*"
+                                                                                              value="#{createstudentbean.studentInput.handle}"
+                                                                                              required="true">
+                                    <f:validator validatorId="stringInputValidator"/>
+                                </h:inputText>
+                                <h:message for="create:handle" style="color: red"/>
+                            </div>
+                            <div>
+                                <h:outputLabel for="create:password" value="Password:"/>  
+                                <h:inputSecret id="password"
+                                                                                                     class="form-control"
+                                                                                                     requiredMessage="*"
+                                                                                                     value="#{createstudentbean.studentInput.password}"
+                                                                                                     required="true"/>
+                                <h:message for="create:password" style="color: red"/>
+                            </div>
+                            <div>
+                                <h:outputLabel for="create:address" value="Address:"/> 
+                                <h:inputText id="address"    
+                                                                                                    class="form-control"
+                                                                                                    requiredMessage="*"
+                                                                                                    value="#{createstudentbean.studentInput.address}"
+                                                                                                    required="true"/>
+                                <h:message for="create:address" style="color: red"/>
+                            </div>
+
+                            <h:outputLabel value="CAPTCHA" />
+                            <script type="text/javascript"
+                                    src="http://www.google.com/recaptcha/api/challenge?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1">
+                            </script>
+                            <noscript>
+                                <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LcgNeoSAAAAAABvWu84RV4aThpmJkrSc8bmhDu1"
+                                        height="300" width="500" frameborder="0"></iframe><br/>
+                                <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                                </textarea>
+                                <input type="hidden" name="recaptcha_response_field"
+                                       value="manual_challenge" />
+                            </noscript>
+
+                            <h:message for="create:privacy" style="color: red"/>
+
+                            <h:commandButton id="submit"  
+                                             class="btn btn-primary"
+                                             value="Create"
+                                             action="#{createstudentbean.createUser}"/>
+                            <h:outputLink value="login.xhtml" class="btn btn-default pull-right">Back to login</h:outputLink>
+                        </h:form>
+                        <h:messages id="createmess" style="color: red" globalOnly="true"/>
                     </div>
                 </div>
             </div>
