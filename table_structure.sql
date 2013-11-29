@@ -127,6 +127,7 @@ CREATE TABLE public.alien_user
    name text, 
    country text, 
    hobbies text, 
+   profile text, 
    CONSTRAINT alien_id_unique PRIMARY KEY (id)
 );
 ALTER TABLE public.alien_user OWNER TO postgres;
