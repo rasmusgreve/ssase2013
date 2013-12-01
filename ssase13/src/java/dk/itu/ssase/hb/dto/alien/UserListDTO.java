@@ -12,7 +12,6 @@ import java.util.List;
  * @author cly-vs
  */
 public class UserListDTO {
-    
     public String prev;
     public String next;
     public List<String> usernames = new ArrayList<String>();

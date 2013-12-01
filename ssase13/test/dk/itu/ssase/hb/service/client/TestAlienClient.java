@@ -10,13 +10,10 @@ import junit.framework.TestCase;
  *
  * @author cly-vs
  */
-public class TestAlienClient 
-    extends TestCase
-{
-
+public class TestAlienClient  extends TestCase {
     public TestAlienClient() {
     }
-
+    
     @Override
     protected void setUp() throws Exception {
         super.setUp(); //To change body of generated methods, choose Tools | Templates.
