@@ -108,7 +108,7 @@ public class AlienClient {
         }
     }
     
-    private <T> T getData(String path, Class<T> type) {
+    public <T> T getData(String path, Class<T> type) {
         Gson gson = new GsonBuilder().create();
         try {
             URL url = new URL(path);
@@ -127,8 +127,9 @@ public class AlienClient {
             });
             StringBuilder body = new StringBuilder();
             BufferedReader reader = new BufferedReader(new InputStreamReader(urlcon.getInputStream()));
-            while(reader.ready()) {
-                 body.append(reader.readLine());
+            String line;
+            while ((line = reader.readLine()) != null) {
+                 body.append(line);
             }
             T data = gson.fromJson(body.toString(), type);
             return data;
