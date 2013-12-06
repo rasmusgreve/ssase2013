@@ -5,7 +5,6 @@
 package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Student;
-import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.io.BufferedReader;
@@ -18,10 +17,7 @@ import java.net.URLEncoder;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
-import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
