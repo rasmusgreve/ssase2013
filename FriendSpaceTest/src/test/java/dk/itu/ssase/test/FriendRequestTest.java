@@ -10,6 +10,7 @@ import junit.framework.TestSuite;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
 
@@ -19,8 +20,10 @@ import org.openqa.selenium.By;
  */
 public class FriendRequestTest extends TestCase {
 
-    String urlPage = "http://localhost:8080/ssase13/api/";
-    
+    String loginPage = "http://localhost:8080/ssase13/f/login.xhtml";
+    String friendsPage = "http://localhost:8080/ssase13/f/friends.xhtml";
+    String userListPage = "http://localhost:8080/ssase13/f/userList.xhtml";
+    String friendRequestsPage = "http://localhost:8080/ssase13/f/friendRequests.xhtml";
     /**
      * Create the test case
      *
@@ -39,35 +42,44 @@ public class FriendRequestTest extends TestCase {
         return new TestSuite( FriendRequestTest.class );
     }
     
+    private void login(String username)
+    {
+        open(loginPage);
+        $(By.id("login:username")).setValue(username);
+        $(By.id("login:password")).setValue("hiei4e9fuF6G");
+        $(By.id("login:submit")).click();
+    }
+    
+    
     public void testFriendRequestsEtc()
     {
-        //Login as rasmusgreve
-        //open friends.xhtml
-        //Assert chr friend
+        login("rasmusgreve");
+        open(friendsPage);
+        assertTrue($(By.linkText("chr")).exists());
         
-        //Press Remove friendship
-        //assert no friends
+        $(By.linkText("Remove friendship")).click();
+        assertFalse($(By.linkText("chr")).exists());
         
-        //open userList
-        //Press request friendship (the right one)
-        //Assert no longer on list
+        open(userListPage);
+        $(By.linkText("Request friendship"),0).click();
+        assertFalse($(By.linkText("chr")).exists());
         
-        //open friendRequests
-        //Assert chr on "Your friend requests" list
+        open(friendRequestsPage);
+        assertTrue($(By.linkText("chr")).exists());
         
-        //logout
-        //Login as chr
-        //open friendRequests
-        //Assert rasmusgreve on "Friend requests" list
+        getWebDriver().manage().deleteAllCookies();
+        login("chr");
+        open(friendRequestsPage);
+        assertTrue($(By.linkText("rasmusgreve")).exists());
         
-        //Press Accept friendship (the right one)
-        //open friends.xhtml
-        //Assert rasmusgreve on list
+        $(By.linkText("Accept friendship")).click();
+        open(friendsPage);
+        assertTrue($(By.linkText("rasmusgreve")).exists());
         
-        //logout
-        //Login as rasmusgreve
-        //open friends.xhtml
-        //Assert chr on list
+        getWebDriver().manage().deleteAllCookies();
+        login("rasmusgreve");
+        open(friendsPage);
+        assertTrue($(By.linkText("chr")).exists());
         
     }
     
@@ -80,6 +92,7 @@ public class FriendRequestTest extends TestCase {
         
         //press end romance
         //assert friends
+        assertTrue(false);
     }
     
 }
