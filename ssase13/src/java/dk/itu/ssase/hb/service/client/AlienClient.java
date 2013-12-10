@@ -42,6 +42,7 @@ import org.hibernate.Transaction;
  */
 public class AlienClient {
     public static final String API_PATH = "https://192.237.201.172/ssase13/api/";
+    public static final String REGEX = "^([\\w\\.,-]+\\s?)*$";
     
     public void synchronizeWithDatabase() {
         ArrayList<UserDTO> aliens = new ArrayList<UserDTO>(10);
@@ -56,10 +57,10 @@ public class AlienClient {
                 for (String name : userList.usernames) {
                     UserDTO dto = getData(API_PATH + "user/" + name, UserDTO.class);
                     AlienUser user = new AlienUser();
-                    user.setName(dto.name);
-                    user.setCountry(dto.country);
-                    user.setHobbies(dto.hobbies);
-                    user.setProfile(dto.profile);
+                    if (dto.name.matches(REGEX)) user.setName(dto.name);
+                    if (dto.country.matches(REGEX)) user.setCountry(dto.country);
+                    if (dto.hobbies.matches(REGEX)) user.setHobbies(dto.hobbies);
+                    if (dto.profile.matches(REGEX)) user.setProfile(dto.profile);
                     session.save(user);
                     aliens.add(dto);
                     alienMap.put(dto.name, user);
