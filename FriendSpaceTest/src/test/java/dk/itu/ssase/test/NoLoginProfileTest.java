@@ -9,6 +9,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
 
@@ -41,52 +42,46 @@ public class NoLoginProfileTest extends TestCase
     
     public void testPressUserLink()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(listPage);
-        //TODO: Logout if possible
         $(By.linkText("rasmusgreve")).click();
         assertTrue((title().equals("Profile")));
     }
     
     public void testNameHidden()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
+        assertTrue("".equals($(By.id("full_name")).text().trim()));
     }
     
     public void testAddressHidden()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
+        assertTrue("-hidden-".equals($(By.id("address")).text().trim()));
     }
     
     public void testActivityHidden()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
+        assertTrue("".equals($(By.id("recent_activity")).text().trim()));
     }
     
     public void testFriendsVisibleLink()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
-    }
-    
-    public void testFriendsVisibleGravatar()
-    {
-        open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
+        assertTrue($(By.linkText("chr")).exists());
     }
     
     public void testClickFriendLink()
     {
+        getWebDriver().manage().deleteAllCookies();
         open(userPage);
-        //TODO: Logout if possible
-        assertTrue(false);
+        $(By.linkText("chr")).click();
+        assertTrue($(By.linkText("rasmusgreve")).exists());
     }
     
 }

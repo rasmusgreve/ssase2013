@@ -9,6 +9,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
 
@@ -40,8 +41,32 @@ public class APITest extends TestCase {
     
     public void testUsersList()
     {
+        getWebDriver().manage().deleteAllCookies(); //Shouldn't be logged in
         open(urlPage + "users");
-        //TODO: Parse json?
-        assertTrue(false);
+        String content = getWebDriver().getPageSource();
+        assertTrue(content.startsWith("{")); //Object start
+        assertTrue(content.endsWith("}")); //Object end
+        assertTrue(content.contains("\"list\":[")); //must have a list
+    }
+    
+    public void testUser()
+    {
+        getWebDriver().manage().deleteAllCookies(); //Shouldn't be logged in
+        open(urlPage + "users/rasmusgreve");
+        String content = getWebDriver().getPageSource();
+        assertTrue(content.startsWith("{")); //Object start
+        assertTrue(content.endsWith("}")); //Object end
+        assertTrue(content.contains("\"handle\":\"rasmusgreve\""));
+    }
+    
+    public void testHobbies()
+    {
+        getWebDriver().manage().deleteAllCookies(); //Shouldn't be logged in
+        open(urlPage + "hobbies/1");
+        String content = getWebDriver().getPageSource();
+        assertTrue(content.startsWith("{")); //Object start
+        assertTrue(content.endsWith("}")); //Object end
+        assertTrue(content.contains("\"id\":"));
+        assertTrue(content.contains("\"type\":"));
     }
 }

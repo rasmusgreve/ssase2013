@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 /**
  *
@@ -48,31 +49,31 @@ public class NoLoginUserListTest extends TestCase
     
     public void testNoFriendRequests(){
         open(page);
-        //TODO: Logout if possible
+        getWebDriver().manage().deleteAllCookies();
         assertFalse($(By.className("befriend_button")).exists());
     }
     
     public void testNoSuspendButton(){
         open(page);
-        //TODO: Logout if possible
+        getWebDriver().manage().deleteAllCookies();
         assertFalse($(By.className("suspend_button")).exists());
     }
     
     public void testNoUnsuspendButton(){
         open(page);
-        //TODO: Logout if possible
+        getWebDriver().manage().deleteAllCookies();
         assertFalse($(By.className("unsuspend_button")).exists());
     }
     
     public void testGravatarAvailable(){
         open(page);
-        //TODO: Logout if possible
+        getWebDriver().manage().deleteAllCookies();
         assertTrue($(By.className("gravatar")).exists());
     }
     
     public void testLinkAvailable(){
         open(page);
-        //TODO: Logout if possible
+        getWebDriver().manage().deleteAllCookies();
         assertTrue($(By.className("user_link")).exists());
     }
 }

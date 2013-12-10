@@ -23,13 +23,13 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-4">
                                 <h1><h:outputText value="#{student.handle}"/></h1>
-                                <h3><h:outputText value="#{student.name} #{student.surname}" rendered="#{showsensitive}"/></h3>
+                                <h3 id="full_name"><h:outputText value="#{student.name} #{student.surname}" rendered="#{showsensitive}"/></h3>
                                 <h:graphicImage value="#{student.bigGravatar}" />
                                 <br/>
-                                <strong>Address: </strong><h:outputText rendered="#{showsensitive}" value="#{student.address}" ></h:outputText><h:outputText rendered="#{not showsensitive}" value="-hidden-" ></h:outputText>
+                                <strong>Address: </strong><span id="address"><h:outputText rendered="#{showsensitive}" value="#{student.address}" ></h:outputText><h:outputText rendered="#{not showsensitive}" value="-hidden-" ></h:outputText></span>
                                 
                                 <h2>Recent activity</h2>
-                                <ul class="list-group">
+                                <ul class="list-group" id="recent_activity">
                                     <ui:repeat var="hug" value="#{studentbean.loadActivity(student.id)}"  rendered="#{showsensitive}">
                                         <li class="list-group-item"><h:outputText value="#{hug}"/></li>  
                                     </ui:repeat>

@@ -6,6 +6,7 @@ package dk.itu.ssase.test;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -50,37 +51,55 @@ public class MyProfileTest  extends TestCase
     public void testChangeName()
     {
         login();
-        $(By.id("useredit:name")).setValue("");
-        $(By.id("useredit:user_edit_save_button")).click();
-        //TODO: Test value
-        $(By.id("useredit:name")).setValue("Rasmus");
-        $(By.id("useredit:user_edit_save_button")).click();
-        //TODO: Test value
-        assertTrue(false);
+        open(userEditPage);
+        $(By.id("user_edit:name")).setValue("");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("".equals($(By.id("user_edit:name")).val()));
+        open(userEditPage);
+        $(By.id("user_edit:name")).setValue("Rasmus");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("Rasmus".equals($(By.id("user_edit:name")).val()));
     }
     
     public void testChangeSurName()
     {
         login();
-        $(By.id("useredit:surname")).setValue("");
-        $(By.id("useredit:user_edit_save_button")).click();
+        open(userEditPage);
+        $(By.id("user_edit:surname")).setValue("");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("".equals($(By.id("user_edit:surname")).val()));
         //TODO: Test value
-        $(By.id("useredit:surname")).setValue("Greve");
-        $(By.id("useredit:user_edit_save_button")).click();
-        //TODO: Test value
-        assertTrue(false);
+        open(userEditPage);
+        $(By.id("user_edit:surname")).setValue("Greve");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("Greve".equals($(By.id("user_edit:surname")).val()));
     }
     
     public void testChangeAddress()
     {
         login();
-        $(By.id("useredit:address")).setValue("");
-        $(By.id("useredit:user_edit_save_button")).click();
-        //TODO: Test value
-        $(By.id("useredit:address")).setValue("Byvej 11");
-        $(By.id("useredit:user_edit_save_button")).click();
-        //TODO: Test value
-        assertTrue(false);
+        open(userEditPage);
+        $(By.id("user_edit:address")).setValue("");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("".equals($(By.id("user_edit:address")).val()));
+        open(userEditPage);
+        $(By.id("user_edit:address")).setValue("Byvej 11");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        assertTrue("Byvej 11".equals($(By.id("user_edit:address")).val()));
     }
+    
+    public void testAddRemoveHobby()
+    {
+        login();
+        open(userEditPage);
+        assertFalse($(By.linkText("Remove hobby")).exists());
+        $(By.id("add:hobby")).selectOptionByValue("1"); //Fishing
+        $(By.linkText("Add hobby")).click();
+        assertTrue($(By.linkText("Remove hobby")).exists());
+        $(By.linkText("Remove hobby")).click();
+        assertFalse($(By.linkText("Remove hobby")).exists());
+    }
+    
+    //TODO: Injection tests
     
 }
