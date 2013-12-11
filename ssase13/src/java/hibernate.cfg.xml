@@ -11,5 +11,7 @@
     <mapping class="dk.itu.ssase.hb.beans.model.Hobby" resource="hobby.hbm.xml"/>
     <mapping class="dk.itu.ssase.hb.beans.model.Interest" resource="interest.hbm.xml"/>
     <mapping class="dk.itu.ssase.hb.beans.model.Hug" resource="hug.hbm.xml"/>
+    <mapping class="dk.itu.ssase.hb.beans.model.AlienUser" resource="AlienUser.hbm.xml"/>
+    <mapping class="dk.itu.ssase.hb.beans.model.AlienRelationship" resource="AlienRelation.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
