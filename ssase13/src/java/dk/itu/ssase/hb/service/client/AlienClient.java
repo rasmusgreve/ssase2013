@@ -12,6 +12,7 @@ import dk.itu.ssase.hb.dto.alien.UserDTO;
 import dk.itu.ssase.hb.dto.alien.UserListDTO;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,40 +43,46 @@ import org.hibernate.Transaction;
  */
 public class AlienClient {
     public static final String API_PATH = "https://192.237.201.172/ssase13/api/";
-    public static final String REGEX = "^([\\w\\.,-]+\\s?)*$";
+    public static final String REGEX = "^(\\w+s?)*$";
+        Logger logger = Logger.getLogger(AlienClient.class.getName());
     
     public void synchronizeWithDatabase() {
         ArrayList<UserDTO> aliens = new ArrayList<UserDTO>(10);
         HashMap<String, AlienUser> alienMap = new HashMap<String, AlienUser>();
-        Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        Transaction tx = null;
         String next = API_PATH + "users/0";
-        while (!next.equals("")) {
+        do  {
             UserListDTO userList = getData(next, UserListDTO.class);
-            try {
-                tx = session.beginTransaction();
-                for (String name : userList.usernames) {
-                    UserDTO dto = getData(API_PATH + "user/" + name, UserDTO.class);
-                    AlienUser user = new AlienUser();
-                    if (dto.name.matches(REGEX)) user.setName(dto.name);
-                    if (dto.country.matches(REGEX)) user.setCountry(dto.country);
-                    if (dto.hobbies.matches(REGEX)) user.setHobbies(dto.hobbies);
-                    if (dto.profile.matches(REGEX)) user.setProfile(dto.profile);
-                    session.save(user);
-                    aliens.add(dto);
-                    alienMap.put(dto.name, user);
+            for (String name : userList.usernames) {
+                Session session = StudentHibernateUtil.getSessionFactory().openSession();
+                Transaction tx = null;
+                try {
+                    tx = session.beginTransaction();
+                        UserDTO dto = getData(API_PATH + "user/" + name, UserDTO.class);
+                        AlienUser user = new AlienUser();
+                        if (dto.name.matches(REGEX)) user.setName(dto.name); else throw new java.lang.IllegalArgumentException("name "+dto.name + "not allowed");
+                        if (dto.country.matches(REGEX)) user.setCountry(dto.country); else throw new java.lang.IllegalArgumentException("country "+dto.country + "not allowed");
+                        if (dto.hobbies.matches(REGEX)) user.setHobbies(dto.hobbies); else throw new java.lang.IllegalArgumentException("hobbies "+dto.hobbies + "not allowed");
+                        //if (dto.profile.matches(REGEX)) user.setProfile(dto.profile); else throw new java.lang.IllegalArgumentException("profile "+dto.profile + "not allowed");
+                        session.save(user);
+                        aliens.add(dto);
+                        alienMap.put(dto.name, user);
+                    logger.log(Level.INFO, "added {0}", dto.name);
+                    tx.commit();
+                } catch (Exception ex) {
+                    logger.log(Level.SEVERE, "Save failed {0}", ex);
+                    ex.printStackTrace();
+                    if(tx!=null)
+                        tx.rollback();
+                } finally {
+                    tx = null;
+                    session.close();
                 }
-                tx.commit();
-                session.close();
-            } catch (Exception ex) {
-                if(tx!=null)
-                    tx.rollback();
-                session.close();
-            } finally {
-                tx = null;
             }
-            next = userList.next;
-        }
+            if(userList.next!=null)
+                next = userList.next;
+            else
+                next = null;
+        } while (next!=null&&!next.equals(""));
         // For all newly added aliens in the DTO list.
         for (UserDTO dto : aliens) {
             // Grab and remove the alien from the ORM map.
@@ -84,6 +91,8 @@ public class AlienClient {
             // Get his friends as a list of usernames.
             ArrayList<String> friendList = getData(dto.friends, ArrayList.class);
             for (String friendName : friendList) {
+                Session session = StudentHibernateUtil.getSessionFactory().openSession();
+                Transaction tx = null;
                 // If the friend exists in the ORM map, he has not already been processed,
                 // and so we can safely add the bi-directional relationship.
                 // If he is not in the ORM map, the relationship must already exist.
@@ -96,16 +105,16 @@ public class AlienClient {
                         relationship.setAlienUserByAlien2(friend);
                         session.save(relationship);
                         tx.commit();
-                        session.close();
                     } catch (Exception ex) {
                         if(tx!=null)
                             tx.rollback();
-                        session.close();
                     } finally {
                         tx = null;
+                    session.close();
                     }
                 }
             }
+            
         }
     }
     
@@ -141,15 +150,19 @@ public class AlienClient {
     }
     
     private SSLSocketFactory createKeystore() {
+
         FileInputStream keyStoreInput = null;
         try {
-            keyStoreInput = new FileInputStream("src/conf/team10.jks");
+            String filePath = getClass().getResource("/team10.jks").getPath();
+            logger.log(Level.INFO, "Message {0}", filePath);
+                keyStoreInput = new FileInputStream(filePath);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            logger.log(Level.WARNING, null, ex);
             try {
-                keyStoreInput = new FileInputStream("team10.jks");
+                
+            keyStoreInput = new FileInputStream("src/conf/team10.jks");
             } catch (FileNotFoundException ex1) {
-                Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex1);
+                Logger.getLogger(AlienClient.class.getName()).log(Level.WARNING, null, ex1);
             }
         } 
         try {

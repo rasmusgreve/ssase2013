@@ -12,6 +12,7 @@ import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
+import dk.itu.ssase.hb.service.client.AlienClient;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -269,5 +270,12 @@ public class StudentBean {
             session.close();
         }
     }
+ 
     
+    public String importStudents() {
+        AlienClient alienClient = new AlienClient();
+        
+        alienClient.synchronizeWithDatabase();
+        return "success";
+    }
 }
