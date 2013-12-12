@@ -57,14 +57,6 @@
         <filter-name>FilterXHTML</filter-name>
         <url-pattern>/f/*</url-pattern>
     </filter-mapping>
-    <filter>
-      <filter-name>CorsFilter</filter-name>
-      <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
-    </filter>
-    <filter-mapping>
-      <filter-name>CorsFilter</filter-name>
-      <url-pattern>/api/*</url-pattern>
-    </filter-mapping>
     <resource-env-ref>
         <resource-env-ref-name>jdbc/postgres</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
