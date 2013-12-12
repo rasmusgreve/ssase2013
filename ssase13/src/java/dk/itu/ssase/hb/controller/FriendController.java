@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.controller;
 
 import dk.itu.ssase.hb.beans.LoginBean;
+import dk.itu.ssase.hb.beans.model.AlienUser;
 import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.RelaType;
 import dk.itu.ssase.hb.beans.model.Relationship;
@@ -49,6 +50,20 @@ public class FriendController {
         
         session.close();
         return students;
+    }
+    
+    public Collection<AlienUser> findAlienUsers() {
+        
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        List<AlienUser> users;
+        
+        users = session.createQuery("SELECT a FROM alien_user a").list();
+
+        logger.log(Level.INFO, "Search for alien users and found {0} results", users.size());
+        session.close();
+        return users;
     }
     
     public Collection<Student> findNewFriends() {
