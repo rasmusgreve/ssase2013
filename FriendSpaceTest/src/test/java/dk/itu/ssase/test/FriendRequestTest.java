@@ -85,14 +85,18 @@ public class FriendRequestTest extends TestCase {
     
     public void testRomanceFriendship()
     {
-        //login
-        //open friends.xhtml
-        //press start romance
-        //assert romance
+        login("rasmusgreve");
+        open(friendsPage);
+        $(By.linkText("Start romance")).click();
+        String source = getWebDriver().getPageSource();
+        assertTrue(source.contains("<td>romance</td>"));
+        assertFalse(source.contains("<td>friend</td>"));
         
-        //press end romance
-        //assert friends
-        assertTrue(false);
+        $(By.linkText("End romance")).click();
+        source = getWebDriver().getPageSource();
+        assertFalse(source.contains("<td>romance</td>"));
+        assertTrue(source.contains("<td>friend</td>"));
+        
     }
     
 }
