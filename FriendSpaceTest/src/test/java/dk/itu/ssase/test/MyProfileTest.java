@@ -44,7 +44,7 @@ public class MyProfileTest  extends TestCase
     {
         open(loginPage);
         $(By.id("login:username")).setValue("rasmusgreve");
-        $(By.id("login:password")).setValue("hiei4e9fuF6G");
+        $(By.id("login:password")).setValue("testTEST123");
         $(By.id("login:submit")).click();
     }
     
