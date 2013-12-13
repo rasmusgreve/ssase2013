@@ -61,6 +61,17 @@ public class MyProfileTest  extends TestCase
         assertTrue("Rasmus".equals($(By.id("user_edit:name")).val()));
     }
     
+    public void testXSSName()
+    {
+        login();
+        open(userEditPage);
+        String oldValue = $(By.id("user_edit:name")).val();
+        $(By.id("user_edit:name")).setValue("<script>alert('xss');</script>");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        open(userEditPage);
+        assertTrue(oldValue.equals($(By.id("user_edit:name")).val()));
+    }
+    
     public void testChangeSurName()
     {
         login();
@@ -75,6 +86,17 @@ public class MyProfileTest  extends TestCase
         assertTrue("Greve".equals($(By.id("user_edit:surname")).val()));
     }
     
+    public void testXSSSurname()
+    {
+        login();
+        open(userEditPage);
+        String oldValue = $(By.id("user_edit:surname")).val();
+        $(By.id("user_edit:surname")).setValue("<script>alert('xss');</script>");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        open(userEditPage);
+        assertTrue(oldValue.equals($(By.id("user_edit:surname")).val()));
+    }
+    
     public void testChangeAddress()
     {
         login();
@@ -86,6 +108,17 @@ public class MyProfileTest  extends TestCase
         $(By.id("user_edit:address")).setValue("Byvej 11");
         $(By.id("user_edit:user_edit_save_button")).click();
         assertTrue("Byvej 11".equals($(By.id("user_edit:address")).val()));
+    }
+    
+    public void testXSSAddress()
+    {
+        login();
+        open(userEditPage);
+        String oldValue = $(By.id("user_edit:address")).val();
+        $(By.id("user_edit:address")).setValue("<script>alert('xss');</script>");
+        $(By.id("user_edit:user_edit_save_button")).click();
+        open(userEditPage);
+        assertTrue(oldValue.equals($(By.id("user_edit:address")).val()));
     }
     
     public void testAddRemoveHobby()
