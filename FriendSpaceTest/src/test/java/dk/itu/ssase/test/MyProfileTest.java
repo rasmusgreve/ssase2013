@@ -132,7 +132,4 @@ public class MyProfileTest  extends TestCase
         $(By.linkText("Remove hobby")).click();
         assertFalse($(By.linkText("Remove hobby")).exists());
     }
-    
-    //TODO: Injection tests
-    
 }
