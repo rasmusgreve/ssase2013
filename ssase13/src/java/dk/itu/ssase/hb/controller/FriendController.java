@@ -55,11 +55,7 @@ public class FriendController {
     public Collection<AlienUser> findAlienUsers() {
         
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
-        FacesContext context = FacesContext.getCurrentInstance();
-        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
-        List<AlienUser> users;
-        
-        users = session.createQuery("SELECT a FROM alien_user a").list();
+        List<AlienUser> users = session.createQuery("SELECT a FROM AlienUser a").list();
 
         logger.log(Level.INFO, "Search for alien users and found {0} results", users.size());
         session.close();
