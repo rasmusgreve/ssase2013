@@ -177,7 +177,7 @@ Providing warnings to users.
 %Confidentiality, Integrity, Availability
 
 \section{System Specification}
-In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Since we are at part two of the project, there have so far been two such sets of requests from the "customer".
+In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Throughout the project period, there has been three such sets of requests from the "customer".
 
 We have considered each of these user stories and made corresponding use cases for the system, leading to functional requirements. Some of the user stories have related instead to non-functional requirements, and some again to security requirements.
 
@@ -185,17 +185,18 @@ In addition, we have specified a number of abuse cases, constituting a security-
 
 \subsection{Use cases}
 \begin{itemize}
-% \item A student views his own information
-% \item A student edits his own information
-% \item A student chooses what information to share
 \item A user signs up as a student
+\item A student views/edits his own information
+\item A student chooses what information to share
 \item A student requests a friendship with another student
 \item A student approves a friendship request with another student
 \item A student upgrades a friendship to a romance
 \item A student views a student’s information when they are in a relationship
-\item A student sends a "hug" to a student that they are in relationship with
-%\item An administrator deletes an existing user
-%\item An administrator views the information of a user
+\item A student sends a "hug" to a student that they are in a relationship with
+\item An administrator deletes an existing user
+\item An administrator views the information of a user
+\item A competing service imports public data from our application
+\item Our application imports public data from a competing service
 \end{itemize}
 
 \subsection{Abuse cases}
@@ -210,6 +211,7 @@ In addition, we have specified a number of abuse cases, constituting a security-
 		\item The third party gains access to the user's session ID, allowing the intruder to impersonate the user when communicating with the application
 	\end{itemize}
 \item A person with access to an administrator's credentials wreaks havoc on the system by deleting multiple user profiles
+\item A competing web service exposes malicious data, such as client-side executable code, when exporting to our application
 \end{itemize}
 
 \subsection{Functional Requirements}
@@ -246,6 +248,8 @@ Most of the following functional requirements are derived from the use cases, to
 	\end{itemize}
 \item Admin authorization
 \item Browse functionality for finding other users
+\item Exposition of public data through a REST API
+\item Support for importing public data from an external REST service into our own application
 \end{itemize}
 
 \subsection{Non-functional requirements}
@@ -264,6 +268,8 @@ We do not require the application to run through a secure connection, as althoug
 \item Database access credentials are never stored in any source code repository
 \item The database is always accessed in a manner that protects against SQL injection
 \item The application guards against cross-site scripting
+\item Logfiles on the web server are only accessible with root permissions
+\item All input from users and other web services is validated and/or sanitized
 \end{itemize}
 
 \section{Architecture}
@@ -489,7 +495,14 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 %About team 11
 %w3af on team 11
 
+\subsection{XSS attack on team 10}
+As part of the requirement to expose the publicly available data in our system to one or more of our competitors through a REST API, we saw a natural opportunity to try and inject malicious data into \textbf{their} systems. The basic idea was to have a piece of code in our REST service class replace the string exposed by the service when querying a particular hobby with a different, pre-defined string, containing malicious data. This data would just be a text string, containing the HTML tag for JavaScript, executing an alert in the client's browser. This is just to demonstrate the vulnerability, as the ability to execute JavaScript originating from us on the clients of our competitor could lead to many kinds of attacks, particularly XSS.
 
+Doing a bit of research, we found out that team 10 in particular might be vulnerable to this kind of attack. During conversations with them about how best to exchange data through a REST API, we learned that they stored the interests (hobbies) of their users in comma-separated text strings.
+
+Team 10 vulnerabilities
+Appendix
+Social engineering
 
 %Inserted the following as username and password in login form:
 %\begin{verbatim}
@@ -585,6 +598,14 @@ testLoginSQLInjection & 8,332 \\ \hline
 testLoginXSS & 1,069 \\ \hline
 \end{tabular}
 \end{table}
+
+\subsection{Hacking}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Team10_XSS}
+\caption{XSS attack on team 10}
+\label{fig:xss_screencap}
+\end{figure}
 
 \include{courselog}
 
