@@ -10,6 +10,7 @@ import dk.itu.ssase.hb.beans.model.AlienRelation;
 import dk.itu.ssase.hb.beans.model.AlienUser;
 import dk.itu.ssase.hb.dto.alien.UserDTO;
 import dk.itu.ssase.hb.dto.alien.UserListDTO;
+import dk.itu.ssase.hb.util.RegexConstants;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,6 +34,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,10 +45,32 @@ import org.hibernate.Transaction;
  */
 public class AlienClient {
     public static final String API_PATH = "https://192.237.201.172/ssase13/api/";
-    public static final String REGEX = "^(\\w+s?)*$";
+    public static final String REST_API_PATH = "https://192.237.201.172/ssase13/";
         Logger logger = Logger.getLogger(AlienClient.class.getName());
     
     public void synchronizeWithDatabase() {
+        //Delete all the synchronized users
+        Session deleteSession = StudentHibernateUtil.getSessionFactory().openSession();
+                Transaction deltx = null;
+                try {
+                    deltx = deleteSession.beginTransaction();
+                    SQLQuery deleteRelationQuery = deleteSession.createSQLQuery("DELETE FROM alien_relation WHERE 1=1;");
+                    SQLQuery deleteUserQuery = deleteSession.createSQLQuery("DELETE FROM alien_user WHERE 1=1;");
+                    deleteRelationQuery.executeUpdate();
+                    deleteUserQuery.executeUpdate();
+                    deltx.commit();
+                } catch (Exception ex) {
+                    logger.log(Level.SEVERE, "Delete failed {0}", ex);
+                    ex.printStackTrace();
+                    if(deltx!=null)
+                        deltx.rollback();
+                } finally {
+                    deltx = null;
+                    deleteSession.close();
+                }
+        
+        
+        
         ArrayList<UserDTO> aliens = new ArrayList<UserDTO>(10);
         HashMap<String, AlienUser> alienMap = new HashMap<String, AlienUser>();
         String next = API_PATH + "users/0";
@@ -59,10 +83,11 @@ public class AlienClient {
                     tx = session.beginTransaction();
                         UserDTO dto = getData(API_PATH + "user/" + name, UserDTO.class);
                         AlienUser user = new AlienUser();
-                        if (dto.name.matches(REGEX)) user.setName(dto.name); else throw new java.lang.IllegalArgumentException("name "+dto.name + "not allowed");
-                        if (dto.country.matches(REGEX)) user.setCountry(dto.country); else throw new java.lang.IllegalArgumentException("country "+dto.country + "not allowed");
-                        if (dto.hobbies.matches(REGEX)) user.setHobbies(dto.hobbies); else throw new java.lang.IllegalArgumentException("hobbies "+dto.hobbies + "not allowed");
-                        //if (dto.profile.matches(REGEX)) user.setProfile(dto.profile); else throw new java.lang.IllegalArgumentException("profile "+dto.profile + "not allowed");
+                        user.setUsername(name);
+                        if (dto.name.matches(RegexConstants.WORDS_REGEX)) user.setName(dto.name); else throw new java.lang.IllegalArgumentException("name "+dto.name + " not allowed");
+                        if (dto.country.matches(RegexConstants.WORDS_REGEX)) user.setCountry(dto.country); else throw new java.lang.IllegalArgumentException("country "+dto.country + " not allowed");
+                        if (dto.hobbies.matches(RegexConstants.WORDS_REGEX)) user.setHobbies(dto.hobbies); else throw new java.lang.IllegalArgumentException("hobbies "+dto.hobbies + " not allowed");                        
+                        if (dto.profile.startsWith(REST_API_PATH)) user.setProfile(dto.profile); else logger.log(Level.WARNING, "Profile url invalid: {0}", dto.profile);//throw new java.lang.IllegalArgumentException("profile "+dto.profile + " not allowed");
                         session.save(user);
                         aliens.add(dto);
                         alienMap.put(dto.name, user);

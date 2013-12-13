@@ -22,7 +22,7 @@ public class AddressInputValidator implements Validator{
         String input = (String)value;
         
         UIInput inputField = (UIInput) component;
-        if(input==null||!input.matches("^(\\w+\\s?)+$")) {
+        if(input==null||!input.matches(RegexConstants.WORDS_REGEX)) {
             inputField.setValid(false);
             FacesMessage message = new FacesMessage("Your address may only consist of letters and spaces");
             context.addMessage(component.getClientId(), message);

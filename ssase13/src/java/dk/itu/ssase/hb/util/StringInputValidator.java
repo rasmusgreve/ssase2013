@@ -22,7 +22,7 @@ public class StringInputValidator implements Validator{
         String input = (String)value;
         
         UIInput inputField = (UIInput) component;
-        if(input==null||!input.matches("^\\w+$")) {
+        if(input==null||!input.matches(RegexConstants.STRING_REGEX)) {
             inputField.setValid(false);
             FacesMessage message = new FacesMessage("No special characters allowed");
             context.addMessage(component.getClientId(), message);

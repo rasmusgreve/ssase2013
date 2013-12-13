@@ -22,7 +22,7 @@ public class PasswordInputValidator implements Validator{
         String input = (String)value;
         
         UIInput inputField = (UIInput) component;
-        if(input==null||!input.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$")) {
+        if(input==null||!input.matches(RegexConstants.PASSWORD_REGEX)) {
             inputField.setValid(false);
             FacesMessage message = new FacesMessage("Your password must contain at least one lower case, one upper case and one numerical character. It must be at least 6 characters long.");
             context.addMessage(component.getClientId(), message);
