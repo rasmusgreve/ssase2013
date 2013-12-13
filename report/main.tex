@@ -496,13 +496,13 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 %w3af on team 11
 
 \subsection{XSS attack on team 10}
-As part of the requirement to expose the publicly available data in our system to one or more of our competitors through a REST API, we saw a natural opportunity to try and inject malicious data into \textbf{their} systems. The basic idea was to have a piece of code in our REST service class replace the string exposed by the service when querying a particular hobby with a different, pre-defined string, containing malicious data. This data would just be a text string, containing the HTML tag for JavaScript, executing an alert in the client's browser. This is just to demonstrate the vulnerability, as the ability to execute JavaScript originating from us on the clients of our competitor could lead to many kinds of attacks, particularly XSS.
+\subsubsection{Description}
+As part of the requirement to expose the publicly available data in our system to one or more of our competitors through a REST API, we saw a natural opportunity to try and inject malicious data into \textbf{their} systems. The basic idea was to have a piece of code in our REST service class replace the string exposed by the service when requesting a particular hobby with a different, pre-defined string, containing malicious data. This data would just be a text string, containing the HTML tag for JavaScript, executing an alert in the client's browser. This is just to demonstrate the vulnerability, as the ability to execute JavaScript originating from us on the clients of our competitor could lead to many kinds of attacks, particularly XSS.
 
-Doing a bit of research, we found out that team 10 in particular might be vulnerable to this kind of attack. During conversations with them about how best to exchange data through a REST API, we learned that they stored the interests (hobbies) of their users in comma-separated text strings.
+Doing a bit of research, we found out that team 10 in particular might be vulnerable to this kind of attack. During conversations with them about how best to exchange data through a REST API, we learned that they stored the interests (hobbies) of their users in comma-separated text strings. At this point we also applied a dose of social engineering by explaining to them in detail how they might consume our web service from their application, in an attempt to get them to implement their client as naively as possible.
 
-Team 10 vulnerabilities
-Appendix
-Social engineering
+\subsubsection{Results}
+See figure 4 under chapter 9.4 in the appendix for graphical illustration of the results of this attack. As denoted in the figure, the Fishing hobby was the one we configured to result in malicious code rather than its innocent name in a string, whenever requested by a web server located on team 10's IP address. As can be seen, the user with the hobby correctly imports to team 10's "Friendship Portal", but the malicious string produced by the Fishing hobby is not displayed, and is not even present in the document's source. This indicates that team 10 did anticipate this kind of attack, and took the appropriate security measures by validating the data imported from our service.
 
 %Inserted the following as username and password in login form:
 %\begin{verbatim}
@@ -513,7 +513,7 @@ Social engineering
 
 
 \section{Discussion}
-We did not manage to implement hugs or romances in time.
+
 
 \subsection{Problems}
 

@@ -31,13 +31,15 @@
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Social engineering attack}{subsection.6.1}% 31
 \BOOKMARK [2][-]{subsection.6.2}{Penetration test of team 11}{section.6}% 32
 \BOOKMARK [2][-]{subsection.6.3}{XSS attack on team 10}{section.6}% 33
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 34
-\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 35
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 36
-\BOOKMARK [1][-]{section.9}{Appendix}{}% 37
-\BOOKMARK [2][-]{subsection.9.1}{Design diagrams}{section.9}% 38
-\BOOKMARK [2][-]{subsection.9.2}{Log file}{section.9}% 39
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Application online November 1st }{subsection.9.2}% 40
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Race conditions }{subsection.9.2}% 41
-\BOOKMARK [2][-]{subsection.9.3}{Test reports}{section.9}% 42
-\BOOKMARK [2][-]{subsection.9.4}{Hacking}{section.9}% 43
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Description}{subsection.6.3}% 34
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Results}{subsection.6.3}% 35
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 36
+\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 37
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 38
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 39
+\BOOKMARK [2][-]{subsection.9.1}{Design diagrams}{section.9}% 40
+\BOOKMARK [2][-]{subsection.9.2}{Log file}{section.9}% 41
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Application online November 1st }{subsection.9.2}% 42
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Race conditions }{subsection.9.2}% 43
+\BOOKMARK [2][-]{subsection.9.3}{Test reports}{section.9}% 44
+\BOOKMARK [2][-]{subsection.9.4}{Hacking}{section.9}% 45
