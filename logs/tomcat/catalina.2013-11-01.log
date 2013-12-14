@@ -1,0 +1,183 @@
+Nov 1, 2013 9:34:40 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:34:43 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:34:44 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:34:53 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:34:55 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:35:01 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:35:14 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:35:14 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=null[severity=(ERROR 2), summary=(Login Failed!), detail=(error)]
+Nov 1, 2013 9:40:26 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:45 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:51 AM dk.itu.ssase.hb.beans.StudentBean addHobby
+INFO: Hobby id: 2
+Nov 1, 2013 9:40:53 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:40:58 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:00 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:05 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:06 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:12 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:14 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:14 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:41:50 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:50 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=null[severity=(ERROR 2), summary=(Login Failed!), detail=(error)]
+Nov 1, 2013 9:41:54 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:41:54 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=null[severity=(ERROR 2), summary=(Login Failed!), detail=(error)]
+Nov 1, 2013 9:42:02 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:02 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:42:15 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:17 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:19 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:19 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:42:35 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:35 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:42:35 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(*), detail=(*)]
+Nov 1, 2013 9:42:48 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:42:48 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:42:48 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '10-06-1991' could not be understood as a date.), detail=(create:birthdate: '10-06-1991' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:43:00 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:00 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:43:00 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(*), detail=(*)]
+Nov 1, 2013 9:43:05 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:05 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:43:05 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27.07.1989' could not be understood as a date.), detail=(create:birthdate: '27.07.1989' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:43:11 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:16 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:16 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:43:16 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '10-06-1991' could not be understood as a date.), detail=(create:birthdate: '10-06-1991' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:43:20 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:20 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:20 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=null[severity=(ERROR 2), summary=(Login Failed!), detail=(error)]
+Nov 1, 2013 9:43:21 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:23 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:23 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:43:52 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:59 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:43:59 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user clyn
+Nov 1, 2013 9:44:01 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:03 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:03 AM dk.itu.ssase.hb.beans.LoginBean validateUser
+INFO: Authenticated user admin
+Nov 1, 2013 9:44:05 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:08 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:08 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:44:13 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:13 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:44:13 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '10-06-1991' could not be understood as a date.), detail=(create:birthdate: '10-06-1991' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:44:40 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:40 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:44:40 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27/07/89' could not be understood as a date.), detail=(create:birthdate: '27/07/89' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:44:51 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:44:51 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:44:51 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27/07/89' could not be understood as a date.), detail=(create:birthdate: '27/07/89' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:45:02 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:45:02 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:45:02 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27/07/89' could not be understood as a date.), detail=(create:birthdate: '27/07/89' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:45:15 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:45:15 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:45:15 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27/07/89' could not be understood as a date.), detail=(create:birthdate: '27/07/89' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:47:28 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:47:28 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 9:47:28 AM com.sun.faces.renderkit.RenderKitUtils renderUnhandledMessages
+INFO: WARNING: FacesMessage(s) have been enqueued, but may not have been displayed.
+sourceId=create:birthdate[severity=(ERROR 2), summary=(create:birthdate: '27/7/89' could not be understood as a date.), detail=(create:birthdate: '27/7/89' could not be understood as a date. Example: 11/1/13)]
+Nov 1, 2013 9:47:44 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 9:47:44 AM com.sun.faces.renderkit.html_basic.HtmlBasicRenderer getForComponent
+WARNING: Unable to find component with ID create:date in view.
+Nov 1, 2013 11:57:42 AM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
+Nov 1, 2013 12:02:30 PM dk.itu.ssase.hb.listener.AuthPhaseListener afterPhase
+INFO: Authorized user
