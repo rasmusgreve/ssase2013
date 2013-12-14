@@ -449,7 +449,7 @@ We have chosen this prioritization of threats by looking at the probability and 
 SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
 
-We have also taken measures to protect against race conditions, one of the sins covered in \site{}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
+We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
 % \ref{sec:appendix:racecondition} This "test" is really bad...
 
 \subsection{Threats:}
