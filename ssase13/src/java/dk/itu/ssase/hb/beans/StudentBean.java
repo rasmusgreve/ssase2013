@@ -4,6 +4,7 @@
  */
 package dk.itu.ssase.hb.beans;
 
+import dk.itu.ssase.hb.beans.model.AlienUser;
 import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.Interest;
@@ -71,6 +72,18 @@ public class StudentBean {
         int userId = Integer.parseInt(request.getParameter("id"));
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         Student user = (Student)session.createQuery("SELECT s FROM Student s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
+        session.close();
+        return user;
+    }
+    
+    
+    
+    public AlienUser getAlienUser()
+    {
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        int userId = Integer.parseInt(request.getParameter("id"));
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        AlienUser user = (AlienUser)session.createQuery("SELECT s FROM AlienUser s WHERE s.id = :id").setInteger("id", userId).uniqueResult();
         session.close();
         return user;
     }
