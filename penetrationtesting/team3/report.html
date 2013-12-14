@@ -1,0 +1,1228 @@
+<HTML>
+<HEAD>
+<TITLE>
+w3af  -  Web Attack and Audit Framework - Vulnerability Report </TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<STYLE TYPE="text/css">
+<!--
+BODY {
+	BACKGROUND-COLOR: #ffffff
+}
+  A {	TEXT-DECORATION: none }
+  A:visited {	COLOR: #0000cf; TEXT-DECORATION: none }
+  A:link {	COLOR: #0000cf; TEXT-DECORATION: none }
+  A:active {	COLOR: #0000cf; TEXT-DECORATION: underline }
+  A:hover {	COLOR: #0000cf; TEXT-DECORATION: underline }
+  OL {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  UL {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  P {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  BODY {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  TD {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  TR {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  TH {	COLOR: #333333; FONT-FAMILY: tahoma,helvetica,sans-serif }
+  FONT.title {	BACKGROUND-COLOR: white; COLOR: #363636; FONT-FAMILY:                   tahoma,helvetica,verdana,lucida console,utopia; FONT-SIZE: 13pt; FONT-WEIGHT: bold }
+  FONT.sub {	BACKGROUND-COLOR: white; COLOR: #000000; FONT-FAMILY:                   tahoma,helvetica,verdana,lucida console,utopia; FONT-SIZE: 13pt }
+  FONT.layer {	COLOR: #ff0000; FONT-FAMILY: courrier,sans-serif,arial,helvetica; FONT-SIZE: 11pt; TEXT-ALIGN: left }
+  TD.title {	BACKGROUND-COLOR: #A2B5CD; COLOR: #555555; FONT-FAMILY:                   tahoma,helvetica,verdana,lucida console,utopia; FONT-SIZE: 13pt; FONT-WEIGHT: bold; HEIGHT: 20px; TEXT-ALIGN: right }
+  TD.sub {	BACKGROUND-COLOR: #DCDCDC; COLOR: #555555; FONT-FAMILY:                   tahoma,helvetica,verdana,lucida console,utopia; FONT-SIZE: 13pt; FONT-WEIGHT: bold; HEIGHT: 18px; TEXT-ALIGN: left }
+  TD.content {	BACKGROUND-COLOR: white; COLOR: #000000; FONT-FAMILY:                   tahoma,arial,helvetica,verdana,lucida console,utopia; FONT-SIZE: 11pt; TEXT-ALIGN: left; VERTICAL-ALIGN: middle }
+  TD.default {	BACKGROUND-COLOR: WHITE; COLOR: #000000; FONT-FAMILY:                   tahoma,arial,helvetica,verdana,lucida console,utopia; FONT-SIZE: 11pt; }
+  TD.border {	BACKGROUND-COLOR: #cccccc; COLOR: black; FONT-FAMILY:                   tahoma,helvetica,verdana,lucida console,utopia; FONT-SIZE: 13pt; HEIGHT: 25px }
+  TD.border-HILIGHT {	BACKGROUND-COLOR: #ffffcc; COLOR: black; FONT-FAMILY:                   verdana,arial,helvetica,lucida console,utopia; FONT-SIZE: 13pt; HEIGHT: 25px }
+-->
+//-->
+</STYLE>
+</HEAD>
+<BODY BGCOLOR=white>
+<table bgcolor="#a1a1a1" cellpadding=0 cellspacing=0 border=0 width="30%">
+                <tbody> <tr><td>
+                <table cellpadding=2 cellspacing=1 border=0 width="100%">
+                <td class=title colspan=3>w3af target URL's</td>
+                </tr>
+                <tr>
+                    <td class=sub width="100%">URL</td>
+                </tr><tr><td class=default width="100%">https://team3.bollgreve.dk<br/>
+</td></tr></td></tr></tbody></table></td></tr></tbody></table><br><table bgcolor="#a1a1a1" cellpadding=0 cellspacing=0 border=0 width="75%">
+                <tbody> <tr><td>
+                <table cellpadding=2 cellspacing=1 border=0 width="100%">
+                <td class=title colspan=3>Security Issues</td>
+                </tr>
+                <tr>
+                    <td class=sub width="10%">Type</td>
+                    <td class=sub width="10%">Port</td>
+                    <td class=sub width="80%">Issue </td>
+                </tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" has a path disclosure vulnerability which discloses: "/dev/ref/contrib/csrf/". This vulnerability was found in the request with id 21.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" has a path disclosure vulnerability which discloses: "/dev/ref/templates/api/". This vulnerability was found in the request with id 21.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/bin/python". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/etc/apache2/ssl/server.crt". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-tk". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-old". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/pymodules/python2.7". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/plat-linux2". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-dynload". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/api.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/adapters.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/sessions.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/django/core/handlers/base.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/bin/python". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-tk". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-old". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/pymodules/python2.7". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/plat-linux2". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-dynload". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/api.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/adapters.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/sessions.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/web/SSAS/itufriendbook". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/web/SSAS/itufriendbook/itufriendbook". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/accounts/views.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/wsgi.py". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/../templates". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/wsgi.py/ssase13/partnersite/". This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/static/accounts/bootstrap.css" possibly discloses a US Social Security Number: "428-57-1429". This vulnerability was found in the request with id 38.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/static/accounts/bootstrap.css<br>
+Severity : Low<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 78.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 915.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 1006.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 101.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 172.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 169.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 59.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 251.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 37.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br>
+Severity : Medium<br> 
+</td></tr><tr>
+                <td valign=top class=default width="10%"><font color=red>Vulnerability</font></td>
+                <td valign=top class=default width="10%">tcp/443</td>
+                <td class=default width="80%">The URL: "https://team3.bollgreve.dk/static/" has a directory indexing vulnerability. This vulnerability was found in the request with id 87.<br/><br/><b>URL :</b> https://team3.bollgreve.dk/static/<br>
+Severity : Low<br> 
+</td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 33.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hasse242/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 286.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hasse242/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/pnic/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 289.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/pnic/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hasse/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 291.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hasse/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/John8212/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 293.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/John8212/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hejder/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 295.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hejder/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/madsgade/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 297.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/madsgade/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asd/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 299.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asd/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/tester/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 301.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/tester/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/qqqqqqqq/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 303.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/qqqqqqqq/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/nam/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 305.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/nam/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/ssase13demo/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 307.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/ssase13demo/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asss/%20" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 309.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asss/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/" has a "&lt;form&gt;" element with auto-complete enabled. This information was found in the request with id 988.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "user" was found in: "https://team3.bollgreve.dk". This could be interesting. This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "pass" was found in: "https://team3.bollgreve.dk". This could be interesting. This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "fix" was found in: "https://team3.bollgreve.dk". This could be interesting. This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "user" was found in: "https://team3.bollgreve.dk/ssase13/". This could be interesting. This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "pass" was found in: "https://team3.bollgreve.dk/ssase13/". This could be interesting. This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "fix" was found in: "https://team3.bollgreve.dk/ssase13/". This could be interesting. This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "fix" was found in: "https://team3.bollgreve.dk/ssase13/findfriends/". This could be interesting. This information was found in the request with id 35.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/findfriends/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">A comment with the string "fix" was found in: "https://team3.bollgreve.dk/ssase13/register/". This could be interesting. This information was found in the request with id 482.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" has a path disclosure vulnerability which discloses: "/dev/ref/contrib/csrf/". This vulnerability was found in the request with id 21.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" has a path disclosure vulnerability which discloses: "/dev/ref/templates/api/". This vulnerability was found in the request with id 21.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/bin/python". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/etc/apache2/ssl/server.crt". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-tk". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-old". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/pymodules/python2.7". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/plat-linux2". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/lib-dynload". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/api.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/adapters.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/requests/sessions.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/lib/python2.7/dist-packages/django/core/handlers/base.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/bin/python". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-tk". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-old". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/pymodules/python2.7". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/plat-linux2". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/lib-dynload". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/api.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/adapters.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/requests/sessions.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/web/SSAS/itufriendbook". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/web/SSAS/itufriendbook/itufriendbook". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/accounts/views.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/wsgi.py". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/../templates". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/partnersite/" has a path disclosure vulnerability which discloses: "/var/www/SSAS/itufriendbook/itufriendbook/wsgi.py/ssase13/partnersite/". This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URI: "https://team3.bollgreve.dk" sent a META tag with attribute value "author" which looks interesting. This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URI: "https://team3.bollgreve.dk/ssase13/" sent a META tag with attribute value "author" which looks interesting. This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URI: "https://team3.bollgreve.dk/ssase13/findfriends/" sent a META tag with attribute value "author" which looks interesting. This information was found in the request with id 35.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/findfriends/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/static/accounts/bootstrap.css" possibly discloses a US Social Security Number: "428-57-1429". This vulnerability was found in the request with id 38.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/static/accounts/bootstrap.css<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 78.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 915.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 1006.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 101.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 172.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 169.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 59.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 251.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">An unidentified web application error (HTTP response code 500) was found at: "https://team3.bollgreve.dk/ssase13/partnersite/". Enable all plugins and try again, if the vulnerability still is not identified, please verify manually and report it to the w3af developers. This vulnerability was found in the request with id 37.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/partnersite/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/static/" has a directory indexing vulnerability. This vulnerability was found in the request with id 87.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/static/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:14 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 2.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:16 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 19.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:17 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 26.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:18 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 33.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:25 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 51.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:28 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 70.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "sessionid=2u2yeehvey4ic3ag38vqjocfn0ntncuq; expires=Sat, 28-Dec-2013 02:59:33 GMT; httponly; Max-Age=1209600; Path=/". This information was found in the request with id 91.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 02:59:34 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 114.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hasse242/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:01 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 286.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hasse242/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hasse/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:02 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 291.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hasse/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/John8212/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:03 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 293.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/John8212/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/madsgade/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:04 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 297.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/madsgade/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asd/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:05 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 299.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asd/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/qqqqqqqq/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:06 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 303.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/qqqqqqqq/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/ssase13demo/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:07 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 307.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/ssase13demo/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asss/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:08 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 309.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asss/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:44 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 441.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:45 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 443.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:46 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 445.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:47 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 447.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:48 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 451.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:56 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 483.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:57 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 485.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:58 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 488.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:00:59 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 491.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:01:00 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 493.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:01:30 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 603.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:01:31 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 606.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:01:44 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 679.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:01:45 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 682.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:32 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 911.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/John8212/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:33 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 912.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/John8212/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:37 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 918.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asss/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:38 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 919.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asss/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:39 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 921.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/asd/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:47 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 933.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/asd/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/madsgade/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:48 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 939.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/madsgade/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:50 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 946.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/hasse/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:51 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 949.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/hasse/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:54 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 963.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/nam/ " sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:02:57 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 975.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/nam/ <br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:00 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 988.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:01 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 992.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:02 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 994.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:06 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 1009.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/register/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:07 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 1011.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/register/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:15 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 1063.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/<br> 
+ </td></tr><tr>
+                    <td valign=top class=default width="10%">
+                        <font color=blue>Information</font>
+                    </td>
+                    <td valign=top class=default width="10%">tcp/443</td>
+                    <td class=default width="80%">The URL: "https://team3.bollgreve.dk/ssase13/showprofile/" sent the cookie: "csrftoken=FkvlFjBmnDLgsOulQtaM6EiDHwz7aR4Y; expires=Sat, 13-Dec-2014 03:03:34 GMT; Max-Age=31449600; Path=/". This information was found in the request with id 1168.<br>
+<br/><b>URL :</b> https://team3.bollgreve.dk/ssase13/showprofile/<br> 
+ </td></tr></td></tr></tbody></table></td></tr></tbody></table><br/>
+
+<table bgcolor="#a1a1a1" cellpadding=0 cellspacing=0 border=0 width="75%">
+                <tbody> <tr><td>
+                <table cellpadding=2 cellspacing=1 border=0 width="100%">
+                <td class=title colspan=3>Security Issues</td>
+                </tr>
+                <tr>
+                    <td class=sub width="20%">Time</td>
+                    <td class=sub width="10%">Message type</td>
+                    <td class=sub width="70%">Message</td>
+                </tr><tr><td class=content>Sat 14 Dec 2013 03:58:08 AM CET</td><td class=content>debug</td><td class=content><i>Enabled plugins</i>:
+ <br/><br/>plugins<br/>&nbsp;&nbsp;&nbsp;&nbsp;audit&nbsp;xss,&nbsp;sqli<br/>&nbsp;&nbsp;&nbsp;&nbsp;audit&nbsp;config&nbsp;xss<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;checkStored&nbsp;True<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;numberOfChecks&nbsp;3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;audit&nbsp;config&nbsp;sqli<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;back<br/>plugins<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;dotNetEventValidation,&nbsp;pathDisclosure,&nbsp;objects,&nbsp;blankBody,&nbsp;metaTags,&nbsp;httpAuthDetect,&nbsp;motw,&nbsp;strangeHTTPCode,&nbsp;svnUsers,&nbsp;fileUpload,&nbsp;codeDisclosure,&nbsp;findComments,&nbsp;strangeReason,&nbsp;hashFind,&nbsp;domXss,&nbsp;collectCookies,&nbsp;formAutocomplete,&nbsp;passwordProfiling,&nbsp;getMails,&nbsp;ajax,&nbsp;ssn,&nbsp;httpInBody,&nbsp;errorPages,&nbsp;lang,&nbsp;strangeHeaders,&nbsp;privateIP,&nbsp;strangeParameters,&nbsp;error500,&nbsp;wsdlGreper,&nbsp;creditCards,&nbsp;oracle,&nbsp;feeds,&nbsp;directoryIndexing<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;dotNetEventValidation<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;pathDisclosure<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;objects<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;blankBody<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;metaTags<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;search404&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;httpAuthDetect<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;motw<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;withoutMOTW&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;strangeHTTPCode<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;svnUsers<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;fileUpload<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;codeDisclosure<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;findComments<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;search404&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;strangeReason<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;hashFind<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;domXss<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;simpleGrep&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;smartGrep&nbsp;True<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;collectCookies<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;formAutocomplete<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;passwordProfiling<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;getMails<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;onlyTargetDomain&nbsp;True<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;ajax<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;ssn<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;httpInBody<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;errorPages<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;lang<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;strangeHeaders<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;privateIP<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;strangeParameters<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;error500<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;wsdlGreper<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;creditCards<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;oracle<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;feeds<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;grep&nbsp;config&nbsp;directoryIndexing<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;back<br/>plugins<br/>&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;htmlFile,&nbsp;textFile,&nbsp;console,&nbsp;gtkOutput<br/>&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;config&nbsp;console<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;verbose&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;config&nbsp;gtkOutput<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;back<br/>plugins<br/>&nbsp;&nbsp;&nbsp;&nbsp;discovery&nbsp;webSpider<br/>&nbsp;&nbsp;&nbsp;&nbsp;discovery&nbsp;config&nbsp;webSpider<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;onlyForward&nbsp;False<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;followRegex&nbsp;.*<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;ignoreRegex&nbsp;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back<br/>&nbsp;&nbsp;&nbsp;&nbsp;back<br/>target<br/>&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;target&nbsp;https://team3.bollgreve.dk<br/>&nbsp;&nbsp;&nbsp;&nbsp;back<br/>
+</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:10 AM CET</td><td class=content>error</td><td class=content>An exception was found while running grep.privateIP on "/path/foo/h/path/foo/t/path/foo/t/path/foo/p/path/foo/s/path/foo/:/path/foo///path/foo///path/foo/d/path/foo/o/path/foo/m/path/foo/a/path/foo/i/path/foo/n/path/foo/ /path/foo/|/path/foo/ /path/foo/M/path/foo/e/path/foo/t/path/foo/h/path/foo/o/path/foo/d/path/foo/:/path/foo/ /path/foo/G/path/foo/E/path/foo/T/path/foo/". The exception was: "Complex classes like &lt;type 'NoneType'&gt; need to inherit from disk_item to be stored." at timeout_function.py:836. The scan will continue but some vulnerabilities might not be identified.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:11 AM CET</td><td class=content>error</td><td class=content>An exception was found while running grep.privateIP on "/path/foo/h/path/foo/t/path/foo/t/path/foo/p/path/foo/s/path/foo/:/path/foo///path/foo///path/foo/d/path/foo/o/path/foo/m/path/foo/a/path/foo/i/path/foo/n/path/foo/ /path/foo/|/path/foo/ /path/foo/M/path/foo/e/path/foo/t/path/foo/h/path/foo/o/path/foo/d/path/foo/:/path/foo/ /path/foo/G/path/foo/E/path/foo/T/path/foo/". The exception was: "Complex classes like &lt;type 'NoneType'&gt; need to inherit from disk_item to be stored." at timeout_function.py:836. The scan will continue but some vulnerabilities might not be identified.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:11 AM CET</td><td class=content>error</td><td class=content>An exception was found while running grep.privateIP on "/path/foo/h/path/foo/t/path/foo/t/path/foo/p/path/foo/s/path/foo/:/path/foo///path/foo///path/foo/d/path/foo/o/path/foo/m/path/foo/a/path/foo/i/path/foo/n/path/foo///path/foo/ /path/foo/|/path/foo/ /path/foo/M/path/foo/e/path/foo/t/path/foo/h/path/foo/o/path/foo/d/path/foo/:/path/foo/ /path/foo/G/path/foo/E/path/foo/T/path/foo/". The exception was: "Complex classes like &lt;type 'NoneType'&gt; need to inherit from disk_item to be stored." at timeout_function.py:836. The scan will continue but some vulnerabilities might not be identified.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:34 AM CET</td><td class=content>error</td><td class=content>The "metaTags" plugin took more than 5 seconds to run. For a plugin that should only perform pattern matching, this is too much, please review its source code.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:34 AM CET</td><td class=content>error</td><td class=content>The "metaTags" plugin took more than 5 seconds to run. For a plugin that should only perform pattern matching, this is too much, please review its source code.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:34 AM CET</td><td class=content>error</td><td class=content>The "metaTags" plugin took more than 5 seconds to run. For a plugin that should only perform pattern matching, this is too much, please review its source code.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:34 AM CET</td><td class=content>error</td><td class=content>The "metaTags" plugin took more than 5 seconds to run. For a plugin that should only perform pattern matching, this is too much, please review its source code.</td></tr>
+<tr><td class=content>Sat 14 Dec 2013 03:58:35 AM CET</td><td class=content>error</td><td class=content>The "metaTags" plugin took more than 5 seconds to run. For a plugin that should only perform pattern matching, this is too much, please review its source code.</td></tr>
+</td></tr></tbody></table></td></tr></tbody></table><br/>
+
+</BODY>
+</HTML>

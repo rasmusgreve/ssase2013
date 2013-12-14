@@ -454,6 +454,65 @@ Raceconditions are prevented (see the log \ref{sec:appendix:racecondition}).
 		\label{tab:threats}
 \end{table}
 
+We did a penetration test of our own application where we tested for the following threats.
+
+xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, preg\_replace, globalRedirect, LDAPi, phishingVector, frontpage, responseSplitting
+     
+
+
+
+We found the following vulnerabilities:
+\begin{verbatim}
+ The following scripts are vulnerable to a trivial form of XSRF:
+ - http://team6.bollgreve.dk/ssase13/f/profile.xhtml
+ The following scripts allow an attacker to send POST data as query 
+ string data (this makes XSRF easier to exploit):
+ - The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+\end{verbatim}
+
+\begin{verbatim}
+ The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
+vulnerable to cross-site request forgery.
+ The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ An unidentified vulnerability was found at: 
+ "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", using HTTP method GET. 
+ The sent data was: "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
+ This vulnerability was found in the requests with ids 1016 to 1017 and 1019.
+\end{verbatim}
+
+We are not sure what the unidentified vulnerability is but here is the request:
+\begin{verbatim}
+========================================Request 1017 - 
+Sat 14 Dec 2013 01:09:11 AM CET========================================
+GET http://team6.bollgreve.dk/ssase13/f/profile.xhtml?id=27854292 HTTP/1.1
+Accept-Encoding: gzip
+Accept: */*
+User-Agent: w3af.sourceforge.net
+Host: team6.bollgreve.dk
+Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
+Referer: http://team6.bollgreve.dk/
+\end{verbatim}
+
+We do not claim to protect against XSRF attacks so we did not mitigate this result it.
 
 \section{Hacking}
 \subsection{Plans and ideas}
@@ -500,6 +559,11 @@ The webapplication that team 11 has made, "Raptor dating", seems to be
 As part of the requirement to expose the publicly available data in our system to one or more of our competitors through a REST API, we saw a natural opportunity to try and inject malicious data into \textbf{their} systems. The basic idea was to have a piece of code in our REST service class replace the string exposed by the service when requesting a particular hobby with a different, pre-defined string, containing malicious data. This data would just be a text string, containing the HTML tag for JavaScript, executing an alert in the client's browser. This is just to demonstrate the vulnerability, as the ability to execute JavaScript originating from us on the clients of our competitor could lead to many kinds of attacks, particularly XSS.
 
 Doing a bit of research, we found out that team 10 in particular might be vulnerable to this kind of attack. During conversations with them about how best to exchange data through a REST API, we learned that they stored the interests (hobbies) of their users in comma-separated text strings. At this point we also applied a dose of social engineering by explaining to them in detail how they might consume our web service from their application, in an attempt to get them to implement their client as naively as possible.
+
+\subsection{Brute force attempt on Mysql server on team 5}
+After doing an nmap scan we found that the mysql server was listening.
+We found a vulnerability for an older version of mysql http://thehackernews.com/2012/06/cve-2012-2122-serious-mysql.html
+We tried brute forcing a connection to mysql but our IP was blacklisted after 10 attempts.
 
 \subsubsection{Results}
 See figure 4 under chapter 9.4 in the appendix for graphical illustration of the results of this attack. As denoted in the figure, the Fishing hobby was the one we configured to result in malicious code rather than its innocent name in a string, whenever requested by a web server located on team 10's IP address. As can be seen, the user with the hobby correctly imports to team 10's "Friendship Portal", but the malicious string produced by the Fishing hobby is not displayed, and is not even present in the document's source. This indicates that team 10 did anticipate this kind of attack, and took the appropriate security measures by validating the data imported from our service.
