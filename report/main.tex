@@ -222,7 +222,6 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \begin{itemize}
 \item A user signs up as a student
 \item A student views/edits his own information
-\item A student chooses what information to share
 \item A student requests a friendship with another student
 \item A student approves a friendship request with another student
 \item A student upgrades a friendship to a romance
@@ -250,7 +249,7 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \end{itemize}
 
 \subsection{Functional Requirements}
-Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here. They are not fully implemented yet but they are planned for a final release.
+Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here.
 
 * In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
 
@@ -274,7 +273,6 @@ Most of the following functional requirements are derived from the use cases, to
     \item Users should be able to view their own data
     \item Users should be able to view other users' data, filtered depending on their relationship with the given user
     \item Users should be able to edit their own data upon re-entry of their password *
-    \item Admins should be able to create new users
     \item Admins should be able to suspend and restore user profiles **
     \end{itemize}
 \item User authentication
@@ -288,7 +286,7 @@ Most of the following functional requirements are derived from the use cases, to
 \end{itemize}
 
 \subsection{Non-functional requirements}
-The following is our non-functional requirements to the system. These are derived from our business goals, one of which relates to uptime. Another of our business goals is to employ immediate mitigation against any attack we might be subject to throughout the project period. To this end, it is imperative that we run an active logging framework.
+The following is our non-functional requirements to the system. These are derived from our business goals, one of which relates to uptime. Another of our business goals is to employ immediate mitigation against any attack we might be subject to throughout the project period.
 \begin{itemize}
 \item The application is available through an HTTP connection 99.5\% of the time
 \item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
@@ -297,7 +295,7 @@ The following is our non-functional requirements to the system. These are derive
 \subsection{Security Requirements}
 Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
 
-We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we consider it a too extensive task to implement within the scope of the project, having prioritized other things. Instead, as previously mentioned, we have modified our functional requirements to mitigate this particular abuse through alternative means.
+We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
 \begin{itemize}
 \item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
 \item Database access credentials are never stored in any source code repository
@@ -432,12 +430,15 @@ The application protects against the following:
 %\item{Admin subject to social engineering}
 \end{description}
 
+
 We have chosen this prioritization of threats by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
 
-SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless, and JSF protects against XSS attacks.
+SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
 %TODO: Does JSF protect against XSS attacks?
 
-Raceconditions are prevented (see the log \ref{sec:appendix:racecondition}).
+We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
+% \ref{sec:appendix:racecondition} This "test" is really bad...
+
 
 We did a penetration test of our own application where we tested for the following threats.
 
@@ -613,7 +614,6 @@ A testing tool we found fitting to use for system tests is Selenium with JUnit. 
 \item Creating user
 \item Renewing password
 \end{itemize}
-
 
 \section{Hacking}
 \subsection{Plans and ideas}
