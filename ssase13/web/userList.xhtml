@@ -53,9 +53,9 @@ and open the template in the editor.
                         <h:form>
                             <h:dataTable class="table table-striped" var="userloop" value="#{friendcontroller.findAlienUsers()}">                                                           
                                 <h:column>
-                                    <f:facet name="header">Name</f:facet>
+                                    <f:facet name="header">Username</f:facet>
                                     <h:outputLink value="#{userloop.profile}" class="user_link" >
-                                        <h:outputText value="#{userloop.name}"/>
+                                        <h:outputText value="#{userloop.username}"/>
                                     </h:outputLink>
                                 </h:column>
                                 <h:column>
@@ -63,8 +63,8 @@ and open the template in the editor.
                                     <h:outputText value="#{userloop.country}"/>
                                 </h:column>
                                 <h:column>
-                                    <f:facet name="header">Id</f:facet>
-                                    <h:outputText value="#{userloop.id}"/>
+                                    <f:facet name="header">Name</f:facet>
+                                    <h:outputText value="#{userloop.name}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Hobbies</f:facet>
