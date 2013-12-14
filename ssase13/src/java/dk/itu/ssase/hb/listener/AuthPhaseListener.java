@@ -23,7 +23,8 @@ public class AuthPhaseListener implements PhaseListener {
             "/login.xhtml",
             "/signup.xhtml",
             "/userList.xhtml",
-            "/profile.xhtml"
+            "/profile.xhtml",
+            "/alienprofile.xhtml"
         };
     
     public void afterPhase(PhaseEvent event) {

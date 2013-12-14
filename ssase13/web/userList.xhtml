@@ -71,6 +71,12 @@ and open the template in the editor.
                                     <f:facet name="header">Hobbies</f:facet>
                                     <h:outputText value="#{userloop.hobbies}"/>
                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">External site (careful!)</f:facet>                                    
+                                    <h:outputLink value="#{userloop.profile}" class="user_link"  >
+                                        Profile
+                                    </h:outputLink>
+                                </h:column>
                             </h:dataTable>
                         </h:form>
                         <h:form rendered="#{studentbean.hasAdmin()}">

@@ -22,15 +22,6 @@ and open the template in the editor.
                         <div class="row">
                             <div class="col-md-4">
                                 <h1><h:outputText value="#{alien.username}"/></h1>
-                                <h3 id="full_name"><h:outputText value="#{alien.name}" rendered="#{showsensitive}"/></h3>
-                                <br/>
-                                <strong>Country: </strong><h:outputText rendered="#{showsensitive}" value="#{alien.country}" ></h:outputText>
-                                <br/>
-                                <strong>Hobbies: </strong><h:outputText rendered="#{showsensitive}" value="#{alien.hobbies}" ></h:outputText>
-                                <br/>
-                                    <h:outputLink value="#{userloop.profile}" class="user_link"  >
-                                        External profile (beware!)
-                                    </h:outputLink>
                             </div>
                             <div class="col-md-4">
                                 <h2>Friends</h2>
