@@ -345,37 +345,6 @@ We use a randomly generated 4 character salt for every user.
 The authentication module in the forest view shown in \ref{fig:forest_view} is a JSF Phase listener that the JSF servlet invokes. It has one role that it checks.
 Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.
 
-\begin{lstlisting}  
-    private static final String[] UNPROTECTED_VIEWS = new String[] {
-            "/login.xhtml",
-            "/signup.xhtml",
-            "/userList.xhtml",
-            "/profile.xhtml",
-            "/alienprofile.xhtml"
-        };
-
-public void afterPhase(PhaseEvent event) {
-  FacesContext context = event.getFacesContext();  
-  boolean authorized = false;
-  if (userExists(context)) {
-    // allow processing of the requested view
-    if (requestingAdminView(context)) {
-      if(userAdmin(context)) {
-        authorized = true; 
-      }                     
-    } else 
-      authorized = true;
-  } else {            
-    // send the user to the login view
-    if (requestingSecureView(context)) {                
-      redirectToLogin(context);
-    } else {
-      authorized=true;
-    }
-  }
-}
-        
-\end{lstlisting}
 
 
 \begin{figure}[h!]
@@ -429,14 +398,24 @@ We have also taken measures to protect against race conditions, one of the sins 
 % \ref{sec:appendix:racecondition} This "test" is really bad...
 
 
+We do not claim to protect against XSRF attacks so we did not mitigate this result it.
+
+
+\subsubsection{Ambiguity Analysis}
+
+We didn't validate user input so all text was saved. This was a problem because even though the input was escaped it obstructed database commands due to special characters interfering.
+
+\subsubsection{Weakness Analysis}
+There is a weakness in the architecture between the client browser and the server where a 'man-in-the-middle' can intercept requests and produce any response he likes.
+
+
 We did a penetration test of our own application where we tested for the following threats.
 
+\begin{verbatim}
 xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, preg\_replace, globalRedirect, LDAPi, phishingVector, frontpage, responseSplitting
+\end{verbatim}
      
-
-
-
-We found the following vulnerabilities:
+We found vulnerabilities in the public web pages:
 \begin{verbatim}
  The following scripts are vulnerable to a trivial form of XSRF:
  - http://team6.bollgreve.dk/ssase13/f/profile.xhtml
@@ -445,36 +424,18 @@ We found the following vulnerabilities:
  - The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
 vulnerable to cross-site request forgery. It allows the attacker to 
 exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
 \end{verbatim}
-
+This is due to the JSF libraries that only partially protect against Cross(X) Site Request Forgery. This is a weakness in the platform we have chosen.
 \begin{verbatim}
  The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
 vulnerable to cross-site request forgery.
- The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
  An unidentified vulnerability was found at: 
  "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", using HTTP method GET. 
  The sent data was: "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
  This vulnerability was found in the requests with ids 1016 to 1017 and 1019.
 \end{verbatim}
 
-We are not sure what the unidentified vulnerability is but here is the request:
+We are not sure what the unidentified vulnerability mentioned is but this is one of the requests:
 \begin{verbatim}
 ========================================Request 1017 - 
 Sat 14 Dec 2013 01:09:11 AM CET========================================
@@ -487,18 +448,43 @@ Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
 Referer: http://team6.bollgreve.dk/
 \end{verbatim}
 
-We do not claim to protect against XSRF attacks so we did not mitigate this result it.
+\subsubsection{Safeguards}
+In order to create a trust zone the application authorizes users in order based on their role (of which there are only 2). Then we can control access to pages based on a black list of which pages are public so we always protect new pages.
 
+The following pages are unprotected:
+\begin{description}
+\item[login.xhtml] - default landing page
+\item[signup.xhtml] - sign up page
+\item[userList.xhtml] - list of all users
+\item[profile.xhtml] - a users profile
+\item[alienprofile.xhtml] - an externally imported profile
+\end{description}
+  
+  
 
-\subsubsection{Ambiguity Analysis}
-
-
-\subsubsection{Weakness Analysis}
-
-Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has. There are 2 roles that we check for in the authentication module.
-
-We keep a list of pages that we don't protect and then protect the rest.
-
+\begin{lstlisting}  
+public void afterPhase(PhaseEvent event) {
+  FacesContext context = event.getFacesContext();  
+  boolean authorized = false;
+  if (userExists(context)) {
+    // allow processing of the requested view
+    if (requestingAdminView(context)) {
+      if(userAdmin(context)) {
+        authorized = true; 
+      }                     
+    } else 
+      authorized = true;
+  } else {            
+    // send the user to the login view
+    if (requestingSecureView(context)) {                
+      redirectToLogin(context);
+    } else {
+      authorized=true;
+    }
+  }
+}
+        
+\end{lstlisting}
 
 \subsection{Security Requirements}
 Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
