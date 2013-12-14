@@ -29,6 +29,41 @@
 \allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
 % (This matches ConTeXt defaults)
 
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
 
 \usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
 \usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
@@ -298,10 +333,61 @@ We only store the unique password to the database for the application user on th
 There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
 \end{description}
 
+\subsubsection{Frameworks and Technologies}
+The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each. In general we use open source technologies that promote awareness about security issues.
+\begin{description}
+\item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
+\item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
+\item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
+\item[Hibernate 3] is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
+\item[PostgreSQL 9.1.9] is a RDBMS that provides extensive functionality like auto generated id sequences and fine-grained access control of database operations for users. The devlopers provide a list of security issues \footnote{\href{http://www.postgresql.org/support/security/}{http://www.postgresql.org/support/security/}} and we have considered that the version we chose is safe.
+\item[JUnit and Selenium with Selenide] for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
+\item[Commons Logging]
+Tomcat supports commons logging and we use this to create an audit log for tracking intrusions.
+\item[Uptime Robot] This is a uncomplicated and free SaaS that monitors websites for downtime and sends email if they are unresponsive.
+\end{description}
 
 
+\textbf{SHA-256} algorithm for hashing our users' passwords. It is generally regarded as a considerably secure hashing algorithm.
+We use a randomly generated 4 character salt for every user.
 
-Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
+
+\subsection{Architecture Risk Analysis}
+The authentication module in the forest view shown in \ref{fig:forest_view} is a JSF Phase listener that the JSF servlet invokes. It has one role that it checks.
+Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.
+
+\begin{lstlisting}  
+    private static final String[] UNPROTECTED_VIEWS = new String[] {
+            "/login.xhtml",
+            "/signup.xhtml",
+            "/userList.xhtml",
+            "/profile.xhtml",
+            "/alienprofile.xhtml"
+        };
+
+public void afterPhase(PhaseEvent event) {
+  FacesContext context = event.getFacesContext();  
+  boolean authorized = false;
+  if (userExists(context)) {
+    // allow processing of the requested view
+    if (requestingAdminView(context)) {
+      if(userAdmin(context)) {
+        authorized = true; 
+      }                     
+    } else 
+      authorized = true;
+  } else {            
+    // send the user to the login view
+    if (requestingSecureView(context)) {                
+      redirectToLogin(context);
+    } else {
+      authorized=true;
+    }
+  }
+}
+        
+\end{lstlisting}
+
 
 \begin{figure}[h!]
 \centering
@@ -310,25 +396,120 @@ Our application authorizes users in order to determine the privilege for access 
 \label{fig:forest_view}
 \end{figure}
 
+\subsubsection{Attack Resistance Analysis}
+We found the following historic attacks on applications.
+
+\begin{table}[h!]
+	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
+		\hline
+		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
+		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
+        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
+        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
+        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
+        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
+        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
+        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
+        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
+       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
+        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
+        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
+        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
+	\end{tabular}
+	\caption{Threat analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+		\label{tab:threats}
+\end{table}
 
 
-
-\subsection{Choice of Technology}
-\subsubsection{Frameworks and Technologies}
-The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each.
+The application protects against the following:
 \begin{description}
-\item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
-\item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
-\item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
-\item[Hibernate 3] is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
-\item[PostgreSQL 9.1.9] is our chosen database technology. Among other things, it provides fine-grained user access control.
-\item[JUnit and Selenium with Selenide] for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
-\item[Uptime Robot] A SaaS that monitors websites for downtime and sends email if they are unresponsive.
+\item[SQL injections] By encapsulating database queries in 
+\item[XSS attacks] JSF2 provides protection against this.
+\item[Race conditions] We can avoid deadlock by using transaction in Hibernate.
+%\item{Login bruteforcing}
+%\item{Admin subject to social engineering}
 \end{description}
 
 
-\textbf{SHA-256} algorithm for hashing our users' passwords. It is generally regarded as a considerably secure hashing algorithm.
-We also use a randomly generated 4 character salt for every user.
+We have chosen this prioritization of threats by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
+
+SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
+%TODO: Does JSF protect against XSS attacks?
+
+We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
+% \ref{sec:appendix:racecondition} This "test" is really bad...
+
+
+We did a penetration test of our own application where we tested for the following threats.
+
+xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, preg\_replace, globalRedirect, LDAPi, phishingVector, frontpage, responseSplitting
+     
+
+
+
+We found the following vulnerabilities:
+\begin{verbatim}
+ The following scripts are vulnerable to a trivial form of XSRF:
+ - http://team6.bollgreve.dk/ssase13/f/profile.xhtml
+ The following scripts allow an attacker to send POST data as query 
+ string data (this makes XSRF easier to exploit):
+ - The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ - The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+\end{verbatim}
+
+\begin{verbatim}
+ The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
+vulnerable to cross-site request forgery.
+ The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
+vulnerable to cross-site request forgery. It allows the attacker to 
+exchange the method from POST to GET when sendin data to the server.
+ An unidentified vulnerability was found at: 
+ "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", using HTTP method GET. 
+ The sent data was: "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
+ This vulnerability was found in the requests with ids 1016 to 1017 and 1019.
+\end{verbatim}
+
+We are not sure what the unidentified vulnerability is but here is the request:
+\begin{verbatim}
+========================================Request 1017 - 
+Sat 14 Dec 2013 01:09:11 AM CET========================================
+GET http://team6.bollgreve.dk/ssase13/f/profile.xhtml?id=27854292 HTTP/1.1
+Accept-Encoding: gzip
+Accept: */*
+User-Agent: w3af.sourceforge.net
+Host: team6.bollgreve.dk
+Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
+Referer: http://team6.bollgreve.dk/
+\end{verbatim}
+
+We do not claim to protect against XSRF attacks so we did not mitigate this result it.
+
+
+\subsubsection{Ambiguity Analysis}
+
+
+\subsubsection{Weakness Analysis}
+
+Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has. There are 2 roles that we check for in the authentication module.
+
+We keep a list of pages that we don't protect and then protect the rest.
+
 
 \subsubsection{Project Tools}
 We have chosen to use the following tools to assist us in our project process.
@@ -433,106 +614,6 @@ A testing tool we found fitting to use for system tests is Selenium with JUnit. 
 \item Creating user
 \item Renewing password
 \end{itemize}
-
-\subsection{Penetration Testing}
-The application protects against the following:
-\begin{enumerate}
-\item{SQL injections}
-\item{XSS attacks}
-\item{Race conditions}
-%\item{Login bruteforcing}
-%\item{Admin subject to social engineering}
-\end{enumerate}
-
-We have chosen this prioritization of threats by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
-
-SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
-%TODO: Does JSF protect against XSS attacks?
-
-We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
-% \ref{sec:appendix:racecondition} This "test" is really bad...
-
-\subsection{Threats:}
-\begin{table}[h!]
-	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
-		\hline
-		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
-		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
-        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
-        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
-        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
-        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
-        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
-        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
-       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
-        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
-        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
-        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
-	\end{tabular}
-	\caption{Threat analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
-		\label{tab:threats}
-\end{table}
-
-We did a penetration test of our own application where we tested for the following threats.
-
-xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, preg\_replace, globalRedirect, LDAPi, phishingVector, frontpage, responseSplitting
-     
-
-
-
-We found the following vulnerabilities:
-\begin{verbatim}
- The following scripts are vulnerable to a trivial form of XSRF:
- - http://team6.bollgreve.dk/ssase13/f/profile.xhtml
- The following scripts allow an attacker to send POST data as query 
- string data (this makes XSRF easier to exploit):
- - The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- - The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
-\end{verbatim}
-
-\begin{verbatim}
- The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
-vulnerable to cross-site request forgery.
- The URL: http://team6.bollgreve.dk/ssase13/f/login.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- The URL: http://team6.bollgreve.dk/ssase13/f/signup.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- The URL: http://team6.bollgreve.dk/ssase13/f/userList.xhtml is 
-vulnerable to cross-site request forgery. It allows the attacker to 
-exchange the method from POST to GET when sendin data to the server.
- An unidentified vulnerability was found at: 
- "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", using HTTP method GET. 
- The sent data was: "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
- This vulnerability was found in the requests with ids 1016 to 1017 and 1019.
-\end{verbatim}
-
-We are not sure what the unidentified vulnerability is but here is the request:
-\begin{verbatim}
-========================================Request 1017 - 
-Sat 14 Dec 2013 01:09:11 AM CET========================================
-GET http://team6.bollgreve.dk/ssase13/f/profile.xhtml?id=27854292 HTTP/1.1
-Accept-Encoding: gzip
-Accept: */*
-User-Agent: w3af.sourceforge.net
-Host: team6.bollgreve.dk
-Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
-Referer: http://team6.bollgreve.dk/
-\end{verbatim}
-
-We do not claim to protect against XSRF attacks so we did not mitigate this result it.
 
 \section{Hacking}
 \subsection{Plans and ideas}
