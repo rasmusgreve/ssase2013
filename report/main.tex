@@ -276,15 +276,34 @@ We do not require the application to run through a secure connection, as althoug
 
 Our production server runs Linux and provides the access control for users' access to the file system.
 
+\subsection{Operations}
+We have some assets that we think are worth protecting e.g. our database so we apply our principles to the operations.
+
+\begin{description}
+\item[Least Privilege]  The application server and database runs each with their respective user that is only used for that process. However we needed to host the application on port 80 so we configured it by using another tool.
+% TODO find tool give root access to the application server because it needs to run on port 80.
+
+The database user/role for the database creation is different from the user that is used by the application server. 
+%By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped.
+
+We have created users for each member of the teamn in a group with superuser rights. Furthermore there are users created for the web application and database.
+This ensures that we can withdraw rights if necessary without losing access to the system.
+This way we have restricted access to the database by only allowing the database user itself to connect as a client without password.
+
+\item[Reluctance to Trust]
+We store the unique password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+
+\item[Fail Securely]
+There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
+\end{description}
+
 We have attempted to restrict privilege given on our server so users are given 
-\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group. The application server and database runs each with their respective user that is only used for that process. However we need to give root access to the application server because it needs to run on port 80.
+\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group.
 
 
-Our database is our most valuable asset and therefore we wish to protect it. The database user/role for the database creation is different from the user that is used by the application server. By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped. Furthermore we store the username and password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
 
 Our application authorizes users in order to determine the privilege for access to user stories like pages that a user has.
 
-We replaced the error page in order to \textbf{Fail Securely}.
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.3]{ForestView}
@@ -298,14 +317,15 @@ We replaced the error page in order to \textbf{Fail Securely}.
 \subsection{Choice of Technology}
 \subsubsection{Frameworks and Technologies}
 The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each.
-\begin{itemize}
-\item \textbf{JSF2} is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
-\item \textbf{Tomcat 7} is a web application server, as with the above, is the recommended server technology.
-\item \textbf{UFW}, the Uncomplicated Firewall, is a straightforward firewall implementation for Linux.
-\item \textbf{Hibernate} is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
-\item \textbf{PostgreSQL} is our chosen database technology. Among other things, it provides fine-grained user access control.
-\item \textbf{JUnit and Selenium with Selenide} for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
-\end{itemize}
+\begin{description}
+\item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
+\item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
+\item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
+\item[Hibernate 3] is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
+\item[PostgreSQL 9.1.9] is our chosen database technology. Among other things, it provides fine-grained user access control.
+\item[JUnit and Selenium with Selenide] for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
+\item[Uptime Robot] A SaaS that monitors websites for downtime and sends email if they are unresponsive.
+\end{description}
 
 
 \textbf{SHA-256} algorithm for hashing our users' passwords. It is generally regarded as a considerably secure hashing algorithm.

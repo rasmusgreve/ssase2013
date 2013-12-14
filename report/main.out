@@ -12,35 +12,36 @@
 \BOOKMARK [2][-]{subsection.3.4}{Non-functional requirements}{section.3}% 12
 \BOOKMARK [2][-]{subsection.3.5}{Security Requirements}{section.3}% 13
 \BOOKMARK [1][-]{section.4}{Architecture}{}% 14
-\BOOKMARK [2][-]{subsection.4.1}{Choice of Technology}{section.4}% 15
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Frameworks and Technologies}{subsection.4.1}% 16
-\BOOKMARK [3][-]{subsubsection.4.1.2}{Project Tools}{subsection.4.1}% 17
-\BOOKMARK [1][-]{section.5}{Testing}{}% 18
-\BOOKMARK [2][-]{subsection.5.1}{Test plan}{section.5}% 19
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Testing objectives}{subsection.5.1}% 20
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Features to be tested}{subsection.5.1}% 21
-\BOOKMARK [3][-]{subsubsection.5.1.3}{Testing techniques}{subsection.5.1}% 22
-\BOOKMARK [3][-]{subsubsection.5.1.4}{Static Testing}{subsection.5.1}% 23
-\BOOKMARK [3][-]{subsubsection.5.1.5}{Component Testing}{subsection.5.1}% 24
-\BOOKMARK [2][-]{subsection.5.2}{Tools and Frameworks}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.3}{System Test Cases \(Black-box Test\)}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.4}{Penetration Testing}{section.5}% 27
-\BOOKMARK [2][-]{subsection.5.5}{Threats:}{section.5}% 28
-\BOOKMARK [1][-]{section.6}{Hacking}{}% 29
-\BOOKMARK [2][-]{subsection.6.1}{Plans and ideas}{section.6}% 30
-\BOOKMARK [3][-]{subsubsection.6.1.1}{Social engineering attack}{subsection.6.1}% 31
-\BOOKMARK [2][-]{subsection.6.2}{Penetration test of team 11}{section.6}% 32
-\BOOKMARK [2][-]{subsection.6.3}{XSS attack on team 10}{section.6}% 33
-\BOOKMARK [3][-]{subsubsection.6.3.1}{Description}{subsection.6.3}% 34
-\BOOKMARK [2][-]{subsection.6.4}{Brute force attempt on Mysql server on team 5}{section.6}% 35
-\BOOKMARK [3][-]{subsubsection.6.4.1}{Results}{subsection.6.4}% 36
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 37
-\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 38
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 39
-\BOOKMARK [1][-]{section.9}{Appendix}{}% 40
-\BOOKMARK [2][-]{subsection.9.1}{Design diagrams}{section.9}% 41
-\BOOKMARK [2][-]{subsection.9.2}{Log file}{section.9}% 42
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Application online November 1st }{subsection.9.2}% 43
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Race conditions }{subsection.9.2}% 44
-\BOOKMARK [2][-]{subsection.9.3}{Test reports}{section.9}% 45
-\BOOKMARK [2][-]{subsection.9.4}{Hacking}{section.9}% 46
+\BOOKMARK [2][-]{subsection.4.1}{Operations}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Choice of Technology}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Frameworks and Technologies}{subsection.4.2}% 17
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Project Tools}{subsection.4.2}% 18
+\BOOKMARK [1][-]{section.5}{Testing}{}% 19
+\BOOKMARK [2][-]{subsection.5.1}{Test plan}{section.5}% 20
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Testing objectives}{subsection.5.1}% 21
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Features to be tested}{subsection.5.1}% 22
+\BOOKMARK [3][-]{subsubsection.5.1.3}{Testing techniques}{subsection.5.1}% 23
+\BOOKMARK [3][-]{subsubsection.5.1.4}{Static Testing}{subsection.5.1}% 24
+\BOOKMARK [3][-]{subsubsection.5.1.5}{Component Testing}{subsection.5.1}% 25
+\BOOKMARK [2][-]{subsection.5.2}{Tools and Frameworks}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.3}{System Test Cases \(Black-box Test\)}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.4}{Penetration Testing}{section.5}% 28
+\BOOKMARK [2][-]{subsection.5.5}{Threats:}{section.5}% 29
+\BOOKMARK [1][-]{section.6}{Hacking}{}% 30
+\BOOKMARK [2][-]{subsection.6.1}{Plans and ideas}{section.6}% 31
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Social engineering attack}{subsection.6.1}% 32
+\BOOKMARK [2][-]{subsection.6.2}{Penetration test of team 11}{section.6}% 33
+\BOOKMARK [2][-]{subsection.6.3}{XSS attack on team 10}{section.6}% 34
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Description}{subsection.6.3}% 35
+\BOOKMARK [2][-]{subsection.6.4}{Brute force attempt on Mysql server on team 5}{section.6}% 36
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Results}{subsection.6.4}% 37
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 38
+\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 39
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 40
+\BOOKMARK [1][-]{section.9}{Appendix}{}% 41
+\BOOKMARK [2][-]{subsection.9.1}{Design diagrams}{section.9}% 42
+\BOOKMARK [2][-]{subsection.9.2}{Log file}{section.9}% 43
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Application online November 1st }{subsection.9.2}% 44
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Race conditions }{subsection.9.2}% 45
+\BOOKMARK [2][-]{subsection.9.3}{Test reports}{section.9}% 46
+\BOOKMARK [2][-]{subsection.9.4}{Hacking}{section.9}% 47
