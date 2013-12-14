@@ -42,7 +42,7 @@ public class LoginBean {
                 user.setAdmin(student.getIsadmin());
                 context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
-                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authenticated user "+student.getName());           
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authenticated user {0}", student.getName());           
                 return "success";
             } else {
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,

@@ -46,7 +46,6 @@ import org.hibernate.Transaction;
 public class AlienClient {
     public static final String API_PATH = "https://192.237.201.172/ssase13/api/";
     public static final String REST_API_PATH = "https://192.237.201.172/ssase13/";
-        Logger logger = Logger.getLogger(AlienClient.class.getName());
     
     public void synchronizeWithDatabase() {
         //Delete all the synchronized users
@@ -60,8 +59,7 @@ public class AlienClient {
                     deleteUserQuery.executeUpdate();
                     deltx.commit();
                 } catch (Exception ex) {
-                    logger.log(Level.SEVERE, "Delete failed {0}", ex);
-                    ex.printStackTrace();
+                    Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Delete failed {0}", ex);
                     if(deltx!=null)
                         deltx.rollback();
                 } finally {
@@ -84,18 +82,17 @@ public class AlienClient {
                         UserDTO dto = getData(API_PATH + "user/" + name, UserDTO.class);
                         AlienUser user = new AlienUser();
                         user.setUsername(name);
-                        if (dto.name.matches(RegexConstants.WORDS_REGEX)) user.setName(dto.name); else throw new java.lang.IllegalArgumentException("name "+dto.name + " not allowed");
-                        if (dto.country.matches(RegexConstants.WORDS_REGEX)) user.setCountry(dto.country); else throw new java.lang.IllegalArgumentException("country "+dto.country + " not allowed");
-                        if (dto.hobbies.matches(RegexConstants.WORDS_REGEX)) user.setHobbies(dto.hobbies); else throw new java.lang.IllegalArgumentException("hobbies "+dto.hobbies + " not allowed");                        
-                        if (dto.profile.startsWith(REST_API_PATH)) user.setProfile(dto.profile); else logger.log(Level.WARNING, "Profile url invalid: {0}", dto.profile);//throw new java.lang.IllegalArgumentException("profile "+dto.profile + " not allowed");
+                        if (dto.name.matches(RegexConstants.WORDS_REGEX)) user.setName(dto.name); else throw new  Exception("name "+dto.name + " not allowed");
+                        if (dto.country.matches(RegexConstants.WORDS_REGEX)) user.setCountry(dto.country); else Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Country invalid: {0}", dto.country);
+                        if (dto.hobbies.matches(RegexConstants.WORDS_REGEX)) user.setHobbies(dto.hobbies); else Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Hobby invalid: {0}", dto.hobbies);
+                        if (dto.profile.startsWith(REST_API_PATH)) user.setProfile(dto.profile); else Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Profile url invalid: {0}", dto.profile);
                         session.save(user);
                         aliens.add(dto);
                         alienMap.put(dto.name, user);
-                    logger.log(Level.INFO, "added {0}", dto.name);
+                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, "added {0}", dto.name);
                     tx.commit();
                 } catch (Exception ex) {
-                    logger.log(Level.SEVERE, "Save failed {0}", ex);
-                    ex.printStackTrace();
+                    Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Save of imported user failed {0}", ex);
                     if(tx!=null)
                         tx.rollback();
                 } finally {
@@ -131,6 +128,7 @@ public class AlienClient {
                         session.save(relationship);
                         tx.commit();
                     } catch (Exception ex) {
+                        Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Save of imported firenship failed {0}", ex);
                         if(tx!=null)
                             tx.rollback();
                     } finally {
@@ -169,7 +167,7 @@ public class AlienClient {
             T data = gson.fromJson(body.toString(), type);
             return data;
         } catch (IOException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -179,15 +177,15 @@ public class AlienClient {
         FileInputStream keyStoreInput = null;
         try {
             String filePath = getClass().getResource("/team10.jks").getPath();
-            logger.log(Level.INFO, "Message {0}", filePath);
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Message {0}", filePath);
                 keyStoreInput = new FileInputStream(filePath);
         } catch (FileNotFoundException ex) {
-            logger.log(Level.WARNING, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, null, ex);
             try {
                 
             keyStoreInput = new FileInputStream("src/conf/team10.jks");
             } catch (FileNotFoundException ex1) {
-                Logger.getLogger(AlienClient.class.getName()).log(Level.WARNING, null, ex1);
+                Logger.getLogger(this.getClass().getName()).log(Level.WARNING, null, ex1);
             }
         } 
         try {
@@ -200,15 +198,15 @@ public class AlienClient {
             ctx.init(null, tmf.getTrustManagers(), null);
             return ctx.getSocketFactory();
         } catch (KeyStoreException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (KeyManagementException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         } catch (CertificateException ex) {
-            Logger.getLogger(AlienClient.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

@@ -29,7 +29,6 @@ import org.hibernate.Transaction;
  * @author christian
  */
 public class StudentBean {
-    private Logger logger = Logger.getLogger(this.getClass().getName());
     
     private int hobby;
     private RelaType relatype;
@@ -115,7 +114,7 @@ public class StudentBean {
                 
         List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :student").setInteger("student", userId).list();
         
-        logger.log(Level.INFO, "Found hobbies of the student: {0}", hobbies.size());
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found hobbies of the student: {0}", hobbies.size());
         
         return hobbies;
     }
@@ -143,12 +142,12 @@ public class StudentBean {
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Adding hobby failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
 
-        logger.log(Level.INFO, "User {0} added Hobby id: {1} ", new int[] {currentSession.getStudentId(), hobby});
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User {0} added Hobby id: {1} ", new int[] {currentSession.getStudentId(), hobby});
         
         return "success";
     }
@@ -206,7 +205,7 @@ public class StudentBean {
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Removing hobby failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Removing hobby failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
@@ -236,7 +235,7 @@ public class StudentBean {
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "(un)Suspending user: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "(un)Suspending user: {0}", ex.getMessage());
         } finally {
             session.close();
         }
@@ -263,7 +262,7 @@ public class StudentBean {
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.WARNING, "Save failed " + ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Save failed {0}", ex.getMessage());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Save failed"));
             return "fail";
         } finally {

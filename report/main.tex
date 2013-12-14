@@ -291,7 +291,7 @@ This ensures that we can withdraw rights if necessary without losing access to t
 This way we have restricted access to the database by only allowing the database user itself to connect as a client without password.
 
 \item[Reluctance to Trust]
-We store the unique password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+We only store the unique password to the database for the application user on the server. We don't trust the confidentiality of our Version Control System.
 
 \item[Fail Securely]
 There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
