@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.controller;
 
 import dk.itu.ssase.hb.beans.LoginBean;
+import dk.itu.ssase.hb.beans.model.AlienRelation;
 import dk.itu.ssase.hb.beans.model.AlienUser;
 import dk.itu.ssase.hb.beans.model.Hug;
 import dk.itu.ssase.hb.beans.model.RelaType;
@@ -58,6 +59,30 @@ public class FriendController {
         List<AlienUser> users = session.createQuery("SELECT a FROM AlienUser a").list();
 
         logger.log(Level.INFO, "Search for alien users and found {0} results", users.size());
+        session.close();
+        return users;
+    }
+    
+    
+    public Collection<AlienUser> findAlienFriends(int alienUserId) {
+        Session session = StudentHibernateUtil.getSessionFactory().openSession();
+        
+        List<AlienRelation> relas = session.createQuery("SELECT r FROM AlienRelation r JOIN r.alienUserByAlien2 s2 WHERE s2.id = :currentalien").setInteger("currentalien", alienUserId).list();         
+        List<AlienRelation> relas2 = session.createQuery("SELECT r FROM AlienRelation r JOIN r.alienUserByAlien1 s1 WHERE s1.id = :currentalien").setInteger("currentalien", alienUserId).list();         
+        
+        List<AlienUser> users = new ArrayList<AlienUser>();
+        for (AlienRelation relationship : relas) {
+            
+            users.add(relationship.getAlienUserByAlien1());
+            
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", relationship.getAlienUserByAlien1().getName());
+        }
+        for (AlienRelation relationship : relas2) {
+            users.add(relationship.getAlienUserByAlien2());
+            
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", relationship.getAlienUserByAlien2().getName());
+        }
+        
         session.close();
         return users;
     }

@@ -21,7 +21,6 @@ import org.hibernate.Session;
  * @author cly-vs
  */
 public class StudentDAO {
-    private Logger logger = Logger.getLogger(this.getClass().getName());
     
     public static String FILTER_STUDENTS = "s.isadmin = false AND s.issuspended = false";
     
@@ -49,13 +48,13 @@ public class StudentDAO {
             StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
             users.add(view);
             
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", view.getName());
         }
         for (Relationship relationship : relas2) {
             StudentView view = StudentViewGeneratorUtil.createStudentView(userId, relationship);
             users.add(view);
             
-            logger.log(Level.INFO, "Found relationship with: {0}", view.getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", view.getName());
         }
         
         session.close();

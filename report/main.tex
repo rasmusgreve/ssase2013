@@ -275,10 +275,13 @@ We do not require the application to run through a secure connection, as althoug
 Our production server runs Linux and provides the access control for users' access to the file system.
 
 \subsection{Operations}
-We have some assets that we think are worth protecting e.g. our database so we apply our principles to the operations.
+We have some assets that we think are worth protecting e.g. our database so we apply our principles\cite{princ} to the operations.
 
 \begin{description}
-\item[Least Privilege]  The application server and database runs each with their respective user that is only used for that process. However we needed to host the application on port 80 so we configured it by using another tool.
+\item[Least Privilege] 
+
+We have disabled remote login for the root user. Users are only given the necessary privileges to the file system so we protect log files from malicious users.
+The application server and database runs each with their respective user that is only used for that process. However we needed to host the application on port 80 so we configured it using another tool called authbind.
 % TODO find tool give root access to the application server because it needs to run on port 80.
 
 The database user/role for the database creation is different from the user that is used by the application server. 
@@ -289,14 +292,12 @@ This ensures that we can withdraw rights if necessary without losing access to t
 This way we have restricted access to the database by only allowing the database user itself to connect as a client without password.
 
 \item[Reluctance to Trust]
-We store the unique password to the database on the server and we don't share the username and password in our VCS according to the principle of \textbf{Reluctance to Trust} since we don't trust the confidentiality of our VCS.
+We only store the unique password to the database for the application user on the server. We don't trust the confidentiality of our Version Control System.
 
 \item[Fail Securely]
 There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
 \end{description}
 
-We have attempted to restrict privilege given on our server so users are given 
-\textbf{Least Privilege} as possible to the file system. We have disabled remote login for the root user and every member of the team has a user that is in a superuser group.
 
 
 
@@ -602,6 +603,25 @@ See figure 4 under chapter 9.4 in the appendix for graphical illustration of the
 
 
 \section{Conclusion}
+
+\newpage
+\section{References}
+\begin{thebibliography}{9}
+\bibitem{McGraw2006} 
+Gary McGraw,
+Software Security: Building Security In,
+2006,
+Addison-Wesley Professional 
+
+\bibitem{sins2009}
+Howard, M., LeBlanc, D., Viega, J.
+Deadly Sins of Software Security: Programming Flaws and How to Fix Them,
+2009,
+Mcgraw-hill
+
+\bibitem{princ}
+\href{https://buildsecurityin.us-cert.gov/articles/knowledge/principles/design-principles}{https://buildsecurityin.us-cert.gov/articles/knowledge/principles/design-principles}, December 1st 2013
+\end{thebibliography}
 
 \newpage
 \section{Appendix}
