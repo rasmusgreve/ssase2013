@@ -292,18 +292,6 @@ The following is our non-functional requirements to the system. These are derive
 \item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
 \end{itemize}
 
-\subsection{Security Requirements}
-Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
-
-We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
-\begin{itemize}
-\item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
-\item Database access credentials are never stored in any source code repository
-\item The database is always accessed in a manner that protects against SQL injection
-\item The application guards against cross-site scripting
-\item Logfiles on the web server are only accessible with root permissions
-\item All input from users and other web services is validated and/or sanitized
-\end{itemize}
 
 \section{Architecture}
 
@@ -336,7 +324,7 @@ There is no need to expose information about the software we use so we filter ou
 \subsubsection{Frameworks and Technologies}
 The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each. In general we use open source technologies that promote awareness about security issues.
 \begin{description}
-\item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. \textbf{(TODO: Ensure that we actually do use JSF2 and not 1.21)}
+\item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. 
 \item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
 \item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
 \item[Hibernate 3] is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
@@ -345,6 +333,7 @@ The following is a list of all the frameworks and technologies we have decided t
 \item[Commons Logging]
 Tomcat supports commons logging and we use this to create an audit log for tracking intrusions.
 \item[Uptime Robot] This is a uncomplicated and free SaaS that monitors websites for downtime and sends email if they are unresponsive.
+\item[Snort] Snort is an Intrusion Detection System that logs intrusions using tcpdump.
 \end{description}
 
 
@@ -510,6 +499,19 @@ Our application authorizes users in order to determine the privilege for access 
 
 We keep a list of pages that we don't protect and then protect the rest.
 
+
+\subsection{Security Requirements}
+Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
+
+We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
+\begin{itemize}
+\item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
+\item Database access credentials are never stored in any source code repository
+\item The database is always accessed in a manner that protects against SQL injection
+\item The application guards against cross-site scripting
+\item Logfiles on the web server are only accessible with root permissions
+\item All input from users and other web services is validated and/or sanitized
+\end{itemize}
 
 \subsubsection{Project Tools}
 We have chosen to use the following tools to assist us in our project process.
