@@ -38,7 +38,7 @@
 
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  basicstyle=\footnotesize\ttfamily,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
   breaklines=true,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
@@ -49,7 +49,7 @@
   frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},       % keyword style
-  language=Octave,                 % the language of the code
+  language=Java,                 % the language of the code
   morekeywords={*,...},            % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
@@ -81,10 +81,26 @@
 
 \newpage
 \section{Introduction}
-This is the written hand-in for the second part of the programming assignment of the course. With regards to the report, we have addressed the issues presented in the feedback from the first part of the assignment. Secondly, we have incorporated the customer's requests for this assignment in our analysis and design process in order to integrate it with our existing system as seamlessly as possible.
+This report documents the project we completed where the objective was implementing a secure system based on a hypothetical customer's requests.
 
-%The report is structured... etc. TODO
-We start by describing our strategy for the architecture. We try to cover the 7 touchpoints except the code review because we had trouble finding tools. 
+Rather than focus on the common documentation of software systems where the methods of development are described including the analysis and design of the system, the report is focused on risks, threats and vulnerabilities in the system we developed and the countermeasures we found to mitigate the risks.
+
+The report is structured based on the seven touchpoints\cite{McGraw2006}. We start by describing our strategy that incorporates risk analysis for our hypothetic business.
+
+A section describing the specification of the system follows and it describes the features of our system. 
+
+In order to properly evaluate the architecture of our system we describe the technologies we have used and perform an architecture risk analysis.
+
+Testing is important to prove that we have implemented the specification so we provide a test plan and some examples.
+
+We got experience with software vulnerabilities and threats by attacking the systems of the other teams. This is described in the Hacking section.
+
+Finally we discuss and conclude our reflections on the project.
+
+
+
+%We start by describing our strategy for the architecture. We try to cover the 7 touchpoints except the code review.
+%because we had trouble finding tools to do this. 
 
 \section{Strategy}
 By defining our strategy clearly and sharing it with our users, we hope to align our strategy with our business and technology.
@@ -164,12 +180,12 @@ The technical risks are characterized by their probability and effect on the sys
 
 
 In table \ref{tab:goal_to_risk_relationship} the business and technical risks are synthesized. The technical risks are from table \ref{tab:risk_analysis}.
-
+\sffamily
 \begin{table}[h!]
 	\begin{tabular}{| p{4cm} | p{4cm}| p{4cm} |}
     \hline
    	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
-   Sensitive user data is never compromised & Vulnerability in the system & Old libraries and platforms provide an easy target \\ \hline
+	Sensitive user data is never compromised & Vulnerability in the system & Old libraries and platforms provide an easy target \\ \hline
     The server must provide 99.5\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
@@ -179,7 +195,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 	\label{tab:goal_to_risk_relationship}
 \end{table}
 
-
+\rmfamily
 
 \subsubsection{Mitigations}
 We have ranked the risks and provide our proposals for mitigation.
@@ -189,15 +205,18 @@ Use supported third party libraries to keep all parts of the software secure to 
 
 By assigning clients user credentials we can identify them and separate them into different roles that we might need and do \textbf{Separation of Privilege}.
 
-\textbf{Data loss}
-We do backups of the database and encrypt it.
+\begin{description}
+\item[Data loss]
+We can do backups of the database and encrypt it.
 
-\textbf{Application delayed}
-Having a planned milestone gives an idea of what it is possible to do.
-Decreasing the scope to something manageable helps as well.
+\item[Application delayed]
+If we make a plan with milestones including scopes that gives an idea of what we hope to accomplish we can use this as an indicator of our progress.
+Then we can decrease the scope or increase the work effort to compensate.
 
-\textbf{A user is subject to social engineering}
-Providing warnings to users.
+\item[A user is subject to social engineering]
+The system can provide warnings to users if they are leaving the site by clicking a link that has been written by users.
+
+\end{description}
 
 % why
 %\begin{itemize}
@@ -297,29 +316,9 @@ The following is our non-functional requirements to the system. These are derive
 
 Our production server runs Linux and provides the access control for users' access to the file system.
 
+We have some assets that we think are worth protecting e.g. our database. 
+
 \subsection{Operations}
-We have some assets that we think are worth protecting e.g. our database so we apply our principles\cite{princ} to the operations.
-
-\begin{description}
-\item[Least Privilege] 
-
-We have disabled remote login for the root user. Users are only given the necessary privileges to the file system so we protect log files from malicious users.
-The application server and database runs each with their respective user that is only used for that process. However we needed to host the application on port 80 so we configured it using another tool called authbind.
-% TODO find tool give root access to the application server because it needs to run on port 80.
-
-The database user/role for the database creation is different from the user that is used by the application server. 
-%By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped.
-
-We have created users for each member of the teamn in a group with superuser rights. Furthermore there are users created for the web application and database.
-This ensures that we can withdraw rights if necessary without losing access to the system.
-This way we have restricted access to the database by only allowing the database user itself to connect as a client without password.
-
-\item[Reluctance to Trust]
-We only store the unique password to the database for the application user on the server. We don't trust the confidentiality of our Version Control System.
-
-\item[Fail Securely]
-There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
-\end{description}
 
 \subsubsection{Frameworks and Technologies}
 The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each. In general we use open source technologies that promote awareness about security issues.
@@ -346,14 +345,6 @@ The authentication module in the forest view shown in \ref{fig:forest_view} is a
 Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.
 
 
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{ForestView}
-\caption{Forest View diagram}
-\label{fig:forest_view}
-\end{figure}
-
 \subsubsection{Attack Resistance Analysis}
 We found the following historic attacks on applications.
 
@@ -379,26 +370,9 @@ We found the following historic attacks on applications.
 \end{table}
 
 
-The application protects against the following:
-\begin{description}
-\item[SQL injections] By encapsulating database queries in 
-\item[XSS attacks] JSF2 provides protection against this.
-\item[Race conditions] We can avoid deadlock by using transaction in Hibernate.
-%\item{Login bruteforcing}
-%\item{Admin subject to social engineering}
-\end{description}
-
 
 We have chosen this prioritization of threats by looking at the probability and consequenses of each of them as well as estimating how complicated it is to implement the mitigation strategy.
 
-SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
-%TODO: Does JSF protect against XSS attacks?
-
-We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
-% \ref{sec:appendix:racecondition} This "test" is really bad...
-
-
-We do not claim to protect against XSRF attacks so we did not mitigate this result it.
 
 
 \subsubsection{Ambiguity Analysis}
@@ -406,13 +380,16 @@ We do not claim to protect against XSRF attacks so we did not mitigate this resu
 We didn't validate user input so all text was saved. This was a problem because even though the input was escaped it obstructed database commands due to special characters interfering.
 
 \subsubsection{Weakness Analysis}
-There is a weakness in the architecture between the client browser and the server where a 'man-in-the-middle' can intercept requests and produce any response he likes.
+We are aware that the network traffic is not protected \cite{sins2009}. This is a weakness in the architecture between the client browser and the server where a 'man-in-the-middle' can intercept requests by doing ARP poisoning in order to read passwords that are passed as cleartext.
 
-
-We did a penetration test of our own application where we tested for the following threats.
+We did a penetration test on our own application where we tested for the following threats.
 
 \begin{verbatim}
-xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, preg\_replace, globalRedirect, LDAPi, phishingVector, frontpage, responseSplitting
+xsrf, htaccessMethods, sqli, sslCertificate, fileUpload, mxInjection, 
+generic, localFileInclude, unSSL, xpath, osCommanding, remoteFileInclude, 
+dav, ssi, eval, buffOverflow, xss, xst, blindSqli, formatString, 
+preg_replace, globalRedirect, LDAPi, phishingVector, frontpage, 
+responseSplitting
 \end{verbatim}
      
 We found vulnerabilities in the public web pages:
@@ -430,16 +407,21 @@ This is due to the JSF libraries that only partially protect against Cross(X) Si
  The URL: http://team6.bollgreve.dk/ssase13/f/profile.xhtml is 
 vulnerable to cross-site request forgery.
  An unidentified vulnerability was found at: 
- "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", using HTTP method GET. 
- The sent data was: "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
- This vulnerability was found in the requests with ids 1016 to 1017 and 1019.
+ "http://team6.bollgreve.dk/ssase13/f/profile.xhtml", 
+ using HTTP method GET.  The sent data was:
+ "id=d%27kc%22z%27gj%27%22%2A%2A5%2A%28%28%28%3B-%2A%60%29". 
+ This vulnerability was found in the requests with 
+ ids 1016 to 1017 and 1019.
 \end{verbatim}
 
 We are not sure what the unidentified vulnerability mentioned is but this is one of the requests:
 \begin{verbatim}
-========================================Request 1017 - 
-Sat 14 Dec 2013 01:09:11 AM CET========================================
-GET http://team6.bollgreve.dk/ssase13/f/profile.xhtml?id=27854292 HTTP/1.1
+========================================
+Request 1017 - Sat 14 Dec 2013 01:09:11 AM CET
+========================================
+GET 
+http://team6.bollgreve.dk/ssase13/f/profile.xhtml?id=27854292 
+HTTP/1.1
 Accept-Encoding: gzip
 Accept: */*
 User-Agent: w3af.sourceforge.net
@@ -447,6 +429,14 @@ Host: team6.bollgreve.dk
 Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
 Referer: http://team6.bollgreve.dk/
 \end{verbatim}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{ForestView}
+\caption{Forest View diagram}
+\label{fig:forest_view}
+\end{figure}
 
 \subsubsection{Safeguards}
 In order to create a trust zone the application authorizes users in order based on their role (of which there are only 2). Then we can control access to pages based on a black list of which pages are public so we always protect new pages.
@@ -461,8 +451,9 @@ The following pages are unprotected:
 \end{description}
   
   
-
-\begin{lstlisting}  
+\begin{figure}
+\caption{Authentication Module code}   
+\begin{lstlisting}
 public void afterPhase(PhaseEvent event) {
   FacesContext context = event.getFacesContext();  
   boolean authorized = false;
@@ -482,14 +473,16 @@ public void afterPhase(PhaseEvent event) {
       authorized=true;
     }
   }
-}
-        
-\end{lstlisting}
+}    
+\end{lstlisting} 
+\end{figure}
 
-\subsection{Security Requirements}
-Based on the prioritizations of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
+Based on the priorities of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
 
-We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
+The probability of the attack is low and the impact of an attacker getting access to the password because the password cannot be changed.
+
+We do not require the application to run through a secure connection, as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. 
+If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
 \begin{itemize}
 \item A firewall blocks requests on all ports but port 80 (HTTP) and port 6666 (SSH)
 \item Database access credentials are never stored in any source code repository
@@ -498,6 +491,48 @@ We do not require the application to run through a secure connection, as althoug
 \item Logfiles on the web server are only accessible with root permissions
 \item All input from users and other web services is validated and/or sanitized
 \end{itemize}
+
+The application protects against the following:
+\begin{description}
+\item[SQL injections] By encapsulating database queries in 
+\item[XSS attacks] JSF2 provides protection against this.
+\item[Race conditions] We can avoid deadlock by using transaction in Hibernate.
+%\item{Login bruteforcing}
+%\item{Admin subject to social engineering}
+\end{description}
+SQL injections and XSS attacks are relatively easy to protect against in our setup as the tools we use, prevent these kinds of attacks. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization. JSF protects against XSS attacks.
+%TODO: Does JSF protect against XSS attacks?
+
+We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
+% \ref{sec:appendix:racecondition} This "test" is really bad...
+
+
+We do not claim to protect against XSRF attacks so we did not mitigate this result it.
+
+
+
+We apply principles\cite{princ} to the operations.
+
+\begin{description}
+\item[Least Privilege] 
+
+We have disabled remote login for the root user. Users are only given the necessary privileges to the file system so we protect log files from malicious users.
+The application server and database runs each with their respective user that is only used for that process. However we needed to host the application on port 80 so we configured it using another tool called authbind.
+% TODO find tool give root access to the application server because it needs to run on port 80.
+
+The database user/role for the database creation is different from the user that is used by the application server. 
+%By applying this practice we give the application the least possible privilege to the database to protect our database from being dropped.
+
+We have created users for each member of the teamn in a group with superuser rights. Furthermore there are users created for the web application and database.
+This ensures that we can withdraw rights if necessary without losing access to the system.
+This way we have restricted access to the database by only allowing the database user itself to connect as a client without password.
+
+\item[Reluctance to Trust]
+We only store the unique password to the database for the application user on the server. We don't trust the confidentiality of our Version Control System.
+
+\item[Fail Securely]
+There is no need to expose information about the software we use so we filter out 404/500 error codes in our application to show our custom error page.
+\end{description}
 
 \subsubsection{Project Tools}
 We have chosen to use the following tools to assist us in our project process.
