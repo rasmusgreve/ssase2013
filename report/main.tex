@@ -603,101 +603,134 @@ We have chosen to use the following tools to assist us in our project process.
 
 
 \section{Testing}
-In order to ensure that our service works as intended and do not have any immediate flaws we have conducted a series of tests.
+In order to ensure that our service works as intended and do not have any immediate flaws we have conducted a series of automated and manual tests.
+
 \subsection{Test plan}
+Our strategy for testing was twofold: We wanted to test the functionality of all components and we wanted to test the overall functionality of the system using system tests.
 
 \subsubsection{Testing objectives}
-\subsubsection{Features to be tested}
-\begin{itemize}
+We have had two objectives with our tests, both to confirm that the required features are correctly implemented and working (e.g. validation testing), but also that any error cases or abuse cases result in error messages or at least correct behavior (i.e. defect testing)
 
+\subsubsection{Features to be tested}
+We have aimed at testing as many features as possible, but core features haven been tested more thoroughly than peripheral secondary features due to the strict and early deadline. Drawing the line between core and peripheral features is tough and might seem a bit arbitrary, but we have aimed at prioritizing features related to our own service over the exposed REST API as well as the REST integration.
+
+Our automated tests are aimed at the following components:
+\begin{itemize}
 \item Signup
 \item Login
 \item Friends relation features
 \item Hobbies
-
+\item Updating profile
+\item Using the service w/o login
 \end{itemize}
 \subsubsection{Testing techniques}
+We wanted to test as thoroughly as possible and ideally also include unit tests, but this was not possible due to the time constraints.
+We have used the following testing techniques:
 \begin{itemize}
-
-\item Unit tests
-\item Blackbox (TBS)
-\item SELENIUM (selenide)
+\item Grey box testing
+\item Manual system tests
 \end{itemize}
 
-\subsubsection{Static Testing}
-Static testing is testing of a component or specifications without execution of that software.  This is usually done as soon as acceptance criteria or business requirements are ready for review before code implementation such as conflicting rules, invalid data types, redundant process just to name a few. 
-\subsubsection{Component Testing}
-Component level testing focuses on the functionality of each component being developed.  This is  crucial where different components are being developed before they are integrated together as one system.
-
-Entry Criteria
-
-Component Testing may commence when the following criteria has been satisfied:
-All code has been unit tested and passed.
-Test environment including software has been setup and configured correctly.
-Business requirements and test cases are up to date as per user story.
-
-Suspension Criteria
-
-Component testing will be suspended under the following condition:
-Critical error(s) found preventing test completion.
-Change of business requirements.
-Change of environment components or technology including different version.
-
-Resumption Criteria
-
-Component testing will resume when the following criteria are met:
-All issues in suspension criteria have been resolved or mitigated.
-New software build has been redeployed.
-
-Exit Criteria (Test Completeness)
-
-Component testing can be considered complete when the following conditions have been met:
-All requirements have been tested without Critical or Medium severity defects.
- System Testing
-The purpose of the system testing is to validate that the complete and integrated system complies with functional requirements and business requirements.
-
-Entry Criteria
-
-System testing may commence when the following criteria have been satisfied:
-Component Testing has been completed.
-No change to business requirements and test cases are up to date.
-Scenario based test cases have been reviewed.
-
-Suspension Criteria
-
-System Testing will be suspended under the following condition:
-Critical error(s) found affecting functionality of the whole system.
-Change of business requirements.
-
-Resumption Criteria
-
-System Testing will resume when the following criteria have been satisfied:
-All issues in suspension criteria have been resolved or mitigated
-
-Exit Criteria (Test Completeness)
-
-System Testing will be considered complete when the following conditions have been met:
-All High and Medium priority requirements have been tested without Critical or Medium severity defects.
-
-Business owner and/or business user have been notified with any remaining defects and understand the risks or limitations of current release.
-
-User Acceptance Testing 
-
-UAT is a formal testing with respect to user needs, business requirements and expectations.  The idea here is to gain confidence from business owner on the software being developed.  Although it is not mandatory business owner(s) and/or business user(s) are expected to produce his/her own test scenarios.
+%\subsubsection{Static Testing} Static testing is testing of a component or specifications without execution of that software.  This is usually done as soon as acceptance criteria or business requirements are ready for review before code implementation such as conflicting rules, invalid data types, redundant process just to name a few. 
+%
+%\subsubsection{Component Testing}
+%Component level testing focuses on the functionality of each component being developed.  This is  crucial where different components are being developed before they are integrated together as one system.
+%
+%Entry Criteria
+%
+%Component Testing may commence when the following criteria has been satisfied:
+%All code has been unit tested and passed.
+%Test environment including software has been setup and configured correctly.
+%Business requirements and test cases are up to date as per user story.
+%
+%Suspension Criteria
+%
+%Component testing will be suspended under the following condition:
+%Critical error(s) found preventing test completion.
+%Change of business requirements.
+%Change of environment components or technology including different version.
+%
+%Resumption Criteria
+%
+%Component testing will resume when the following criteria are met:
+%All issues in suspension criteria have been resolved or mitigated.
+%New software build has been redeployed.
+%
+%Exit Criteria (Test Completeness)
+%
+%Component testing can be considered complete when the following conditions have been met:
+%All requirements have been tested without Critical or Medium severity defects.
+%\subsubsection{System Testing}
+%The purpose of the system testing is to validate that the complete and integrated system complies with functional requirements and business requirements.
+%
+%Entry Criteria
+%
+%System testing may commence when the following criteria have been satisfied:
+%Component Testing has been completed.
+%No change to business requirements and test cases are up to date.
+%Scenario based test cases have been reviewed.
+%
+%Suspension Criteria
+%
+%System Testing will be suspended under the following condition:
+%Critical error(s) found affecting functionality of the whole system.
+%Change of business requirements.
+%
+%Resumption Criteria
+%
+%System Testing will resume when the following criteria have been satisfied:
+%All issues in suspension criteria have been resolved or mitigated
+%
+%Exit Criteria (Test Completeness)
+%
+%System Testing will be considered complete when the following conditions have been met:
+%All High and Medium priority requirements have been tested without Critical or Medium severity defects.
+%
+%Business owner and/or business user have been notified with any remaining defects and understand the risks or limitations of current release.
+%
+%User Acceptance Testing 
+%
+%UAT is a formal testing with respect to user needs, business requirements and expectations.  The idea here is to gain confidence from business owner on the software being developed.  Although it is not mandatory business owner(s) and/or business user(s) are expected to produce his/her own test scenarios.
 \subsection{Tools and Frameworks}
-Testing is essential in order to build secure and functional software systems. To thoroughly test our system we have decided to use two testing strategies; system tests and unit tests.
+A testing tool we found fitting to use for system tests is Selenium\footnote{Selenium webpage: http://www.seleniumhq.org/} and Selenide\footnote{Selenide github page: https://github.com/codeborne/selenide} with JUnit. Selenium allows us to script test cases which input data and submit forms on the webservice using the test structure from JUnit.
+When the tests are running, Selenium starts firefox and executes all the commands entered by looking through the DOM for elements to enter data, click buttons or verify the values.
 
-A testing tool we found fitting to use for system tests is Selenium with JUnit. Selenium allows us to script test cases which input data and submit forms on the webservice.
+Creating an automated test suite makes development and especially refactoring a breeze since whenever something is changed it is easy to verify that everything that worked beforehand, still works. It should be noted that we of course don't assume that our test cases cover everything, but they still give a good indication of whether or not a change has broken functionality.
 
-\subsection{System Test Cases (Black-box Test)}
+\subsection{System Test Cases (Grey-box Test)}
+We use grey box testing to do system testing, meaning that we mainly do white box testing to test use cases, but use our knowledge of the implementation to write the abuse cases so that they would fail if they could.
 
+\subsubsection{Signup}
+The signup form must be visible and usable when you are not signed in, otherwise it wouldn't be of much use. There is a requirement that user handles be unique, and that passwords must be at least 6 characters long and contain lowercase and uppercase letters as well as numbers.
+
+The signup form also has a CAPTCHA\footnote{CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart} test which by the intention of the CAPTCHA we won't be able to automatically enter correctly.
+
+The only tests we have been able to automate regarding signup is illegal password and wrong CAPTCHA. In the code the handle is tested for uniqueness after the CAPTCHA has been validated, so this feature has been tested manually.
+
+\subsubsection{Login}
+The login form has been tested by inputting valid and invalid login information and testing that we are and aren't logged in respectively. We have also implemented an automatic SQL injection test to ensure that it is not possible to execute SQL statements by putting them into the form fields.
+
+\subsubsection{User relations}
+Our user relations test is a validation test to ensure that all the required features are implemented and working. The following features are tested:
 \begin{itemize}
-\item Login
-\item SQL injection in input
-\item Access to unauthorized pages
-\item Creating user
-%Not implememted \item Renewing password 
+\item View list of friends
+\item Request friendship
+\item Accept friendship
+\item Remove friendship
+\item Start romance
+\item End romance
 \end{itemize}
+
+\subsubsection{My profile}
+It has been tested that you can enter and edit information about your own name, surname and address. All features have also had abuse cases tested where XSS attempts and SQL injection attempts has been tested and proven to not work.
+
+\subsubsection{When not logged in}
+It is possible to use our webservice without logging in. This has required us to test and ensure that only the publicly available information is available to users that are not logged in.
+We test that anonymous users cannot request friendships or delete users, but that they can see a list of users and view their profile.
+On the profile page we test that only the handle and hobbies are visible and name, address and recent activities are hidden.
+
+\subsubsection{Manual tests}
+The previously mentioned test cases have been automated using our testing framework Selenium, since Selenium is designed for HTML DOM testing. This made it less useful for testing our REST API, which instead has been tested manually and of course implicitly by the team consuming our API (team 10).
 
 \section{Hacking}
 Pennetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
