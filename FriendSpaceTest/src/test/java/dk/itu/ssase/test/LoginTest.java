@@ -45,15 +45,6 @@ public class LoginTest
         assertTrue( true );
     }
     
-    public void testLoginXSS()
-    {
-        open(urlPage);
-        $(By.id("login:username")).setValue("<script>alert();</script>");
-        $(By.id("login:submit")).click();
-        $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
-        assertTrue( true );
-    }
-    
     public void testLoginFail1()
     {
         open(urlPage);
