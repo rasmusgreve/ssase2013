@@ -119,6 +119,8 @@ The brand should build trust with the users over the long term so they keep comi
 We wish to achieve our goals by providing the following features to our users:
 \begin{itemize}
 \item Easy signup with design that provides high quality features with as few clicks as possible.
+\item Adding and removing of friends and romances using an intuitive user interface
+\item An easy way of adding and removing hobbies from your profile
 \item Users can choose from a long list of social hobbies and find others with the same interests.
 %\item Full data ownership: All data is owned by the users and should be easy to export and reuse.
 \end{itemize}
@@ -743,9 +745,7 @@ Tools have been created to aide the security expert in her analysis or to help n
 The static tools work by inspecting either the source code of the application if this is available, or binaries/decompiled binaries, trying to find common implementation errors in the application that can be exploited by malicious users or simply triggered by unknowing normal users.
 The dynamic tools work by inputting lots of different data in all data-entry points in the application. Usually edge-case data is used such as 0, 1 and 2,147,483,647 for numbers and empty or very long strings maybe containing special characters or for string inputs.
 
-\subsection{Plans and ideas}
-In this section we describe plans and ideas for hacks and attacks that we haven't (yet) conducted.
-\subsubsection{Social engineering attack}
+\subsection{Social engineering attack}
 A social engineering attack requires some knowledge and analysis of the setting, system and people you want to attack.
 
 The setting at hand is that we are among a set of teams all implementing and trying to secure a webservice which must be "handed in" and shown off to a teacher and possibly the TA. This implies that the people in the teams all trust both the teacher and the TA. We have observed that most of us do not remember the name of the TA off the top of our heads and need to look it up on the course blog.
@@ -753,10 +753,8 @@ We can use this knowledge to make a broad social engineering attack on all other
 
 The idea is to send an email to the entire class that looks and sounds official and says that it is from ``The TA of System Architecture and Security F2013". We assume that the students are not aware of the name of our TA and that they will trust that if we claim to be him in the email, they will believe us. The email will contain a request for login information to their webservice for an admin account that we need in order to evaluate the teams' progress.
 
-A requirement for this attack to work is that we send the email before (if) the teacher or TA asks for this information from the groups. We plan on sending the email on the 4th of October.
+We thought of performing this attack multiple times, but never found a good time to do it. With these kinds of attacks timing is key, and every time we thought about sending the mail we felt like the timing wasn't right and that it would definitely be identified as phishing by the other teams.
 
-
-%\textbf{Team 1}
 
 %\subsection{Penetration test of team 11}
 %As part of the project we have conducted a penetration test on another groups web service.
