@@ -162,7 +162,7 @@ public class StudentBean {
             session.close();
         }
 
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User {0} added Hobby id: {1} ", new int[] {currentSession.getStudentId(), hobby});
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User {0} added Hobby id: {1} ", new Integer[] {currentSession.getStudentId(), hobby});
         
         return JSFActionConstants.JSFSuccess;
     }
@@ -279,7 +279,7 @@ public class StudentBean {
                 tx.rollback();
             Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "Save failed {0}", ex.getMessage());
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Save failed"));
-            return "fail";
+            return JSFActionConstants.JSFFailure;
         } finally {
             session.close();
         }

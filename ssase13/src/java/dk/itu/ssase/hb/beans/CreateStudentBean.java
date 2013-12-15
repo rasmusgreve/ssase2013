@@ -83,6 +83,7 @@ public class CreateStudentBean {
             return JSFActionConstants.JSFFailure;
         }
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User created with user name {0}", getStudentInput().getHandle());
         return JSFActionConstants.JSFSuccess;
     }
     
