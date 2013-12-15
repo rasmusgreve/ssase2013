@@ -141,8 +141,6 @@ We have decided on the following goals as paramount to our business operation wi
 	\label{tab:business_goals}
 \end{table}
 
-
-
 \subsubsection{Business Risks}
 We have analyzed the business risks of the project and determined their impact which we have imagined as they would be for a small size enterprise.
 \begin{table}[h!]
@@ -156,25 +154,26 @@ Application delayed & System features are implemented late & M & Late return on 
 \end{tabular}
 \end{table}
 
-
 \subsubsection{Technical Risks}
 The technical risks are characterized by their probability and effect on the system in table \ref{tab:risk_analysis}. We have also identified risks in making the system too secure.
 
 \begin{table}[h!]
-	\begin{tabular}{| l | p{3cm} | l | l |}
+	\begin{tabular}{| p{5cm} | p{5cm} | l | l |}
 		\hline
 		\textbf{Risk} & \textbf{Indicator} & \textbf{L} & \textbf{C}  \\ \hline
         %User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
         %User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
-        Old libraries and platforms provide an easy target & Unsupported software & H & 9 \\\hline
+        Old libraries and platforms provide an easy target & Unauthorized access and several vulnerabilities \cite{CVEdb} & H & 9 \\\hline
         Hardware failure & Reports of downtime & L & 5 \\ \hline
-        Security is not part of system architecture design & Unsecure design & M & 7 \\ \hline
+        Security is not part of system architecture design & Unauthorized access & M & 7 \\ \hline
 		Security safeguards slows down user experience & Too many interactions & L & 3
 		\\ \hline
 	\end{tabular}
 	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
+	
+
 \end{table}
 
 
@@ -449,7 +448,7 @@ Referer: http://team6.bollgreve.dk/
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{ForestView}
+\includegraphics[scale=0.35]{ForestView}
 \caption{Forest View diagram}
 \label{fig:forest_view}
 \end{figure}
@@ -765,6 +764,9 @@ Mcgraw-hill
 \bibitem{Mysql2012}
 \href{http://thehackernews.com/2012/06/cve-2012-2122-serious-mysql.html}{http://thehackernews.com/2012/06/cve-2012-2122-serious-mysql.html} 
  (accessed December 1st 2013)
+ 
+\bibitem{CVEdb}
+\href{http://www.cvedetails.com/}{http://www.cvedetails.com/}
 \end{thebibliography}
 
 \newpage
