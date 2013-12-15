@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Condition.*;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import org.openqa.selenium.By;
 
@@ -51,6 +52,24 @@ public class LoginTest
         $(By.id("login:submit")).click();
         $(By.id("loginmess")).shouldHave(text("Login Failed!")); // Waits until element gets text
         assertTrue( true );
+    }
+    
+    public void testLoginFail1()
+    {
+        open(urlPage);
+        $(By.id("login:username")).setValue("unknown");
+        $(By.id("login:password")).setValue("testTEST123");
+        $(By.id("login:submit")).click();
+        assertFalse((title().equals("My profile")));
+    }
+    
+    public void testLoginFail2()
+    {
+        open(urlPage);
+        $(By.id("login:username")).setValue("rasmusgreve");
+        $(By.id("login:password")).setValue("wrongpassword");
+        $(By.id("login:submit")).click();
+        assertFalse((title().equals("My profile")));
     }
     
     public void testLoginSuccess()
