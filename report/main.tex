@@ -801,13 +801,15 @@ unblock with 'mysqladmin flush-hosts'
 \section{Discussion}
 Of the requirements presented in the specification chapter, we have delivered a product that fulfils nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functinoality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. It is indeed true, but this is only a threat on unencrypted, open, wireless networks, and most operating systems will warn users that connect to one one of this fact. Even then, the actual password is only sent once during login, and so is not the most exposed of packets that could be compromised. It is more likely that something like a user's session ID is picked up, which could allow the intruder to impersonate the user, and for instance change the password. It is here that the requirement of password validation for such actions is important.
 
-SQL injections, XSS, race conditions
+Of the remaining security risks, we have focused on % ... what
 
 \subsection{Problems}
 
 
 \section{Conclusion}
-Our final products live up the expectations we put down during development.
+Our final product lives up to the expectations we put down during development, as more requirements were periodically introduced. We managed to deploy an application supporting all but one of the use cases derived from the three project descriptions. At every step of the process, we have had in mind the quality of security by virtue of McGraw's touchpoints\cite{McGraw2009}, incorporating security risks in our business analysis, modifying requirements based on abuse cases and testing determinedly for security vulnerabilities.
+
+% More? Something we should have done differently?
 
 \newpage
 \section{References}
