@@ -15,6 +15,8 @@ import dk.itu.ssase.hb.dto.StudentDTO;
 import dk.itu.ssase.hb.dto.StudentListDTO;
 import dk.itu.ssase.hb.model.StudentView;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Path;
@@ -56,11 +58,12 @@ public class StudentService {
     @Produces("application/json")
     @Path("{studentHandle}")
     public String getJson(@PathParam(value = "studentHandle")String handle) {
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "REST student request {0}", handle);
         Student user = studentDAO.findStudent(handle);
         List<Hobby> hobbies = studentDAO.findHobbies(user.getId());
         List<StudentView> friends = studentDAO.findFriends(user.getId());
         StudentDTO dto = new StudentDTO();
-        dto.handle = user.getHandle();
+        dto.handle = user.getHandle();        
         for (Hobby h : hobbies)
             dto.hobbies.add("../../hobbies/" + h.getId());
         for (StudentView sv : friends)
@@ -77,6 +80,7 @@ public class StudentService {
     @Produces("application/json")
     public String getJson() {
         String param = context.getQueryParameters().getFirst("page");
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "REST student list request page {0}", param);
         int page = 0;
         try {
             page = Integer.parseInt(param);

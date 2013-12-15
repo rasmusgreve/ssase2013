@@ -89,7 +89,7 @@ public class AlienClient {
                         session.save(user);
                         aliens.add(dto);
                         alienMap.put(dto.name, user);
-                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, "added {0}", dto.name);
+                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, "added alien user {0}", name);
                     tx.commit();
                 } catch (Exception ex) {
                     Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Save of imported user failed {0}", ex);
@@ -126,6 +126,8 @@ public class AlienClient {
                         relationship.setAlienUserByAlien1(user);
                         relationship.setAlienUserByAlien2(friend);
                         session.save(relationship);
+                    Logger.getLogger(this.getClass().getName()).log(Level.INFO, "added alien relation from {0} to {1}", 
+                            new String[]{relationship.getAlienUserByAlien1().getUsername(),relationship.getAlienUserByAlien2().getUsername()});
                         tx.commit();
                     } catch (Exception ex) {
                         Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Save of imported firenship failed {0}", ex);
@@ -152,7 +154,6 @@ public class AlienClient {
                 @Override
                 public boolean verify(String hostname, SSLSession session)
                 {
-                    // ip address of the service URL(like.23.28.244.244)
                     if (hostname.equals("192.237.201.172"))
                         return true;
                     return false;

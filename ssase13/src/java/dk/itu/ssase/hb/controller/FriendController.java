@@ -136,7 +136,8 @@ public class FriendController {
     }
     
     public String changeFriendship(int friendId, int type)
-    {
+    {        
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Change friendship id: {0} to type: {1}", new Integer[]{friendId, type});
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
@@ -172,6 +173,7 @@ public class FriendController {
     }
     
     public String hugFriend(int friendId) {
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Hug friend id: {0}", friendId);
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
         Session session = StudentHibernateUtil.getSessionFactory().openSession();

@@ -10,6 +10,8 @@ import dk.itu.ssase.hb.beans.model.Hobby;
 import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.dao.HobbyDAO;
 import dk.itu.ssase.hb.dto.HobbyDTO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -45,6 +47,7 @@ public class HobbyService {
     @Produces("application/json")
     @Path("{hobbyId}")
     public String getJson(@PathParam(value = "hobbyId")int id) {
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "REST hobby request {0}", id);
         Hobby hobby = hobbyDAO.findHobby(id);
         HobbyDTO dto = new HobbyDTO();
         dto.id = hobby.getId();
