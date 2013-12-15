@@ -71,12 +71,13 @@
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
 
-\title{SSAS-E2013 Programming Assignment - Part II}
-\author{Team 6:\\Christian Lyngbye, Jacob Fischer, Rasmus Greve, Ivaylo Sharkov}
+\title{SSAS-E2013}
+\author{Team 6:\\Christian Lyngbye clyn@itu.dk\\Jacob Fischer jaco@itu.dk\\Rasmus Greve, Ivaylo Sharkov}
 
 \begin{document}
 \maketitle
 
+\newpage
 \tableofcontents
 
 \newpage
@@ -152,6 +153,8 @@ A user is subject to social engineering & Reports of peculiar activity & H & Dam
 Vulnerabilities in the system & High amount of breaches & H & Unintended downtime and higher development costs \\\hline
 Application delayed & System features are implemented late & M & Late return on investment \\\hline
 \end{tabular}
+	\caption{Business risk analysis for the social network system with impacts.}
+		\label{tab:business_risk_analysis}
 \end{table}
 
 \subsubsection{Technical Risks}
@@ -164,11 +167,13 @@ The technical risks are characterized by their probability and effect on the sys
         %User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
         %User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
-        Old libraries and platforms provide an easy target & Unauthorized access and several vulnerabilities \cite{CVEdb} & H & 9 \\\hline
+        Old libraries and platforms provide an easy target & Unauthorized access and several known vulnerabilities \cite{CVEdb} & H & 9 \\\hline
         Hardware failure & Reports of downtime & L & 5 \\ \hline
         Security is not part of system architecture design & Unauthorized access & M & 7 \\ \hline
 		Security safeguards slows down user experience & Too many interactions & L & 3
 		\\ \hline
+		Non human users spam the system with irrelevant data & Garbled input with common words and quick repetitions of requests & H & 5
+				\\ \hline
 	\end{tabular}
 	\caption{Risk analysis for the social network system with mitigation strategies. L: Likelihood that it will occur. C: Consequences on a scale from 1 to 10}
 	\label{tab:risk_analysis}
@@ -188,7 +193,7 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
     The server must provide 99.5\% uptime & Data loss &  Hardware failure \\ \hline
     %\multirow{4}{4cm}{The web server is breached at most twice throughout the project period} & \multirow{4}{4cm}{Vulnerabilities in the system} & TR5 & SQL injection \\ & & TR8 & Replay attack \\ & & TR9 & Cross-site request forgery \\ & & TR12 & Cross-site scripting (XSS) \\ \hline    
     Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
-    The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & A user is subject to social engineering & Security safeguards slows down user experience \\ \hline
+    The application should be usable by a novice computer user on small screens (smartphones) as well as desktops & A user is subject to social engineering & Security safeguards slows down user experience. Non human users spam the system with irrelevant data \\ \hline
     \end{tabular}
     \caption{Goal-to-risk relationship table.}
 	\label{tab:goal_to_risk_relationship}
@@ -200,10 +205,11 @@ In table \ref{tab:goal_to_risk_relationship} the business and technical risks ar
 We have ranked the risks and provide our proposals for mitigation.
 \begin{description}
 \item[Vulnerability in the system]
-Use supported third party libraries to keep all parts of the software secure to avoid the compromise of sensitive user data by Securing the Weakest Link.
+Use supported third party libraries and continuously check and update the technologies used in order to keep all parts of the software secure.
+% to avoid the compromise of sensitive user data by Securing the Weakest Link.
 
 
-By assigning clients user credentials we can identify them and separate them into different roles that we might need and do \textbf{Separation of Privilege}.
+%By assigning clients user credentials we can identify them and separate them into different roles that we might need and do \textbf{Separation of Privilege}.
 
 \item[Data loss]
 We can do backups of the database and encrypt it.
@@ -340,8 +346,6 @@ We use a randomly generated 4 character salt for every user.
 
 
 \subsection{Architecture Risk Analysis}
-The authentication module in the forest view shown in \ref{fig:forest_view} is a JSF Phase listener that the JSF servlet invokes. It has one role that it checks.
-Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.
 
 
 \subsubsection{Attack Resistance Analysis}
@@ -445,6 +449,7 @@ Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
 Referer: http://team6.bollgreve.dk/
 \end{verbatim}
 
+If we look up the page manually we are shown an empty profile page so we cannot confirm that this is a vulnerability. However it proves that a vulnerability scanner is a powerful tool to extend abuse cases.
 
 \begin{figure}[h!]
 \centering
@@ -454,15 +459,15 @@ Referer: http://team6.bollgreve.dk/
 \end{figure}
 
 \subsubsection{Safeguards}
-
-The application protects against the following threats:
+Based on the probability and consequence of the threats we have chosen to protect the implement safeguards against the following threats:
 \begin{description}
 \item[SQL injections] By encapsulating database queries in prepared statements. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization.
 \item[XSS attacks] JSF2 provides protection against this.
 \item[Race conditions] We can avoid deadlock by using transaction in Hibernate. 
 We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
-%\item{Login bruteforcing}
-%\item{Admin subject to social engineering}
+\item[Login bruteforcing] Password requirements should prevent the most common low security passwords.
+\item[Non human users spam the system with irrelevant data] Implementing captcha's prevents non humans from filling out forms.
+%\item[Admin subject to social engineering]
 \end{description}
 
 %TODO: Does JSF protect against XSS attacks?
@@ -479,10 +484,13 @@ The following pages are unprotected:
 \item[profile.xhtml] - a users profile
 \item[alienprofile.xhtml] - an externally imported profile
 \end{description}
-  
+
+The authentication module in the forest view shown in figure \ref{fig:forest_view} is a JSF Phase listener that the JSF servlet invokes in figure \ref{fig:jsf_listener}. It has one role that it checks.
+Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.  
   
 \begin{figure}
-\caption{Authentication Module code}   
+\caption{Authentication Module code}
+\label{fig:jsf_listener}   
 \begin{lstlisting}
 public void afterPhase(PhaseEvent event) {
   FacesContext context = event.getFacesContext();  
@@ -511,10 +519,45 @@ Based on the priorities of the Risk Management section, as well as the previousl
 
 
 
-We do not require the application to run through a secure connection, because the probability of the attack is low. The impact of an attacker getting access a password is also low because the password cannot be changed. Furthermore we don't regard full names and addresses to have a critical impact if exposed.
+We have chosen not to safeguard the network traffic vulnerability by requiring the application to use SSL, because the probability of the attack is low. The impact of an attacker getting access a password is also low because the password cannot be changed. Furthermore we don't regard full names and addresses to have a critical impact if exposed.
 
 % as although it would provide good protection against abusive users sniffing packages on an open network, we have decided not to pursue this for a variety of reasons. 
-If we were to self-sign a certificate for SSL, it would mean a considerable reduction in usability, as most browsers warn users against entering sites signed with untrustworthy certificates. It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. So instead of self-signing a certificate, we have, as previously mentioned, modified our functional requirements to mitigate this particular abuse through alternative means.
+
+There are other circumstances regarding certificates. Our server doesn't have an assigned domain name which is required for getting a signed certificate. Furthermore most signed certificates cost money to request.
+%It is also not a completely trivial task to set up a certificate, and it is further complicated by the absence of a domain name to register it with. 
+
+An alternative is to create a self-signed certificate. It would cause a considerable reduction in usability, because most browsers warn users against entering sites with non-signed certificates. 
+
+Instead of creating a self-signing a certificate we have modified our functional requirements to mitigate this particular abuse through alternative means.
+
+For the integration with another team we needed to accept a self signed certificate by creating our own SSLSocketFactory. This required downloading the certificate and deploying it locally in our application so we could set it as a trusted certificate because otherwise the HTTPS client would not request the URL.
+\begin{lstlisting}
+urlcon.setHostnameVerifier(new HostnameVerifier()
+{
+  @Override
+  public boolean verify(String hostname, SSLSession session)
+  {
+    if (hostname.equals("192.237.201.172"))
+      return true;
+    return false;
+  }
+});
+\end{lstlisting}
+
+\begin{lstlisting}
+KeyStore keyStore = KeyStore.
+  getInstance(KeyStore.getDefaultType());
+keyStore.load(keyStoreInput, "team10".toCharArray());
+TrustManagerFactory tmf = TrustManagerFactory.
+  getInstance(TrustManagerFactory.getDefaultAlgorithm());
+tmf.init(keyStore);
+SSLContext ctx = SSLContext.getInstance("TLS");
+ctx.init(null, tmf.getTrustManagers(), null);
+return ctx.getSocketFactory();
+\end{lstlisting}
+
+%Securing traffic with SSL also makes it harder for clients to communicate with our application through the REST API. 
+
 %\begin{itemize}
 %\item 
 %\item Database access credentials are never stored in any source code repository
@@ -714,15 +757,6 @@ As part of the requirement to expose the publicly available data in our system t
 
 Doing a bit of research, we found out that team 10 in particular might be vulnerable to this kind of attack. During conversations with them about how best to exchange data through a REST API, we learned that they stored the interests (hobbies) of their users in comma-separated text strings. At this point we also applied a dose of social engineering by explaining to them in detail how they might consume our web service from their application, in an attempt to get them to implement their client as naively as possible.
 
-\subsection{Brute force attempt on Mysql server on team 5}
-After doing an nmap scan we found that the mysql server was listening.
-We found a vulnerability for an older version of mysql \cite{Mysql2012}. 
-
-We tried brute forcing a connection to mysql but our IP was blacklisted after 10 attempts as seen in the following response.
-\begin{verbatim}
-Host '...' is blocked because of many connection errors; 
-unblock with 'mysqladmin flush-hosts'
-\end{verbatim}
 
 \subsubsection{Results}
 See figure 4 under chapter 9.4 in the appendix for graphical illustration of the results of this attack. As denoted in the figure, the Fishing hobby was the one we configured to result in malicious code rather than its innocent name in a string, whenever requested by a web server located on team 10's IP address. As can be seen, the user with the hobby correctly imports to team 10's "Friendship Portal", but the malicious string produced by the Fishing hobby is not displayed, and is not even present in the document's source. This indicates that team 10 did anticipate this kind of attack, and took the appropriate security measures by validating the data imported from our service.
@@ -734,6 +768,15 @@ See figure 4 under chapter 9.4 in the appendix for graphical illustration of the
 %This resulted in a 502 error followed by errorcode 500 responses on following %attempts at reaching the website.
 %In order to submit the form the in-browser email verification had to be disabled %(achieved by editing the DOM such that type="email" became type="text")
 
+\subsection{Brute force attempt on Mysql server on team 5}
+After doing an nmap scan we found that the mysql server was listening.
+We found a vulnerability for an older version of mysql \cite{Mysql2012}. 
+
+We tried brute forcing a connection to mysql but our IP was blacklisted after 10 attempts as seen in the following response.
+\begin{verbatim}
+Host '...' is blocked because of many connection errors; 
+unblock with 'mysqladmin flush-hosts'
+\end{verbatim}
 
 \section{Discussion}
 
