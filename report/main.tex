@@ -737,8 +737,11 @@ The previously mentioned test cases have been automated using our testing framew
 \section{Hacking}
 Pennetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
 
-The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have a lot of knowledge about the general concepts of hacking and attacking, and who understand the proper way to exploit weaknesses. 
-A good way to perform the test is by first looking at the technologies and frameworks that the application use and in particular which version. With this information it is possible to look in open exploit- and bug databases to search for entries that might impact the security of the application, and then try to execute attacks based on the bugs.
+The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have experience in discovering vulnerabilites that they can exploit.
+% about the general concepts of hacking and attacking, and who understand the proper way to exploit weaknesses. 
+A hacker would potentially only need a bridgehead on a server in order to intrude a server. An application can only be as secure as its weakest link.
+
+In order to establish a bridgehead an attacker would discover the technologies and frameworks that the server an application runs on uses. Over time software tends to degrade in security and an important discovery is the particular version of a technology. With this information it is possible to look in open exploit- and bug databases\cite{CVEdb} to search for entries that might impact the security of the application, and then try to execute attacks based on the bugs.
 
 \textbf{Automated testing}
 Tools have been created to aide the security expert in her analysis or to help novice security testers. Basically two kinds of tools exist; static analysis tools and dynamic testing tools.
