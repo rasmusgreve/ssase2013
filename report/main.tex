@@ -530,8 +530,27 @@ An alternative is to create a self-signed certificate. It would cause a consider
 
 Instead of creating a self-signing a certificate we have modified our functional requirements to mitigate this particular abuse through alternative means.
 
-For the integration with another team we needed to accept a self signed certificate by creating our own SSLSocketFactory. This required downloading the certificate and deploying it locally in our application so we could set it as a trusted certificate because otherwise the HTTPS client would not request the URL.
+We needed to integrate with another team bu they used a self signed certificate. This made it necessary to create our own SSLSocketFactory. By downloading the certificate and importing it into a keystore, see figure \ref{fig:ssl_keystore} we could deploy it inside our application. 
 \begin{figure}
+\caption{Imported SSL keystore}
+\label{fig:ssl_keystore}   
+\begin{lstlisting}
+KeyStore keyStore = KeyStore.
+  getInstance(KeyStore.getDefaultType());
+keyStore.load(keyStoreInput, "team10".toCharArray());
+TrustManagerFactory tmf = TrustManagerFactory.
+  getInstance(TrustManagerFactory.getDefaultAlgorithm());
+tmf.init(keyStore);
+SSLContext ctx = SSLContext.getInstance("TLS");
+ctx.init(null, tmf.getTrustManagers(), null);
+return ctx.getSocketFactory();
+\end{lstlisting}
+\end{figure}
+This way we could set it as a trusted certificate by hardcoding the hostname verifier to the IP we knew the team used, see figure \ref{fig:ssl_verifier}, because otherwise the HTTPS client would fail.
+
+\begin{figure}
+\caption{Imported SSL Verifier}
+\label{fig:ssl_verifier}   
 \begin{lstlisting}
 urlcon.setHostnameVerifier(new HostnameVerifier()
 {
@@ -543,20 +562,6 @@ urlcon.setHostnameVerifier(new HostnameVerifier()
     return false;
   }
 });
-\end{lstlisting}
-\end{figure}
-
-\begin{figure}
-\begin{lstlisting}
-KeyStore keyStore = KeyStore.
-  getInstance(KeyStore.getDefaultType());
-keyStore.load(keyStoreInput, "team10".toCharArray());
-TrustManagerFactory tmf = TrustManagerFactory.
-  getInstance(TrustManagerFactory.getDefaultAlgorithm());
-tmf.init(keyStore);
-SSLContext ctx = SSLContext.getInstance("TLS");
-ctx.init(null, tmf.getTrustManagers(), null);
-return ctx.getSocketFactory();
 \end{lstlisting}
 \end{figure}
 
@@ -605,8 +610,10 @@ This way we have restricted access to the database by only allowing the database
 \item[Reluctance to Trust]
 We only store the unique password to the database for the application user on the server. We don't trust the confidentiality of our Version Control System.
 
-\item[Least Common Mechanism]
+\item[Promoting Privacy]
 A firewall blocks requests on all ports except port 80 (HTTP) and port 6666 (SSH).
+
+\item[Least Common Mechanism]
 We configured the SSH daemon to listen on port 6666 instead of 22 because this might prevent attackers from bruteforcing login.
 
 \item[Fail Securely]

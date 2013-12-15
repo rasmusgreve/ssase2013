@@ -27,22 +27,17 @@ public class AuthPhaseListener implements PhaseListener {
             "/alienprofile.xhtml"
         };
     
+    @Override
     public void afterPhase(PhaseEvent event) {
         FacesContext context = event.getFacesContext();
        
         boolean authorized = false;
         if (userExists(context)) {
             // allow processing of the requested view
-            if (requestingAdminView(context)) {
-                if(userAdmin(context)) {
-                   authorized = true; 
-                }                     
-            } else 
-                authorized = true;
+            authorized = true;
         } else {            
             // send the user to the login view
-            if (requestingSecureView(context)) {
-                
+            if (requestingSecureView(context)) {                
                 redirectToLogin(context);
             } else {
                 authorized=true;
@@ -67,10 +62,12 @@ public class AuthPhaseListener implements PhaseListener {
         
     }
 
+    @Override
     public void beforePhase(PhaseEvent event) {
         FacesContext context = event.getFacesContext();  
     }
 
+    @Override
     public PhaseId getPhaseId() {
         return PhaseId.RESTORE_VIEW;
     }
@@ -95,12 +92,6 @@ public class AuthPhaseListener implements PhaseListener {
                 return false;
         }
         return (true);       
-    }
-    
-    private boolean requestingAdminView(FacesContext context) {
-        ExternalContext extContext = context.getExternalContext();       
-        String path = extContext.getRequestPathInfo();
-        return ("/createUser.xhtml".equals(path) );              
-    }
+    }    
 }
 
