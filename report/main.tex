@@ -485,35 +485,9 @@ The following pages are unprotected:
 \item[alienprofile.xhtml] - an externally imported profile
 \end{description}
 
-The authentication module in the forest view shown in figure \ref{fig:forest_view} is a JSF Phase listener that the JSF servlet invokes in figure \ref{fig:jsf_listener}. It has one role that it checks.
+The authentication module in the forest view shown in figure \ref{fig:forest_view} is an extended JSF Phase listener that overrides the afterPhase method to check for login. Otherwise it redirects to the login page.
 Furthermore there is a filter that protects against accessing the web pages outside the JSF servlet.  
   
-\begin{figure}
-\caption{Authentication Module code}
-\label{fig:jsf_listener}   
-\begin{lstlisting}
-public void afterPhase(PhaseEvent event) {
-  FacesContext context = event.getFacesContext();  
-  boolean authorized = false;
-  if (userExists(context)) {
-    // allow processing of the requested view
-    if (requestingAdminView(context)) {
-      if(userAdmin(context)) {
-        authorized = true; 
-      }                     
-    } else 
-      authorized = true;
-  } else {            
-    // send the user to the login view
-    if (requestingSecureView(context)) {                
-      redirectToLogin(context);
-    } else {
-      authorized=true;
-    }
-  }
-}    
-\end{lstlisting} 
-\end{figure}
 
 Based on the priorities of the Risk Management section, as well as the previously listed abuse cases, we have derived the following security requirements to our application.
 
@@ -532,7 +506,7 @@ Instead of creating a self-signing a certificate we have modified our functional
 
 We needed to integrate with another team bu they used a self signed certificate. This made it necessary to create our own SSLSocketFactory. By downloading the certificate and importing it into a keystore, see figure \ref{fig:ssl_keystore} we could deploy it inside our application. 
 \begin{figure}
-\caption{Imported SSL keystore}
+\caption{Custom SSL keystore}
 \label{fig:ssl_keystore}   
 \begin{lstlisting}
 KeyStore keyStore = KeyStore.
@@ -721,7 +695,7 @@ A testing tool we found fitting to use for system tests is Selenium with JUnit. 
 \item SQL injection in input
 \item Access to unauthorized pages
 \item Creating user
-\item Renewing password
+%Not implememted \item Renewing password 
 \end{itemize}
 
 \section{Hacking}
