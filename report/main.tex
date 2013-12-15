@@ -698,14 +698,39 @@ When the tests are running, Selenium starts firefox and executes all the command
 Creating an automated test suite makes development and especially refactoring a breeze since whenever something is changed it is easy to verify that everything that worked beforehand, still works. It should be noted that we of course don't assume that our test cases cover everything, but they still give a good indication of whether or not a change has broken functionality.
 
 \subsection{System Test Cases (Grey-box Test)}
+We use grey box testing to do system testing, meaning that we mainly do white box testing to test use cases, but use our knowledge of the implementation to write the abuse cases so that they would fail if they could.
 
+\subsubsection{Signup}
+The signup form must be visible and usable when you are not signed in, otherwise it wouldn't be of much use. There is a requirement that user handles be unique, and that passwords must be at least 6 characters long and contain lowercase and uppercase letters as well as numbers.
+
+The signup form also has a CAPTCHA\footnote{CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart} test which by the intention of the CAPTCHA we won't be able to automatically enter correctly.
+
+The only tests we have been able to automate regarding signup is illegal password and wrong CAPTCHA. In the code the handle is tested for uniqueness after the CAPTCHA has been validated, so this feature has been tested manually.
+
+\subsubsection{Login}
+The login form has been tested by inputting valid and invalid login information and testing that we are and aren't logged in respectively. We have also implemented an automatic SQL injection test to ensure that it is not possible to execute SQL statements by putting them into the form fields.
+
+\subsubsection{User relations}
+Our user relations test is a validation test to ensure that all the required features are implemented and working. The following features are tested:
 \begin{itemize}
-\item Login
-\item SQL injection in input
-\item Access to unauthorized pages
-\item Creating user
-%Not implememted \item Renewing password 
+\item View list of friends
+\item Request friendship
+\item Accept friendship
+\item Remove friendship
+\item Start romance
+\item End romance
 \end{itemize}
+
+\subsubsection{My profile}
+It has been tested that you can enter and edit information about your own name, surname and address. All features have also had abuse cases tested where XSS attempts and SQL injection attempts has been tested and proven to not work.
+
+\subsubsection{When not logged in}
+It is possible to use our webservice without logging in. This has required us to test and ensure that only the publicly available information is available to users that are not logged in.
+We test that anonymous users cannot request friendships or delete users, but that they can see a list of users and view their profile.
+On the profile page we test that only the handle and hobbies are visible and name, address and recent activities are hidden.
+
+\subsubsection{Manual tests}
+The previously mentioned test cases have been automated using our testing framework Selenium, since Selenium is designed for HTML DOM testing. This made it less useful for testing our REST API, which instead has been tested manually and of course implicitly by the team consuming our API (team 10).
 
 \section{Hacking}
 Pennetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
