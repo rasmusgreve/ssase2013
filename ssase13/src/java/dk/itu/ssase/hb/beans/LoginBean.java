@@ -6,6 +6,7 @@ package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Student;
 import dk.itu.ssase.hb.model.UserSession;
+import dk.itu.ssase.hb.util.JSFActionConstants;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.logging.Level;
@@ -43,8 +44,9 @@ public class LoginBean {
                 context.getExternalContext().getSessionMap().put(USER_SESSION_KEY, user);
                 setValidated(true);
                 Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Authenticated user {0}", student.getName());           
-                return "success";
+                return JSFActionConstants.JSFSuccess;
             } else {
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Login failed with incorrect password for {0}", getUsername());           
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Login Failed!",
                         "error");
@@ -52,6 +54,7 @@ public class LoginBean {
                 return null;
             }
         } else {
+                Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Login failed because user {0} doesn't exist", getUsername());  
                 FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                         "Login Failed!",
                         "error");
@@ -61,13 +64,15 @@ public class LoginBean {
     }
 
     public String logout() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User with id: {0} logged out", currentSession.getStudentId());    
         HttpSession session = (HttpSession)
              FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        return "login";
-        
+        return JSFActionConstants.JSFLogin;        
     }
     
     

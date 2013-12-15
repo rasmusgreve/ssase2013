@@ -15,6 +15,7 @@ import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.dao.StudentDAO;
 import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
+import dk.itu.ssase.hb.util.JSFActionConstants;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import dk.itu.ssase.hb.util.StudentViewGeneratorUtil;
 import java.util.ArrayList;
@@ -34,8 +35,6 @@ import org.hibernate.Transaction;
 public class FriendController {
     private StudentDAO studentDAO;
     
-    private Logger logger = Logger.getLogger(this.getClass().getName());
-
     public FriendController() {
         studentDAO = DAOFactory.createStudentDAO();
     }
@@ -50,6 +49,7 @@ public class FriendController {
         students = session.createQuery("SELECT s FROM Student s WHERE s.id != :currentstudent AND s.issuspended = true").setInteger("currentstudent", currentSession.getStudentId()).list();
         
         session.close();
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Search for suspended users and found {0} results", students.size());
         return students;
     }
     
@@ -58,7 +58,7 @@ public class FriendController {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         List<AlienUser> users = session.createQuery("SELECT a FROM AlienUser a").list();
 
-        logger.log(Level.INFO, "Search for alien users and found {0} results", users.size());
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Search for alien users and found {0} results", users.size());
         session.close();
         return users;
     }
@@ -75,12 +75,12 @@ public class FriendController {
             
             users.add(relationship.getAlienUserByAlien1());
             
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", relationship.getAlienUserByAlien1().getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found alien relationship with: {0} for alien user id: {1}", new String[]{relationship.getAlienUserByAlien1().getName(), alienUserId+""});
         }
         for (AlienRelation relationship : relas2) {
             users.add(relationship.getAlienUserByAlien2());
             
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", relationship.getAlienUserByAlien2().getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found alien relationship with: {0} for alien user id: {1}", new String[]{relationship.getAlienUserByAlien2().getName(), alienUserId+""});
         }
         
         session.close();
@@ -118,7 +118,7 @@ public class FriendController {
         for (Student student : students3) {
             studentsTree.remove(student.getId());
         }
-        logger.log(Level.INFO, "Search for possible friends and found {0} results", studentsTree.size());
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Search for possible friends and found {0} results", studentsTree.size());
         session.close();
         return studentsTree.values();
     }
@@ -155,11 +155,11 @@ public class FriendController {
         } catch (Exception ex) {
             if (tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Upgrading friendship failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Upgrading friendship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
     
     public String upgradeToRomance(int friendId)
@@ -191,11 +191,11 @@ public class FriendController {
         } catch (Exception ex) {
             if (tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Adding hug failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Adding hug failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
     
 
@@ -216,7 +216,7 @@ public class FriendController {
         for (Relationship relationship : relas) {
             StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
             users.add(view);
-            logger.log(Level.INFO, "Found friend request from: {0}", view.getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found friend request from: {0}", view.getName());
         }
         session.close();
         return users;
@@ -238,7 +238,7 @@ public class FriendController {
         for (Relationship relationship : relas) {
             StudentView view = StudentViewGeneratorUtil.createStudentView(currentUserId, relationship);
             users.add(view);
-            logger.log(Level.INFO, "Found friend request from: {0}", view.getName());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found friend request from: {0}", view.getName());
         }
         session.close();
         return users;
@@ -250,7 +250,7 @@ public class FriendController {
      * @return 
      */
     public String requestRelationship(int userId) {
-        logger.log(Level.INFO, "Add relationship to student id: {0}", userId);
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Add relationship to student id: {0}", userId);
         Relationship relationship = new Relationship();
         FacesContext context = FacesContext.getCurrentInstance();
         UserSession currentSession = (UserSession) context.getExternalContext().getSessionMap().get(LoginBean.USER_SESSION_KEY);
@@ -273,16 +273,16 @@ public class FriendController {
         } catch(Exception ex) {
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Requesting relationship failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Requesting relationship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
         Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Created relationship request with id: {0}", relationship.getId());
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
     
     public String deleteRequest(int relaId) {
-        logger.log(Level.INFO, "Delete relationship id: {0}", relaId);
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Delete relationship id: {0}", relaId);
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
@@ -297,15 +297,15 @@ public class FriendController {
         } catch(Exception ex) {
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Deleting relationship failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Deleting relationship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
     
     public String approveFriend(int relaId) {
-        logger.log(Level.INFO, "Approve relationship id: {0}", relaId);
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Approve relationship id: {0}", relaId);
 
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         
@@ -322,10 +322,10 @@ public class FriendController {
         } catch(Exception ex) {
             if(tx!=null)
                 tx.rollback();
-            logger.log(Level.SEVERE, "Approving relationship failed because: {0}", ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "Approving relationship failed because: {0}", ex.getMessage());
         } finally {
             session.close();
         }
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
 }

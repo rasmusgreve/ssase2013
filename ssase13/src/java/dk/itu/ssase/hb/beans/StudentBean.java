@@ -14,6 +14,7 @@ import dk.itu.ssase.hb.dao.DAOFactory;
 import dk.itu.ssase.hb.model.StudentView;
 import dk.itu.ssase.hb.model.UserSession;
 import dk.itu.ssase.hb.service.client.AlienClient;
+import dk.itu.ssase.hb.util.JSFActionConstants;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,7 @@ public class StudentBean {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         remainingHobbies = session.createQuery("SELECT h FROM Hobby h WHERE h.id NOT IN (SELECT h.id FROM Hobby h JOIN h.interests i JOIN i.student s WHERE s.id = :student)").setInteger("student", currentSession.getStudentId()).list();
         session.close();
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Search for possible hobbies and found {0} results", remainingHobbies.size());
         return remainingHobbies;
     }
     
@@ -135,7 +137,7 @@ public class StudentBean {
     
     public String removeHobby(){
         //TODO: Please implement this
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
             
     public String addHobby() {        
@@ -162,7 +164,7 @@ public class StudentBean {
 
         Logger.getLogger(this.getClass().getName()).log(Level.INFO, "User {0} added Hobby id: {1} ", new int[] {currentSession.getStudentId(), hobby});
         
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
 
     
@@ -271,7 +273,7 @@ public class StudentBean {
             tx = session.beginTransaction();
             session.update(currentStudent);
             tx.commit();
-            return "success";
+            return JSFActionConstants.JSFSuccess;
         } catch(Exception ex) {            
             if(tx!=null)
                 tx.rollback();
@@ -288,6 +290,6 @@ public class StudentBean {
         AlienClient alienClient = new AlienClient();
         
         alienClient.synchronizeWithDatabase();
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
 }

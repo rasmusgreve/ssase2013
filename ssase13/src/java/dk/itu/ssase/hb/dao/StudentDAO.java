@@ -55,9 +55,9 @@ public class StudentDAO {
             users.add(view);
             
             Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found relationship with: {0}", view.getName());
-        }
-        
+        }        
         session.close();
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found {0} friends for user with id: {1}", new Integer[]{users.size(),userId});
         return users;
     }
     
@@ -65,6 +65,7 @@ public class StudentDAO {
         Session session = StudentHibernateUtil.getSessionFactory().openSession();
         List<Hobby> hobbies = session.createQuery("SELECT h FROM Interest i JOIN i.student s JOIN i.hobby h WHERE s.id = :id").setInteger("id", userId).list();
         session.close();
+        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Found {0} hobbies for user with id: {1}", new Integer[]{hobbies.size(),userId});
         return hobbies;
     }
     

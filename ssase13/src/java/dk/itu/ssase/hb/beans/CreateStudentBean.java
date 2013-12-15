@@ -5,6 +5,7 @@
 package dk.itu.ssase.hb.beans;
 
 import dk.itu.ssase.hb.beans.model.Student;
+import dk.itu.ssase.hb.util.JSFActionConstants;
 import dk.itu.ssase.hb.util.PasswordUtil;
 import dk.itu.ssase.hb.util.StudentHibernateUtil;
 import java.io.BufferedReader;
@@ -52,7 +53,7 @@ public class CreateStudentBean {
                 if(tx!=null)
                     tx.rollback();
                 session.close();
-                return "fail";
+                return JSFActionConstants.JSFFailure;
             }
             
             String salt = PasswordUtil.generateSalt();
@@ -67,22 +68,22 @@ public class CreateStudentBean {
             tx.commit();          
             session.close();      
         } catch(ConstraintViolationException ex) {
-            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "User exists " + ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.WARNING, "User exists {0}", ex.getMessage());
             FacesContext.getCurrentInstance().addMessage("handle", new FacesMessage("Handle exists"));
             if(tx!=null)
                 tx.rollback();
             session.close();
-            return "fail";
+            return JSFActionConstants.JSFFailure;
         
         } catch (Exception ex) {
-            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Query failed with exception " + ex.getMessage());
+            Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Query failed with exception {0}", ex.getMessage());
             if(tx!=null)
                 tx.rollback();
             session.close();
-            return "fail";
+            return JSFActionConstants.JSFFailure;
         }
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("User created"));
-        return "success";
+        return JSFActionConstants.JSFSuccess;
     }
     
     private boolean validateCaptcha() throws IOException
