@@ -273,7 +273,7 @@ In addition, we have specified a number of abuse cases, constituting a security-
 		\item The third party gains access to sensitive user data against the regulations of the privacy policy
 		\item The third party gains access to the user's session ID, allowing the intruder to impersonate the user when communicating with the application
 	\end{enumerate}
-\item A person with access to an administrator's credentials wreaks havoc on the system by deleting multiple user profiles
+\item A person with access to an administrator's credentials wrecks havoc on the system by deleting multiple user profiles
 \item A competing web service exposes malicious data, such as client-side executable code, when exporting to our application
 \end{enumerate}
 
@@ -619,10 +619,11 @@ We have chosen to use the following tools to assist us in our project process.
 We did informal code review before each milestone by checking the issues that we had created in Github and the quality of the implementation as a group.
 
 \section{Testing}\label{sec:testing}
-In order to ensure that our service works as intended and do not have any immediate flaws we have conducted a series of automated and manual tests.
+In order to ensure that our service works as intended and do not have any immediate flaws we have conducted a series of automated and manual tests. 
+The tests were developed in priority according to the risks and abuse cases that we have designed.
 
 \subsection{Test plan}
-Our strategy for testing was twofold: We wanted to test the functionality of all components and we wanted to test the overall functionality of the system using system tests.
+Our strategy for testing was twofold: We would like to prove that the functionality of all components worked and we wished to test the overall quality of the system using system tests.
 
 \subsubsection{Testing objectives}
 We have had two objectives with our tests, both to confirm that the required features are correctly implemented and working (e.g. validation testing), but also that any error cases or abuse cases result in error messages or at least correct behavior (i.e. defect testing)
