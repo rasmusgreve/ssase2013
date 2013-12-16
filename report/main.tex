@@ -324,31 +324,36 @@ The following is our non-functional requirements to the system. These are derive
 
 \section{Architecture}
 
-Our production server runs Linux and provides the access control for users' access to the file system.
-
-We have some assets that we think are worth protecting e.g. our database. 
 
 \subsection{Operations}
+Our production server runs a Ubuntu distribution of Linux.
+% and provides the access control for users' access to the file system.
+
+There are assets that should be protected because we want to promote privacy:
+\begin{itemize}
+\item Database for the application
+\item Log files for the application
+\end{itemize}
 
 \subsubsection{Frameworks and Technologies}
 The following is a list of all the frameworks and technologies we have decided to use, with a short justification for each. In general we use open source technologies that promote awareness about security issues.
+
+Frameworks:
 \begin{description}
 \item[JSF2] This is the recommended dynamic web page technology for this course, which makes help more readily available. In addition, we are all fairly experienced with Java, and one person on the team has prior experience with JSF. It provides protection against XSS and CSRF. 
-\item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
-\item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
 \item[Hibernate 3] is a library that provides ORM and can encapsulate database access in transactions and maps objects to relations.
-\item[PostgreSQL 9.1.9] is a RDBMS that provides extensive functionality like auto generated id sequences and fine-grained access control of database operations for users. The devlopers provide a list of security issues \footnote{\href{http://www.postgresql.org/support/security/}{http://www.postgresql.org/support/security/}} and we have considered that the version we chose is safe.
 \item[JUnit and Selenium with Selenide] for testing our application. JUnit provides a unit-testing framework for Java, which Selenium integrates with. Selenide is a framework for running tests for a web application through the browser.
 \item[Commons Logging]
-Tomcat supports commons logging and we use this to create an audit log for tracking intrusions.
+Tomcat supports commons logging and we use this to track user activity in an audit log.
+\end{description}
+Technologies:
+\begin{description}
+\item[Apache Tomcat 7.0.26] This is a lightweight application server for Java web applications that supports Servlet 3.0 and HTTP 1.1. It is the recommended server technology. 
+\item[PostgreSQL 9.1.9] is a RDBMS that provides extensive functionality like auto generated id sequences and fine-grained access control of database operations for users. The developers provide a list of security issues \footnote{\href{http://www.postgresql.org/support/security/}{http://www.postgresql.org/support/security/}} and we have considered that the version we chose is safe.
+\item[UFW] The Uncomplicated Firewall, is a straightforward firewall implementation for Linux that provides easy configuration of port filtering/blocking etc.
 \item[Uptime Robot] This is a uncomplicated and free SaaS that monitors websites for downtime and sends email if they are unresponsive.
 \item[Snort] Snort is an Intrusion Detection System that logs intrusions using tcpdump.
 \end{description}
-
-
-\textbf{SHA-256} algorithm for hashing our users' passwords. It is generally regarded as a considerably secure hashing algorithm.
-We use a randomly generated 4 character salt for every user.
-
 
 \subsection{Architecture Risk Analysis}
 
@@ -399,10 +404,7 @@ any\r\nSet-cookie: Tamper=2918187384565502119
 Furthermore we didn't have any password rules.
 
 \subsubsection{Weakness Analysis}
-We are aware that the network traffic is not protected \cite{sins2009}. This is a weakness in the architecture between the client browser and the server where a 'man-in-the-middle' can intercept requests by doing ARP poisoning in order to read passwords that are passed as cleartext.
-
-In order to find weaknesses we used a vulnerability scanner called w3af on our own application.
-
+We ran the vulnerability scanner called w3af against our own application in order to find weaknesses.
 
 w3af is in the words of the creators a "Web Application Attack and Audit Framework". It is open source and developed in python. It is built as a plugin framework where each known vulnerability to test, is contained as a plugin. This makes it easy to change what is tested and carefully conduct a specialized attack against a web application where you know which tools and frameworks run underneath.
 
@@ -454,7 +456,9 @@ Cookie: JSESSIONID=CC4B00E98F4083C6CB66E1B5A4974676
 Referer: http://team6.bollgreve.dk/
 \end{verbatim}
 
-If we look up the page manually we are shown an empty profile page so we cannot confirm that this is a vulnerability. However it proves that a vulnerability scanner is a powerful tool to extend abuse cases.
+If we look up the page manually we are shown an empty profile page so we cannot confirm that this is a vulnerability. However it proves that a vulnerability scanner is a powerful tool to extend abuse cases.  We are aware that the tool might only catch the most critical exceptions and a thorough penetration test would be better.
+
+To help identify weaknesses we drew a Forest View diagram as seen in Figure \ref{fig:forest_view}.
 
 \begin{figure}[h!]
 \centering
@@ -463,14 +467,18 @@ If we look up the page manually we are shown an empty profile page so we cannot 
 \label{fig:forest_view}
 \end{figure}
 
+The communication between the web client and the application server is not protected \cite{sins2009} because it is plain text http packets sent over the network. This weakness is usually exploited by a 'man-in-the-middle' who can follow an attack pattern that spoofs ARP packets in order to intercept the requests to the server and read usernames and passwords.
+
 \subsubsection{Safeguards}
 Based on the probability and consequence of the threats we have chosen to protect the implement safeguards against the following threats:
 \begin{description}
 \item[SQL injections] By encapsulating database queries in prepared statements. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization.
-\item[XSS attacks] JSF2 provides protection against this.
+\item[XSS attacks] JSF2 provides safeguards protecting against this.
 \item[Race conditions] We can avoid deadlock by using transaction in Hibernate. 
 We have also taken measures to protect against race conditions, one of the sins covered in \cite{sins2009}. This is for the most part a question of making sure to write re-entrant code in critical sections where race conditions could be a threat to the integrity of our data. It is also inherently supported at the database layer by transactions in Hibernate.
-\item[Login bruteforcing] Password requirements should prevent the most common low security passwords.
+\item[Login bruteforcing] Password requirements should prevent the most common low security passwords. If the database is exposed all passwords are hashed using the
+\textbf{SHA-256} algorithm with a randomly generated 4 character salt for every user.
+%At this point in time it is regarded as a considerably secure hashing algorithm.
 \item[Non human users spam the system with irrelevant data] Implementing captcha's prevents non humans from filling out forms.
 %\item[Admin subject to social engineering]
 \end{description}
@@ -738,7 +746,7 @@ On the profile page we test that only the handle and hobbies are visible and nam
 The previously mentioned test cases have been automated using our testing framework Selenium, since Selenium is designed for HTML DOM testing. This made it less useful for testing our REST API, which instead has been tested manually and of course implicitly by the team consuming our API (team 10).
 
 \section{Hacking}
-Pennetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
+Penetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
 
 The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have experience in discovering vulnerabilites that they can exploit.
 % about the general concepts of hacking and attacking, and who understand the proper way to exploit weaknesses. 
