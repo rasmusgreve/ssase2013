@@ -169,7 +169,7 @@ The technical risks are characterized by their probability and effect on the sys
         %User login bruteforcing & Repeated login attempts in logs & M & 6 \\ \hline
         %TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
         %User session hijacking & Reports from users of peculiar behavior & M & 4 \\ \hline
-        Old libraries and platforms provide an easy target & Unauthorized access and several known vulnerabilities \cite{CVEdb} & H & 9 \\\hline
+        Old libraries and platforms provide an easy target & Unauthorized access and several published vulnerabilities & H & 9 \\\hline
         Hardware failure & Reports of downtime & L & 5 \\ \hline
         Security is not part of system architecture design & Unauthorized access & M & 7 \\ \hline
 		Security safeguards slows down user experience & Too many interactions & L & 3
@@ -275,11 +275,9 @@ In addition, we have specified a number of abuse cases, constituting a security-
 \end{itemize}
 
 \subsection{Functional Requirements}
-Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. A few requirements have been added and/or modified based on the abuse cases, however, and these are marked with a star (*) and mentioned here.
+Most of the following functional requirements are derived from the use cases, to support the functionality that the customer has requested in the project description. 
 
-* In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
 
-** In order to prevent people with access to an administrator's credentials from destroying user data in the system, an administrator is only able to suspend (and not delete, as per the use case) user profiles. Other administrators will then be able to restore the profile, in the case of a mistake. We feel that this is a good compromise, which does not stray too far from the original use case.
 \begin{itemize}
 \item A database model supporting users with the following data represented:
   \begin{itemize}
@@ -318,6 +316,11 @@ The following is our non-functional requirements to the system. These are derive
 \item A logging framework is enabled that allows the team to identify the underlying causes of any breaches that may occur
 \end{itemize}
 
+\subsection{Security Requirements}
+\begin{itemize}
+\item In order to prevent an intruder who has hijacked a user's session ID from tampering with the user profile itself, we require users to re-enter their password whenever they submit changes to their profile data.
+\item In order to prevent people with access to an administrator's credentials from destroying user data in the system, an administrator is only able to suspend (and not delete, as per the use case) user profiles. Other administrators will then be able to restore the profile, in the case of a mistake. We feel that this is a good compromise, which does not stray too far from the original use case.
+\end{itemize}
 
 \section{Architecture}
 
@@ -811,15 +814,26 @@ unblock with 'mysqladmin flush-hosts'
 \end{verbatim}
 
 \section{Discussion}
-Of the requirements presented in the specification chapter, we have delivered a product that fulfils nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functinoality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. It is indeed true, but this is only a threat on unencrypted, open, wireless networks, and most operating systems will warn users that connect to one of this fact. Even then, the actual password is only sent once during login, and so is not the most exposed of packets that could be compromised. It is more likely that something like a user's session ID is picked up, which could allow the intruder to impersonate the user, and for instance change the password. It is here that the requirement of password validation for such actions is important.
+Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project and made it more expensive to implement.
 
-Of the remaining security risks, we have focused on % ... what
+During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is only a threat on unencrypted, open, wireless networks. Most network connected software will warn users that connect to a network of this fact.
 
-\subsection{Problems}
+The actual password is only sent once per session at user login, and so is not the most exposed of packets that could be compromised. It is more likely that something like a user's session ID is picked up, which could allow the intruder to impersonate the user, and for instance change the password. It is here that the requirement of password validation for such actions is important.
 
+Of all the touchpoints the code review was the most difficult because we experienced that it requires guidance in order to achieve mutual participance from all stakeholders.
+%Of the remaining security risks, we have focused on % ... what
+
+%\subsection{Problems}
+
+%We tried to envisage the black hat mentality however we had some difficulty acquiring the mindset needed.
 
 \section{Conclusion}
-Our final product lives up to the expectations we put down during development, as more requirements were periodically introduced. We managed to deploy an application supporting all but one of the use cases derived from the three project descriptions. At every step of the process, we have had in mind the quality of security by virtue of McGraw's touchpoints\cite{McGraw2009}, incorporating security risks in our business analysis, modifying requirements based on abuse cases and testing determinedly for security vulnerabilities.
+Based on the 3 pillars of Software Security.
+By applying the seven touchpoints we believe that we have designed and implemented an application that supports 'building security in'.
+
+Our final product fulfills the requirements of the customer that were gradually introduced. 
+We managed to deploy an application supporting all but one of the use cases derived from the three project descriptions. 
+At every step of the process, we have had in mind the quality of security by virtue of McGraw's touchpoints\cite{McGraw2006}, incorporating security risks in our business analysis, modifying requirements based on abuse cases and testing determinedly for security vulnerabilities.
 
 % More? Something we should have done differently?
 
@@ -846,7 +860,7 @@ Mcgraw-hill
  (accessed December 1st 2013)
  
 \bibitem{CVEdb}
-\href{http://www.cvedetails.com/}{http://www.cvedetails.com/}
+\href{http://www.cvedetails.com/product-search.php}{http://www.cvedetails.com/product-search.php}
 \end{thebibliography}
 
 \newpage
