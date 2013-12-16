@@ -86,24 +86,27 @@ This report documents the project we completed where the objective was implement
 
 Rather than focus on the common documentation of software systems where the methods of development are described including the analysis and design of the system, the report is focused on risks, threats and vulnerabilities in the system we developed and the countermeasures we found to mitigate the risks.
 
-The report is structured based on the seven touchpoints\cite{McGraw2006}. We start by describing our strategy that incorporates risk analysis for our hypothetic business.
+The report is structured according to the 3 pillars of Software Security\cite{McGraw2006}. 
+The first pillar Risk Management is addressed in the Strategy section \ref{sec:strategy}.
 
-A section describing the specification of the system follows and it describes the features of our system. 
+For the second pillar touchpoints, we have written several sections.
 
-In order to properly evaluate the architecture of our system we describe the technologies we have used and perform an architecture risk analysis.
+The specification of the system is described in section \ref{sec:specification} where we address the touchpoints of abuse cases and security requirements.
 
-Testing is important to prove that we have implemented the specification so we provide a test plan and some examples.
+Next is the architecture in section \ref{sec:architecture} where we describe the technologies we have used and address the touchpoints: security operations, risk analysis and code review.
 
-We got experience with software vulnerabilities and threats by attacking the systems of the other teams. This is described in the Hacking section.
+In section \ref{sec:testing} we describe the test plan that we created and how we address the risk-based security tests touchpoint. We also try to prove that we have implemented the specification.
 
-Finally we discuss and conclude our reflections on the project.
+The final touchpoint penetration testing is addressed in section \ref{sec:hacking} where we tried attacking the systems of the other teams. 
+
+The third and final pillar Knowledge is discussed in section \ref{sec:discussion}.
 
 
 
 %We start by describing our strategy for the architecture. We try to cover the 7 touchpoints except the code review.
 %because we had trouble finding tools to do this. 
 
-\section{Strategy}
+\section{Strategy}\label{sec:strategy}
 By defining our strategy clearly and sharing it with our users, we hope to align our strategy with our business and technology.
 
 We start by listing our goals and afterwards we will define how and why we expect to reach them.
@@ -237,7 +240,7 @@ The system can provide warnings to users if they are leaving the site by clickin
 %\end{itemize}
 %Confidentiality, Integrity, Availability
 
-\section{System Specification}
+\section{System Specification}\label{sec:specification}
 In accordance with the project description, we have defined our system as a web application where students can form friendly or romantic relationships with other students. The application should furthermore support administrative users, who are able to modify certain aspects of the system from a client's perspective. These requirements derive from the user stories presented in the project description. Throughout the project period, there has been three such sets of requests from the "customer".
 
 We have considered each of these user stories and made corresponding use cases for the system, leading to functional requirements. Some of the user stories have related instead to non-functional requirements, and some again to security requirements.
@@ -322,7 +325,7 @@ The following is our non-functional requirements to the system. These are derive
 \item In order to prevent people with access to an administrator's credentials from destroying user data in the system, an administrator is only able to suspend (and not delete, as per the use case) user profiles. Other administrators will then be able to restore the profile, in the case of a mistake. We feel that this is a good compromise, which does not stray too far from the original use case.
 \end{itemize}
 
-\section{Architecture}
+\section{Architecture}\label{sec:architecture}
 
 
 \subsection{Operations}
@@ -469,7 +472,7 @@ To help identify weaknesses we drew a Forest View diagram as seen in Figure \ref
 
 The communication between the web client and the application server is not protected \cite{sins2009} because it is plain text http packets sent over the network. This weakness is usually exploited by a 'man-in-the-middle' who can follow an attack pattern that spoofs ARP packets in order to intercept the requests to the server and read usernames and passwords.
 
-\subsubsection{Safeguards}
+\subsubsection{Development Safeguards}
 Based on the probability and consequence of the threats we have chosen to protect the implement safeguards against the following threats:
 \begin{description}
 \item[SQL injections] By encapsulating database queries in prepared statements. Hibernate, which we use for ORM, renders any SQL injection attempt useless by supporting prepared statements and parameterization.
@@ -577,8 +580,8 @@ WORDS_REGEX = "^(\\w+\\s?)+$";
 PASSWORD_REGEX = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$";
 \end{verbatim}
 
-
-We apply principles\cite{princ} to the operations.
+\subsubsection{Operational Safeguards}
+Based on a common set of security design principles \cite{princ} that we have chosen from we have addressed threats in the operations.
 
 \begin{description}
 \item[Least Privilege] 
@@ -610,12 +613,12 @@ There is no need to expose information about the software we use so we filter ou
 \subsubsection{Project Tools}
 We have chosen to use the following tools to assist us in our project process.
 \begin{itemize}
-\item \textbf{Git} is our chosen tool for source control, since it is easy to use and gets the job done, and Github is a decent platform for hosting source code on.
+\item \textbf{Git} is our chosen tool for source control, since it is easy to use and gets the job done, and Github is a decent platform for hosting source code on. We used the Github issue tracking system to keep track of new feature requests as well as bugs.
 \item \textbf{Google Docs} is what we use for taking notes and making on-the-fly documents, spreadsheets or presentations that we might need throughout the project. It is very easy to share things here, but the text processing tool is not that powerful, so it is not where we write our report.
 \end{itemize}
+We did informal code review before each milestone by checking the issues that we had created in Github and the quality of the implementation as a group.
 
-
-\section{Testing}
+\section{Testing}\label{sec:testing}
 In order to ensure that our service works as intended and do not have any immediate flaws we have conducted a series of automated and manual tests.
 
 \subsection{Test plan}
@@ -745,7 +748,7 @@ On the profile page we test that only the handle and hobbies are visible and nam
 \subsubsection{Manual tests}
 The previously mentioned test cases have been automated using our testing framework Selenium, since Selenium is designed for HTML DOM testing. This made it less useful for testing our REST API, which instead has been tested manually and of course implicitly by the team consuming our API (team 10).
 
-\section{Hacking}
+\section{Hacking}\label{sec:hacking}
 Penetration testing is the process of conducting a test of a system that is partially or fully implemented and running preferably in the production environment, in order to get as realistic a test setting as possible.
 
 The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have experience in discovering vulnerabilites that they can exploit.
@@ -879,7 +882,7 @@ From this output we now know the database provider, table name and user name.
 
 Even though we might not be able to use this information straight away it violates the principle of \textbf{Promoting Privacy} \cite{princ}.
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project and made it more expensive to implement.
 
 During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is only a threat on unencrypted, open, wireless networks. Most network connected software will warn users that connect to a network of this fact.
@@ -894,7 +897,6 @@ Of all the touchpoints the code review was the most difficult because we experie
 %We tried to envisage the black hat mentality however we had some difficulty acquiring the mindset needed.
 
 \section{Conclusion}
-Based on the 3 pillars of Software Security.
 By applying the seven touchpoints we believe that we have designed and implemented an application that supports 'building security in'.
 
 Our final product fulfills the requirements of the customer that were gradually introduced. 
