@@ -528,7 +528,7 @@ An alternative is to create a self-signed certificate. It would cause a consider
 
 Instead of creating a self-signing a certificate we have modified our functional requirements to mitigate this particular abuse through alternative means.
 
-We needed to integrate with another team bu they used a self signed certificate. This made it necessary to create our own SSLSocketFactory. By downloading the certificate and importing it into a keystore, see figure \ref{fig:ssl_keystore} we could deploy it inside our application. 
+We needed to integrate with another team but they used a self signed certificate. This made it necessary to create our own SSLSocketFactory. By downloading the certificate and importing it into a keystore, see figure \ref{fig:ssl_keystore} we could deploy it inside our application. 
 \begin{figure}[h!]
 \caption{Custom SSL keystore}
 \label{fig:ssl_keystore}   
