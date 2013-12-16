@@ -40,17 +40,18 @@
 \BOOKMARK [3][-]{subsubsection.6.3.1}{Description}{subsection.6.3}% 40
 \BOOKMARK [3][-]{subsubsection.6.3.2}{Results}{subsection.6.3}% 41
 \BOOKMARK [2][-]{subsection.6.4}{Brute force attempt on Mysql server on team 5}{section.6}% 42
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 43
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 44
-\BOOKMARK [1][-]{section.9}{References}{}% 45
-\BOOKMARK [1][-]{section*.10}{References}{}% 46
-\BOOKMARK [1][-]{section.10}{Appendix}{}% 47
-\BOOKMARK [2][-]{subsection.10.1}{Design diagrams}{section.10}% 48
-\BOOKMARK [2][-]{subsection.10.2}{Log file}{section.10}% 49
-\BOOKMARK [3][-]{subsubsection.10.2.1}{Application online November 1st }{subsection.10.2}% 50
-\BOOKMARK [3][-]{subsubsection.10.2.2}{Race conditions }{subsection.10.2}% 51
-\BOOKMARK [3][-]{subsubsection.10.2.3}{Create user}{subsection.10.2}% 52
-\BOOKMARK [3][-]{subsubsection.10.2.4}{Add hobby}{subsection.10.2}% 53
-\BOOKMARK [3][-]{subsubsection.10.2.5}{Request friendship}{subsection.10.2}% 54
-\BOOKMARK [2][-]{subsection.10.3}{Test reports}{section.10}% 55
-\BOOKMARK [2][-]{subsection.10.4}{Hacking}{section.10}% 56
+\BOOKMARK [2][-]{subsection.6.5}{Team 3 debug trace}{section.6}% 43
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 44
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 45
+\BOOKMARK [1][-]{section.9}{References}{}% 46
+\BOOKMARK [1][-]{section*.12}{References}{}% 47
+\BOOKMARK [1][-]{section.10}{Appendix}{}% 48
+\BOOKMARK [2][-]{subsection.10.1}{Design diagrams}{section.10}% 49
+\BOOKMARK [2][-]{subsection.10.2}{Log file}{section.10}% 50
+\BOOKMARK [3][-]{subsubsection.10.2.1}{Application online November 1st }{subsection.10.2}% 51
+\BOOKMARK [3][-]{subsubsection.10.2.2}{Race conditions }{subsection.10.2}% 52
+\BOOKMARK [3][-]{subsubsection.10.2.3}{Create user}{subsection.10.2}% 53
+\BOOKMARK [3][-]{subsubsection.10.2.4}{Add hobby}{subsection.10.2}% 54
+\BOOKMARK [3][-]{subsubsection.10.2.5}{Request friendship}{subsection.10.2}% 55
+\BOOKMARK [2][-]{subsection.10.3}{Test reports}{section.10}% 56
+\BOOKMARK [2][-]{subsection.10.4}{Hacking}{section.10}% 57

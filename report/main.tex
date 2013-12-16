@@ -518,7 +518,7 @@ An alternative is to create a self-signed certificate. It would cause a consider
 Instead of creating a self-signing a certificate we have modified our functional requirements to mitigate this particular abuse through alternative means.
 
 We needed to integrate with another team bu they used a self signed certificate. This made it necessary to create our own SSLSocketFactory. By downloading the certificate and importing it into a keystore, see figure \ref{fig:ssl_keystore} we could deploy it inside our application. 
-\begin{figure}
+\begin{figure}[h!]
 \caption{Custom SSL keystore}
 \label{fig:ssl_keystore}   
 \begin{lstlisting}
@@ -535,7 +535,7 @@ return ctx.getSocketFactory();
 \end{figure}
 This way we could set it as a trusted certificate by hardcoding the hostname verifier to the IP we knew the team used, see figure \ref{fig:ssl_verifier}, because otherwise the HTTPS client would fail.
 
-\begin{figure}
+\begin{figure}[h!]
 \caption{Imported SSL Verifier}
 \label{fig:ssl_verifier}   
 \begin{lstlisting}
@@ -802,7 +802,7 @@ Doing a bit of research, we found out that team 10 in particular might be vulner
 
 
 \subsubsection{Results}
-See figure 4 under chapter 9.4 in the appendix for graphical illustration of the results of this attack. As denoted in the figure, the Fishing hobby was the one we configured to result in malicious code rather than its innocent name in a string, whenever requested by a web server located on team 10's IP address. As can be seen, the user with the hobby correctly imports to team 10's "Friendship Portal", but the malicious string produced by the Fishing hobby is not displayed, and is not even present in the document's source. This indicates that team 10 did anticipate this kind of attack, and took the appropriate security measures by validating the data imported from our service.
+See figure \ref{fig:xss_screencap} under chapter 9.4 in the appendix for graphical illustration of the results of this attack. As denoted in the figure, the Fishing hobby was the one we configured to result in malicious code rather than its innocent name in a string, whenever requested by a web server located on team 10's IP address. As can be seen, the user with the hobby correctly imports to team 10's "Friendship Portal", but the malicious string produced by the Fishing hobby is not displayed, and is not even present in the document's source. This indicates that team 10 did anticipate this kind of attack, and took the appropriate security measures by validating the data imported from our service.
 
 %Inserted the following as username and password in login form:
 %\begin{verbatim}
@@ -820,6 +820,64 @@ We tried brute forcing a connection to mysql but our IP was blacklisted after 10
 Host '...' is blocked because of many connection errors; 
 unblock with 'mysqladmin flush-hosts'
 \end{verbatim}
+
+\subsection{Team 3 debug trace}
+Team 3 had an error in their functionality which produced an error stack trace that was shown because the server was in debug mode.
+
+This exposed the following critical information.
+\begin{verbatim}
+Django Version: 	1.5.4
+\end{verbatim}
+We now know the type and version of their web application framework.
+
+The trace provided more information regarding the file structure of the server as seen in Figure \ref{fig:team_three_python}.
+\begin{figure}[h!]
+\caption{Team 3 debug trace path output}
+\label{fig:team_three_python}
+\begin{verbatim}
+Python Path: 	
+
+['/var/www/SSAS/itufriendbook',
+ '/usr/local/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg',
+ '/usr/local/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg',
+ '/usr/lib/python2.7',
+ '/usr/lib/python2.7/plat-linux2',
+ '/usr/lib/python2.7/lib-tk',
+ '/usr/lib/python2.7/lib-old',
+ '/usr/lib/python2.7/lib-dynload',
+ '/usr/local/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages',
+ '/usr/lib/pymodules/python2.7',
+ '/var/web/SSAS/itufriendbook/itufriendbook',
+ '/var/web/SSAS/itufriendbook']
+\end{verbatim}
+\end{figure}
+
+Finally it also included information about their RDBMS as seen in Figure \ref{fig:team_three_db}.
+\begin{figure}[h!]
+\caption{Team 3 debug trace database output}
+\label{fig:team_three_db}
+\begin{verbatim}
+DATABASES 	
+
+{'default': {'ENGINE': 'django.db.backends.mysql',
+             'HOST': '',
+             'NAME': 'itufriendbook',
+             'OPTIONS': {},
+             'PASSWORD': u'********************',
+             'PORT': '',
+             'TEST_CHARSET': None,
+             'TEST_COLLATION': None,
+             'TEST_MIRROR': None,
+             'TEST_NAME': None,
+             'TIME_ZONE': 'UTC',
+             'USER': 'itufriendbook'}}
+\end{verbatim}
+\end{figure}
+
+From this output we now know the database provider, table name and user name. 
+
+Even though we might not be able to use this information straight away it violates the principle of \textbf{Promoting Privacy} \cite{princ}.
 
 \section{Discussion}
 Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project and made it more expensive to implement.
