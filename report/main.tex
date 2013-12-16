@@ -72,7 +72,7 @@
 
 
 \title{SSAS-E2013}
-\author{Team 6:\\Christian Lyngbye clyn@itu.dk\\Jacob Fischer jaco@itu.dk\\Rasmus Greve, Ivaylo Sharkov}
+\author{Team 6:\\Christian Lyngbye clyn@itu.dk\\Jacob Fischer jaco@itu.dk\\Rasmus Greve ragr@itu.dk\\Ivaylo Sharkov isha@itu.dk}
 
 \begin{document}
 \maketitle
@@ -101,7 +101,9 @@ The final touchpoint penetration testing is addressed in section \ref{sec:hackin
 
 The third and final pillar Knowledge is discussed in section \ref{sec:discussion}.
 
+The source code of the project is available here:
 
+\href{https://github.itu.dk/ragr/ssase2013-team6.git}{https://github.itu.dk/ragr/ssase2013-team6.git}
 
 %We start by describing our strategy for the architecture. We try to cover the 7 touchpoints except the code review.
 %because we had trouble finding tools to do this. 
@@ -886,19 +888,25 @@ Even though we might not be able to use this information straight away it violat
 \section{Discussion}\label{sec:discussion}
 Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project and made it more expensive to implement.
 
-During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is only a threat on unencrypted, open, wireless networks. Most network connected software will warn users that connect to a network of this fact.
+During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is a threat on subnets that can be protected by encrypting wireless networks or providing physical security measures against connecting to the subnet via ethernet. We have experienced that network connected software that handles private data will warn users of this fact.
 
-The actual password is only sent once per session at user login, and so is not the most exposed of packets that could be compromised. It is more likely that something like a user's session ID is picked up, which could allow the intruder to impersonate the user, and for instance change the password. It is here that the requirement of password validation for such actions is important.
+The actual password is only sent once per session at user login, so the likelihood is low that the packets will be exposed. It is more likely that a client's session ID is intercepted, which would allow the intruder to impersonate the user. In this case it would the requirement of password validation for critical actions would be an important safeguard.
 
 Of all the touchpoints the code review was the most difficult because we experienced that it requires guidance in order to achieve mutual participance from all stakeholders.
 %Of the remaining security risks, we have focused on % ... what
 
+It might be too easy to repeat the known safeguards to different threats e.g. CAPTCHA input can harm usability and there can be other solutions.
 %\subsection{Problems}
 
 %We tried to envisage the black hat mentality however we had some difficulty acquiring the mindset needed.
 
 \section{Conclusion}
-By applying the seven touchpoints we believe that we have designed and implemented an application that supports 'building security in'.
+
+By applying the 3 pillars of software to security to a project we built from scratch we have materialized the steps necessary to build security into your application from the start.
+
+The seven touchpoints have guided us well and provided insight into the risks and threats that software applications struggle with.
+
+%seven touchpoints we believe that we have designed and implemented an application that supports 'building security in'.
 
 Our final product fulfills the requirements of the customer that were gradually introduced. 
 We managed to deploy an application supporting all but one of the use cases derived from the three project descriptions. 
