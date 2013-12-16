@@ -10,6 +10,8 @@
 
 \usepackage{hyperref}
 
+\usepackage{pdfpages}
+
 %\usepackage{geometry} % to change the page dimensions
 %\geometry{a4paper} % or letterpaper (US) or a5paper or....
 \usepackage{booktabs} % for much better looking tables
@@ -75,6 +77,9 @@
 \author{Team 6:\\Christian Lyngbye clyn@itu.dk\\Jacob Fischer jaco@itu.dk\\Rasmus Greve ragr@itu.dk\\Ivaylo Sharkov isha@itu.dk}
 
 \begin{document}
+
+\includepdf[pages={1}]{frontpage.pdf}
+
 \maketitle
 
 \newpage
@@ -82,22 +87,22 @@
 
 \newpage
 \section{Introduction}
-This report documents the project we completed where the objective was implementing a secure system based on a hypothetical customer's requests.
+This report documents the project we completed, where the objective was implementing a secure system based on a hypothetical customer's requests.
 
-Rather than focus on the common documentation of software systems where the methods of development are described including the analysis and design of the system, the report is focused on risks, threats and vulnerabilities in the system we developed and the countermeasures we found to mitigate the risks.
+Rather than focus on the common documentation of software systems where the methods of development are described, including the analysis and design of the system, the report is focused on risks, threats and vulnerabilities in the system we developed and the countermeasures we found to mitigate the risks.
 
 The report is structured according to the 3 pillars of Software Security\cite{McGraw2006}. 
 The first pillar Risk Management is addressed in the Strategy section \ref{sec:strategy}.
 
-For the second pillar touchpoints, we have written several sections.
+For the second pillar, i.e. touchpoints, we have written several sections.
 
-The specification of the system is described in section \ref{sec:specification} where we address the touchpoints of abuse cases and security requirements.
+The specification of the system is described in section \ref{sec:specification}, where we address the touchpoints of abuse cases and security requirements.
 
-Next is the architecture in section \ref{sec:architecture} where we describe the technologies we have used and address the touchpoints: security operations, risk analysis and code review.
+Next is the architecture in section \ref{sec:architecture}, where we describe the technologies we have used and address the touchpoints: security operations, risk analysis and code review.
 
-In section \ref{sec:testing} we describe the test plan that we created and how we address the risk-based security tests touchpoint. We also try to prove that we have implemented the specification.
+In section \ref{sec:testing} we describe the test plan that we created and how we address the risk-based security tests touchpoint. We also try to prove that our implementation satisfies the specification.
 
-The final touchpoint penetration testing is addressed in section \ref{sec:hacking} where we tried attacking the systems of the other teams. 
+The final touchpoint, penetration testing, is addressed in section \ref{sec:hacking}, where we tried attacking the systems of the other teams. 
 
 The third and final pillar Knowledge is discussed in section \ref{sec:discussion}.
 
@@ -165,7 +170,7 @@ Application delayed & System features are implemented late & M & Late return on 
 \end{table}
 
 \subsubsection{Technical Risks}
-The technical risks are characterized by their probability and effect on the system in table \ref{tab:risk_analysis}. We have also identified risks in making the system too secure.
+The technical risks are characterized by their probability and effect on the system in table \ref{tab:risk_analysis}. We have also identified potential risks in making the system too secure, as usability could be negatively affected.
 
 \begin{table}[h!]
 	\begin{tabular}{| p{5cm} | p{5cm} | l | l |}
@@ -332,7 +337,7 @@ The following is our non-functional requirements to the system. These are derive
 
 
 \subsection{Operations}
-Our production server runs a Ubuntu distribution of Linux.
+Our production server runs an Ubuntu distribution of Linux.
 % and provides the access control for users' access to the file system.
 
 There are assets that should be protected because we want to promote privacy:
@@ -887,16 +892,16 @@ From this output we now know the database provider, table name and user name.
 Even though we might not be able to use this information straight away it violates the principle of \textbf{Promoting Privacy} \cite{princ}.
 
 \section{Discussion}\label{sec:discussion}
-Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project and made it more expensive to implement.
+Of the requirements presented in the specification chapter, we have delivered a product that fulfills nearly all of them. The only ones missing (mostly due to focusing on other things) are: browse functionality for finding other users with like interests of your own; and password verification when updating profile information. The former is only of importance in terms of usability, but the latter could be said to be of much higher importance, as it is part of our mitigation strategy for not having implemented SSL. However this requirement was found late in the project, which made it more expensive to implement.
 
-During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is a threat on subnets that can be protected by encrypting wireless networks or providing physical security measures against connecting to the subnet via ethernet. We have experienced that network connected software that handles private data will warn users of this fact.
+During the final week of the project, we got a mail from one of the other teams, declaring that we are susceptible to man-in-the-middle attacks due to unencrypted transmission of passwords and other data. We admit this is possible, but this is a threat on subnets, that could be protected by encrypting wireless networks or providing physical security measures against connecting to the subnet via ethernet. We have experienced that network connected software that handles private data will warn users of this fact.
 
-The actual password is only sent once per session at user login, so the likelihood is low that the packets will be exposed. It is more likely that a client's session ID is intercepted, which would allow the intruder to impersonate the user. In this case it would the requirement of password validation for critical actions would be an important safeguard.
+The actual password is only sent once per session at user login, so the likelihood is low that the packets will be exposed. It is more likely that a client's session ID is intercepted, which would allow the intruder to impersonate the user. In this case the requirement of password validation for critical actions would be an important safeguard.
 
 Of all the touchpoints the code review was the most difficult because we experienced that it requires guidance in order to achieve mutual participance from all stakeholders.
 %Of the remaining security risks, we have focused on % ... what
 
-It might be too easy to repeat the known safeguards to different threats e.g. CAPTCHA input can harm usability and there can be other solutions. 
+It might be too easy to repeat the known safeguards to different threats, e.g. CAPTCHA input can harm usability and there can be other solutions. 
 
 Doing useful logging is difficult so we should have established some guidelines like always logging the unique id of the entity we are manipulating along with the action performed.
 %\subsection{Problems}
@@ -911,7 +916,7 @@ The seven touchpoints have guided us well and provided insight into the risks an
 
 %seven touchpoints we believe that we have designed and implemented an application that supports 'building security in'.
 
-Our final product fulfills the requirements of the customer that were gradually introduced. 
+Our final product fulfills the requirements of the customer that were gradually introduced throughout the project period. 
 We managed to deploy an application supporting all but one of the use cases derived from the three project descriptions. 
 At every step of the process, we have had in mind the quality of security by virtue of McGraw's touchpoints\cite{McGraw2006}, incorporating security risks in our business analysis, modifying requirements based on abuse cases and testing determinedly for security vulnerabilities.
 
