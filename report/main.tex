@@ -283,6 +283,7 @@ In addition, we have specified a number of abuse cases, constituting a security-
 	\end{enumerate}
 \item A person with access to an administrator's credentials wrecks havoc on the system by deleting multiple user profiles
 \item A competing web service exposes malicious data, such as client-side executable code, when exporting to our application
+\item A competing web service has slow response times on their API resulting in equally slow response times on our service
 \end{enumerate}
 
 \subsection{Functional Requirements}
@@ -388,6 +389,7 @@ Based on our experience with web applications and reading\cite{sins2009} we dete
         TR10 & Hardware failure & L & 8 & Multiple servers and data backups \\ \hline
         TR11 & Server loses internet connection & L & 5 & Multiple servers and/or connections \\ \hline
         TR12 & Cross site scripting (XSS) & L & 8 & Input sanitazion and validation \\ \hline
+        TR13 & Slow response times on API & L & 8 & Asynchronous data import\\ \hline
 	\end{tabular}
 	\caption{Threat analysis for the social network system with mitigation strategies. L: Likelihood (Low, Medium, High). C: Consequences on a scale from 1 to 10}
 		\label{tab:threats}
