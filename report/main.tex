@@ -362,29 +362,29 @@ Technologies:
 \end{description}
 
 \subsection{Architecture Risk Analysis}
-
+We already determined technical risks in section \ref{sec:strategy}
 
 \subsubsection{Attack Resistance Analysis}
-We found the following historic attacks on applications.
+Based on our experience with web applications and reading\cite{sins2009} we determined the following threats existed for our applications.
 
 \begin{table}[h!]
 	\begin{tabular}{| l | p{4cm} | l | l | p{5cm} |}
 		\hline
 		\textbf{ID} & \textbf{Threat} & \textbf{P} & \textbf{C} & \textbf{Possible mitigation} \\ \hline
-		TR1 & User gives away password & 2\% & 6 & Educate users. Restrict user privileges. \\ \hline
-        TR2 & Admin gives away password & 0.1\%  & 10 & High requirements for admin hiring \\ \hline
-        TR3 & Admin login bruteforcing & 50\% & 10 & Password requirements and login throttling \\ \hline
-        TR4 & User login bruteforcing & 30\% & 6 & Password requirements and login throttling \\ \hline
-        TR5 & SQL injections & 80\% & 9 & Prepared statements and input sanitization \\ \hline
-        TR6 & Admin session hijacking & 10\% & 8 & Encrypted connections \\ \hline
-        TR7 & User session hijacking & 1\% & 4 & Encrypted connections \\ \hline
-        TR8 & Replay attacks & 1\% & 3 & Use nonces \\ \hline
-       	TR9 & Cross-site request forgery & 1\% & 8 & Use nonces \\ \hline
-        TR10 & Hardware failure & 5\% & 8 & Multiple servers and data backups \\ \hline
-        TR11 & Server loses internet connection & 0.1\% & 5 & Multiple servers and/or connections \\ \hline
-        TR12 & Cross site scripting (XSS) & 5\% & 8 & Input sanitazion and validation \\ \hline
+		TR1 & User gives away password & L & 6 & Educate users. Restrict user privileges. \\ \hline
+        TR2 & Admin gives away password & L  & 10 & High requirements for admin hiring \\ \hline
+        TR3 & Admin login bruteforcing & M & 10 & Password requirements and login throttling \\ \hline
+        TR4 & User login bruteforcing & M & 6 & Password requirements and login throttling \\ \hline
+        TR5 & SQL injections & H & 9 & Prepared statements and input sanitization \\ \hline
+        TR6 & Admin session hijacking & L & 8 & Encrypted connections \\ \hline
+        TR7 & User session hijacking & L & 4 & Encrypted connections \\ \hline
+        TR8 & Replay attacks & L & 3 & Use nonces \\ \hline
+       	TR9 & Cross-site request forgery & L & 8 & Use nonces \\ \hline
+        TR10 & Hardware failure & L & 8 & Multiple servers and data backups \\ \hline
+        TR11 & Server loses internet connection & L & 5 & Multiple servers and/or connections \\ \hline
+        TR12 & Cross site scripting (XSS) & L & 8 & Input sanitazion and validation \\ \hline
 	\end{tabular}
-	\caption{Threat analysis for the social network system with mitigation strategies. P: Probability in percent. C: Consequences on a scale from 1 to 10}
+	\caption{Threat analysis for the social network system with mitigation strategies. L: Likelihood (Low, Medium, High). C: Consequences on a scale from 1 to 10}
 		\label{tab:threats}
 \end{table}
 
@@ -1054,7 +1054,7 @@ dec 16, 2013 8:34:28 AM dk.itu.ssase.hb.controller.FriendController hugFriend
 INFO: Hug friend id: 5
 \end{verbatim}
 
-\subsection{UC5 Upgrade friendship}
+\subsubsection{UC5 Upgrade friendship}
 \begin{verbatim}
 dec 16, 2013 8:37:31 AM dk.itu.ssase.hb.dao.StudentDAO findFriends
 INFO: Found relationship with: lala2
