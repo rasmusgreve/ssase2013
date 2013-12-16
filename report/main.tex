@@ -739,14 +739,25 @@ Pennetration testing is the process of conducting a test of a system that is par
 
 The goal of the test is to uncover security problems in the application by actually trying to attack the running application using any number of techniques. This exercise is commonly executed by security experts that have experience in discovering vulnerabilites that they can exploit.
 % about the general concepts of hacking and attacking, and who understand the proper way to exploit weaknesses. 
-A hacker would potentially only need a bridgehead on a server in order to intrude a server. An application can only be as secure as its weakest link.
+One big step to hack an application is to establish a bridgehead on the server. 
 
-In order to establish a bridgehead an attacker would discover the technologies and frameworks that the server an application runs on uses. Over time software tends to degrade in security and an important discovery is the particular version of a technology. With this information it is possible to look in open exploit- and bug databases\cite{CVEdb} to search for entries that might impact the security of the application, and then try to execute attacks based on the bugs.
+Any vulnerability on the server can work as a bridgehead and the application can only be as secure as its weakest link.
+
+One part of finding vulnerabilities to exploit is to discover which technologies and frameworks that are run on the server an application uses. Over time software tends to degrade in security and one particularly valuable piece of information is the particular version a technology has. 
+Using this information it is possible to look in bug databases\cite{CVEdb} to search for vulnerabilites that might be possible to exploit.
 
 \textbf{Automated testing}
 Tools have been created to aide the security expert in her analysis or to help novice security testers. Basically two kinds of tools exist; static analysis tools and dynamic testing tools.
 The static tools work by inspecting either the source code of the application if this is available, or binaries/decompiled binaries, trying to find common implementation errors in the application that can be exploited by malicious users or simply triggered by unknowing normal users.
 The dynamic tools work by inputting lots of different data in all data-entry points in the application. Usually edge-case data is used such as 0, 1 and 2,147,483,647 for numbers and empty or very long strings maybe containing special characters or for string inputs.
+
+\subsection{Discovery with NMap scan}
+We ran NMap scans on the servers of the teams. The interesting points follow
+\begin{itemize}
+\item MySQL 5.5 is available running on port 3306 for team 5, 7 and 10
+\item SvnServe is available on port 3690 for team 7
+\end{itemize}
+
 
 \subsection{Social engineering attack}
 A social engineering attack requires some knowledge and analysis of the setting, system and people you want to attack.

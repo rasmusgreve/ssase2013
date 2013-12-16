@@ -33,23 +33,24 @@
 \BOOKMARK [3][-]{subsubsection.5.3.5}{When not logged in}{subsection.5.3}% 33
 \BOOKMARK [3][-]{subsubsection.5.3.6}{Manual tests}{subsection.5.3}% 34
 \BOOKMARK [1][-]{section.6}{Hacking}{}% 35
-\BOOKMARK [2][-]{subsection.6.1}{Social engineering attack}{section.6}% 36
-\BOOKMARK [2][-]{subsection.6.2}{XSS attack on team 10}{section.6}% 37
-\BOOKMARK [3][-]{subsubsection.6.2.1}{Description}{subsection.6.2}% 38
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Results}{subsection.6.2}% 39
-\BOOKMARK [2][-]{subsection.6.3}{Brute force attempt on Mysql server on team 5}{section.6}% 40
-\BOOKMARK [1][-]{section.7}{Discussion}{}% 41
-\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 42
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 43
-\BOOKMARK [1][-]{section.9}{References}{}% 44
-\BOOKMARK [1][-]{section*.10}{References}{}% 45
-\BOOKMARK [1][-]{section.10}{Appendix}{}% 46
-\BOOKMARK [2][-]{subsection.10.1}{Design diagrams}{section.10}% 47
-\BOOKMARK [2][-]{subsection.10.2}{Log file}{section.10}% 48
-\BOOKMARK [3][-]{subsubsection.10.2.1}{Application online November 1st }{subsection.10.2}% 49
-\BOOKMARK [3][-]{subsubsection.10.2.2}{Race conditions }{subsection.10.2}% 50
-\BOOKMARK [3][-]{subsubsection.10.2.3}{Create user}{subsection.10.2}% 51
-\BOOKMARK [3][-]{subsubsection.10.2.4}{Add hobby}{subsection.10.2}% 52
-\BOOKMARK [3][-]{subsubsection.10.2.5}{Request friendship}{subsection.10.2}% 53
-\BOOKMARK [2][-]{subsection.10.3}{Test reports}{section.10}% 54
-\BOOKMARK [2][-]{subsection.10.4}{Hacking}{section.10}% 55
+\BOOKMARK [2][-]{subsection.6.1}{Discovery with NMap scan}{section.6}% 36
+\BOOKMARK [2][-]{subsection.6.2}{Social engineering attack}{section.6}% 37
+\BOOKMARK [2][-]{subsection.6.3}{XSS attack on team 10}{section.6}% 38
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Description}{subsection.6.3}% 39
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Results}{subsection.6.3}% 40
+\BOOKMARK [2][-]{subsection.6.4}{Brute force attempt on Mysql server on team 5}{section.6}% 41
+\BOOKMARK [1][-]{section.7}{Discussion}{}% 42
+\BOOKMARK [2][-]{subsection.7.1}{Problems}{section.7}% 43
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 44
+\BOOKMARK [1][-]{section.9}{References}{}% 45
+\BOOKMARK [1][-]{section*.10}{References}{}% 46
+\BOOKMARK [1][-]{section.10}{Appendix}{}% 47
+\BOOKMARK [2][-]{subsection.10.1}{Design diagrams}{section.10}% 48
+\BOOKMARK [2][-]{subsection.10.2}{Log file}{section.10}% 49
+\BOOKMARK [3][-]{subsubsection.10.2.1}{Application online November 1st }{subsection.10.2}% 50
+\BOOKMARK [3][-]{subsubsection.10.2.2}{Race conditions }{subsection.10.2}% 51
+\BOOKMARK [3][-]{subsubsection.10.2.3}{Create user}{subsection.10.2}% 52
+\BOOKMARK [3][-]{subsubsection.10.2.4}{Add hobby}{subsection.10.2}% 53
+\BOOKMARK [3][-]{subsubsection.10.2.5}{Request friendship}{subsection.10.2}% 54
+\BOOKMARK [2][-]{subsection.10.3}{Test reports}{section.10}% 55
+\BOOKMARK [2][-]{subsection.10.4}{Hacking}{section.10}% 56
