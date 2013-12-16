@@ -1068,16 +1068,56 @@ INFO: Change friendship id: 5 to type: 1
 \begin{table}[h!]
 \begin{tabular}{| l | l | l | l | l | l | l |}
 \hline
-Class & Tests & Errors & Failures & Skipped & Success Rate & Time \\ \hline
-LoginTest & 2 & 0 & 0 & 0 & 100 \% & 9,411 \\ \hline
+\textbf{Class} & \textbf{Tests} & \textbf{Errors} & \textbf{Failures} & \textbf{Skipped} & \textbf{Success Rate} & \textbf{Time} \\ \hline
+MyProfileTest & 10 & 0 & 0 & 0 & 100 \% & 37,302 \\ \hline
+LoginTest & 4 & 0 & 0 & 0 & 100 \% & 5,26 \\ \hline
+FriendRequestTest & 2 & 0 & 0 & 0 & 100 \% & 12,344 \\ \hline
+CreateUserTest & 3 & 0 & 0 & 0 & 100 \% & 16,259 \\ \hline
+NoLoginUserListTest & 6 & 0 & 0 & 0 & 100 \% & 5,619 \\ \hline
+NoLoginProfileTest & 6 & 0 & 0 & 0 & 100 \% & 6,964 \\ \hline
 \end{tabular}
+\caption{Test result output from Selenium}
+\label{tab:test_results_overview}
 \end{table}
 \begin{table}[h!]
-\begin{tabular}{| l | l |}
+\begin{tabular}{| l | l | l |}
 \hline
-testLoginSQLInjection & 8,332 \\ \hline
-testLoginXSS & 1,069 \\ \hline
+\textbf{Test} & \textbf{Result} & \textbf{Time} \\
+\hline
+testNoLogin &			 pass & 1.428  \\ \hline
+testNoUnsuspendButton &  pass & 0.816  \\ \hline
+testGravatarAvailable &  pass & 0.799  \\ \hline
+testNoFriendRequests &   pass & 0.814  \\ \hline
+testNoSuspendButton &    pass & 0.938  \\ \hline
+testLinkAvailable &      pass & 0.824  \\ \hline
+testFriendsVisibleLink & pass & 0.854  \\ \hline
+testPressUserLink &      pass & 1.651  \\ \hline
+testNameHidden &         pass & 0.931  \\ \hline
+testAddressHidden &      pass & 0.934  \\ \hline
+testActivityHidden &     pass & 0.965  \\ \hline
+testClickFriendLink &    pass & 1.628  \\ \hline
+testXSSName &            pass & 3.057  \\ \hline
+testSQLName &            pass & 2.929  \\ \hline
+testChangeName &         pass & 3.915  \\ \hline
+testChangeSurName &      pass & 4.263  \\ \hline
+testXSSSurname &         pass & 3.871  \\ \hline
+testSQLSurname &         pass & 3.327  \\ \hline
+testChangeAddress &      pass & 4.239  \\ \hline
+testXSSAddress &         pass & 3.722  \\ \hline
+testSQLAddress &         pass & 3.737  \\ \hline
+testAddRemoveHobby &     pass & 4.24   \\ \hline
+testLoginSQLInjection &  pass & 1.354  \\ \hline
+testLoginFail1 &         pass & 1.245  \\ \hline
+testLoginFail2 &         pass & 1.334  \\ \hline
+testLoginSuccess &       pass & 1.326  \\ \hline
+testFriendRequestsEtc &  pass & 9.26   \\ \hline
+testRomanceFriendship &  pass & 3.082  \\ \hline
+testSignupLink &         pass & 11.555 \\ \hline
+testCaptchaInvalid &     pass & 2.585  \\ \hline
+testPasswordInvalid &    pass & 2.11   \\ \hline
 \end{tabular}
+\caption{Results of each test method in our automated system test}
+\label{tab:test_results}
 \end{table}
 
 \subsection{Hacking}
