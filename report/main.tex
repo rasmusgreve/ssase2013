@@ -402,10 +402,7 @@ We have chosen this prioritization of threats by looking at the probability and 
 
 
 \subsubsection{Ambiguity Analysis}
-
-We didn't validate user input so all the sanitized text was saved to the database text fields. 
-
-We experienced some issues dropping our database which we guessed was because the special characters in the text fields blocked the command from execution.
+During the course we were 'attacked' from clients who put in strings with special characters.
 
 Here are some examples of malicious user input:
 \begin{verbatim}
@@ -413,10 +410,20 @@ Here are some examples of malicious user input:
 any\r\nSet-cookie: Tamper=2918187384565502119
 "><script>alert(1);</script>
 \end{verbatim}
+We did not validate the input so it was stored in our database.
 
-Furthermore we didn't have any password rules.
+%We didn't validate user input so all the sanitized text was saved to the database text fields. 
+
+This was a threat because it made the application usability drop when students names were not readable. 
+We experienced some issues when redeployed our database because we could not drop our database. We guess that this was caused by failure to parse the special characters in the text fields which blocked the command from execution.
+
+To resolve this we needed to delete each row individually.
 
 \subsubsection{Weakness Analysis}
+Tools have been created to aide the security expert in her analysis or to help novice security testers. Basically two kinds of tools exist; static analysis tools and dynamic testing tools.
+The static tools work by inspecting either the source code of the application if this is available, or binaries/decompiled binaries, trying to find common implementation errors in the application that can be exploited by malicious users or simply triggered by unknowing normal users.
+The dynamic tools work by inputting lots of different data in all data-entry points in the application. Usually edge-case data is used such as 0, 1 and 2,147,483,647 for numbers and empty or very long strings maybe containing special characters or for string inputs.
+
 We ran the vulnerability scanner called w3af against our own application in order to find weaknesses.
 
 w3af is in the words of the creators a "Web Application Attack and Audit Framework". It is open source and developed in python. It is built as a plugin framework where each known vulnerability to test, is contained as a plugin. This makes it easy to change what is tested and carefully conduct a specialized attack against a web application where you know which tools and frameworks run underneath.
@@ -771,10 +778,6 @@ Any vulnerability on the server can work as a bridgehead and the application can
 One part of finding vulnerabilities to exploit is to discover which technologies and frameworks that are run on the server an application uses. Over time software tends to degrade in security and one particularly valuable piece of information is the particular version a technology has. 
 Using this information it is possible to look in bug databases\cite{CVEdb} to search for vulnerabilites that might be possible to exploit.
 
-\textbf{Automated testing}
-Tools have been created to aide the security expert in her analysis or to help novice security testers. Basically two kinds of tools exist; static analysis tools and dynamic testing tools.
-The static tools work by inspecting either the source code of the application if this is available, or binaries/decompiled binaries, trying to find common implementation errors in the application that can be exploited by malicious users or simply triggered by unknowing normal users.
-The dynamic tools work by inputting lots of different data in all data-entry points in the application. Usually edge-case data is used such as 0, 1 and 2,147,483,647 for numbers and empty or very long strings maybe containing special characters or for string inputs.
 
 \subsection{Discovery with NMap scan}
 We ran NMap scans on the servers of the teams. The interesting points follow
@@ -1143,7 +1146,7 @@ testPasswordInvalid &    pass & 2.11   \\ \hline
 \subsection{Hacking}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.3]{Team10_XSS}
+\includegraphics[scale=0.4]{Team10_XSS}
 \caption{XSS attack on team 10}
 \label{fig:xss_screencap}
 \end{figure}
