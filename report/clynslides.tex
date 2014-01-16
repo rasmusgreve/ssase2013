@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usepackage{wrapfig}
+
+\begin{document}
+
+\begin{frame}
+\Large
+Strategy
+\large
+\begin{itemize}
+\item
+Social platform
+\item
+Long term adoption through usability and trust
+\end{itemize}
+\Large
+Principles
+\large
+\begin{itemize}
+\item 
+Reluctance to Trust
+\item
+Promoting Privacy
+\item
+Least Common Mechanism
+\item
+Fail Securely
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\Large
+Risks
+\small
+\begin{table}
+
+	\begin{tabular}{| p{3cm} | p{2cm}| p{4cm} |}
+    \hline
+   	\textbf{Business goals} & \textbf{Business Risk} & \textbf{Technical risk} \\ \hline
+	Sensitive user data is never compromised & Vulnerability in the system & Old libraries and platforms provide an easy target \\ \hline    Application must be live by October 4th 2013 & Application delayed &  Security is not part of system architecture design \\ \hline
+    The server must provide 99.5\% uptime & Data loss &  Hardware failure \\ \hline
+    \end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\Large
+Design
+\begin{figure}[b]
+\includegraphics[scale=0.3]{ER.png}
+\caption{ER diagram}
+\end{figure}
+\end{frame}
+\begin{frame}
+\large
+Architecture
+\begin{wrapfigure}[10]{r}{0.7\textwidth}
+\includegraphics[scale=0.18]{ForestView.png}
+\end{wrapfigure}
+\tiny
+HTTP
+\vspace{24pt}
+
+Apache Tomcat 7.0.26
+
+REST service missing
+
+\vspace{24pt}
+PostgreSQL 9.1.9
+
+\end{frame}
+\begin{frame}
+\large
+Hacking
+
+\small
+MySQL
+
+\tiny
+Host '...' is blocked because of many connection errors; 
+unblock with 'mysqladmin flush-hosts'
+
+\small
+Django
+
+\tiny
+Python Path: 	
+
+['/var/www/SSAS/itufriendbook',
+ 
+ '/usr/local/lib/python2.7/dist-packages/distribute-0.7.3-py2.7.egg',
+ 
+ '/usr/local/lib/python2.7/dist-packages/setuptools-1.1.6-py2.7.egg',
+ 
+ '/usr/lib/python2.7',
+ '/usr/lib/python2.7/plat-linux2',
+ '/usr/lib/python2.7/lib-tk',
+ 
+ '/usr/lib/python2.7/lib-old',
+ '/usr/lib/python2.7/lib-dynload',
+ 
+ '/usr/local/lib/python2.7/dist-packages',
+ '/usr/lib/python2.7/dist-packages',
+ 
+ '/usr/lib/pymodules/python2.7',
+ 
+ '/var/web/SSAS/itufriendbook/itufriendbook',
+ '/var/web/SSAS/itufriendbook']
+ 
+
+\end{frame}
+\end{document}
